@@ -6,34 +6,34 @@ var prepare_dom = function() {
 	this.box = document.createElement("div");
 	this.box.className = "wgo-box-wrapper wgo-comments-wrapper";
 	this.element.appendChild(this.box);
-	
+
 	this.comments_title = document.createElement("div");
 	this.comments_title.className = "wgo-box-title";
 	this.comments_title.innerHTML = WGo.t("comments");
 	this.box.appendChild(this.comments_title);
-	
+
 	this.comments = document.createElement("div");
 	this.comments.className = "wgo-comments-content";
 	this.box.appendChild(this.comments);
-	
+
 	this.help = document.createElement("div");
 	this.help.className = "wgo-help";
 	this.help.style.display = "none";
 	this.comments.appendChild(this.help);
-	
+
 	this.notification = document.createElement("div");
 	this.notification.className = "wgo-notification";
 	this.notification.style.display = "none";
 	this.comments.appendChild(this.notification);
-	
+
 	this.comment_text = document.createElement("div");
-	this.comment_text.className = "wgo-comment-text"; 
+	this.comment_text.className = "wgo-comment-text";
 	this.comments.appendChild(this.comment_text);
 }
 
 var mark = function(move) {
 	var x,y;
-	
+
 	x = move.charCodeAt(0)-'a'.charCodeAt(0);
 	if(x < 0) x += 'a'.charCodeAt(0)-'A'.charCodeAt(0);
 	if(x > 7) x--;
@@ -58,7 +58,7 @@ var search_nodes = function(nodes, player) {
 		}
 		else if(nodes[i].childNodes && nodes[i].childNodes.length) search_nodes(nodes[i].childNodes, player);
 	}
-}	
+}
 
 var format_info = function(info, title) {
 	var ret = '<div class="wgo-info-list">';
@@ -77,26 +77,26 @@ var format_info = function(info, title) {
 var CommentBox = WGo.extendClass(WGo.BasicPlayer.component.Component, function(player) {
 	this.super(player);
 	this.player = player;
-	
+
 	this.element.className = "wgo-commentbox";
-	
+
 	prepare_dom.call(this);
-	
+
 	player.addEventListener("kifuLoaded", function(e) {
 		if(e.kifu.hasComments()) {
 			this.comments_title.innerHTML = WGo.t("comments");
 			this.element.className = "wgo-commentbox";
-			
+
 			this._update = function(e) {
 				this.setComments(e);
 			}.bind(this);
-			
+
 			player.addEventListener("update", this._update);
 		}
 		else {
 			this.comments_title.innerHTML = WGo.t("gameinfo");
 			this.element.className = "wgo-commentbox wgo-gameinfo";
-			
+
 			if(this._update) {
 				player.removeEventListener("update", this._update);
 				delete this._update;
@@ -104,7 +104,7 @@ var CommentBox = WGo.extendClass(WGo.BasicPlayer.component.Component, function(p
 			this.comment_text.innerHTML = format_info(e.target.getGameInfo());
 		}
 	}.bind(this));
-	
+
 	player.notification = function(text) {
 		if(text) {
 			this.notification.style.display = "block";
@@ -116,7 +116,7 @@ var CommentBox = WGo.extendClass(WGo.BasicPlayer.component.Component, function(p
 			this.is_notification = false;
 		}
 	}.bind(this);
-	
+
 	player.help = function(text) {
 		if(text) {
 			this.help.style.display = "block";
@@ -137,21 +137,33 @@ CommentBox.prototype.setComments = function(e) {
 	if(!e.node.parent) {
 		msg = format_info(e.target.getGameInfo(), true);
 	}
-	
-	this.comment_text.innerHTML = msg+this.getCommentText(e.node.comment, this.player.config.formatNicks, this.player.config.formatMoves);
+
+	this.comment_text.innerHTML = msg+this.getCommentText(e.node.comment,e.node.bestMoves,this.player.config.formatNicks, this.player.config.formatMoves);
 
 	if(this.player.config.formatMoves) {
 		if(this.comment_text.childNodes && this.comment_text.childNodes.length) search_nodes(this.comment_text.childNodes, this.player);
 	}
 };
 
-CommentBox.prototype.getCommentText = function(comment, formatNicks, formatMoves) {
+CommentBox.prototype.getCommentText = function(comment,bestMoves, formatNicks, formatMoves) {
 	// to avoid XSS we must transform < and > to entities, it is highly recomanded not to change it
 	//.replace(/</g,"&lt;").replace(/>/g,"&gt;") : "";
+	// if(bestMoves)
+	// 	if(bestMoves[1])
+	// 		if(bestMoves[1].coordinate)
+	// return bestMoves[1].variation;
+	var coms=comment;
 	if(comment) {
-		var comm =  "<p>"+WGo.filterHTML(comment).replace(/\n/g, "</p><p>")+"</p>";
+		if(bestMoves)
+			for (var i=0;i<bestMoves.length ;i++ )
+			{if(bestMoves[i])
+				if(bestMoves[i].coordinate)
+					coms+="\n"+bestMoves[i].coordinate+"胜率:"+bestMoves[i].winrate+"计算量:"+bestMoves[i].playouts+"变化:"+bestMoves[i].variation.toString().replace(new RegExp(",","gm"), " ");}
+		var comm =  "<p>"+WGo.filterHTML(coms).replace(/\n/g, "</p><p>")+"</p>";
 		if(formatNicks) comm = comm.replace(/(<p>)([^:]{3,}:)\s/g, '<p><span class="wgo-comments-nick">$2</span> ');
 		if(formatMoves) comm = comm.replace(/\b[a-zA-Z]1?\d\b/g, '<a href="javascript:void(0)" class="wgo-move-link">$&</a>');
+
+
 		return comm;
 	}
 	return "";
@@ -163,14 +175,14 @@ CommentBox.prototype.getCommentText = function(comment, formatNicks, formatMoves
  * - formatNicks: tries to highlight nicknames in comments (default: true)
  * - formatMoves: tries to highlight coordinates in comments (default: true)
  */
- 
+
 WGo.BasicPlayer.default.formatNicks = true;
 WGo.BasicPlayer.default.formatMoves = true;
 
 WGo.BasicPlayer.attributes["data-wgo-formatnicks"] = function(value) {
 	if(value.toLowerCase() == "false") this.formatNicks = false;
 }
-	
+
 WGo.BasicPlayer.attributes["data-wgo-formatmoves"] = function(value) {
 	if(value.toLowerCase() == "false") this.formatMoves = false;
 }

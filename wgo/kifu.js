@@ -371,7 +371,7 @@ KNode.prototype = {
 	/**
 	 * Get node's children specified by index. If it doesn't exist, method returns null.
 	 */
-	
+
 	getChild: function(ch) {
 		var i = ch || 0;
 		if(this.children[i]) return this.children[i];

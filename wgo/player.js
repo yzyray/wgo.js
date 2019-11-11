@@ -37,7 +37,9 @@ var loadFromUrl = WGo.loadFromUrl = function(url, callback) {
 	}
 
 	try {
+	//	xmlhttp.setDefaultEncoding("utf-8")
 		xmlhttp.open("GET", url, true);
+		xmlhttp.overrideMimeType("text/html;charset=gb2312");
 		xmlhttp.send();
 	}
 	catch(err) {

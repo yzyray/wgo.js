@@ -3,6 +3,7 @@
 
 WGo.SGF = {};
 
+
 var to_num = function(str, i) {
 	return str.charCodeAt(i)-97;
 }
@@ -53,8 +54,72 @@ properties["PL"] = function(kifu, node, value) {
 	
 // Node annotation properties
 properties["C"] = function(kifu, node, value) {
-	node.comment = value.join();
+	if(!node.comment)
+		node.comment = value.join();
+	else
+		node.comment +="\r\n"+value.join();
 }
+
+// LZ properties
+	properties["LZ"] = function(kifu, node, value) {
+		//node.comment = value.join();
+		//var strs= new Array(); //定义一数组
+		var strs=value.toString().split("\n"); //字符分割
+		if(strs.length>=2)
+		{
+			var staticInfo=strs[0].split(" ");
+			if(staticInfo.length==3)
+			{
+				if(!node.comment)
+				node.comment ="\n胜率:"+staticInfo[1]+"计算量:"+staticInfo[2];
+			}
+			if(staticInfo.length==4)
+			{
+				if(!node.comment)
+				node.comment ="\n胜率:"+staticInfo[1]+"计算量:"+staticInfo[2]+"目差:"+staticInfo[3];
+			}
+			var moveInfo=strs[1].split(" info ");
+			// if(!node.comment)
+			// 	node.comment =strs[1];
+			// else
+			// 	node.comment +="\r\n"+strs[1];
+			node.bestMoves= new Array(new Object());
+			for (var i=0;i<moveInfo.length ;i++ )
+					{
+						var bestMove = new  Object();
+						//document.write(moveInfo[i]+"<br/>"+moveInfo.length+"<br/>"); //分割后的字符输出
+
+						var data = moveInfo[i].trim().split(" ");
+						// Todo: Proper tag parsing in case gtp protocol is extended(?)/changed
+						for (var j = 0; j < data.length; j++) {
+						var key = data[j];
+						if (key==("pv")) {
+							// Read variation to the end of line
+							bestMove.variation = data.slice(j + 1, data.length);
+							break;
+						} else {
+							var value = data[++j];
+							if (key=="move") {
+								bestMove.coordinate = value;
+							}
+							if (key=="visits") {
+								bestMove.playouts = parseInt(value);
+							}
+							if (key=="winrate") {
+								// support 0.16 0.15
+								bestMove.winrate = parseInt(value) / 100.0;
+							}
+							if (key=="scoreMean") {
+								// support 0.16 0.15
+								bestMove.scoreMean = parseFloat(value);
+								bestMove.isKataData = true;
+							}
+						}
+					}
+						node.bestMoves.push(bestMove);
+					}
+		}
+	}
 	
 // Markup properties
 properties["LB"] = function(kifu, node, value) {
