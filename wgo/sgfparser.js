@@ -100,7 +100,7 @@ properties["C"] = function(kifu, node, value) {
 						} else {
 							var value = data[++j];
 							if (key=="move") {
-								bestMove.coordinate = value;
+								bestMove.coordinate = value.toString();
 							}
 							if (key=="visits") {
 								bestMove.playouts = parseInt(value);

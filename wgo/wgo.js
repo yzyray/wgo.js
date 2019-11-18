@@ -76,7 +76,6 @@ WGo.extendClass = function(parent, child) {
 	child.prototype = Object.create(parent.prototype);
 	child.prototype.constructor = child;
 	child.prototype.super = parent;
-
 	return child;
 };
 
@@ -770,6 +769,22 @@ Board.drawHandlers = {
 	},
 
 	SQ: {
+		stone: {
+			draw: function(args, board) {
+				var xr = board.getX(args.x),
+					yr = board.getY(args.y),
+					sr = Math.round(board.stoneRadius);
+
+				this.strokeStyle = args.c || get_markup_color(board, args.x, args.y);
+				this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
+				this.beginPath();
+				this.rect(Math.round(xr-sr/2)-board.ls, Math.round(yr-sr/2)-board.ls, sr, sr);
+				this.stroke();
+			}
+		}
+	},
+
+	BM: {
 		stone: {
 			draw: function(args, board) {
 				var xr = board.getX(args.x),
@@ -1506,6 +1521,20 @@ Board.prototype = {
 			// If the board is too small some canvas painting function can throw an exception, but we don't want to break our app
 			console.log("WGo board failed to render. Error: "+err.message);
 		}
+	},
+
+	removeAllObjectsBM: function() {
+		for(var i = 0; i < this.size; i++) {
+			for(var j = 0; j < this.size; j++)
+			{
+						var layers = this.obj_arr[i][j];
+						for(var z = 0; z < layers.length; z++) {
+							if (this.obj_arr[i][j][z].type == "BM")
+								this.obj_arr[i][j].splice(z, 1);
+						}
+			}
+		}
+		this.redraw();
 	},
 
 	removeObjectsAt: function(x, y) {

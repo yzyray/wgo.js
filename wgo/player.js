@@ -100,6 +100,31 @@ var update_board = function(e) {
 	// add new markers on the board
 	this.temp_marks = add;
 	this.board.addObject(add);
+
+	//add bestmoves
+	this.board.removeAllObjectsBM();
+	if(e.node.bestMoves)
+		for(var i=0;i<e.node.bestMoves.length;i++)
+		{
+			var bestMove=e.node.bestMoves[i];
+	if(bestMove.coordinate)
+	{
+		var coords=bestMove.coordinate;
+		var x = coords.charCodeAt(0)-'a'.charCodeAt(0);
+		if(x < 0) x += 'a'.charCodeAt(0)-'A'.charCodeAt(0);
+		if(x > 7) x--;
+		var y = (coords.charCodeAt(1)-'0'.charCodeAt(0));
+		if(coords.length > 2) y = y*10+(coords.charCodeAt(2)-'0'.charCodeAt(0));
+		y = this.kifuReader.game.size-y;
+		var bestMoveInfo=new Object();
+		bestMoveInfo.x=x;
+		bestMoveInfo.y=y;
+		bestMoveInfo.winrate=bestMove.winrate;
+		bestMoveInfo.playouts=bestMove.playouts;
+		bestMoveInfo.type="BM";
+		this.board.addObject(bestMoveInfo);
+	}
+		}
 }
 
 // preparing board
