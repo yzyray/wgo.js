@@ -187,9 +187,9 @@ WGo.BasicPlayer.attributes["data-wgo-formatmoves"] = function(value) {
 	if(value.toLowerCase() == "false") this.formatMoves = false;
 }
 
-WGo.BasicPlayer.layouts["right_top"].right.push("CommentBox");
-WGo.BasicPlayer.layouts["right"].right.push("CommentBox");
-WGo.BasicPlayer.layouts["one_column"].bottom.push("CommentBox");
+	WGo.BasicPlayer.layouts["right_top"].right.push("CommentBox");
+	WGo.BasicPlayer.layouts["right"].right.push("CommentBox");
+	WGo.BasicPlayer.layouts["one_column"].bottom.push("CommentBox");
 
 WGo.i18n.en["comments"] = "Comments";
 WGo.i18n.en["gameinfo"] = "Game info";

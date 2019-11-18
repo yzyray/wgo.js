@@ -51,7 +51,7 @@ var BPgenerateDom = function() {
 	this.regions.left = playerBlock("left", this.element);
 	this.element.appendChild(this.dom.center);
 	this.regions.right = playerBlock("right", this.element);
-	
+
 	this.regions.top = playerBlock("top", this.dom.center);
 	this.dom.center.appendChild(this.dom.board);
 	this.regions.bottom = playerBlock("bottom", this.dom.center);
@@ -351,6 +351,7 @@ BasicPlayer.layouts = {
 	"right_top": {
 		top: [],
 		right: [],
+		bottom: [],
 	},
 	"right": {
 		right: [],
