@@ -414,7 +414,8 @@ BasicPlayer.dynamicLayout = [
 
 // default settings, they are merged with user settings in constructor.
 BasicPlayer.default = {
-	layout: BasicPlayer.dynamicLayout,
+	//layout: BasicPlayer.dynamicLayout,
+	layout: BasicPlayer.layouts["one_column"],
 }
 
 WGo.i18n.en["BP:closemsg"] = "click anywhere to close this window";

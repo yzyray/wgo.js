@@ -154,12 +154,12 @@ CommentBox.prototype.getCommentText = function(comment,bestMoves, formatNicks, f
 	// return bestMoves[1].variation;
 	var coms=comment;
 	if(comment) {
-		if(bestMoves)
-			for (var i=0;i<bestMoves.length ;i++ )
-			{if(bestMoves[i])
-				if(bestMoves[i].coordinate)
-					coms+="\n"+bestMoves[i].coordinate+"胜率:"+bestMoves[i].winrate+"计算量:"+bestMoves[i].playouts+"变化:"+bestMoves[i].variation.toString().replace(new RegExp(",","gm"), " ");}
-		var comm =  "<p>"+WGo.filterHTML(coms).replace(/\n/g, "</p><p>")+"</p>";
+		// if(bestMoves)
+		// 	for (var i=0;i<bestMoves.length ;i++ )
+		// 	{if(bestMoves[i])
+		// 		if(bestMoves[i].coordinate)
+		// 			coms+="\n"+bestMoves[i].coordinate+"胜率:"+bestMoves[i].winrate+"计算量:"+bestMoves[i].playouts+"变化:"+bestMoves[i].variation.toString().replace(new RegExp(",","gm"), " ");}
+		 var comm =  "<p>"+WGo.filterHTML(coms).replace(/\n/g, "</p><p>")+"</p>";
 		if(formatNicks) comm = comm.replace(/(<p>)([^:]{3,}:)\s/g, '<p><span class="wgo-comments-nick">$2</span> ');
 		if(formatMoves) comm = comm.replace(/\b[a-zA-Z]1?\d\b/g, '<a href="javascript:void(0)" class="wgo-move-link">$&</a>');
 
@@ -187,7 +187,7 @@ WGo.BasicPlayer.attributes["data-wgo-formatmoves"] = function(value) {
 	if(value.toLowerCase() == "false") this.formatMoves = false;
 }
 
-	WGo.BasicPlayer.layouts["right_top"].right.push("CommentBox");
+	WGo.BasicPlayer.layouts["right_top"].bottom.push("CommentBox");
 	WGo.BasicPlayer.layouts["right"].right.push("CommentBox");
 	WGo.BasicPlayer.layouts["one_column"].bottom.push("CommentBox");
 

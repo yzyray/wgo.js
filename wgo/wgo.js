@@ -513,6 +513,7 @@ Board.drawHandlers = {
 				};
 
 				if(args.c == WGo.W) {
+
 					var idx = this.randIndex % whiteCount;
 					if(typeof board.whiteStoneGraphic[idx] === 'string')
 					{
@@ -525,6 +526,8 @@ Board.drawHandlers = {
 						stoneGraphic.src = board.whiteStoneGraphic[idx];
 						board.whiteStoneGraphic[idx] = stoneGraphic;
 					}
+
+					//this.arc(xr-board.ls, yr-board.ls, sr*1.15, 0, 2*Math.PI, true);
 
 					if(isOkay(board.whiteStoneGraphic[idx])) {
 						this.drawImage(board.whiteStoneGraphic[idx], xr - sr, yr - sr, 2*sr, 2*sr);

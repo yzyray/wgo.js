@@ -33,7 +33,8 @@ var Control = WGo.extendClass(WGo.BasicPlayer.component.Component, function(play
 });
 
 Control.prototype.updateDimensions = function() {
-	if(this.element.clientWidth < 340) this.element.className = "wgo-player-control wgo-340";
+		if(this.element.clientWidth < 340)
+		this.element.className = "wgo-player-control wgo-340";
 	else if(this.element.clientWidth < 440) this.element.className = "wgo-player-control wgo-440";
 	else this.element.className = "wgo-player-control";
 }
@@ -173,26 +174,26 @@ control.Clickable.prototype.init = function(player, args) {
 	}
 	
 	this.element.addEventListener("click", fn);
-	this.element.addEventListener("touchstart", function(e){
-		e.preventDefault();
-		fn();
-		if(args.multiple) {
-			_this._touch_i = 0;
-			_this._touch_int = window.setInterval(function(){
-				if(_this._touch_i > 500) {
-					fn();
-				}
-				_this._touch_i += 100;
-			}, 100);
-		}
-		return false;
-	});
+	// this.element.addEventListener("touchstart", function(e){
+	// 	e.preventDefault();
+	// 	fn();
+	// 	if(args.multiple) {
+	// 		_this._touch_i = 0;
+	// 		_this._touch_int = window.setInterval(function(){
+	// 			if(_this._touch_i > 500) {
+	 //				fn();
+	// 			}
+	// 			_this._touch_i += 100;
+	// 		}, 100);
+	// 	}
+	// 	return false;
+	// });
 	
-	if(args.multiple) {
-		this.element.addEventListener("touchend", function(e){
-			window.clearInterval(_this._touch_int);
-		});
-	}
+	// if(args.multiple) {
+	// 	this.element.addEventListener("touchend", function(e){
+	// 		window.clearInterval(_this._touch_int);
+	// 	});
+	// }
 
 	if(args.disabled) this.disable();
 	if(args.init) args.init.call(this, player);
@@ -509,7 +510,7 @@ Control.widgets = [ {
 var bp_layouts = WGo.BasicPlayer.layouts;
 bp_layouts["right_top"].bottom.push("Control");
 bp_layouts["right"].right.push("Control");
-bp_layouts["one_column"].top.push("Control");
+bp_layouts["one_column"].bottom.push("Control");
 bp_layouts["no_comment"].bottom.push("Control");
 bp_layouts["minimal"].bottom.push("Control");
 

@@ -162,7 +162,7 @@ InfoBox.prototype.updateDimensions = function() {
 };
 
 var bp_layouts = WGo.BasicPlayer.layouts;
-bp_layouts["right_top"].right.push("InfoBox");
+bp_layouts["right_top"].bottom.push("InfoBox");
 bp_layouts["right"].right.push("InfoBox");
 bp_layouts["one_column"].top.push("InfoBox");
 bp_layouts["no_comment"].top.push("InfoBox");
