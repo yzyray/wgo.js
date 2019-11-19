@@ -466,7 +466,7 @@ button.wgo-button {
 	border-radius: 2px;
 	background-color: rgba(255,255,255,0.3);
 	width: 95px;
-	height: 45px;
+	height: 75px;
 	margin: 0 3px;
 	vertical-align: middle;
 }
@@ -490,7 +490,7 @@ button.wgo-button.wgo-selected:hover {
 
 .wgo-button::before {
 	font-family: "wgo-icons";
-	font-size: 36px;
+	font-size: 60px;
 	display: inline-block;
 }
 
@@ -552,7 +552,7 @@ button.wgo-button2 {
 	border-radius: 2px;
 	background-color: rgba(255,255,255,0.3);
 	width: 40px;
-	height: 45px;
+	height: 75px;
 	vertical-align: middle;
 }
 

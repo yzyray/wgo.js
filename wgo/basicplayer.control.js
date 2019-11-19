@@ -247,6 +247,14 @@ control.Button = WGo.extendClass(control.Clickable, function(player, args) {
 	this.init(player, args);
 });
 
+	control.Button2 = WGo.extendClass(control.Clickable, function(player, args) {
+		var elem = this.element = document.createElement("button");
+		elem.className = "wgo-button2 wgo-button2-"+args.name;
+		elem.title = WGo.t(args.name);
+
+		this.init(player, args);
+	});
+
 control.Button.prototype.disable = function() {
 	control.Button.prototype.super.prototype.disable.call(this);
 	this.element.disabled = "disabled";
@@ -404,12 +412,13 @@ Control.menu = [{
  * }
 */
 
-Control.widgets = [ {
+Control.widgets = [
+	{
 	constructor: control.Group,
 	args: {
 		name: "left",
 		widgets: [{
-			constructor: control.Button,
+			constructor: control.Button2,
 			args: {
 				name: "menu",
 				togglable: true,
@@ -417,7 +426,8 @@ Control.widgets = [ {
 			}
 		}]
 	}
-}, {
+},
+	{
 	constructor: control.Group,
 	args: {
 		name: "right",

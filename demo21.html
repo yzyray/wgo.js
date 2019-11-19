@@ -16,9 +16,13 @@
 	<script type="text/javascript" src="wgo/scoremode.js"></script>
 	<script type="text/javascript" src="wgo/player.permalink.js"></script>
 	<script type="text/javascript" src="wgo/i18n.zh.js"></script>
-	<link rel="stylesheet" type="text/css" href="wgo/wgo.player.css" />
 
-
+	<script>
+		var w=screen.width;
+		var h=screen.height;
+		if(w<h)document.write('<link rel="stylesheet" type="text/css" href="wgo/wgo.player.cellphone.css"/>');
+		else document.write('<link rel="stylesheet" type="text/css" href="wgo/wgo.player.css"/>');
+	</script>
 <style>
 /*!
  * Bootstrap v2.3.2
