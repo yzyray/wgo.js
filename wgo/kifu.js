@@ -509,6 +509,7 @@ var KifuReader = function(kifu, rememberPath, allowIllegalMoves) {
 	this.node = this.kifu.root;
 	this.allow_illegal = allowIllegalMoves || false;
 	this.game = new WGo.Game(this.kifu.size, this.allow_illegal ? "NONE" : "KO", this.allow_illegal , this.allow_illegal);
+	WGo.mainGame=this.game;
 	this.path = {m:0};
 
 	if(this.kifu.info["HA"] && this.kifu.info["HA"] > 1) this.game.turn = WGo.W;

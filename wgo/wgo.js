@@ -405,6 +405,23 @@ var draw_shell = function(arg) {
 	}
 }
 
+	var getPlayoutsString =function(arg) {
+		if (arg >= 1000000) {
+		//	var playoutsDouble =  // 1234567 -> 12.34567
+			return (arg / 100000 / 10.0).toFixed(1) + "m";
+		}
+		// else if (arg >= 10000) {
+		// 	// playoutsDouble = ; // 13265 -> 13.265
+		// 	return arg / 1000.0.toFixed(1) + "k";
+		// }
+		else if (arg >= 1000) {
+			// playoutsDouble = ; // 1265 -> 12.65
+			return (arg / 1000.0).toFixed(1) + "k";
+		} else {
+			return arg;
+		}
+	}
+
 // drawing handlers
 
 Board.drawHandlers = {
@@ -753,13 +770,51 @@ Board.drawHandlers = {
 			draw: function(args, board) {
 				var xr = board.getX(args.x),
 					yr = board.getY(args.y),
-					sr = Math.round(board.stoneRadius);
+					sr = board.stoneRadius,
+					radgrad;
+				var font = "verdana"; //calibri is WGo's default
 
-				this.strokeStyle = args.c || get_markup_color(board, args.x, args.y);
-				this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
-				this.beginPath();
-				this.rect(Math.round(xr-sr/2)-board.ls, Math.round(yr-sr/2)-board.ls, sr, sr);
-				this.stroke();
+				// this.strokeStyle = args.c || get_markup_color(board, args.x, args.y);
+				// this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
+				// this.beginPath();
+				// this.rect(Math.round(xr-sr/2)-board.ls, Math.round(yr-sr/2)-board.ls, sr, sr);
+				// this.stroke();
+				if(WGo.mainGame.turn==1) {
+					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,sr/3,xr-sr/5,yr-sr/5,5*sr/5);
+					radgrad.addColorStop(0, 'white');
+					this.beginPath();
+					this.fillStyle = radgrad;
+					this.arc(xr - board.ls, yr - board.ls, Math.max(0, sr - 0.5), 0, 2 * Math.PI, true);
+					this.fill();
+					this.fillStyle = "black";
+				}
+				else {
+					radgrad = this.createRadialGradient(xr - 2 * sr / 5, yr - 2 * sr / 5, 1, xr - sr / 5, yr - sr / 5, 4 * sr / 5);
+					radgrad.addColorStop(1, 'black');
+					this.beginPath();
+					this.fillStyle = radgrad;
+					this.arc(xr - board.ls, yr - board.ls, Math.max(0, sr - 0.5), 0, 2 * Math.PI, true);
+					this.fill();
+					this.fillStyle = "white";
+				}
+			//	if(args.winrate.length == 1) this.font = Math.round(sr*0.7)+"px "+font;
+			//	else if(args.winrate.length == 2) this.font = Math.round(sr*0.7)+"px "+font;
+			//	else if(args.winrate.length == 3) this.font = Math.round(sr*0.7)+"px "+font;
+				//else
+				var playouts=getPlayoutsString(args.playouts);
+					this.font = Math.round(sr*0.72)+"px "+font;
+				this.fillText(args.winrate.toFixed(1), xr-0.68*sr, yr-0.15*sr, 1.35*sr);
+				if(args.playouts<10)
+				{
+					this.fillText(playouts, xr-0.25*sr, yr+0.55*sr, 1.35*sr);
+				}
+				else if(args.playouts<100)
+				{this.fillText(playouts, xr-0.5*sr, yr+0.55*sr, 1.35*sr);}
+				else if(args.playouts<1000)
+				{this.fillText(playouts, xr-0.65*sr, yr+0.55*sr, 1.35*sr);}
+				else{
+				this.fillText(playouts, xr-0.6*sr, yr+0.55*sr, 1.35*sr);
+				}
 			}
 		}
 	},
@@ -1438,7 +1493,6 @@ Board.prototype = {
 		try {
 			// clear all objects on object's coordinates
 			clearField.call(this, obj.x, obj.y);
-
 			// if object of this type is on the board, replace it
 			var layers = this.obj_arr[obj.x][obj.y];
 			for(var z = 0; z < layers.length; z++) {
@@ -1772,8 +1826,8 @@ WGo.Position = Position;
  * @param {boolean} allowRewrite (optional, default is false) - allow to play moves, which were already played:
  * @param {boolean} allowSuicide (optional, default is false) - allow to play suicides, stones are immediately captured
  */
-
-var Game = function(size, checkRepeat, allowRewrite, allowSuicide) {
+var mainGame;
+	var Game = function(size, checkRepeat, allowRewrite, allowSuicide) {
 	this.size = size || 19;
 	this.repeating = checkRepeat === undefined ? "KO" : checkRepeat; // possible values: KO, ALL or nothing
 	this.allow_rewrite = allowRewrite || false;

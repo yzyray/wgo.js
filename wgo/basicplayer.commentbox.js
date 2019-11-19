@@ -157,7 +157,7 @@ CommentBox.prototype.getCommentText = function(comment,bestMoves, formatNicks, f
 		//  if(WGo.mianKifu.root.children[0].bestMoves[1].coordinate)
 		// {
 		// // 	//this.kifu.root.children[0].bestMoves)
-		 	var comm =  WGo.mianKifu.root.children[0].bestMoves[1].coordinate;
+		 //	var comm =  WGo.mianKifu.root.children[0].bestMoves[1].coordinate;
 		//  	return comm;
 		//  }
 		if(bestMoves)
