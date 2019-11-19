@@ -218,7 +218,19 @@ WGo.SGF.parse = function(str) {
 			}
 		}
 	}
-	
+	WGo.mianKifu=kifu;
+
+	function bodyScale() {
+		var devicewidth = document.documentElement.clientWidth;
+		var deviceheight = document.documentElement.clientHeight;
+		var scale = devicewidth / 700;  // 分母——设计稿的尺寸
+		var scale2 = deviceheight / 1000;
+		document.body.style.zoom = Math.min(scale,scale2);
+		WGo.trueScale=Math.min(scale,scale2);
+	}
+	//window.onload = window.onresize = function () {
+		bodyScale();
+	//};
 	return kifu;		
 }
 })(WGo);

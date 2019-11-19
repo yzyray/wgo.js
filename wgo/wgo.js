@@ -22,10 +22,12 @@
 (function(window, undefined) {
 
 "use strict";
-
+var mianKifu;
 var scripts= document.getElementsByTagName('script');
 var path= scripts[scripts.length-1].src.split('?')[0];      // remove any ?query
 var mydir= path.split('/').slice(0, -1).join('/')+'/';
+
+var trueScale;
 
 /**
  * Main namespace - it initializes WGo in first run and then execute main function.
@@ -499,11 +501,11 @@ Board.drawHandlers = {
 				if(args.c == WGo.W) {
 					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,sr/3,xr-sr/5,yr-sr/5,5*sr/5);
 					radgrad.addColorStop(0, '#fff');
-					radgrad.addColorStop(1, '#aaa');
+				//	radgrad.addColorStop(1, '#aaa');
 				}
 				else {
 					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,1,xr-sr/5,yr-sr/5,4*sr/5);
-					radgrad.addColorStop(0, '#666');
+					//radgrad.addColorStop(0, '#666');
 					radgrad.addColorStop(1, '#000');
 				}
 
@@ -1131,13 +1133,18 @@ var getMousePos = function(e) {
 	var x, y;
 
 	x = e.offsetX * this.pixelRatio;
+	x=x/WGo.trueScale;
 	x -= this.left;
 	x /= this.fieldWidth;
+
+
 	x = Math.round(x);
 
 	y = e.offsetY * this.pixelRatio;
+	y=y/WGo.trueScale;
 	y -= this.top;
 	y /= this.fieldHeight;
+
 	y = Math.round(y);
 
 	return {

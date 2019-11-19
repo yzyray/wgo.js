@@ -77,11 +77,8 @@ var format_info = function(info, title) {
 var CommentBox = WGo.extendClass(WGo.BasicPlayer.component.Component, function(player) {
 	this.super(player);
 	this.player = player;
-
 	this.element.className = "wgo-commentbox";
-
 	prepare_dom.call(this);
-
 	player.addEventListener("kifuLoaded", function(e) {
 		if(e.kifu.hasComments()) {
 			this.comments_title.innerHTML = WGo.t("comments");
@@ -153,7 +150,16 @@ CommentBox.prototype.getCommentText = function(comment,bestMoves, formatNicks, f
 	// 		if(bestMoves[1].coordinate)
 	// return bestMoves[1].variation;
 	var coms=comment;
+
+
 	if(comment) {
+		//var kifu=WGo.Kifu;
+		//  if(WGo.mianKifu.root.children[0].bestMoves[1].coordinate)
+		// {
+		// // 	//this.kifu.root.children[0].bestMoves)
+		 	var comm =  WGo.mianKifu.root.children[0].bestMoves[1].coordinate;
+		//  	return comm;
+		//  }
 		if(bestMoves)
 			for (var i=0;i<bestMoves.length ;i++ )
 			{if(bestMoves[i])

@@ -289,7 +289,7 @@ background: linear-gradient(135deg,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 
 .wgo-comments-wrapper {
 	overflow: auto;
 	margin: 0 0 0 0;
-	height: 60%;
+	height: 70%;
 	position: relative;
 	box-sizing: border-box;
 }
@@ -399,7 +399,7 @@ a.wgo-move-link {
 
 .wgo-commentbox .wgo-info-list {
 	display: table;
-	width: 60%;
+	width: 100%;
 }
 
 .wgo-commentbox .wgo-info-title {

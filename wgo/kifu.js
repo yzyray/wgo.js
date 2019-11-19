@@ -172,6 +172,7 @@ var sgf_write_variantion = function(node, output) {
  * Kifu class - for storing go game record and easy manipulation with it
  */
 
+
 var Kifu = function() {
 	this.size = 19;
 	this.info = {};
@@ -597,7 +598,7 @@ var exec_next = function(i) {
 	if(i === undefined && this.rememberPath) i = this.node._last_selected;
 	i = i || 0;
 	var node = this.node.children[i];
-	
+
 	if(!node) return false;
 	
 	var ch = exec_node(this.game, node);
