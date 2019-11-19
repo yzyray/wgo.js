@@ -18,40 +18,6 @@
 	<script type="text/javascript" src="wgo/i18n.zh.js"></script>
 	<link rel="stylesheet" type="text/css" href="wgo/wgo.player.css" />
 
-	<script>
-		window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
-		$(function(){  //页面加载时检查
-			hengshuping();
-		});
-
-		function hengshuping() {
-			if (window.orientation == 0 || window.orientation == 180) {
-				var shu=window.localStorage.getItem('name')
-			//	if(shu=='a'){
-					window.location.reload();
-					window.localStorage.setItem('name','b');
-				//}
-				//alert('竖屏')
-
-
-				orientation = 'portrait';
-				return false;
-			}
-			else if (window.orientation == 90 || window.orientation == -90) {
-				var shu=window.localStorage.getItem('name')
-				//if(shu=='b'){
-					window.location.reload();
-					window.localStorage.setItem('name','a');
-				//}
-
-				// alert('横屏')
-
-				orientation = 'landscape';
-				return false;
-			}
-		}
-	</script>
-
 
 <style>
 /*!

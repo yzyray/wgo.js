@@ -169,6 +169,9 @@
 
 		this.components = {};
 
+
+
+
 		window.addEventListener("resize", function() {
 			if(!this.noresize) {
 				this.updateDimensions();
@@ -260,6 +263,26 @@
 		}
 	}
 
+	window.addEventListener("orientationchange", function() {
+		// Announce the new orientation number
+		//	alert("改变了");
+		var devicewidth = document.documentElement.clientWidth;
+		var deviceheight = document.documentElement.clientHeight;
+		if(deviceheight>devicewidth){
+			BasicPlayer.default = {
+				layout: BasicPlayer.layouts["one_column"],
+				//layout: BasicPlayer.dynamicLayout,
+			}}
+		else {
+			BasicPlayer.default = {
+				layout: BasicPlayer.dynamicLayout,
+			}
+		}//alert("改变了5");
+			location.reload(false);
+		//this.updateDimensions();
+
+	},//bind(this));
+	false);
 	/**
 	 * Layout contains built-in info box, for displaying of text(html) messages.
 	 * You can use this method to display a message.
@@ -427,6 +450,9 @@
 	}
 	}
 	WGo.i18n.en["BP:closemsg"] = "click anywhere to close this window";
+
+
+
 
 //--- Handling <div> with HTML5 data attributes -----------------------------------------------------------------
 
