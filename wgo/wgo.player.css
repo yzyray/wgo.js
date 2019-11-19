@@ -465,7 +465,7 @@ button.wgo-button {
 	border: 1px solid rgba(200,200,200,0.3);
 	border-radius: 2px;
 	background-color: rgba(255,255,255,0.3);
-	width: 75px;
+	width: 95px;
 	height: 75px;
 	margin: 0 3px;
 	vertical-align: middle;
@@ -490,7 +490,7 @@ button.wgo-button.wgo-selected:hover {
 
 .wgo-button::before {
 	font-family: "wgo-icons";
-	font-size: 50px;
+	font-size: 60px;
 	display: inline-block;
 }
 
@@ -565,7 +565,7 @@ input[type="text"].wgo-player-mn-value  {
 
 .wgo-player-mn-wrapper {
 	display: inline-block;
-	width: 38px;
+	width: 45px;
 	text-align: center;
 }
 
@@ -581,8 +581,8 @@ input[type="text"].wgo-player-mn-value  {
 
 /* display less buttons */
 
-.wgo-440 .wgo-button-multiprev,
-.wgo-440 .wgo-button-multinext {
+.wgo-440 .wgo-button-first,
+.wgo-440  .wgo-button-last {
 	display: none;
 }
 

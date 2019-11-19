@@ -227,6 +227,14 @@ WGo.SGF.parse = function(str) {
 		var scale2 = deviceheight / 1000;
 		document.body.style.zoom = Math.min(scale,scale2);
 		WGo.trueScale=Math.min(scale,scale2);
+		// var devicewidth = document.documentElement.clientWidth;
+		// var deviceheight = document.documentElement.clientHeight;
+		// if(deviceheight>devicewidth){
+		// 	WGo.isWide=false;
+		// }
+		// else{
+		// 	WGo.isWide=true;
+		// 	}
 	}
 	//window.onload = window.onresize = function () {
 		bodyScale();

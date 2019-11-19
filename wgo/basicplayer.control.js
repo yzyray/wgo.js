@@ -32,10 +32,37 @@ var Control = WGo.extendClass(WGo.BasicPlayer.component.Component, function(play
 	prepare_dom.call(this, player);
 });
 
+	function IsPC() {
+		var userAgentInfo = navigator.userAgent;
+		var Agents = ["Android", "iPhone",
+			"SymbianOS", "Windows Phone",
+			"iPad", "iPod"];
+		var flag = true;
+		for (var v = 0; v < Agents.length; v++) {
+			if (userAgentInfo.indexOf(Agents[v]) > 0) {
+				flag = false;
+				break;
+			}
+		}
+		return flag;
+	}
+
+
 Control.prototype.updateDimensions = function() {
-	if(this.element.clientWidth < 340) this.element.className = "wgo-player-control wgo-340";
-	else if(this.element.clientWidth < 440) this.element.className = "wgo-player-control wgo-440";
-	else this.element.className = "wgo-player-control";
+
+	var flag = IsPC(); //true为PC端，false为手机端
+	if(flag)
+	{
+		this.element.className = "wgo-player-control";
+	//	this.element.className =  "wgo-player-control";
+	}
+	else
+	{
+		this.element.className = "wgo-player-control wgo-440";
+	}
+	// if(this.element.clientWidth < 340) this.element.className = "wgo-player-control wgo-340";
+	// else if(this.element.clientWidth < 440) this.element.className = "wgo-player-control wgo-440";
+	// else this.element.className = "wgo-player-control";
 }
 
 var control = WGo.BasicPlayer.control = {};
