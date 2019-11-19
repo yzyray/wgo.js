@@ -509,7 +509,7 @@ Control.widgets = [ {
 var bp_layouts = WGo.BasicPlayer.layouts;
 bp_layouts["right_top"].bottom.push("Control");
 bp_layouts["right"].right.push("Control");
-bp_layouts["one_column"].top.push("Control");
+bp_layouts["one_column"].bottom.push("Control");
 bp_layouts["no_comment"].bottom.push("Control");
 bp_layouts["minimal"].bottom.push("Control");
 

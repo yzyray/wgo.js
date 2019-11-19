@@ -247,7 +247,8 @@ var theme_variable = function(key, board) {
 }
 
 var shadow_handler = {
-	draw: function(args, board) {
+	draw:
+		function(args, board) {
 		var xr = board.getX(args.x),
 			yr = board.getY(args.y),
 			sr = board.stoneRadius;
@@ -484,76 +485,37 @@ Board.drawHandlers = {
 
 	// handler for image based stones
 	REALISTIC: {
+		// draw handler for stone layer
 		stone: {
+			// drawing function - args object contain info about drawing object, board is main board object
+			// this function is called from canvas2D context
 			draw: function(args, board) {
 				var xr = board.getX(args.x),
 					yr = board.getY(args.y),
-					sr = board.stoneRadius;
+					sr = board.stoneRadius,
+					radgrad;
 
-				var whiteCount = board.whiteStoneGraphic.length;
-				var blackCount = board.blackStoneGraphic.length;
-
-				if(typeof this.randIndex === 'undefined') {
-					this.randIndex = Math.ceil(Math.random()*1e5);
-				}
-
-				var redraw = function() {
-					board.redraw();
-				};
-
-				// Check if image has been loaded properly
-				// see https://stereochro.me/ideas/detecting-broken-images-js
-				var isOkay = function(img) {
-					if (typeof img === 'string') { return false; }
-	 				if (!img.complete) { return false; }
-					if (typeof img.naturalWidth != "undefined" && img.naturalWidth == 0) {
-						return false;
-					}
-					return true;
-				};
-
+				// set stone texture
 				if(args.c == WGo.W) {
-					var idx = this.randIndex % whiteCount;
-					if(typeof board.whiteStoneGraphic[idx] === 'string')
-					{
-						// The image has not been loaded yet
-						var stoneGraphic = new Image();
-						// Redraw the whole board after the image has been loaded.
-						// This prevents 'missing stones' and similar graphical errors
-						// especially on slower internet connections.
-					  stoneGraphic.onload = redraw;
-						stoneGraphic.src = board.whiteStoneGraphic[idx];
-						board.whiteStoneGraphic[idx] = stoneGraphic;
-					}
-
-					if(isOkay(board.whiteStoneGraphic[idx])) {
-						this.drawImage(board.whiteStoneGraphic[idx], xr - sr, yr - sr, 2*sr, 2*sr);
-					}
-					else {
-						// Fall back to SHELL handler if there was a problem loading the image
-						Board.drawHandlers.SHELL.stone.draw.call(this, args, board);
-					}
+					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,sr/3,xr-sr/5,yr-sr/5,5*sr/5);
+					radgrad.addColorStop(0, '#fff');
+					radgrad.addColorStop(1, '#aaa');
 				}
-				else { // args.c == WGo.B
-					var idx = this.randIndex % blackCount;
-					if(typeof board.blackStoneGraphic[idx] === 'string')
-					{
-						var stoneGraphic = new Image();
-					  stoneGraphic.onload = redraw;
-						stoneGraphic.src = board.blackStoneGraphic[idx];
-						board.blackStoneGraphic[idx] = stoneGraphic;
-					}
-
-					if(isOkay(board.blackStoneGraphic[idx])) {
-						this.drawImage(board.blackStoneGraphic[idx], xr - sr, yr - sr, 2*sr, 2*sr);
-					}
-					else {
-						Board.drawHandlers.SHELL.stone.draw.call(this, args, board);
-					}
+				else {
+					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,1,xr-sr/5,yr-sr/5,4*sr/5);
+					radgrad.addColorStop(0, '#666');
+					radgrad.addColorStop(1, '#000');
 				}
+
+				// paint stone
+				this.beginPath();
+				this.fillStyle = radgrad;
+				this.arc(xr-board.ls, yr-board.ls, Math.max(0, sr-0.5), 0, 2*Math.PI, true);
+				this.fill();
 			}
 		},
-		shadow: shadow_handler_realistic,
+		// adding shadow handler
+		//shadow: shadow_handler,
 	},
 
 	GLOW: {
