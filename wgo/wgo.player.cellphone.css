@@ -465,7 +465,7 @@ button.wgo-button {
 	border: 1px solid rgba(200,200,200,0.3);
 	border-radius: 2px;
 	background-color: rgba(255,255,255,0.3);
-	width: 95px;
+	width: 88px;
 	height: 75px;
 	margin: 0 3px;
 	vertical-align: middle;
@@ -543,7 +543,14 @@ button.wgo-button.wgo-selected:hover {
 }
 
 /* move number widget */
-
+button.buttonjsl {
+	border: 1px solid rgba(200,200,200,0.3);
+	border-radius: 2px;
+	background-color: rgba(255,255,255,0.3);
+	width: 35px;
+	height: 75px;
+	vertical-align: middle;
+}
 
 /* button widget */
 
@@ -551,7 +558,7 @@ button.wgo-button2 {
 	border: 1px solid rgba(200,200,200,0.3);
 	border-radius: 2px;
 	background-color: rgba(255,255,255,0.3);
-	width: 40px;
+	width: 35px;
 	height: 75px;
 	vertical-align: middle;
 }
@@ -626,6 +633,11 @@ button.wgo-button2.wgo-selected:hover {
 	font-size: 25px;
 	font-weight: normal;
 	padding-top: 5px;
+}
+.wgo-button2-menu2::before  {
+	content: '目差';
+	font-size: 15px;
+	font-weight: normal;
 }
 .wgo-button2-about::before  {
 	content: '\e80f';

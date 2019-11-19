@@ -411,7 +411,7 @@ Control.menu = [{
  *	 args: Object,
  * }
 */
-
+var clickedMC=false;
 Control.widgets = [
 	{
 	constructor: control.Group,
@@ -424,7 +424,22 @@ Control.widgets = [
 				togglable: true,
 				click: player_menu,
 			}
-		}]
+		},
+			{
+				constructor: control.Button2,
+				args: {
+					name: "menu2",
+					togglable: true,
+					click: function(player) {
+						this.element.className="buttonjsl";
+						clickedMC=!clickedMC;
+						if(clickedMC)
+							this.element.innerText="PO";
+						else
+							this.element.innerText="目差";
+					},
+				}
+			}]
 	}
 },
 	{
