@@ -121,6 +121,7 @@ var update_board = function(e) {
 		bestMoveInfo.y=y;
 		bestMoveInfo.winrate=bestMove.winrate;
 		bestMoveInfo.playouts=bestMove.playouts;
+		bestMoveInfo.percentplayouts=bestMove.percentplayouts;
 		bestMoveInfo.type="BM";
 		this.board.addObject(bestMoveInfo);
 	}

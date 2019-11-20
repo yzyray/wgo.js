@@ -779,30 +779,58 @@ Board.drawHandlers = {
 				// this.beginPath();
 				// this.rect(Math.round(xr-sr/2)-board.ls, Math.round(yr-sr/2)-board.ls, sr, sr);
 				// this.stroke();
-				if(WGo.mainGame.turn==1) {
+				//if(WGo.mainGame.turn==1)
+				{
 					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,sr/3,xr-sr/5,yr-sr/5,5*sr/5);
-					radgrad.addColorStop(0, 'white');
+					if(args.percentplayouts>=2.0)
+					{
+						radgrad.addColorStop(0, 	"rgb(0,240,255)");
+					}
+					else
+					if(args.percentplayouts>=0.3)
+					{
+						radgrad.addColorStop(0, 	"rgba(0,240,0,"+Math.sqrt(args.percentplayouts)+")");
+					}
+					else
+					{
+						radgrad.addColorStop(0, 	"rgba(240,240,0,"+(Math.sqrt(args.percentplayouts)<0.25?0.25:Math.sqrt(args.percentplayouts))+")");
+					}
+					//radgrad.addColorStop(0, 	"rgb(0,255,0,"+args.percentplayouts+")");
 					this.beginPath();
 					this.fillStyle = radgrad;
 					this.arc(xr - board.ls, yr - board.ls, Math.max(0, sr - 0.5), 0, 2 * Math.PI, true);
 					this.fill();
+					//percentplayouts
 					this.fillStyle = "black";
 				}
-				else {
-					radgrad = this.createRadialGradient(xr - 2 * sr / 5, yr - 2 * sr / 5, 1, xr - sr / 5, yr - sr / 5, 4 * sr / 5);
-					radgrad.addColorStop(1, 'black');
-					this.beginPath();
-					this.fillStyle = radgrad;
-					this.arc(xr - board.ls, yr - board.ls, Math.max(0, sr - 0.5), 0, 2 * Math.PI, true);
-					this.fill();
-					this.fillStyle = "white";
-				}
+				// else {
+				// 	radgrad = this.createRadialGradient(xr - 2 * sr / 5, yr - 2 * sr / 5, 1, xr - sr / 5, yr - sr / 5, 4 * sr / 5);
+				// 	//radgrad.addColorStop(1, 'black');
+				// 	if(args.percentplayouts>=2.0)
+				// 	{
+				// 		radgrad.addColorStop(0, 	"rgb(0,240,255)");
+				// 	}
+				// 	else
+				// 	if(args.percentplayouts>=0.3)
+				// 	{
+				// 		radgrad.addColorStop(0, 	"rgb(0,240,0,"+Math.sqrt(args.percentplayouts)+")");
+				// 	}
+				// 	else
+				// 	{
+				// 		radgrad.addColorStop(0, 	"rgb(240,240,0,"+(Math.sqrt(args.percentplayouts)<0.25?0.25:Math.sqrt(args.percentplayouts))+")");
+				// 	}
+				// 	this.beginPath();
+				// 	this.fillStyle = radgrad;
+				// 	this.arc(xr - board.ls, yr - board.ls, Math.max(0, sr - 0.5), 0, 2 * Math.PI, true);
+				// 	this.fill();
+				// 	this.fillStyle = "white";
+				// }
 			//	if(args.winrate.length == 1) this.font = Math.round(sr*0.7)+"px "+font;
 			//	else if(args.winrate.length == 2) this.font = Math.round(sr*0.7)+"px "+font;
 			//	else if(args.winrate.length == 3) this.font = Math.round(sr*0.7)+"px "+font;
 				//else
 				var playouts=getPlayoutsString(args.playouts);
-					this.font = Math.round(sr*0.72)+"px "+font;
+					this.font = "bold "+Math.round(sr*0.73)+"px "+font;
 				this.fillText(args.winrate.toFixed(1), xr-0.68*sr, yr-0.15*sr, 1.35*sr);
 				if(args.playouts<10)
 				{

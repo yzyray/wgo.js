@@ -58,6 +58,9 @@ properties["C"] = function(kifu, node, value) {
 		node.comment = value.join();
 	else
 		node.comment +="\r\n"+value.join();
+	var comm=node.comment;
+	if(comm)
+	node.comment=comm.substring(0,comm.indexOf('\r\n'))+" "+comm.substring(comm.indexOf('\r\n')+2);
 }
 
 // LZ properties
@@ -84,7 +87,22 @@ properties["C"] = function(kifu, node, value) {
 			// else
 			// 	node.comment +="\r\n"+strs[1];
 			node.bestMoves= new Array(new Object());
-			for (var i=0;i<moveInfo.length ;i++ )
+			var maxplayouts=0;
+			for (var i=0;i<10&&i<moveInfo.length;i++ )
+			{
+				var data = moveInfo[i].trim().split(" ");
+				for (var j = 0; j < data.length; j++) {
+					var key = data[j];
+					if (key == ("visits")) {
+						var value = data[++j];
+						var playouts=parseInt(value);
+						if(playouts>maxplayouts)
+							maxplayouts=playouts;
+					}
+				}
+			}
+			var s=0;
+			for (var i=0;s<10&&i<moveInfo.length ;i++ )
 					{
 						var bestMove = new  Object();
 						//document.write(moveInfo[i]+"<br/>"+moveInfo.length+"<br/>"); //分割后的字符输出
@@ -104,6 +122,10 @@ properties["C"] = function(kifu, node, value) {
 							}
 							if (key=="visits") {
 								bestMove.playouts = parseInt(value);
+								if(node.bestMoves.length==1)
+									bestMove.percentplayouts =2.5;
+								else
+										bestMove.percentplayouts = parseInt(value).toFixed(1)/maxplayouts;
 							}
 							if (key=="winrate") {
 								// support 0.16 0.15
@@ -116,7 +138,10 @@ properties["C"] = function(kifu, node, value) {
 							}
 						}
 					}
-						node.bestMoves.push(bestMove);
+						if(bestMove.coordinate)
+						{node.bestMoves.push(bestMove);
+						s=s+1;
+						}
 					}
 		}
 	}
@@ -224,7 +249,8 @@ WGo.SGF.parse = function(str) {
 		var devicewidth = document.documentElement.clientWidth;
 		var deviceheight = document.documentElement.clientHeight;
 		var scale = devicewidth / 700;  // 分母——设计稿的尺寸
-		var scale2 = deviceheight / 1000;
+		//if(deviceheight>devicewidth)
+		var scale2 = deviceheight / 970;
 		document.body.style.zoom = Math.min(scale,scale2);
 		WGo.trueScale=Math.min(scale,scale2);
 		// var devicewidth = document.documentElement.clientWidth;

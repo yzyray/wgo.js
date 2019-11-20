@@ -160,11 +160,17 @@ CommentBox.prototype.getCommentText = function(comment,bestMoves, formatNicks, f
 		 //	var comm =  WGo.mianKifu.root.children[0].bestMoves[1].coordinate;
 		//  	return comm;
 		//  }
-		if(bestMoves)
-			for (var i=0;i<bestMoves.length ;i++ )
-			{if(bestMoves[i])
-				if(bestMoves[i].coordinate)
-					coms+="\n"+bestMoves[i].coordinate+"胜率:"+bestMoves[i].winrate+"计算量:"+bestMoves[i].playouts+"变化:"+bestMoves[i].variation.toString().replace(new RegExp(",","gm"), " ");}
+
+
+
+		// if(bestMoves)
+		// 	for (var i=0;i<bestMoves.length ;i++ )
+		// 	{if(bestMoves[i])
+		// 		if(bestMoves[i].coordinate)
+		// 			coms+="\n"+bestMoves[i].coordinate+"胜率:"+bestMoves[i].winrate+"计算量:"+bestMoves[i].playouts+"变化:"+bestMoves[i].variation.toString().replace(new RegExp(",","gm"), " ");}
+
+
+
 		var comm =  "<p>"+WGo.filterHTML(coms).replace(/\n/g, "</p><p>")+"</p>";
 		if(formatNicks) comm = comm.replace(/(<p>)([^:]{3,}:)\s/g, '<p><span class="wgo-comments-nick">$2</span> ');
 		if(formatMoves) comm = comm.replace(/\b[a-zA-Z]1?\d\b/g, '<a href="javascript:void(0)" class="wgo-move-link">$&</a>');

@@ -289,7 +289,7 @@ background: linear-gradient(135deg,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 
 .wgo-comments-wrapper {
 	overflow: auto;
 	margin: 0 0 0 0;
-	height: 70%;
+	height: 100%;
 	position: relative;
 	box-sizing: border-box;
 }
@@ -299,6 +299,7 @@ background: linear-gradient(135deg,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 
 	border: 1px solid rgba(200,200,200,0.3);
 	background-color: rgba(255,255,255,0.3);
 	border-radius: 2px;
+	height: 50%;
 	overflow-y: auto;
 }
 
