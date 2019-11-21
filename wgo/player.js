@@ -103,6 +103,9 @@ WGo.curNode=e.node;
 	this.board.addObject(add);
 
 	//add bestmoves
+		if(_last_mark) {
+			this.board.removeAllObjectsVR();
+		}
 	this.board.removeAllObjectsBM();
 	if(e.node.bestMoves)
 		for(var i=0;i<e.node.bestMoves.length;i++)
@@ -268,7 +271,7 @@ var _lastX,_lastY,_last_mark;
 		_lastY = y;
 
 		if(_last_mark) {
-			this.board.removeAllObjectsVR(_last_mark);
+			this.board.removeAllObjectsVR();
 		}
 
 		if(x != -1 && y != -1 && WGo.mainGame.isValid(x,y)) {
