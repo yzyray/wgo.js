@@ -179,6 +179,52 @@
 
 		}.bind(this));
 
+
+
+		function bodyScale() {
+			var devicewidth = document.documentElement.clientWidth;
+			var deviceheight = document.documentElement.clientHeight;
+
+			// var scale = devicewidth / 600;  // 分母——设计稿的尺寸
+			// var scale2 = deviceheight / 895;
+			var w=screen.width;
+			var h=screen.height;
+			if(h>w)
+				WGo.isWideMode=false;
+			else{
+				WGo.isWideMode=true;
+				if(deviceheight>devicewidth)
+					WGo.isWideMode=false;
+			}
+			if(isPC)
+			{
+				var o = document.getElementById("main");
+				if(WGo.isWideMode)
+					o.style.height=(100)+"%"
+					else
+				o.style.height=(100)+"%"+"-25px";
+				o.style.width=(100)+"%";
+				WGo.trueScale=1;
+				//WGo.trueScale=Math.min(scale,scale2);
+				//document.body.style.zoom = Math.min(scale,scale2);
+				//WGo.BasicPlayer.prototype.updateDimensions();
+			}
+			// else{document.body.style.zoom = Math.min(scale,scale2);
+			// 	WGo.trueScale=Math.min(scale,scale2);}
+			//document.body.style.zoom = Math.min(scale,scale2);
+
+
+
+		}
+
+		//window.onload = window.onresize = function () {
+		bodyScale();
+		//};
+
+
+
+
+
 		this.updateDimensions();
 
 		this.initGame();

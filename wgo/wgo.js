@@ -32,6 +32,7 @@ var trueScale;
 	var curNode;
 	var curBoard;
 	var isWideMode;
+	var isPC;
 /**
  * Main namespace - it initializes WGo in first run and then execute main function.
  * You must call WGo.init() if you want to use library, without calling WGo.
@@ -254,6 +255,8 @@ var theme_variable = function(key, board) {
 var shadow_handler = {
 	draw:
 		function(args, board) {
+		if(!WGo.isPC||!args.c)
+		{return;}
 		var xr = board.getX(args.x),
 			yr = board.getY(args.y),
 			sr = board.stoneRadius;
@@ -273,6 +276,8 @@ var shadow_handler = {
 		this.fill();
 	},
 	clear: function(args, board) {
+		if(!WGo.isPC)
+		{return;}
 		var xr = board.getX(args.x),
 			yr = board.getY(args.y),
 			sr = board.stoneRadius;
@@ -521,11 +526,13 @@ Board.drawHandlers = {
 				if(args.c == WGo.W) {
 					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,sr/3,xr-sr/5,yr-sr/5,5*sr/5);
 					radgrad.addColorStop(0, '#fff');
-				//	radgrad.addColorStop(1, '#aaa');
+					if(WGo.isPC)
+					radgrad.addColorStop(1, '#aaa');
 				}
 				else {
 					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,1,xr-sr/5,yr-sr/5,4*sr/5);
-					//radgrad.addColorStop(0, '#666');
+					if(WGo.isPC)
+					radgrad.addColorStop(0, '#666');
 					radgrad.addColorStop(1, '#000');
 				}
 
@@ -537,7 +544,8 @@ Board.drawHandlers = {
 			}
 		},
 		// adding shadow handler
-		//shadow: shadow_handler,
+
+		shadow: shadow_handler,
 	},
 
 	GLOW: {
@@ -789,10 +797,10 @@ Board.drawHandlers = {
 					if(args.c)
 					{if(args.c==WGo.B)
 					{
-						radgrad.addColorStop(0, "rgba(0,0,0,0.7)");
+						radgrad.addColorStop(0, "rgb(0,0,0)");
 						isblack = true;
 					} else {
-						radgrad.addColorStop(0, "rgba(255,255,255,0.7)");
+						radgrad.addColorStop(0, "rgb(255,255,255)");
 						isblack = false;
 					}
 					}
@@ -808,7 +816,7 @@ Board.drawHandlers = {
 					}
 					else
 					{
-						radgrad.addColorStop(0, 	"rgba(240,240,0,"+(Math.sqrt(args.percentplayouts)<0.25?0.25:Math.sqrt(args.percentplayouts))+")");
+						radgrad.addColorStop(0, 	"rgba(255,80,0,"+(Math.sqrt(args.percentplayouts)<0.2?0.2:Math.sqrt(args.percentplayouts))+")");
 					}
 					}
 					//radgrad.addColorStop(0, 	"rgb(0,255,0,"+args.percentplayouts+")");
@@ -864,7 +872,8 @@ Board.drawHandlers = {
 				// this.fillText(playouts, xr-0.65*sr, yr+0.63*sr, 1.35*sr);
 				// }
 			}
-		}
+		},
+		shadow: shadow_handler,
 	},
 
 	TR: {
@@ -882,6 +891,31 @@ Board.drawHandlers = {
 				this.lineTo(Math.round(xr+sr/2)+board.ls, Math.round(yr+sr/3)+board.ls);
 				this.closePath();
 				this.stroke();
+			}
+		}
+	},
+
+	MS: {
+		stone: {
+			draw: function(args, board) {
+				var xr = board.getX(args.x),
+					yr = board.getY(args.y),
+					sr = board.stoneRadius,
+					radgrad;
+
+				// set stone texture
+
+
+					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,1,xr-sr/5,yr-sr/5,4*sr/5);
+				radgrad.addColorStop(0, "rgba(0,0,0,0.3)");
+
+
+				// paint stone
+				this.beginPath();
+				this.fillStyle = radgrad;
+				this.arc(xr-board.ls, yr-board.ls, Math.max(0, sr-0.5), 0, 2*Math.PI, true);
+				this.lineWidth   = 2;
+				this.fill();
 			}
 		}
 	},
@@ -970,10 +1004,10 @@ Board.drawHandlers = {
 					var isblack;
 					if(args.c == WGo.W) {
 						if (args.num % 2 == 0) {
-							radgrad.addColorStop(0, "rgba(0,0,0,0.7)");
+							radgrad.addColorStop(0, "rgb(0,0,0)");
 							isblack = true;
 						} else {
-							radgrad.addColorStop(0, "rgba(255,255,255,0.7)");
+							radgrad.addColorStop(0, "rgb(255,255,255)");
 							isblack = false;
 						}
 					}
@@ -982,11 +1016,11 @@ Board.drawHandlers = {
 						if(args.num%2==0)
 						{
 							isblack=false;
-							radgrad.addColorStop(0, 	"rgba(255,255,255,0.7)");
+							radgrad.addColorStop(0, 	"rgb(255,255,255)");
 						}
 						else{
 						isblack=true;
-							radgrad.addColorStop(0, 	"rgba(0,0,0,0.7)");
+							radgrad.addColorStop(0, 	"rgb(0,0,0)");
 					}
 					}
 					this.beginPath();
@@ -1015,7 +1049,9 @@ Board.drawHandlers = {
 				// 	this.fillText(playouts, xr-0.65*sr, yr+0.63*sr, 1.35*sr);
 				// }
 			}
-		}
+
+		},
+		shadow: shadow_handler,
 	},
 	//
 	// variation: {

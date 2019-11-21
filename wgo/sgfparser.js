@@ -281,25 +281,32 @@ WGo.SGF.parse = function(str) {
 		var devicewidth = document.documentElement.clientWidth;
 		var deviceheight = document.documentElement.clientHeight;
 		var scale = devicewidth / 600;  // 分母——设计稿的尺寸
+		//if(deviceheight>devicewidth)
 		var scale2 = deviceheight / 895;
-		var w=screen.width;
-		var h=screen.height;
-
-		document.body.style.zoom = Math.min(scale,scale2);
-		if(h>w)
-		WGo.isWideMode=false;
-		else{
-		WGo.isWideMode=true;
-			if(deviceheight>devicewidth)
-				WGo.isWideMode=false;
-		}
-		WGo.trueScale=Math.min(scale,scale2);
-
+		document.body.style.zoom = Math.min(scale, scale2);
+		WGo.trueScale = Math.min(scale, scale2);
 	}
 
-	//window.onload = window.onresize = function () {
-		bodyScale();
-	//};
+
+		function IsPC() {
+		var userAgentInfo = navigator.userAgent;
+		var Agents = ["Android", "iPhone",
+			"SymbianOS", "Windows Phone",
+			"iPad", "iPod"];
+		var flag = true;
+		for (var v = 0; v < Agents.length; v++) {
+			if (userAgentInfo.indexOf(Agents[v]) > 0) {
+				flag = false;
+				break;
+			}
+		}
+		return flag;
+	}
+	var isPC = IsPC();
+if(!isPC)
+	bodyScale();
+
+
 	return kifu;		
 }
 })(WGo);

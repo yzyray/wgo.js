@@ -41,7 +41,7 @@ var mark = function(move) {
 	if(move.length > 2) y = y*10+(move.charCodeAt(2)-'0'.charCodeAt(0));
 	y = this.kifuReader.game.size-y;
 
-	this._tmp_mark = {type:'MA', x:x, y:y};
+	this._tmp_mark = {type:'MS', x:x, y:y};
 	this.board.addObject(this._tmp_mark);
 }
 
