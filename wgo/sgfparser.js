@@ -282,15 +282,17 @@ WGo.SGF.parse = function(str) {
 		var deviceheight = document.documentElement.clientHeight;
 		var scale = devicewidth / 600;  // 分母——设计稿的尺寸
 		var scale2 = deviceheight / 895;
-		var o = document.getElementById("main");
-		var h = o.offsetHeight; //高度
-		var w = o.offsetWidth; //宽度
+		var w=screen.width;
+		var h=screen.height;
 
 		document.body.style.zoom = Math.min(scale,scale2);
 		if(h>w)
-			WGo.isWideMode=false;
-		else
-			WGo.isWideMode=true;
+		WGo.isWideMode=false;
+		else{
+		WGo.isWideMode=true;
+			if(deviceheight>devicewidth)
+				WGo.isWideMode=false;
+		}
 		WGo.trueScale=Math.min(scale,scale2);
 
 	}
