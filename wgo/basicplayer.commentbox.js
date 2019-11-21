@@ -142,6 +142,23 @@ CommentBox.prototype.setComments = function(e) {
 	}
 };
 
+	var getPlayoutsString =function(arg) {
+		if (arg >= 1000000) {
+			//	var playoutsDouble =  // 1234567 -> 12.34567
+			return (arg / 100000 / 10.0).toFixed(1) + "m";
+		}
+		// else if (arg >= 10000) {
+		// 	// playoutsDouble = ; // 13265 -> 13.265
+		// 	return arg / 1000.0.toFixed(1) + "k";
+		// }
+		else if (arg >= 1000) {
+			// playoutsDouble = ; // 1265 -> 12.65
+			return (arg / 1000.0).toFixed(1) + "k";
+		} else {
+			return arg;
+		}
+	}
+
 CommentBox.prototype.getCommentText = function(comment,bestMoves, formatNicks, formatMoves) {
 	// to avoid XSS we must transform < and > to entities, it is highly recomanded not to change it
 	//.replace(/</g,"&lt;").replace(/>/g,"&gt;") : "";
@@ -163,11 +180,15 @@ CommentBox.prototype.getCommentText = function(comment,bestMoves, formatNicks, f
 
 
 
-		// if(bestMoves)
-		// 	for (var i=0;i<bestMoves.length ;i++ )
-		// 	{if(bestMoves[i])
-		// 		if(bestMoves[i].coordinate)
-		// 			coms+="\n"+bestMoves[i].coordinate+"胜率:"+bestMoves[i].winrate+"计算量:"+bestMoves[i].playouts+"变化:"+bestMoves[i].variation.toString().replace(new RegExp(",","gm"), " ");}
+		if(bestMoves)
+			for (var i=0;i<bestMoves.length ;i++ ) {
+				if (bestMoves[i])
+					if (bestMoves[i].coordinate) {
+						var playouts=getPlayoutsString(bestMoves[i].playouts);
+						var percent="比例"+(bestMoves[i].percentplayouts2 * 100).toFixed(1)+"%";
+						coms += "\n" + "选点" + i + ":" + bestMoves[i].coordinate + "胜率:" + bestMoves[i].winrate + "计算量:" +playouts+" "+ percent;
+					}
+			}	//bestMoves[i].variation.toString().replace(new RegExp(",","gm"), " ")
 
 
 

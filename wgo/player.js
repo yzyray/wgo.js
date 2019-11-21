@@ -49,7 +49,8 @@ var loadFromUrl = WGo.loadFromUrl = function(url, callback) {
 }
 
 // basic updating function - handles board changes
-var update_board = function(e) {
+
+	var update_board = function(e) {
 	// update board's position
 	if(e.change) this.board.update(e.change);
 
@@ -60,7 +61,7 @@ var update_board = function(e) {
 	var add = [];
 
 	this.notification();
-
+WGo.curNode=e.node;
 	// add current move marker
 	if(e.node.move && this.config.markLastMove) {
 		if(e.node.move.pass) this.notification(WGo.t((e.node.move.c == WGo.B ? "b" : "w")+"pass"));
@@ -258,6 +259,106 @@ var Player = function(config) {
 	this.init();
 	this.initGame();
 }
+var _lastX,_lastY,_last_mark;
+
+	var mouse_move_bestmoves = function(x,y) {
+		if(_lastX == x && _lastY == y) return;
+//x=3;y=3;
+		_lastX = x;
+		_lastY = y;
+
+		if(_last_mark) {
+			this.board.removeAllObjectsVR(_last_mark);
+		}
+
+		if(x != -1 && y != -1 && WGo.mainGame.isValid(x,y)) {
+			var hasBestMoves=false;
+			var bestMoves=WGo.curNode.bestMoves;
+			var bestmove;
+			for(var i=0;i<bestMoves.length;i++)
+			{
+				 bestmove=bestMoves[i];
+				if (bestmove.x==x&&bestmove.y==y) {
+					hasBestMoves = true;
+					break;
+				}
+			}
+			if(hasBestMoves) {
+				this.board.removeAllObjectsBM();
+				_last_mark = true;
+				var variations=bestmove.variation;
+				for(var i=0;i<variations.length;i++)
+				{
+					var data = variations[i].split("_");
+
+					var mark = {
+						type: "variation",
+						x: data[0],
+						y: data[1],
+						c: WGo.mainGame.turn,
+						n: i+1
+					};
+					this.board.addObject(mark);
+				}
+			}
+			else {
+				if(_last_mark) {
+					var node=WGo.curNode;
+					if (node.bestMoves)
+						for (var i = 0; i < node.bestMoves.length; i++) {
+							var bestMove = node.bestMoves[i];
+							if (bestMove.coordinate) {
+								var coords = bestMove.coordinate;
+								var x = coords.charCodeAt(0) - 'a'.charCodeAt(0);
+								if (x < 0) x += 'a'.charCodeAt(0) - 'A'.charCodeAt(0);
+								if (x > 7) x--;
+								var y = (coords.charCodeAt(1) - '0'.charCodeAt(0));
+								if (coords.length > 2) y = y * 10 + (coords.charCodeAt(2) - '0'.charCodeAt(0));
+								y = this.kifuReader.game.size - y;
+								var bestMoveInfo = new Object();
+								bestMoveInfo.x = x;
+								bestMoveInfo.y = y;
+								bestMoveInfo.winrate = bestMove.winrate;
+								bestMoveInfo.playouts = bestMove.playouts;
+								bestMoveInfo.percentplayouts = bestMove.percentplayouts;
+								bestMoveInfo.type = "BM";
+								this.board.addObject(bestMoveInfo);
+							}
+						}
+					this.board.redraw();
+					_last_mark = false;
+				}
+			}
+		}
+		else {
+			if(_last_mark) {
+				var node=WGo.curNode;
+				if (node.bestMoves)
+					for (var i = 0; i < node.bestMoves.length; i++) {
+						var bestMove = node.bestMoves[i];
+						if (bestMove.coordinate) {
+							var coords = bestMove.coordinate;
+							var x = coords.charCodeAt(0) - 'a'.charCodeAt(0);
+							if (x < 0) x += 'a'.charCodeAt(0) - 'A'.charCodeAt(0);
+							if (x > 7) x--;
+							var y = (coords.charCodeAt(1) - '0'.charCodeAt(0));
+							if (coords.length > 2) y = y * 10 + (coords.charCodeAt(2) - '0'.charCodeAt(0));
+							y = this.kifuReader.game.size - y;
+							var bestMoveInfo = new Object();
+							bestMoveInfo.x = x;
+							bestMoveInfo.y = y;
+							bestMoveInfo.winrate = bestMove.winrate;
+							bestMoveInfo.playouts = bestMove.playouts;
+							bestMoveInfo.percentplayouts = bestMove.percentplayouts;
+							bestMoveInfo.type = "BM";
+							this.board.addObject(bestMoveInfo);
+						}
+					}
+				this.board.redraw();
+				_last_mark = false;
+			}
+		}
+	}
 
 Player.prototype = {
 	constructor: Player,
@@ -286,7 +387,18 @@ Player.prototype = {
 		if(this.config.frozen) this.addEventListener("frozen", this.config.frozen);
 		if(this.config.unfrozen) this.addEventListener("unfrozen", this.config.unfrozen);
 
-		this.board.addEventListener("click", board_click_default.bind(this));
+	//	this.board.addEventListener("click", board_click_default.bind(this));
+
+
+
+
+	//	var	setLis = function() {
+			//this._ev_move = this._ev_move || edit_board_mouse_move.bind(this);
+			this.board.addEventListener("mousemove",mouse_move_bestmoves.bind(this));
+			WGo.curBoard=this.board;
+		//};
+
+
 		this.element.addEventListener("click", this.focus.bind(this));
 
 		this.focus();

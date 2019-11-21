@@ -128,6 +128,8 @@ if(WGo.BasicPlayer && WGo.BasicPlayer.component.Control) {
 			click: function(player) { 
 				this._editable = this._editable || new WGo.Player.Editable(player, player.board);
 				this._editable.set(!this._editable.editMode);
+				if(!this._editable.editMode)
+					WGo.curBoard.removeAllObjectsOutLine();
 				return this._editable.editMode;
 			},
 			init: function(player) {
@@ -136,6 +138,7 @@ if(WGo.BasicPlayer && WGo.BasicPlayer.component.Control) {
 					_this._disabled = _this.disabled;
 					if(!_this.disabled) _this.disable();
 				});
+
 				player.addEventListener("unfrozen", function(e) {
 					if(!_this._disabled) _this.enable();
 					delete _this._disabled;

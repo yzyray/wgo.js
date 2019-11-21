@@ -328,7 +328,6 @@ control.MoveNumber.prototype.getValue = function() {
 
 // display menu
 var player_menu = function(player) {
-
 	if(player._menu_tmp) {
 		delete player._menu_tmp;
 		return;

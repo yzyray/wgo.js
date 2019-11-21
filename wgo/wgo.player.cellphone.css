@@ -466,7 +466,7 @@ button.wgo-button {
 	border: 1px solid rgba(200,200,200,0.3);
 	border-radius: 2px;
 	background-color: rgba(255,255,255,0.3);
-	width: 88px;
+	width: 75px;
 	height: 75px;
 	margin: 0 3px;
 	vertical-align: middle;
@@ -557,9 +557,9 @@ button.buttonjsl {
 
 button.wgo-button2 {
 	border: 1px solid rgba(200,200,200,0.3);
-	border-radius: 2px;
+	border-radius: 1px;
 	background-color: rgba(255,255,255,0.3);
-	width: 35px;
+	width: 31px;
 	height: 75px;
 	vertical-align: middle;
 }

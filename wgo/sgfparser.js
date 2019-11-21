@@ -3,7 +3,7 @@
 
 WGo.SGF = {};
 
-
+var size=19;
 var to_num = function(str, i) {
 	return str.charCodeAt(i)-97;
 }
@@ -60,7 +60,8 @@ properties["C"] = function(kifu, node, value) {
 		node.comment +="\r\n"+value.join();
 	var comm=node.comment;
 	if(comm)
-	node.comment=comm.substring(0,comm.indexOf('\r\n'))+" "+comm.substring(comm.indexOf('\r\n')+2);
+	node.comment=comm.replace('\n', ' ');
+	//substring(0,comm.indexOf('\r\n'))+" "+comm.substring(comm.indexOf('\r\n'));
 }
 
 // LZ properties
@@ -86,7 +87,7 @@ properties["C"] = function(kifu, node, value) {
 			// 	node.comment =strs[1];
 			// else
 			// 	node.comment +="\r\n"+strs[1];
-			node.bestMoves= new Array(new Object());
+			node.bestMoves= new Array();
 			var maxplayouts=0;
 			for (var i=0;i<10&&i<moveInfo.length;i++ )
 			{
@@ -101,31 +102,59 @@ properties["C"] = function(kifu, node, value) {
 					}
 				}
 			}
-			var s=0;
-			for (var i=0;s<10&&i<moveInfo.length ;i++ )
+
+			//var s=0;
+			for (var i=0;i<10&&i<moveInfo.length ;i++ )
 					{
 						var bestMove = new  Object();
 						//document.write(moveInfo[i]+"<br/>"+moveInfo.length+"<br/>"); //分割后的字符输出
 
 						var data = moveInfo[i].trim().split(" ");
-						// Todo: Proper tag parsing in case gtp protocol is extended(?)/changed
+						if(data.length>2)
+						{
 						for (var j = 0; j < data.length; j++) {
 						var key = data[j];
 						if (key==("pv")) {
 							// Read variation to the end of line
-							bestMove.variation = data.slice(j + 1, data.length);
+							//bestMove.variation = data.slice(j + 1, data.length);
+							var list =data.slice(j + 1, data.length);
+							for (var n=0;n<list.length;n++)
+							{
+								var coords=list[n];
+								var x = coords.charCodeAt(0)-'a'.charCodeAt(0);
+								if(x < 0) x += 'a'.charCodeAt(0)-'A'.charCodeAt(0);
+								if(x > 7) x--;
+								var y = (coords.charCodeAt(1)-'0'.charCodeAt(0));
+								if(coords.length > 2) y = y*10+(coords.charCodeAt(2)-'0'.charCodeAt(0));
+								y = size-y;
+								list[n]=x+"_"+y;
+							}
+							bestMove.variation =list;
 							break;
 						} else {
 							var value = data[++j];
 							if (key=="move") {
 								bestMove.coordinate = value.toString();
+								var coords=value.toString();
+								var x = coords.charCodeAt(0)-'a'.charCodeAt(0);
+								if(x < 0) x += 'a'.charCodeAt(0)-'A'.charCodeAt(0);
+								if(x > 7) x--;
+								var y = (coords.charCodeAt(1)-'0'.charCodeAt(0));
+								if(coords.length > 2) y = y*10+(coords.charCodeAt(2)-'0'.charCodeAt(0));
+								y = size-y;
+								bestMove.x=x;
+								bestMove.y=y;
 							}
 							if (key=="visits") {
 								bestMove.playouts = parseInt(value);
 								if(node.bestMoves.length==1)
-									bestMove.percentplayouts =2.5;
+								{bestMove.percentplayouts =2.5;
+									bestMove.percentplayouts2 = parseInt(value).toFixed(1)/maxplayouts;
+								}
 								else
-										bestMove.percentplayouts = parseInt(value).toFixed(1)/maxplayouts;
+								{	bestMove.percentplayouts = parseInt(value).toFixed(1)/maxplayouts;
+									bestMove.percentplayouts2=bestMove.percentplayouts;
+								}
 							}
 							if (key=="winrate") {
 								// support 0.16 0.15
@@ -139,8 +168,10 @@ properties["C"] = function(kifu, node, value) {
 						}
 					}
 						if(bestMove.coordinate)
-						{node.bestMoves.push(bestMove);
-						s=s+1;
+						{
+							node.bestMoves.push(bestMove);
+					//	s=s+1;
+						}
 						}
 					}
 		}
@@ -170,6 +201,7 @@ properties["CR"] = properties["SQ"] = properties["TR"] = properties["SL"] = prop
 // Root properties
 properties["SZ"] = function(kifu, node, value) {
 	kifu.size = parseInt(value[0]);
+	size=kifu.size;
 }
 	
 // Game info properties
@@ -248,20 +280,14 @@ WGo.SGF.parse = function(str) {
 	function bodyScale() {
 		var devicewidth = document.documentElement.clientWidth;
 		var deviceheight = document.documentElement.clientHeight;
-		var scale = devicewidth / 700;  // 分母——设计稿的尺寸
+		var scale = devicewidth / 600;  // 分母——设计稿的尺寸
 		//if(deviceheight>devicewidth)
-		var scale2 = deviceheight / 970;
+		var scale2 = deviceheight / 895;
 		document.body.style.zoom = Math.min(scale,scale2);
 		WGo.trueScale=Math.min(scale,scale2);
-		// var devicewidth = document.documentElement.clientWidth;
-		// var deviceheight = document.documentElement.clientHeight;
-		// if(deviceheight>devicewidth){
-		// 	WGo.isWide=false;
-		// }
-		// else{
-		// 	WGo.isWide=true;
-		// 	}
+
 	}
+
 	//window.onload = window.onresize = function () {
 		bodyScale();
 	//};

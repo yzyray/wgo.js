@@ -28,7 +28,9 @@ var path= scripts[scripts.length-1].src.split('?')[0];      // remove any ?query
 var mydir= path.split('/').slice(0, -1).join('/')+'/';
 //var isWide;
 var trueScale;
-
+	var mainGame;
+	var curNode;
+	var curBoard;
 /**
  * Main namespace - it initializes WGo in first run and then execute main function.
  * You must call WGo.init() if you want to use library, without calling WGo.
@@ -830,18 +832,18 @@ Board.drawHandlers = {
 			//	else if(args.winrate.length == 3) this.font = Math.round(sr*0.7)+"px "+font;
 				//else
 				var playouts=getPlayoutsString(args.playouts);
-					this.font = "bold "+Math.round(sr*0.73)+"px "+font;
-				this.fillText(args.winrate.toFixed(1), xr-0.68*sr, yr-0.15*sr, 1.35*sr);
+					this.font = "bold "+Math.round(sr*0.75)+"px "+font;
+				this.fillText(args.winrate.toFixed(1), xr-0.71*sr, yr-0.18*sr, 1.4*sr);
 				if(args.playouts<10)
 				{
-					this.fillText(playouts, xr-0.25*sr, yr+0.55*sr, 1.35*sr);
+					this.fillText(playouts, xr-0.3*sr, yr+0.63*sr, 1.35*sr);
 				}
 				else if(args.playouts<100)
-				{this.fillText(playouts, xr-0.5*sr, yr+0.55*sr, 1.35*sr);}
+				{this.fillText(playouts, xr-0.6*sr, yr+0.63*sr, 1.35*sr);}
 				else if(args.playouts<1000)
-				{this.fillText(playouts, xr-0.65*sr, yr+0.55*sr, 1.35*sr);}
+				{this.fillText(playouts, xr-0.7*sr, yr+0.63*sr, 1.35*sr);}
 				else{
-				this.fillText(playouts, xr-0.6*sr, yr+0.55*sr, 1.35*sr);
+				this.fillText(playouts, xr-0.65*sr, yr+0.63*sr, 1.35*sr);
 				}
 			}
 		}
@@ -926,6 +928,18 @@ Board.drawHandlers = {
 	},
 
 	outline: {
+		stone: {
+			draw: function(args, board) {
+				if(args.alpha) this.globalAlpha = args.alpha;
+				else this.globalAlpha = 0.3;
+				if(args.stoneStyle) Board.drawHandlers[args.stoneStyle].stone.draw.call(this, args, board);
+				else board.stoneHandler.stone.draw.call(this, args, board);
+				this.globalAlpha = 1;
+			}
+		}
+	},
+
+	variation: {
 		stone: {
 			draw: function(args, board) {
 				if(args.alpha) this.globalAlpha = args.alpha;
@@ -1347,6 +1361,7 @@ Board.prototype = {
 	 * @param {number} height
 	 */
 
+
 	setDimensions: function(width, height) {
 		this.width = width || parseInt(this.element.style.width, 10);
 		this.width *= this.pixelRatio;
@@ -1580,17 +1595,56 @@ Board.prototype = {
 			{
 						var layers = this.obj_arr[i][j];
 						for(var z = 0; z < layers.length; z++) {
-							if (this.obj_arr[i][j][z].type == "BM")
-								this.obj_arr[i][j].splice(z, 1);
+							if (this.obj_arr[i][j][z].type == "BM") {
+								this.removeObject(this.obj_arr[i][j][z]);
+								//this.removeLayer(this.obj_arr[i][j][z]);
+							//	this.obj_arr[i][j].splice(z, 1);
+								//clearField.call(this, i,j);
+							}
 						}
 			}
 		}
-		this.redraw();
+		//this.redraw();
+	},
+
+	removeAllObjectsVR: function() {
+		for(var i = 0; i < this.size; i++) {
+			for(var j = 0; j < this.size; j++)
+			{
+				var layers = this.obj_arr[i][j];
+				for(var z = 0; z < layers.length; z++) {
+					if (this.obj_arr[i][j][z].type == "variation") {
+						this.removeObject(this.obj_arr[i][j][z]);
+						//this.removeLayer(this.obj_arr[i][j][z]);
+						//	this.obj_arr[i][j].splice(z, 1);
+						//clearField.call(this, i,j);
+					}
+				}
+			}
+		}
+		//this.redraw();
+	},
+
+	removeAllObjectsOutLine: function() {
+		for(var i = 0; i < this.size; i++) {
+			for(var j = 0; j < this.size; j++)
+			{
+				var layers = this.obj_arr[i][j];
+				for(var z = 0; z < layers.length; z++) {
+					if (this.obj_arr[i][j][z].type == "outline") {
+						this.removeObject(this.obj_arr[i][j][z]);
+						//this.removeLayer(this.obj_arr[i][j][z]);
+						//	this.obj_arr[i][j].splice(z, 1);
+						//clearField.call(this, i,j);
+					}
+				}
+			}
+		}
+		//this.redraw();
 	},
 
 	removeObjectsAt: function(x, y) {
 		if(!this.obj_arr[x][y].length) return;
-
 		clearField.call(this, x, y);
 		this.obj_arr[x][y] = [];
 	},
@@ -1854,7 +1908,6 @@ WGo.Position = Position;
  * @param {boolean} allowRewrite (optional, default is false) - allow to play moves, which were already played:
  * @param {boolean} allowSuicide (optional, default is false) - allow to play suicides, stones are immediately captured
  */
-var mainGame;
 	var Game = function(size, checkRepeat, allowRewrite, allowSuicide) {
 	this.size = size || 19;
 	this.repeating = checkRepeat === undefined ? "KO" : checkRepeat; // possible values: KO, ALL or nothing
