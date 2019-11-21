@@ -147,7 +147,7 @@ properties["C"] = function(kifu, node, value) {
 							}
 							if (key=="visits") {
 								bestMove.playouts = parseInt(value);
-								if(node.bestMoves.length==1)
+								if(node.bestMoves.length==0)
 								{bestMove.percentplayouts =2.5;
 									bestMove.percentplayouts2 = parseInt(value).toFixed(1)/maxplayouts;
 								}
@@ -281,9 +281,16 @@ WGo.SGF.parse = function(str) {
 		var devicewidth = document.documentElement.clientWidth;
 		var deviceheight = document.documentElement.clientHeight;
 		var scale = devicewidth / 600;  // 分母——设计稿的尺寸
-		//if(deviceheight>devicewidth)
 		var scale2 = deviceheight / 895;
+		var o = document.getElementById("main");
+		var h = o.offsetHeight; //高度
+		var w = o.offsetWidth; //宽度
+
 		document.body.style.zoom = Math.min(scale,scale2);
+		if(h>w)
+			WGo.isWideMode=false;
+		else
+			WGo.isWideMode=true;
 		WGo.trueScale=Math.min(scale,scale2);
 
 	}

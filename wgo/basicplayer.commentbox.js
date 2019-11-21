@@ -166,37 +166,31 @@ CommentBox.prototype.getCommentText = function(comment,bestMoves, formatNicks, f
 	// 	if(bestMoves[1])
 	// 		if(bestMoves[1].coordinate)
 	// return bestMoves[1].variation;
-	var coms=comment;
+	var moveComment="";
+	var finalcomment="";
+	if(bestMoves)
+		for (var i=0;i<bestMoves.length ;i++ ) {
+			if (bestMoves[i])
+				if (bestMoves[i].coordinate) {
+					var playouts=getPlayoutsString(bestMoves[i].playouts);
+					var percent="比例"+(bestMoves[i].percentplayouts2 * 100).toFixed(1)+"%";
+					moveComment += "\n" + "选点" + (i+1) + ":" + bestMoves[i].coordinate + "胜率:" + bestMoves[i].winrate + "计算量:" +playouts+" "+ percent;
+				}
+		}
 
+if(WGo.isWideMode)
+{
+	finalcomment=comment+moveComment;
+}
+else
+{
+	finalcomment=moveComment;
+}
 
-	if(comment) {
-		//var kifu=WGo.Kifu;
-		//  if(WGo.mianKifu.root.children[0].bestMoves[1].coordinate)
-		// {
-		// // 	//this.kifu.root.children[0].bestMoves)
-		 //	var comm =  WGo.mianKifu.root.children[0].bestMoves[1].coordinate;
-		//  	return comm;
-		//  }
-
-
-
-		if(bestMoves)
-			for (var i=0;i<bestMoves.length ;i++ ) {
-				if (bestMoves[i])
-					if (bestMoves[i].coordinate) {
-						var playouts=getPlayoutsString(bestMoves[i].playouts);
-						var percent="比例"+(bestMoves[i].percentplayouts2 * 100).toFixed(1)+"%";
-						coms += "\n" + "选点" + i + ":" + bestMoves[i].coordinate + "胜率:" + bestMoves[i].winrate + "计算量:" +playouts+" "+ percent;
-					}
-			}	//bestMoves[i].variation.toString().replace(new RegExp(",","gm"), " ")
-
-
-
-		var comm =  "<p>"+WGo.filterHTML(coms).replace(/\n/g, "</p><p>")+"</p>";
+	if(finalcomment.length>0) {
+		var comm =  "<p>"+WGo.filterHTML(finalcomment).replace(/\n/g, "</p><p>")+"</p>";
 		if(formatNicks) comm = comm.replace(/(<p>)([^:]{3,}:)\s/g, '<p><span class="wgo-comments-nick">$2</span> ');
 		if(formatMoves) comm = comm.replace(/\b[a-zA-Z]1?\d\b/g, '<a href="javascript:void(0)" class="wgo-move-link">$&</a>');
-
-
 		return comm;
 	}
 	return "";

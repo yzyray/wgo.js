@@ -31,6 +31,7 @@ var trueScale;
 	var mainGame;
 	var curNode;
 	var curBoard;
+	var isWideMode;
 /**
  * Main namespace - it initializes WGo in first run and then execute main function.
  * You must call WGo.init() if you want to use library, without calling WGo.
@@ -782,8 +783,20 @@ Board.drawHandlers = {
 				// this.rect(Math.round(xr-sr/2)-board.ls, Math.round(yr-sr/2)-board.ls, sr, sr);
 				// this.stroke();
 				//if(WGo.mainGame.turn==1)
+				var isblack;
 				{
 					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,sr/3,xr-sr/5,yr-sr/5,5*sr/5);
+					if(args.c)
+					{if(args.c==WGo.B)
+					{
+						radgrad.addColorStop(0, "rgba(0,0,0,0.7)");
+						isblack = true;
+					} else {
+						radgrad.addColorStop(0, "rgba(255,255,255,0.7)");
+						isblack = false;
+					}
+					}
+					else{
 					if(args.percentplayouts>=2.0)
 					{
 						radgrad.addColorStop(0, 	"rgb(0,240,255)");
@@ -797,12 +810,16 @@ Board.drawHandlers = {
 					{
 						radgrad.addColorStop(0, 	"rgba(240,240,0,"+(Math.sqrt(args.percentplayouts)<0.25?0.25:Math.sqrt(args.percentplayouts))+")");
 					}
+					}
 					//radgrad.addColorStop(0, 	"rgb(0,255,0,"+args.percentplayouts+")");
 					this.beginPath();
 					this.fillStyle = radgrad;
 					this.arc(xr - board.ls, yr - board.ls, Math.max(0, sr - 0.5), 0, 2 * Math.PI, true);
 					this.fill();
 					//percentplayouts
+					if(isblack)
+						this.fillStyle = "white";
+					else
 					this.fillStyle = "black";
 				}
 				// else {
@@ -834,17 +851,18 @@ Board.drawHandlers = {
 				var playouts=getPlayoutsString(args.playouts);
 					this.font = "bold "+Math.round(sr*0.75)+"px "+font;
 				this.fillText(args.winrate.toFixed(1), xr-0.71*sr, yr-0.18*sr, 1.4*sr);
-				if(args.playouts<10)
-				{
-					this.fillText(playouts, xr-0.3*sr, yr+0.63*sr, 1.35*sr);
-				}
-				else if(args.playouts<100)
-				{this.fillText(playouts, xr-0.6*sr, yr+0.63*sr, 1.35*sr);}
-				else if(args.playouts<1000)
-				{this.fillText(playouts, xr-0.7*sr, yr+0.63*sr, 1.35*sr);}
-				else{
-				this.fillText(playouts, xr-0.65*sr, yr+0.63*sr, 1.35*sr);
-				}
+				this.fillText(args.scoreMean.toFixed(1), xr-0.71*sr, yr+0.63*sr, 1.4*sr);
+				// if(args.playouts<10)
+				// {
+				// 	this.fillText(playouts, xr-0.3*sr, yr+0.63*sr, 1.35*sr);
+				// }
+				// else if(args.playouts<100)
+				// {this.fillText(playouts, xr-0.6*sr, yr+0.63*sr, 1.35*sr);}
+				// else if(args.playouts<1000)
+				// {this.fillText(playouts, xr-0.7*sr, yr+0.63*sr, 1.35*sr);}
+				// else{
+				// this.fillText(playouts, xr-0.65*sr, yr+0.63*sr, 1.35*sr);
+				// }
 			}
 		}
 	},
@@ -942,14 +960,76 @@ Board.drawHandlers = {
 	variation: {
 		stone: {
 			draw: function(args, board) {
-				if(args.alpha) this.globalAlpha = args.alpha;
-				else this.globalAlpha = 0.3;
-				if(args.stoneStyle) Board.drawHandlers[args.stoneStyle].stone.draw.call(this, args, board);
-				else board.stoneHandler.stone.draw.call(this, args, board);
-				this.globalAlpha = 1;
+				var xr = board.getX(args.x),
+					yr = board.getY(args.y),
+					sr = board.stoneRadius,
+					radgrad;
+				var font = "verdana"; //calibri is WGo's default
+				{
+					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,sr/3,xr-sr/5,yr-sr/5,5*sr/5);
+					var isblack;
+					if(args.c == WGo.W) {
+						if (args.num % 2 == 0) {
+							radgrad.addColorStop(0, "rgba(0,0,0,0.7)");
+							isblack = true;
+						} else {
+							radgrad.addColorStop(0, "rgba(255,255,255,0.7)");
+							isblack = false;
+						}
+					}
+					else
+					{
+						if(args.num%2==0)
+						{
+							isblack=false;
+							radgrad.addColorStop(0, 	"rgba(255,255,255,0.7)");
+						}
+						else{
+						isblack=true;
+							radgrad.addColorStop(0, 	"rgba(0,0,0,0.7)");
+					}
+					}
+					this.beginPath();
+					this.fillStyle = radgrad;
+					this.arc(xr - board.ls, yr - board.ls, Math.max(0, sr - 0.5), 0, 2 * Math.PI, true);
+					this.fill();
+					if(isblack)
+						this.fillStyle = "white";
+						else
+					this.fillStyle = "black";
+				}
+				this.font = Math.round(sr*1.3)+"px "+font;
+				if(args.num<10)
+				this.fillText(args.num, xr-0.45*sr, yr+0.45*sr, 1.4*sr);
+				else
+					this.fillText(args.num, xr-0.72*sr, yr+0.45*sr, 1.4*sr);
+				// if(args.playouts<10)
+				// {
+				// 	this.fillText(playouts, xr-0.3*sr, yr+0.63*sr, 1.35*sr);
+				// }
+				// else if(args.playouts<100)
+				// {this.fillText(playouts, xr-0.6*sr, yr+0.63*sr, 1.35*sr);}
+				// else if(args.playouts<1000)
+				// {this.fillText(playouts, xr-0.7*sr, yr+0.63*sr, 1.35*sr);}
+				// else{
+				// 	this.fillText(playouts, xr-0.65*sr, yr+0.63*sr, 1.35*sr);
+				// }
 			}
 		}
 	},
+	//
+	// variation: {
+	// 	stone: {
+	// 		draw: function(args, board) {
+	// 			// if(args.alpha) this.globalAlpha = args.alpha;
+	// 			// else this.globalAlpha = 0.3;
+	// 			// if(args.stoneStyle) Board.drawHandlers[args.stoneStyle].stone.draw.call(this, args, board);
+	// 			// else board.stoneHandler.stone.draw.call(this, args, board);
+	// 			// this.globalAlpha = 1;
+	//
+	// 		}
+	// 	}
+	// },
 
 	mini: {
 		stone: {
@@ -1589,6 +1669,7 @@ Board.prototype = {
 		}
 	},
 
+
 	removeAllObjectsBM: function() {
 		for(var i = 0; i < this.size; i++) {
 			for(var j = 0; j < this.size; j++)
@@ -1604,7 +1685,7 @@ Board.prototype = {
 						}
 			}
 		}
-		//this.redraw();
+		this.redraw();
 	},
 
 	removeAllObjectsVR: function() {

@@ -113,17 +113,11 @@ WGo.curNode=e.node;
 			var bestMove=e.node.bestMoves[i];
 	if(bestMove.coordinate)
 	{
-		var coords=bestMove.coordinate;
-		var x = coords.charCodeAt(0)-'a'.charCodeAt(0);
-		if(x < 0) x += 'a'.charCodeAt(0)-'A'.charCodeAt(0);
-		if(x > 7) x--;
-		var y = (coords.charCodeAt(1)-'0'.charCodeAt(0));
-		if(coords.length > 2) y = y*10+(coords.charCodeAt(2)-'0'.charCodeAt(0));
-		y = this.kifuReader.game.size-y;
 		var bestMoveInfo=new Object();
-		bestMoveInfo.x=x;
-		bestMoveInfo.y=y;
+		bestMoveInfo.x = bestMove.x;
+		bestMoveInfo.y = bestMove.y;
 		bestMoveInfo.winrate=bestMove.winrate;
+		bestMoveInfo.scoreMean=bestMove.scoreMean;
 		bestMoveInfo.playouts=bestMove.playouts;
 		bestMoveInfo.percentplayouts=bestMove.percentplayouts;
 		bestMoveInfo.type="BM";
@@ -287,10 +281,22 @@ var _lastX,_lastY,_last_mark;
 				}
 			}
 			if(hasBestMoves) {
-				this.board.removeAllObjectsBM();
+				 this.board.removeAllObjectsBM(bestmove.x,bestmove.y);
+				{
+					var bestMoveInfo = new Object();
+					bestMoveInfo.c=WGo.mainGame.turn;
+					bestMoveInfo.x = bestmove.x;
+					bestMoveInfo.y = bestmove.y;
+					bestMoveInfo.winrate = bestmove.winrate;
+					bestMoveInfo.scoreMean=bestmove.scoreMean;
+					bestMoveInfo.playouts = bestmove.playouts;
+					bestMoveInfo.percentplayouts = bestmove.percentplayouts;
+					bestMoveInfo.type = "BM";
+					this.board.addObject(bestMoveInfo);
+				}
 				_last_mark = true;
 				var variations=bestmove.variation;
-				for(var i=0;i<variations.length;i++)
+				for(var i=1;i<variations.length;i++)
 				{
 					var data = variations[i].split("_");
 
@@ -299,7 +305,7 @@ var _lastX,_lastY,_last_mark;
 						x: data[0],
 						y: data[1],
 						c: WGo.mainGame.turn,
-						n: i+1
+						num: i+1
 					};
 					this.board.addObject(mark);
 				}
@@ -311,16 +317,10 @@ var _lastX,_lastY,_last_mark;
 						for (var i = 0; i < node.bestMoves.length; i++) {
 							var bestMove = node.bestMoves[i];
 							if (bestMove.coordinate) {
-								var coords = bestMove.coordinate;
-								var x = coords.charCodeAt(0) - 'a'.charCodeAt(0);
-								if (x < 0) x += 'a'.charCodeAt(0) - 'A'.charCodeAt(0);
-								if (x > 7) x--;
-								var y = (coords.charCodeAt(1) - '0'.charCodeAt(0));
-								if (coords.length > 2) y = y * 10 + (coords.charCodeAt(2) - '0'.charCodeAt(0));
-								y = this.kifuReader.game.size - y;
 								var bestMoveInfo = new Object();
-								bestMoveInfo.x = x;
-								bestMoveInfo.y = y;
+								bestMoveInfo.x = bestMove.x;
+								bestMoveInfo.y = bestMove.y;
+								bestMoveInfo.scoreMean=bestMove.scoreMean;
 								bestMoveInfo.winrate = bestMove.winrate;
 								bestMoveInfo.playouts = bestMove.playouts;
 								bestMoveInfo.percentplayouts = bestMove.percentplayouts;
@@ -340,16 +340,10 @@ var _lastX,_lastY,_last_mark;
 					for (var i = 0; i < node.bestMoves.length; i++) {
 						var bestMove = node.bestMoves[i];
 						if (bestMove.coordinate) {
-							var coords = bestMove.coordinate;
-							var x = coords.charCodeAt(0) - 'a'.charCodeAt(0);
-							if (x < 0) x += 'a'.charCodeAt(0) - 'A'.charCodeAt(0);
-							if (x > 7) x--;
-							var y = (coords.charCodeAt(1) - '0'.charCodeAt(0));
-							if (coords.length > 2) y = y * 10 + (coords.charCodeAt(2) - '0'.charCodeAt(0));
-							y = this.kifuReader.game.size - y;
 							var bestMoveInfo = new Object();
-							bestMoveInfo.x = x;
-							bestMoveInfo.y = y;
+							bestMoveInfo.x = bestMove.x;
+							bestMoveInfo.scoreMean=bestMove.scoreMean;
+							bestMoveInfo.y = bestMove.y;
 							bestMoveInfo.winrate = bestMove.winrate;
 							bestMoveInfo.playouts = bestMove.playouts;
 							bestMoveInfo.percentplayouts = bestMove.percentplayouts;

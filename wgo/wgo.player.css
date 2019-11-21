@@ -466,7 +466,7 @@ button.wgo-button {
 	border: 1px solid rgba(200,200,200,0.3);
 	border-radius: 2px;
 	background-color: rgba(255,255,255,0.3);
-	width: 95px;
+	width: 65px;
 	height: 45px;
 	margin: 0 3px;
 	vertical-align: middle;
@@ -491,7 +491,7 @@ button.wgo-button.wgo-selected:hover {
 
 .wgo-button::before {
 	font-family: "wgo-icons";
-	font-size: 36px;
+	font-size: 28px;
 	display: inline-block;
 }
 
@@ -659,7 +659,7 @@ input[type="text"].wgo-player-mn-value  {
 	background-color: rgba(255,255,255,0.3);
 	width: 28px;
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 16px;
 	text-align: center;
 	display: inline-block;
 	vertical-align: middle;

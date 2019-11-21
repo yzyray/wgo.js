@@ -60,7 +60,7 @@ var prepare_dom_info = function(type) {
 
 var kifu_loaded = function(e) {
 	var info = e.kifu.info || {};
-	
+
 	if(info.black) {
 		this.black.name.innerHTML = WGo.filterHTML(info.black.name) || WGo.t("black");
 		this.black.info.rank.val.innerHTML = WGo.filterHTML(info.black.rank) || "-";
