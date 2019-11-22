@@ -178,6 +178,8 @@ CommentBox.prototype.getCommentText = function(comment,bestMoves, formatNicks, f
 					var playouts=getPlayoutsString(bestMoves[i].playouts);
 					var percent="比例"+(bestMoves[i].percentplayouts2 * 100).toFixed(1)+"%";
 					moveComment += "\n" + "选点" + (i+1) + ":" + bestMoves[i].coordinate + "胜率:" + bestMoves[i].winrate + "计算量:" +playouts+" "+ percent;
+					if(bestMoves[i].scoreMean)
+						moveComment +=  " 目差" +bestMoves[i].scoreMean.toFixed(1);
 				}
 		}
 if(comment&&WGo.isWideMode)
