@@ -256,19 +256,18 @@ var Player = function(config) {
 	this.init();
 	this.initGame();
 }
-var _lastX,_lastY,_last_mark,var_length;
+var _last_mark,var_length;
 
 	var mouse_move_bestmoves = function(x,y) {
-		if(_lastX == x && _lastY == y) return;
-//x=3;y=3;
-		_lastX = x;
-		_lastY = y;
+		if(WGo.lastX == x && WGo.lastY == y) return;
+		WGo.lastX = x;
+		WGo.lastY = y;
 
 		if(_last_mark) {
 			this.board.removeAllObjectsVR();
 		}
 
-		if(x != -1 && y != -1 && WGo.mainGame.isValid(x,y)) {
+		if(x != -1 && y != -1 ) {
 			var hasBestMoves=false;
 			var bestMoves=WGo.curNode.bestMoves;
 			var bestmove;
@@ -284,6 +283,191 @@ var _lastX,_lastY,_last_mark,var_length;
 				WGo.isMouseOnBestMove=true;
 				WGo.mouseBestMove=bestmove;
 				 this.board.removeAllObjectsBM(bestmove.x,bestmove.y);
+				{
+					var bestMoveInfo = new Object();
+					bestMoveInfo.c=WGo.mainGame.turn;
+					bestMoveInfo.x = bestmove.x;
+					bestMoveInfo.y = bestmove.y;
+					bestMoveInfo.winrate = bestmove.winrate;
+					bestMoveInfo.scoreMean=bestmove.scoreMean;
+					bestMoveInfo.playouts = bestmove.playouts;
+					bestMoveInfo.percentplayouts = bestmove.percentplayouts;
+					bestMoveInfo.type = "BM";
+					this.board.addObject(bestMoveInfo);
+				}
+				_last_mark = true;
+				var variations=bestmove.variation;
+				for(var i=1;i<variations.length;i++)
+				{
+					var data = variations[i].split("_");
+
+					var mark = {
+						type: "variation",
+						x: data[0],
+						y: data[1],
+						c: WGo.mainGame.turn,
+						num: i+1
+					};
+					this.board.addObject(mark);
+					WGo.display_var_length=-1;
+				}
+				var_length=variations.length;
+			}
+			else {
+				WGo.isMouseOnBestMove=false;
+				if(_last_mark) {
+					var node=WGo.curNode;
+					if (node.bestMoves)
+						for (var i = 0; i < node.bestMoves.length; i++) {
+							var bestMove = node.bestMoves[i];
+							if (bestMove.coordinate) {
+								var bestMoveInfo = new Object();
+								bestMoveInfo.x = bestMove.x;
+								bestMoveInfo.y = bestMove.y;
+								bestMoveInfo.scoreMean=bestMove.scoreMean;
+								bestMoveInfo.winrate = bestMove.winrate;
+								bestMoveInfo.playouts = bestMove.playouts;
+								bestMoveInfo.percentplayouts = bestMove.percentplayouts;
+								bestMoveInfo.type = "BM";
+								this.board.addObject(bestMoveInfo);
+							}
+						}
+					this.board.redraw();
+					_last_mark = false;
+				}
+			}
+		}
+		else {
+			WGo.isMouseOnBestMove=false;
+			if(_last_mark) {
+				var node=WGo.curNode;
+				if (node.bestMoves)
+					for (var i = 0; i < node.bestMoves.length; i++) {
+						var bestMove = node.bestMoves[i];
+						if (bestMove.coordinate) {
+							var bestMoveInfo = new Object();
+							bestMoveInfo.x = bestMove.x;
+							bestMoveInfo.scoreMean=bestMove.scoreMean;
+							bestMoveInfo.y = bestMove.y;
+							bestMoveInfo.winrate = bestMove.winrate;
+							bestMoveInfo.playouts = bestMove.playouts;
+							bestMoveInfo.percentplayouts = bestMove.percentplayouts;
+							bestMoveInfo.type = "BM";
+							this.board.addObject(bestMoveInfo);
+						}
+					}
+				this.board.redraw();
+				_last_mark = false;
+			}
+		}
+	}
+
+
+	var mouse_click_bestmoves = function(x,y) {
+		if(WGo.lastX == x && WGo.lastY == y&&WGo.isMouseOnBestMove)
+		{
+			this.board.removeAllObjectsVR();
+			WGo.isMouseOnBestMove=false;
+			if(_last_mark) {
+				var node=WGo.curNode;
+				if (node.bestMoves)
+					for (var i = 0; i < node.bestMoves.length; i++) {
+						var bestMove = node.bestMoves[i];
+						if (bestMove.coordinate) {
+							var bestMoveInfo = new Object();
+							bestMoveInfo.x = bestMove.x;
+							bestMoveInfo.y = bestMove.y;
+							bestMoveInfo.scoreMean=bestMove.scoreMean;
+							bestMoveInfo.winrate = bestMove.winrate;
+							bestMoveInfo.playouts = bestMove.playouts;
+							bestMoveInfo.percentplayouts = bestMove.percentplayouts;
+							bestMoveInfo.type = "BM";
+							this.board.addObject(bestMoveInfo);
+						}
+					}
+				this.board.redraw();
+				_last_mark = false;
+			}
+			WGo.lastX=-1;
+			WGo.lastY=-1;
+			return;}
+		WGo.lastX = x;
+		WGo.lastY = y;
+
+		if(_last_mark) {
+			this.board.removeAllObjectsVR();
+		}
+
+		if(x != -1 && y != -1) {
+			var hasBestMoves=false;
+			var bestMoves=WGo.curNode.bestMoves;
+			var bestmove;
+			for(var i=0;i<bestMoves.length;i++)
+			{
+				bestmove=bestMoves[i];
+				if (bestmove.x==x&&bestmove.y==y) {
+					hasBestMoves = true;
+					break;
+				}
+			}
+			if(!hasBestMoves)
+			{
+				for(var i=0;i<bestMoves.length;i++)
+				{
+					bestmove=bestMoves[i];
+					if ((bestmove.x===x+1||bestmove.x ===x||bestmove.x ===x-1)&&(bestmove.y===y||bestmove.y===y+1||bestmove.y===y-1)) {
+						var mgr=bestmove.x-x+bestmove.y-y;
+						if(mgr===2||mgr===0||mgr===-2)
+						{}
+						else{
+						hasBestMoves = true;
+						break;
+						}
+					}
+				}
+			}
+			if(!hasBestMoves)
+			{
+				for(var i=0;i<bestMoves.length;i++)
+				{
+					bestmove=bestMoves[i];
+					if ((bestmove.x===x+1||bestmove.x ===x||bestmove.x ===x-1)&&(bestmove.y===y||bestmove.y===y+1||bestmove.y===y-1)) {
+							hasBestMoves = true;
+							break;
+					}
+				}
+			}
+			if(hasBestMoves) {
+				if(WGo.mouseBestMove==bestmove&&WGo.isMouseOnBestMove)
+				{
+					WGo.isMouseOnBestMove=false;
+					if(_last_mark) {
+						var node=WGo.curNode;
+						if (node.bestMoves)
+							for (var i = 0; i < node.bestMoves.length; i++) {
+								var bestMove = node.bestMoves[i];
+								if (bestMove.coordinate) {
+									var bestMoveInfo = new Object();
+									bestMoveInfo.x = bestMove.x;
+									bestMoveInfo.y = bestMove.y;
+									bestMoveInfo.scoreMean=bestMove.scoreMean;
+									bestMoveInfo.winrate = bestMove.winrate;
+									bestMoveInfo.playouts = bestMove.playouts;
+									bestMoveInfo.percentplayouts = bestMove.percentplayouts;
+									bestMoveInfo.type = "BM";
+									this.board.addObject(bestMoveInfo);
+								}
+							}
+						this.board.redraw();
+						_last_mark = false;
+					}
+					WGo.lastX=-1;
+					WGo.lastY=-1;
+					return;
+				}
+				WGo.isMouseOnBestMove=true;
+				WGo.mouseBestMove=bestmove;
+				this.board.removeAllObjectsBM(bestmove.x,bestmove.y);
 				{
 					var bestMoveInfo = new Object();
 					bestMoveInfo.c=WGo.mainGame.turn;
@@ -397,7 +581,10 @@ Player.prototype = {
 
 	//	var	setLis = function() {
 			//this._ev_move = this._ev_move || edit_board_mouse_move.bind(this);
+		if(WGo.isPC)
 			this.board.addEventListener("mousemove",mouse_move_bestmoves.bind(this));
+		else
+			this.board.addEventListener("click",mouse_click_bestmoves.bind(this));
 			WGo.curBoard=this.board;
 		//};
 
@@ -603,6 +790,8 @@ Player.prototype = {
 
 	next_edit: function(s) {
 		//if(this.frozen || !this.kifu) return;
+		WGo.lastX = -1;
+		WGo.lastY = -1;
 		if(WGo.editMode)
 			WGo.curBoard.removeAllObjectsOutLine();
 			try {
@@ -628,6 +817,8 @@ if(_last_mark)
 	this.board.redraw();
 }
 else{
+	WGo.lastX = -1;
+	WGo.lastY = -1;
 		try {
 			this.kifuReader.next(i);
 			this.update();
@@ -656,6 +847,8 @@ else{
 			this.board.redraw();
 		}
 		else {
+			WGo.lastX = -1;
+			WGo.lastY = -1;
 			try {
 				this.kifuReader.previous();
 				this.update();

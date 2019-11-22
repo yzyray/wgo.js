@@ -38,6 +38,8 @@ var trueScale;
 	var isMouseOnBestMove;
 	var mouseBestMove;
 	var curPlayer;
+	var laxtX=-1;
+	var lastY=-1;
 /**
  * Main namespace - it initializes WGo in first run and then execute main function.
  * You must call WGo.init() if you want to use library, without calling WGo.

@@ -81,9 +81,10 @@ WGo.Player.Editable.prototype.set = function(set) {
 		this._ev_out = this._ev_out || edit_board_mouse_out.bind(this);
 		
 		this.board.addEventListener("click", this._ev_click);
-		this.board.addEventListener("mousemove", this._ev_move);
-		this.board.addEventListener("mouseout", this._ev_out);
-		
+		if(WGo.isPC) {
+			this.board.addEventListener("mousemove", this._ev_move);
+			this.board.addEventListener("mouseout", this._ev_out);
+		}
 		this.editMode = true;
 	}
 	else if(this.editMode && !set) {
@@ -99,9 +100,10 @@ WGo.Player.Editable.prototype.set = function(set) {
 		
 		// remove edit listeners
 		this.board.removeEventListener("click", this._ev_click);
-		this.board.removeEventListener("mousemove", this._ev_move);
-		this.board.removeEventListener("mouseout", this._ev_out);
-		
+		if(WGo.isPC) {
+			this.board.removeEventListener("mousemove", this._ev_move);
+			this.board.removeEventListener("mouseout", this._ev_out);
+		}
 		this.editMode = false;
 	}
 }
@@ -141,7 +143,7 @@ else{
 			// var p = WGo.clone(this.player.kifuReader.path);
 			// p.m += 1;
 			// this.player.goTo(p);
-	this.player.next(this.player.kifuReader.node.children.length-1);
+	this.player.next_edit(this.player.kifuReader.node.children.length-1);
 	}
 }
 
