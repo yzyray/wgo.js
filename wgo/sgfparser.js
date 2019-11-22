@@ -303,8 +303,8 @@ WGo.SGF.parse = function(str) {
 		return flag;
 	}
 	var isPC = IsPC();
-if(!isPC)
-	bodyScale();
+//if(!isPC)
+	//bodyScale();
 
 
 	return kifu;		

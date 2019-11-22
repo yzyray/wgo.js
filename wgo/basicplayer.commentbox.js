@@ -177,8 +177,7 @@ CommentBox.prototype.getCommentText = function(comment,bestMoves, formatNicks, f
 					moveComment += "\n" + "选点" + (i+1) + ":" + bestMoves[i].coordinate + "胜率:" + bestMoves[i].winrate + "计算量:" +playouts+" "+ percent;
 				}
 		}
-
-if(WGo.isWideMode)
+if(comment&&WGo.isWideMode)
 {
 	finalcomment=comment+moveComment;
 }

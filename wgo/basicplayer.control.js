@@ -243,7 +243,6 @@ control.Button = WGo.extendClass(control.Clickable, function(player, args) {
 	var elem = this.element = document.createElement("button");
 	elem.className = "wgo-button wgo-button-"+args.name;
 	elem.title = WGo.t(args.name);
-	
 	this.init(player, args);
 });
 
@@ -251,7 +250,6 @@ control.Button = WGo.extendClass(control.Clickable, function(player, args) {
 		var elem = this.element = document.createElement("button");
 		elem.className = "wgo-button2 wgo-button2-"+args.name;
 		elem.title = WGo.t(args.name);
-
 		this.init(player, args);
 	});
 
@@ -455,7 +453,8 @@ Control.widgets = [
 			}
 		}]
 	}
-}, {
+},
+	{
 	constructor: control.Group,
 	args: {
 		name: "control",

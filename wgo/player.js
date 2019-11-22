@@ -256,7 +256,7 @@ var Player = function(config) {
 	this.init();
 	this.initGame();
 }
-var _lastX,_lastY,_last_mark;
+var _lastX,_lastY,_last_mark,var_length;
 
 	var mouse_move_bestmoves = function(x,y) {
 		if(_lastX == x && _lastY == y) return;
@@ -281,6 +281,8 @@ var _lastX,_lastY,_last_mark;
 				}
 			}
 			if(hasBestMoves) {
+				WGo.isMouseOnBestMove=true;
+				WGo.mouseBestMove=bestmove;
 				 this.board.removeAllObjectsBM(bestmove.x,bestmove.y);
 				{
 					var bestMoveInfo = new Object();
@@ -308,9 +310,12 @@ var _lastX,_lastY,_last_mark;
 						num: i+1
 					};
 					this.board.addObject(mark);
+					WGo.display_var_length=-1;
 				}
+				var_length=variations.length;
 			}
 			else {
+				WGo.isMouseOnBestMove=false;
 				if(_last_mark) {
 					var node=WGo.curNode;
 					if (node.bestMoves)
@@ -334,6 +339,7 @@ var _lastX,_lastY,_last_mark;
 			}
 		}
 		else {
+			WGo.isMouseOnBestMove=false;
 			if(_last_mark) {
 				var node=WGo.curNode;
 				if (node.bestMoves)
@@ -595,9 +601,33 @@ Player.prototype = {
 	 * @param {number} i if there is more option, you can specify it by index
 	 */
 
+	next_edit: function(s) {
+		//if(this.frozen || !this.kifu) return;
+		if(WGo.editMode)
+			WGo.curBoard.removeAllObjectsOutLine();
+			try {
+				this.kifuReader.next(s);
+				this.update();
+			}
+			catch(err) {
+				this.error(err);
+			}
+	},
+
 	next: function(i) {
 		if(this.frozen || !this.kifu) return;
-
+		if(WGo.editMode)
+			WGo.curBoard.removeAllObjectsOutLine();
+if(_last_mark)
+{
+	if(WGo.display_var_length)
+		if(WGo.display_var_length<0)
+			WGo.display_var_length=2;
+		else if (WGo.display_var_length<var_length)
+			WGo.display_var_length++;
+	this.board.redraw();
+}
+else{
 		try {
 			this.kifuReader.next(i);
 			this.update();
@@ -605,6 +635,7 @@ Player.prototype = {
 		catch(err) {
 			this.error(err);
 		}
+}
 	},
 
 	/**
@@ -613,13 +644,24 @@ Player.prototype = {
 
 	previous: function() {
 		if(this.frozen || !this.kifu) return;
-
-		try{
-			this.kifuReader.previous();
-			this.update();
+		if(WGo.editMode)
+		WGo.curBoard.removeAllObjectsOutLine();
+		if(_last_mark)
+		{
+			if(WGo.display_var_length)
+				if(WGo.display_var_length<0)
+					WGo.display_var_length=var_length-1;
+				else if (WGo.display_var_length>2)
+					WGo.display_var_length--;
+			this.board.redraw();
 		}
-		catch(err) {
-			this.error(err);
+		else {
+			try {
+				this.kifuReader.previous();
+				this.update();
+			} catch (err) {
+				this.error(err);
+			}
 		}
 	},
 

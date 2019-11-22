@@ -59,6 +59,7 @@ WGo.Player.Editable = {};
 	
 WGo.Player.Editable = function(player, board) {
 	this.player = player;
+WGo.curPlayer=player;
 	this.board = board;
 	this.editMode = false;
 }
@@ -106,17 +107,42 @@ WGo.Player.Editable.prototype.set = function(set) {
 }
 
 WGo.Player.Editable.prototype.play = function(x,y) {
-	if(this.player.frozen || !this.player.kifuReader.game.isValid(x, y)) return;
-	
+		if(WGo.isMouseOnBestMove)
+	{
+		//WGo.isEditPlaying=true;
+		var bestMove=WGo.mouseBestMove;
+		var variations=bestMove.variation;
+		for(var s=0;s<variations.length;s++)
+		{
+			var data = variations[s].split("_");
+			this.player.kifuReader.node.appendChild(new WGo.KNode({
+				move: {
+					x: parseInt(data[0]),
+					y: parseInt(data[1]),
+					c: this.player.kifuReader.game.turn
+				},
+				_edited: true
+			}));
+		this.player.next_edit(this.player.kifuReader.node.children.length-1);
+		}
+	//	WGo.isEditPlaying=false;
+		WGo.isMouseOnBestMove=false;
+	}
+else{
+		if(this.player.frozen || !this.player.kifuReader.game.isValid(x, y)) return;
 	this.player.kifuReader.node.appendChild(new WGo.KNode({
 		move: {
-			x: x, 
-			y: y, 
+			x: x,
+			y: y,
 			c: this.player.kifuReader.game.turn
-		}, 
+		},
 		_edited: true
 	}));
+			// var p = WGo.clone(this.player.kifuReader.path);
+			// p.m += 1;
+			// this.player.goTo(p);
 	this.player.next(this.player.kifuReader.node.children.length-1);
+	}
 }
 
 if(WGo.BasicPlayer && WGo.BasicPlayer.component.Control) {
@@ -129,7 +155,34 @@ if(WGo.BasicPlayer && WGo.BasicPlayer.component.Control) {
 				this._editable = this._editable || new WGo.Player.Editable(player, player.board);
 				this._editable.set(!this._editable.editMode);
 				if(!this._editable.editMode)
-					WGo.curBoard.removeAllObjectsOutLine();
+				{WGo.curBoard.removeAllObjectsOutLine();
+					WGo.editMode=false;
+				}
+				else
+				{
+					WGo.editMode=true;
+					if(WGo.isMouseOnBestMove)
+					{
+						//WGo.isEditPlaying=true;
+						var bestMove=WGo.mouseBestMove;
+						var variations=bestMove.variation;
+						for(var s=0;s<variations.length;s++)
+						{
+							var data = variations[s].split("_");
+							WGo.curPlayer.kifuReader.node.appendChild(new WGo.KNode({
+								move: {
+									x:  parseInt(data[0]),
+									y: parseInt(data[1]),
+									c: WGo.curPlayer.kifuReader.game.turn
+								},
+								_edited: true
+							}));
+						WGo.curPlayer.next_edit(WGo.curPlayer.kifuReader.node.children.length-1);
+						}
+					//	WGo.isEditPlaying=false;
+						WGo.isMouseOnBestMove=false;
+					}
+				}
 				return this._editable.editMode;
 			},
 			init: function(player) {

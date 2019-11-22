@@ -184,7 +184,7 @@ background: linear-gradient(135deg,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 
 }
 
 .wgo-player-right .wgo-player-wrapper, .wgo-player-left .wgo-player-wrapper {
-	height: 85px;
+	height: 45px;
 	border-bottom: 0;
 }
 
@@ -393,7 +393,7 @@ a.wgo-move-link {
 
 .wgo-player-top .wgo-comments-wrapper, .wgo-player-bottom .wgo-comments-wrapper {
 	margin-top: 10px;
-	height: 150px;
+	height: 244px;
 }
 
 /* game info table */
@@ -445,7 +445,7 @@ a.wgo-move-link {
 
 .wgo-control-wrapper {
 	width: 100%;
-	text-align: center;
+	/*text-align: center;*/
 }
 
 .wgo-ctrlgroup-left {
@@ -457,18 +457,18 @@ a.wgo-move-link {
 }
 
 .wgo-ctrlgroup-control {
-	margin: 0 auto;
+	float: right;
+	/*margin: 0 auto;*/
 }
 
 /* button widget */
 
 button.wgo-button {
-	border: 1px solid rgba(200,200,200,0.3);
-	border-radius: 2px;
-	background-color: rgba(255,255,255,0.3);
-	width: 75px;
-	height: 75px;
+	border: 2px solid rgba(100,100,100,0.8);
+	background-color: rgba(255,255,255,0.8);
+	width: 66px;
 	margin: 0 3px;
+	height: 45px;
 	vertical-align: middle;
 }
 
@@ -491,7 +491,7 @@ button.wgo-button.wgo-selected:hover {
 
 .wgo-button::before {
 	font-family: "wgo-icons";
-	font-size: 60px;
+	font-size: 40px;
 	display: inline-block;
 }
 
@@ -518,7 +518,7 @@ button.wgo-button.wgo-selected:hover {
 
 .wgo-button-multiprev::before {
 	content: '\e817';
-	margin-left: -5px;
+	/*margin-left: -5px;*/
 }
 
 .wgo-button-previous::before {
@@ -545,22 +545,20 @@ button.wgo-button.wgo-selected:hover {
 
 /* move number widget */
 button.buttonjsl {
-	border: 1px solid rgba(200,200,200,0.3);
-	border-radius: 2px;
-	background-color: rgba(255,255,255,0.3);
-	width: 35px;
-	height: 75px;
+	border: 2px solid rgba(100,100,100,0.8);
+	background-color: rgba(255,255,255,0.8);
+	width: 29px;
+	height: 45px;
 	vertical-align: middle;
 }
 
 /* button widget */
 
 button.wgo-button2 {
-	border: 1px solid rgba(200,200,200,0.3);
-	border-radius: 1px;
-	background-color: rgba(255,255,255,0.3);
-	width: 31px;
-	height: 75px;
+	border: 2px solid rgba(100,100,100,0.8);
+	background-color: rgba(255,255,255,0.8);
+	width: 29px;
+	height: 45px;
 	vertical-align: middle;
 }
 
@@ -583,7 +581,7 @@ button.wgo-button2.wgo-selected:hover {
 
 .wgo-button2::before {
 	font-family: "wgo-icons";
-	font-size: 60px;
+	font-size: 29px;
 	display: inline-block;
 }
 

@@ -33,6 +33,11 @@ var trueScale;
 	var curBoard;
 	var isWideMode;
 	var isPC;
+	var display_var_length;
+	var editMode;
+	var isMouseOnBestMove;
+	var mouseBestMove;
+	var curPlayer;
 /**
  * Main namespace - it initializes WGo in first run and then execute main function.
  * You must call WGo.init() if you want to use library, without calling WGo.
@@ -257,6 +262,9 @@ var shadow_handler = {
 		function(args, board) {
 		if(!WGo.isPC||!args.c)
 		{return;}
+			if(WGo.display_var_length)
+				if(WGo.display_var_length>0&&args.num>WGo.display_var_length)
+				{return;}
 		var xr = board.getX(args.x),
 			yr = board.getY(args.y),
 			sr = board.stoneRadius;
@@ -732,10 +740,11 @@ Board.drawHandlers = {
 				else if(args.text.length == 2) this.font = Math.round(sr*1.2)+"px "+font;
 				else this.font = Math.round(sr)+"px "+font;
 
-				this.beginPath();
-				this.textBaseline="middle";
-				this.textAlign="center";
-				this.fillText(args.text, xr, yr, 2*sr);
+				//this.beginPath();
+				//this.textBaseline="middle";
+			//	this.textAlign="center";
+				this.fillText(args.text, xr-0.5*sr, yr+0.5*sr, 2*sr);
+
 
 			},
 		},
@@ -784,13 +793,6 @@ Board.drawHandlers = {
 					sr = board.stoneRadius,
 					radgrad;
 				var font = "verdana"; //calibri is WGo's default
-
-				// this.strokeStyle = args.c || get_markup_color(board, args.x, args.y);
-				// this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
-				// this.beginPath();
-				// this.rect(Math.round(xr-sr/2)-board.ls, Math.round(yr-sr/2)-board.ls, sr, sr);
-				// this.stroke();
-				//if(WGo.mainGame.turn==1)
 				var isblack;
 				{
 					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,sr/3,xr-sr/5,yr-sr/5,5*sr/5);
@@ -830,36 +832,10 @@ Board.drawHandlers = {
 					else
 					this.fillStyle = "black";
 				}
-				// else {
-				// 	radgrad = this.createRadialGradient(xr - 2 * sr / 5, yr - 2 * sr / 5, 1, xr - sr / 5, yr - sr / 5, 4 * sr / 5);
-				// 	//radgrad.addColorStop(1, 'black');
-				// 	if(args.percentplayouts>=2.0)
-				// 	{
-				// 		radgrad.addColorStop(0, 	"rgb(0,240,255)");
-				// 	}
-				// 	else
-				// 	if(args.percentplayouts>=0.3)
-				// 	{
-				// 		radgrad.addColorStop(0, 	"rgb(0,240,0,"+Math.sqrt(args.percentplayouts)+")");
-				// 	}
-				// 	else
-				// 	{
-				// 		radgrad.addColorStop(0, 	"rgb(240,240,0,"+(Math.sqrt(args.percentplayouts)<0.25?0.25:Math.sqrt(args.percentplayouts))+")");
-				// 	}
-				// 	this.beginPath();
-				// 	this.fillStyle = radgrad;
-				// 	this.arc(xr - board.ls, yr - board.ls, Math.max(0, sr - 0.5), 0, 2 * Math.PI, true);
-				// 	this.fill();
-				// 	this.fillStyle = "white";
-				// }
-			//	if(args.winrate.length == 1) this.font = Math.round(sr*0.7)+"px "+font;
-			//	else if(args.winrate.length == 2) this.font = Math.round(sr*0.7)+"px "+font;
-			//	else if(args.winrate.length == 3) this.font = Math.round(sr*0.7)+"px "+font;
-				//else
 				var playouts=getPlayoutsString(args.playouts);
 					this.font = "bold "+Math.round(sr*0.75)+"px "+font;
-				this.fillText(args.winrate.toFixed(1), xr-0.71*sr, yr-0.18*sr, 1.4*sr);
-				this.fillText(args.scoreMean.toFixed(1), xr-0.71*sr, yr+0.63*sr, 1.4*sr);
+					this.fillText(args.winrate.toFixed(1), xr-0.75*sr, yr-0.18*sr, 1.4*sr);
+				this.fillText(args.scoreMean.toFixed(1), xr-0.75*sr, yr+0.63*sr, 1.4*sr);
 				// if(args.playouts<10)
 				// {
 				// 	this.fillText(playouts, xr-0.3*sr, yr+0.63*sr, 1.35*sr);
@@ -994,6 +970,9 @@ Board.drawHandlers = {
 	variation: {
 		stone: {
 			draw: function(args, board) {
+				if(WGo.display_var_length)
+				if(WGo.display_var_length>0&&args.num>WGo.display_var_length)
+				{return;}
 				var xr = board.getX(args.x),
 					yr = board.getY(args.y),
 					sr = board.stoneRadius,

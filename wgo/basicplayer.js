@@ -184,7 +184,7 @@
 		function bodyScale() {
 			var devicewidth = document.documentElement.clientWidth;
 			var deviceheight = document.documentElement.clientHeight;
-
+			var o = document.getElementById("main");
 			// var scale = devicewidth / 600;  // 分母——设计稿的尺寸
 			// var scale2 = deviceheight / 895;
 			var w=screen.width;
@@ -198,20 +198,20 @@
 			}
 			if(isPC)
 			{
-				var o = document.getElementById("main");
 				if(WGo.isWideMode)
 					o.style.height=(100)+"%"
 					else
 				o.style.height=(100)+"%"+"-25px";
 				o.style.width=(100)+"%";
 				WGo.trueScale=1;
-				//WGo.trueScale=Math.min(scale,scale2);
-				//document.body.style.zoom = Math.min(scale,scale2);
-				//WGo.BasicPlayer.prototype.updateDimensions();
 			}
-			// else{document.body.style.zoom = Math.min(scale,scale2);
-			// 	WGo.trueScale=Math.min(scale,scale2);}
-			//document.body.style.zoom = Math.min(scale,scale2);
+			 else{
+			 	var scale=deviceheight/895.0;
+			 	var w=devicewidth/scale;
+				o.style.height=(833)+"px";
+				o.style.width=(w)+"px";
+			 	document.body.style.zoom = scale;
+				WGo.trueScale=scale;}
 
 
 
