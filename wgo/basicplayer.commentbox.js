@@ -7,6 +7,9 @@ var prepare_dom = function() {
 	this.box.className = "wgo-box-wrapper wgo-comments-wrapper";
 	this.element.appendChild(this.box);
 
+	if(WGo.commentheight)
+	this.box.style.height=(WGo.commentheight)+"px";
+
 	this.comments_title = document.createElement("div");
 	this.comments_title.className = "wgo-box-title";
 	this.comments_title.innerHTML = WGo.t("comments");

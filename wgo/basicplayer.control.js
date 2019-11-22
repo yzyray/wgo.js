@@ -50,8 +50,8 @@ var Control = WGo.extendClass(WGo.BasicPlayer.component.Component, function(play
 
 Control.prototype.updateDimensions = function() {
 
-	var flag = IsPC(); //true为PC端，false为手机端
-	if(flag)
+	var ispc = IsPC(); //true为PC端，false为手机端
+	if(ispc)
 	{
 		this.element.className = "wgo-player-control";
 	//	this.element.className =  "wgo-player-control";
@@ -187,7 +187,8 @@ control.Clickable.prototype.init = function(player, args) {
 	if(args.togglable) {
 		fn = function() {
 			if(_this.disabled) return;
-			
+			if(WGo.editClicked)
+				return;
 			if(args.click.call(_this, player)) _this.select();
 			else _this.unselect();
 		};
@@ -422,21 +423,7 @@ Control.widgets = [
 				click: player_menu,
 			}
 		},
-			{
-				constructor: control.Button2,
-				args: {
-					name: "menu2",
-					togglable: true,
-					click: function(player) {
-						this.element.className="buttonjsl";
-						clickedMC=!clickedMC;
-						if(clickedMC)
-							this.element.innerText="PO";
-						else
-							this.element.innerText="目差";
-					},
-				}
-			}]
+			]
 	}
 },
 	{
@@ -459,7 +446,7 @@ Control.widgets = [
 	args: {
 		name: "control",
 		widgets: [{
-			constructor: control.Button,
+			constructor: control.Button2,
 			args: {
 				name: "first",
 				disabled: true,
@@ -468,11 +455,99 @@ Control.widgets = [
 					player.addEventListener("frozen", but_frozen.bind(this));
 					player.addEventListener("unfrozen", but_unfrozen.bind(this));
 				},
-				click: function(player) { 
+				click: function(player) {
 					player.first();
 				},
 			}
 		}, {
+			constructor: control.Button2,
+			args: {
+				name: "last",
+				disabled: true,
+				init: function(player) {
+					player.addEventListener("update", butupd_last.bind(this));
+					player.addEventListener("frozen", but_frozen.bind(this));
+					player.addEventListener("unfrozen", but_unfrozen.bind(this));
+				},
+				click: function(player) {
+					player.last()
+				},
+			}
+		},
+			{
+				constructor: control.Button2,
+				args: {
+					name: "menu2",
+					togglable: true,
+					click:
+						function() {
+							clickedMC=!clickedMC;
+							if(clickedMC)
+								this.element.innerText="目差";
+							else
+							this.element.innerText="PO";
+
+						},
+					init:
+						function () {
+							this.element.innerText="PO";
+					}
+				}
+			},
+			{
+				constructor: control.Button2,
+				args: {
+					name: "tryplay",
+					togglable: true,
+					click:
+						function(player) {
+							clickedMC=!clickedMC;
+							if(clickedMC)
+								this.element.innerText="返回";
+							else
+								this.element.innerText="试下";
+							if(WGo.editClicked)
+								return;
+							this._editable = this._editable || new WGo.Player.Editable(player, player.board);
+							this._editable.set(!this._editable.editMode);
+							if(!this._editable.editMode)
+							{WGo.curBoard.removeAllObjectsOutLine();
+								WGo.editMode=false;
+							}
+							else
+							{
+								WGo.editMode=true;
+								if(WGo.isMouseOnBestMove)
+								{
+									WGo.editClicked=true;
+									setTimeout(function(){ WGo.editClicked=false; }, 500);
+									var bestMove=WGo.mouseBestMove;
+									var variations=bestMove.variation;
+									for(var s=0;s<variations.length;s++)
+									{
+										var data = variations[s].split("_");
+										WGo.curPlayer.kifuReader.node.appendChild(new WGo.KNode({
+											move: {
+												x:  parseInt(data[0]),
+												y: parseInt(data[1]),
+												c: WGo.curPlayer.kifuReader.game.turn
+											},
+											_edited: true
+										}));
+										WGo.curPlayer.next_edit(WGo.curPlayer.kifuReader.node.children.length-1);
+									}
+									//	WGo.isEditPlaying=false;
+									WGo.isMouseOnBestMove=false;
+								}
+							}
+						},
+					init:
+						function () {
+							this.element.innerText="试下";
+						},
+				}
+			}
+		, {
 			constructor: control.Button,
 			args: {
 				name: "multiprev",
@@ -483,10 +558,17 @@ Control.widgets = [
 					player.addEventListener("frozen", but_frozen.bind(this));
 					player.addEventListener("unfrozen", but_unfrozen.bind(this));
 				},
-				click: function(player) { 
+				click: function(player) {
+					if(WGo.isMouseOnBestMove)
+					{
+								WGo.display_var_length=2;
+						WGo.curBoard.redraw();
+					}
+					else{
 					var p = WGo.clone(player.kifuReader.path);
 					p.m -= 10; 
 					player.goTo(p);
+					}
 				},
 			}
 		},{
@@ -532,24 +614,20 @@ Control.widgets = [
 					player.addEventListener("frozen", but_frozen.bind(this));
 					player.addEventListener("unfrozen", but_unfrozen.bind(this));
 				},
-				click: function(player) { 
+				click: function(player) {
+					if(WGo.isMouseOnBestMove)
+					{
+						if(WGo.var_length)
+							WGo.display_var_length=WGo.var_length;
+						else
+						WGo.display_var_length=2;
+						WGo.curBoard.redraw();
+					}
+					else{
 					var p = WGo.clone(player.kifuReader.path);
 					p.m += 10; 
 					player.goTo(p);
-				},
-			}
-		}, {
-			constructor: control.Button,
-			args: {
-				name: "last",
-				disabled: true,
-				init: function(player) {
-					player.addEventListener("update", butupd_last.bind(this));
-					player.addEventListener("frozen", but_frozen.bind(this));
-					player.addEventListener("unfrozen", but_unfrozen.bind(this));
-				},
-				click: function(player) {
-					player.last()
+					}
 				},
 			}
 		}]

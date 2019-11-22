@@ -211,7 +211,12 @@
 				o.style.height=(833)+"px";
 				o.style.width=(w)+"px";
 			 	document.body.style.zoom = scale;
-				WGo.trueScale=scale;}
+				WGo.trueScale=scale;
+				if(!WGo.isWideMode)
+				{
+					WGo.commentheight=Math.max(784-w,185);
+				}
+			 }
 
 
 

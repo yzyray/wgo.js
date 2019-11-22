@@ -153,7 +153,9 @@ if(WGo.BasicPlayer && WGo.BasicPlayer.component.Control) {
 		args: {
 			name: "editmode",
 			togglable: true,
-			click: function(player) { 
+			click: function(player) {
+				if(WGo.editClicked)
+					return;
 				this._editable = this._editable || new WGo.Player.Editable(player, player.board);
 				this._editable.set(!this._editable.editMode);
 				if(!this._editable.editMode)
@@ -165,7 +167,8 @@ if(WGo.BasicPlayer && WGo.BasicPlayer.component.Control) {
 					WGo.editMode=true;
 					if(WGo.isMouseOnBestMove)
 					{
-						//WGo.isEditPlaying=true;
+						WGo.editClicked=true;
+						setTimeout(function(){ WGo.editClicked=false; }, 500);
 						var bestMove=WGo.mouseBestMove;
 						var variations=bestMove.variation;
 						for(var s=0;s<variations.length;s++)

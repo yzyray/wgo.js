@@ -312,6 +312,7 @@ var _last_mark,var_length;
 					WGo.display_var_length=-1;
 				}
 				var_length=variations.length;
+				WGo.var_length=variations.length
 			}
 			else {
 				WGo.isMouseOnBestMove=false;
@@ -497,6 +498,7 @@ var _last_mark,var_length;
 					WGo.display_var_length=-1;
 				}
 				var_length=variations.length;
+				WGo.var_length=variations.length;
 			}
 			else {
 				WGo.isMouseOnBestMove=false;
@@ -792,6 +794,7 @@ Player.prototype = {
 		//if(this.frozen || !this.kifu) return;
 		WGo.lastX = -1;
 		WGo.lastY = -1;
+	WGo.isMouseOnBestMove=false;
 		if(WGo.editMode)
 			WGo.curBoard.removeAllObjectsOutLine();
 			try {
@@ -807,7 +810,7 @@ Player.prototype = {
 		if(this.frozen || !this.kifu) return;
 		if(WGo.editMode)
 			WGo.curBoard.removeAllObjectsOutLine();
-if(_last_mark)
+if(_last_mark&&WGo.isMouseOnBestMove)
 {
 	if(WGo.display_var_length)
 		if(WGo.display_var_length<0)
@@ -837,7 +840,7 @@ else{
 		if(this.frozen || !this.kifu) return;
 		if(WGo.editMode)
 		WGo.curBoard.removeAllObjectsOutLine();
-		if(_last_mark)
+		if(_last_mark&&WGo.isMouseOnBestMove)
 		{
 			if(WGo.display_var_length)
 				if(WGo.display_var_length<0)

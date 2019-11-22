@@ -466,8 +466,8 @@ a.wgo-move-link {
 button.wgo-button {
 	border: 2px solid rgba(100,100,100,0.8);
 	background-color: rgba(255,255,255,0.8);
-	width: 66px;
-	margin: 0 3px;
+	width: 63px;
+	margin: 0 5px;
 	height: 45px;
 	vertical-align: middle;
 }
@@ -544,20 +544,13 @@ button.wgo-button.wgo-selected:hover {
 }
 
 /* move number widget */
-button.buttonjsl {
-	border: 2px solid rgba(100,100,100,0.8);
-	background-color: rgba(255,255,255,0.8);
-	width: 29px;
-	height: 45px;
-	vertical-align: middle;
-}
 
 /* button widget */
 
 button.wgo-button2 {
 	border: 2px solid rgba(100,100,100,0.8);
 	background-color: rgba(255,255,255,0.8);
-	width: 29px;
+	width: 40px;
 	height: 45px;
 	vertical-align: middle;
 }
@@ -634,7 +627,10 @@ button.wgo-button2.wgo-selected:hover {
 	padding-top: 5px;
 }
 .wgo-button2-menu2::before  {
-	content: '目差';
+	font-size: 15px;
+	font-weight: normal;
+}
+.wgo-button2-tryplay::before  {
 	font-size: 15px;
 	font-weight: normal;
 }
@@ -683,6 +679,8 @@ input[type="text"].wgo-player-mn-value  {
 /* display less buttons */
 
 /*.wgo-440 .wgo-button-menu,*/
+/*.wgo-440 .wgo-button-first,*/
+/*.wgo-440 .wgo-button-last,*/
 .wgo-440 .wgo-button-about{
 	display: none;
 }
