@@ -89,6 +89,7 @@ properties["C"] = function(kifu, node, value) {
 			// 	node.comment +="\r\n"+strs[1];
 			node.bestMoves= new Array();
 			var maxplayouts=0;
+			var totalplayouts=0;
 			for (var i=0;i<10&&i<moveInfo.length;i++ )
 			{
 				var data = moveInfo[i].trim().split(" ");
@@ -97,6 +98,7 @@ properties["C"] = function(kifu, node, value) {
 					if (key == ("visits")) {
 						var value = data[++j];
 						var playouts=parseInt(value);
+						totalplayouts+=playouts;
 						if(playouts>maxplayouts)
 							maxplayouts=playouts;
 					}
@@ -147,6 +149,7 @@ properties["C"] = function(kifu, node, value) {
 							}
 							if (key=="visits") {
 								bestMove.playouts = parseInt(value);
+								bestMove.totalplayouts=totalplayouts;
 								if(node.bestMoves.length==0)
 								{bestMove.percentplayouts =2.5;
 									bestMove.percentplayouts2 = parseInt(value).toFixed(1)/maxplayouts;
