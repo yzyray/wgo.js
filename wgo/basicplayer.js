@@ -184,6 +184,12 @@
 		function bodyScale() {
 			var devicewidth = document.documentElement.clientWidth;
 			var deviceheight = document.documentElement.clientHeight;
+			if(deviceheight/devicewidth>1630/980)
+			{
+				deviceheight=devicewidth*1630/980;
+			}
+			//alert(devicewidth);980
+			//alert(deviceheight);1630
 			var o = document.getElementById("main");
 			// var scale = devicewidth / 600;  // 分母——设计稿的尺寸
 			// var scale2 = deviceheight / 895;
@@ -206,7 +212,7 @@
 				WGo.trueScale=1;
 			}
 			 else{
-			 	var scale=deviceheight/895.0;
+			 	var scale=deviceheight/915.0;
 			 	var w=devicewidth/scale;
 				o.style.height=(833)+"px";
 				o.style.width=(w)+"px";

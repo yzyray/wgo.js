@@ -644,6 +644,101 @@ button.wgo-button2.wgo-selected:hover {
 }
 
 /* move number widget */
+button.wgo-button3 {
+	border: 1px solid rgba(200,200,200,0.3);
+	border-radius: 2px;
+	background-color: rgba(255,255,255,0.3);
+	width: 65px;
+	height: 35px;
+	margin: 0 3px;
+	vertical-align: middle;
+}
+
+button.wgo-button3:not([disabled]):hover,
+input[type="text"].wgo-player-mn-value:focus {
+	background-color: rgba(255,255,255,0.45);
+	border: 1px solid rgba(100,100,100,0.3);
+	box-shadow: 0 0 20px 0 rgba(150,150,150,0.5);
+}
+
+button.wgo-button3.wgo-selected {
+	background-color: rgba(255,255,255,0.6);
+	border: 1px solid rgba(0,0,0,0.5);
+}
+
+button.wgo-button3.wgo-selected:hover {
+	background-color: rgba(255,255,255,0.7);
+	border: 1px solid rgba(0,0,0,0.7);
+}
+
+.wgo-button3::before {
+	font-family: "wgo-icons";
+	font-size: 28px;
+	display: inline-block;
+}
+
+.wgo-button3[disabled]::before, input[type="text"].wgo-player-mn-value[disabled] {
+	color: rgba(64,64,64,0.5);
+}
+
+.wgo-button3:not([disabled]):active::before {
+	position: relative;
+	top: 1px;
+	left: 1px;
+}
+
+.wgo-button3-first::before, .wgo-button-multiprev::before, .wgo-button-previous::before  {
+	transform: scaleX(-1);
+	-moz-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	-ms-transform: scaleX(-1);
+}
+
+.wgo-button3-first::before {
+	content: '\e81a';
+}
+
+.wgo-button3-multiprev::before {
+	content: '\e817';
+	margin-left: -5px;
+}
+
+.wgo-button3-previous::before {
+	content: '\e80c';
+}
+
+.wgo-button3-next::before {
+	content: '\e80c';
+}
+
+.wgo-button3-multinext::before {
+	content: '\e817';
+}
+
+.wgo-button3-last::before {
+	content: '\e81a';
+}
+
+.wgo-button3-about::before  {
+	content: '\e80f';
+	font-size: 30px;
+	font-weight: normal;
+}
+.wgo-button3-menu::before  {
+	content: '\e81b';
+	font-size: 25px;
+	font-weight: normal;
+	padding-top: 5px;
+}
+.wgo-button3-tryplay::before  {
+	font-size: 15px;
+	font-weight: normal;
+}
+.wgo-button3-about::before  {
+	content: '\e80f';
+	font-size: 30px;
+	font-weight: normal;
+}
 
 
 /**/

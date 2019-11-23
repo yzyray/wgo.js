@@ -504,11 +504,12 @@ var pos_diff = function(old_p, new_p) {
  * If parameter allowIllegalMoves is set, illegal moves will be played instead of throwing an exception
  */
 
-var KifuReader = function(kifu, rememberPath, allowIllegalMoves) {
+var KifuReader = function(kifu, rememberPath, allowIllegalMoves,edit) {
 	this.kifu = kifu;
 	this.node = this.kifu.root;
 	this.allow_illegal = allowIllegalMoves || false;
 	this.game = new WGo.Game(this.kifu.size, this.allow_illegal ? "NONE" : "KO", this.allow_illegal , this.allow_illegal);
+	if(!edit)
 	WGo.mainGame=this.game;
 	this.path = {m:0};
 

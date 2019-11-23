@@ -5,10 +5,13 @@
 var prepare_dom = function() {
 	this.box = document.createElement("div");
 	this.box.className = "wgo-box-wrapper wgo-comments-wrapper";
+	this.box.onclick=function(){mouse_click()};
 	this.element.appendChild(this.box);
+
 
 	if(WGo.commentheight)
 	this.box.style.height=(WGo.commentheight)+"px";
+
 
 	this.comments_title = document.createElement("div");
 	this.comments_title.className = "wgo-box-title";
@@ -52,6 +55,33 @@ var unmark = function() {
 	this.board.removeObject(this._tmp_mark);
 	delete this._tmp_mark;
 }
+
+	var mouse_click = function() {
+	if(WGo.isMouseOnBestMove)
+	{
+		WGo.lastX=-1;
+		WGo.lastY=-1;
+		WGo.isMouseOnBestMove=false;
+		WGo.curBoard.removeAllObjectsVR();
+		var node=WGo.curNode;
+		if (node.bestMoves)
+			for (var i = 0; i < node.bestMoves.length; i++) {
+				var bestMove = node.bestMoves[i];
+				if (bestMove.coordinate) {
+					var bestMoveInfo = new Object();
+					bestMoveInfo.x = bestMove.x;
+					bestMoveInfo.y = bestMove.y;
+					bestMoveInfo.scoreMean=bestMove.scoreMean;
+					bestMoveInfo.winrate = bestMove.winrate;
+					bestMoveInfo.playouts = bestMove.playouts;
+					bestMoveInfo.percentplayouts = bestMove.percentplayouts;
+					bestMoveInfo.type = "BM";
+					WGo.curBoard.addObject(bestMoveInfo);
+				}
+			}
+		WGo.curBoard.redraw();
+	}
+	}
 
 var search_nodes = function(nodes, player) {
 	for(var i in nodes) {
@@ -224,6 +254,7 @@ WGo.BasicPlayer.attributes["data-wgo-formatmoves"] = function(value) {
 
 WGo.i18n.en["comments"] = "Comments";
 WGo.i18n.en["gameinfo"] = "Game info";
+
 
 WGo.BasicPlayer.component.CommentBox = CommentBox
 

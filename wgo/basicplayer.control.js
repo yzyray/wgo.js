@@ -253,6 +253,12 @@ control.Button = WGo.extendClass(control.Clickable, function(player, args) {
 		elem.title = WGo.t(args.name);
 		this.init(player, args);
 	});
+	control.Button3 = WGo.extendClass(control.Clickable, function(player, args) {
+		var elem = this.element = document.createElement("button");
+		elem.className = "wgo-button3 wgo-button3-"+args.name;
+		elem.title = WGo.t(args.name);
+		this.init(player, args);
+	});
 
 control.Button.prototype.disable = function() {
 	control.Button.prototype.super.prototype.disable.call(this);
@@ -284,27 +290,27 @@ control.MenuItem = WGo.extendClass(control.Clickable, function(player, args) {
 control.MoveNumber = WGo.extendClass(control.Widget, function(player) {
 	this.element = document.createElement("form");
 	this.element.className = "wgo-player-mn-wrapper";
-	
+
 	var move = this.move = document.createElement("input");
 	move.type = "text";
 	move.value = "0";
+	if(!WGo.isPC&&!WGo.isWideMode)
+	move.onfocus= function(){move.blur()};
 	move.maxlength = 3;
 	move.className = "wgo-player-mn-value";
-	//move.disabled = "disabled";
 	this.element.appendChild(move);
-
 	this.element.onsubmit = move.onchange = function(player) {
 		player.goTo(this.getValue());
-		return false; 
+		return false;
 	}.bind(this, player);
-	
 	player.addEventListener("update", function(e) {
 		this.setValue(e.path.m);
 	}.bind(this));
-	
+
 	player.addEventListener("kifuLoaded", this.enable.bind(this));
 	player.addEventListener("frozen", this.disable.bind(this));
 	player.addEventListener("unfrozen", this.enable.bind(this));
+	//init: this.onfocus="this.blur();";
 });
 
 control.MoveNumber.prototype.disable = function() {
@@ -385,6 +391,13 @@ var player_menu = function(player) {
 /**
  * List of widgets (probably MenuItem objects) to be displayed in drop-down menu.
  */
+
+function sleep(delay) {
+	var start = (new Date()).getTime();
+	while((new Date()).getTime() - start < delay) {
+		continue;
+	}
+}
  
 Control.menu = [{
 	constructor: control.MenuItem,
@@ -410,13 +423,14 @@ Control.menu = [{
  * }
 */
 var clickedMC=false;
+	var interval;
 Control.widgets = [
 	{
 	constructor: control.Group,
 	args: {
 		name: "left",
 		widgets: [{
-			constructor: control.Button2,
+			constructor: control.Button3,
 			args: {
 				name: "menu",
 				togglable: true,
@@ -446,7 +460,7 @@ Control.widgets = [
 	args: {
 		name: "control",
 		widgets: [{
-			constructor: control.Button2,
+			constructor: control.Button3,
 			args: {
 				name: "first",
 				disabled: true,
@@ -460,7 +474,7 @@ Control.widgets = [
 				},
 			}
 		}, {
-			constructor: control.Button2,
+			constructor: control.Button3,
 			args: {
 				name: "last",
 				disabled: true,
@@ -545,16 +559,54 @@ Control.widgets = [
 											_edited: true
 										}));
 										WGo.curPlayer.next_edit(WGo.curPlayer.kifuReader.node.children.length-1);
+										WGo.editMoveNum++;
 									}
 									//	WGo.isEditPlaying=false;
 									WGo.isMouseOnBestMove=false;
-									WGo.editMoveNum++;
 								}
 							}
 						},
 					init:
 						function () {
 							this.element.innerText="试下";
+							this.element.style.fontSize = 15+'px';
+						},
+				}
+			},
+			{
+				constructor: control.Button2,
+				args: {
+					name: "autoplay",
+					togglable: true,
+					click:
+						function(player) {
+						if(interval)
+						{clearInterval(interval);
+							this.element.innerText="自动";
+							interval=null;
+							WGo.isAutoMode=false;
+						}
+						else
+						{	this.element.innerText="停止";
+							WGo.isAutoMode=true;
+						interval=setInterval(() => {
+								if(WGo.isMouseOnBestMove)
+								{
+									if(WGo.display_var_length)
+										if(WGo.display_var_length<0) {
+											WGo.display_var_length = 1;
+											WGo.curBoard.redraw();
+										}
+										else if (WGo.display_var_length<WGo.var_length)
+											WGo.display_var_length++;
+									WGo.curBoard.redraw();
+								}
+							}, 700);
+						}
+						},
+					init:
+						function () {
+							this.element.innerText="自动";
 							this.element.style.fontSize = 15+'px';
 						},
 				}

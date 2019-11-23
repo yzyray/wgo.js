@@ -267,13 +267,17 @@ var Player = function(config) {
 	this.init();
 	this.initGame();
 }
-var _last_mark,var_length;
+var _last_mark,var_length,interval;
 
 	var mouse_move_bestmoves = function(x,y) {
 		if(WGo.lastX == x && WGo.lastY == y) return;
 		WGo.lastX = x;
 		WGo.lastY = y;
-
+if(interval)
+{
+	clearInterval(interval);
+	interval=null;
+}
 		if(_last_mark) {
 			this.board.removeAllObjectsVR();
 		}
@@ -320,6 +324,9 @@ var _last_mark,var_length;
 						num: i+1
 					};
 					this.board.addObject(mark);
+					if(WGo.isAutoMode)
+						WGo.display_var_length=1;
+						else
 					WGo.display_var_length=-1;
 				}
 				var_length=variations.length;
@@ -372,6 +379,22 @@ var _last_mark,var_length;
 				_last_mark = false;
 			}
 		}
+	}
+	
+	var mouse_click_pc=function () {
+		if (WGo.isMouseOnBestMove)
+		{
+			if(WGo.display_var_length)
+				WGo.display_var_length = 2;
+			WGo.curBoard.redraw();
+		interval=setInterval(() => {
+					if(WGo.display_var_length<0) {
+						WGo.display_var_length = 1;
+					}
+					if (WGo.display_var_length<WGo.var_length)
+						WGo.display_var_length++;
+				WGo.curBoard.redraw();
+		}, 700);}
 	}
 
 
@@ -506,7 +529,10 @@ var _last_mark,var_length;
 						num: i+1
 					};
 					this.board.addObject(mark);
-					WGo.display_var_length=-1;
+					if(WGo.isAutoMode)
+						WGo.display_var_length=1;
+					else
+						WGo.display_var_length=-1;
 				}
 				var_length=variations.length;
 				WGo.var_length=variations.length;
@@ -595,7 +621,9 @@ Player.prototype = {
 	//	var	setLis = function() {
 			//this._ev_move = this._ev_move || edit_board_mouse_move.bind(this);
 		if(WGo.isPC)
-			this.board.addEventListener("mousemove",mouse_move_bestmoves.bind(this));
+		{this.board.addEventListener("mousemove",mouse_move_bestmoves.bind(this));
+			this.board.addEventListener("click",mouse_click_pc.bind(this));
+		}
 		else
 			this.board.addEventListener("click",mouse_click_bestmoves.bind(this));
 			WGo.curBoard=this.board;
@@ -824,8 +852,10 @@ Player.prototype = {
 if(_last_mark&&WGo.isMouseOnBestMove)
 {
 	if(WGo.display_var_length)
-		if(WGo.display_var_length<0)
-			WGo.display_var_length=2;
+		if(WGo.display_var_length<0) {
+			WGo.display_var_length = 1;
+			this.board.redraw();
+		}
 		else if (WGo.display_var_length<var_length)
 			WGo.display_var_length++;
 	this.board.redraw();
@@ -856,7 +886,7 @@ else{
 			if(WGo.display_var_length)
 				if(WGo.display_var_length<0)
 					WGo.display_var_length=var_length-1;
-				else if (WGo.display_var_length>2)
+				else if (WGo.display_var_length>1)
 					WGo.display_var_length--;
 			this.board.redraw();
 		}

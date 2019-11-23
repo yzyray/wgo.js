@@ -47,6 +47,7 @@ var trueScale;
 	var kataShowMean;
 	var meanPo;
 	var editMoveNum;
+	var isAutoMode;
 /**
  * Main namespace - it initializes WGo in first run and then execute main function.
  * You must call WGo.init() if you want to use library, without calling WGo.
@@ -634,7 +635,7 @@ Board.drawHandlers = {
 				}
 			}
 		},
-		shadow: shadow_handler_realistic,
+		shadow: shadow_handler,
 	},
 
 	GLOW: {
