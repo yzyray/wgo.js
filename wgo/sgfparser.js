@@ -164,6 +164,14 @@ properties["C"] = function(kifu, node, value) {
 								// support 0.16 0.15
 								bestMove.scoreMean = parseFloat(value);
 								bestMove.isKataData = true;
+								if(!WGo.isKataData)
+								{WGo.isKataData=true;
+									WGo.kataShowMean=true;
+									if(WGo.meanPo)
+									{
+										WGo.meanPo.style.display="inline";
+									}
+								}
 							}
 						}
 					}
@@ -303,6 +311,7 @@ WGo.SGF.parse = function(str) {
 		return flag;
 	}
 	var isPC = IsPC();
+	WGo.editMoveNum=1;
 //if(!isPC)
 	//bodyScale();
 

@@ -482,15 +482,22 @@ Control.widgets = [
 					click:
 						function() {
 							clickedMC=!clickedMC;
-							if(clickedMC)
-								this.element.innerText="目差";
-							else
-							this.element.innerText="PO";
-
+							if(clickedMC) {
+								this.element.innerText = "目差";
+								WGo.kataShowMean=false;
+							}
+							else {
+								this.element.innerText = "计算量";
+								WGo.kataShowMean=true;
+							}
+							WGo.curBoard.redraw();
 						},
 					init:
 						function () {
-							this.element.innerText="PO";
+							this.element.innerText="计算量";
+							this.element.style.fontSize = 12+'px';
+							WGo.meanPo=this.element;
+							this.element.style.display="none";
 					}
 				}
 			},
@@ -513,10 +520,12 @@ Control.widgets = [
 							if(!this._editable.editMode)
 							{WGo.curBoard.removeAllObjectsOutLine();
 								WGo.editMode=false;
+								WGo.editMoveNum=1;
 							}
 							else
 							{
 								WGo.editMode=true;
+								WGo.editMoveNum=1;
 								if(WGo.isMouseOnBestMove)
 								{
 									WGo.editClicked=true;
@@ -530,7 +539,8 @@ Control.widgets = [
 											move: {
 												x:  parseInt(data[0]),
 												y: parseInt(data[1]),
-												c: WGo.curPlayer.kifuReader.game.turn
+												c: WGo.curPlayer.kifuReader.game.turn,
+												movenum: WGo.editMoveNum
 											},
 											_edited: true
 										}));
@@ -538,6 +548,7 @@ Control.widgets = [
 									}
 									//	WGo.isEditPlaying=false;
 									WGo.isMouseOnBestMove=false;
+									WGo.editMoveNum++;
 								}
 							}
 						},

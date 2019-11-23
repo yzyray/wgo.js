@@ -65,11 +65,22 @@ WGo.curNode=e.node;
 	// add current move marker
 	if(e.node.move && this.config.markLastMove) {
 		if(e.node.move.pass) this.notification(WGo.t((e.node.move.c == WGo.B ? "b" : "w")+"pass"));
-		else add.push({
-			type: "CR",
-			x: e.node.move.x,
-			y: e.node.move.y
-		});
+		else {
+			var type;
+			if(WGo.editMode)
+			{
+				type="CR2";
+			}
+			else
+			{
+				type="CR";
+			}
+			add.push({
+				type: type,
+				x: e.node.move.x,
+				y: e.node.move.y
+			});
+		}
 	}
 
 	// add variation letters

@@ -121,11 +121,13 @@ WGo.Player.Editable.prototype.play = function(x,y) {
 				move: {
 					x: parseInt(data[0]),
 					y: parseInt(data[1]),
-					c: this.player.kifuReader.game.turn
+					c: this.player.kifuReader.game.turn,
+					movenum: WGo.editMoveNum
 				},
 				_edited: true
 			}));
 		this.player.next_edit(this.player.kifuReader.node.children.length-1);
+			WGo.editMoveNum++;
 		}
 	//	WGo.isEditPlaying=false;
 		WGo.isMouseOnBestMove=false;
@@ -136,7 +138,8 @@ else{
 		move: {
 			x: x,
 			y: y,
-			c: this.player.kifuReader.game.turn
+			c: this.player.kifuReader.game.turn,
+			movenum: WGo.editMoveNum
 		},
 		_edited: true
 	}));
@@ -144,10 +147,12 @@ else{
 			// p.m += 1;
 			// this.player.goTo(p);
 	this.player.next_edit(this.player.kifuReader.node.children.length-1);
+			WGo.editMoveNum++;
 	}
 }
 
 if(WGo.BasicPlayer && WGo.BasicPlayer.component.Control) {
+	return;
 	WGo.BasicPlayer.component.Control.menu.push({
 		constructor: WGo.BasicPlayer.control.MenuItem,
 		args: {
@@ -161,9 +166,11 @@ if(WGo.BasicPlayer && WGo.BasicPlayer.component.Control) {
 				if(!this._editable.editMode)
 				{WGo.curBoard.removeAllObjectsOutLine();
 					WGo.editMode=false;
+					WGo.editMoveNum=1;
 				}
 				else
 				{
+					WGo.editMoveNum=1;
 					WGo.editMode=true;
 					if(WGo.isMouseOnBestMove)
 					{
@@ -178,7 +185,8 @@ if(WGo.BasicPlayer && WGo.BasicPlayer.component.Control) {
 								move: {
 									x:  parseInt(data[0]),
 									y: parseInt(data[1]),
-									c: WGo.curPlayer.kifuReader.game.turn
+									c: WGo.curPlayer.kifuReader.game.turn,
+									movenum: WGo.editMoveNum
 								},
 								_edited: true
 							}));
@@ -189,6 +197,7 @@ if(WGo.BasicPlayer && WGo.BasicPlayer.component.Control) {
 					}
 				}
 				return this._editable.editMode;
+				WGo.editMoveNum++;
 			},
 			init: function(player) {
 				var _this = this;

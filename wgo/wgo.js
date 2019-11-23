@@ -43,6 +43,10 @@ var trueScale;
 	var lastY=-1;
 	var editClicked;
 	var commentheight;
+	var isKataData;
+	var kataShowMean;
+	var meanPo;
+	var editMoveNum;
 /**
  * Main namespace - it initializes WGo in first run and then execute main function.
  * You must call WGo.init() if you want to use library, without calling WGo.
@@ -235,8 +239,8 @@ Board.themes.default = {
 		return board.stoneRadius*0.1;
 	},
 	shadowSize: 1,
-	markupBlackColor: "rgba(255,255,255,0.9)",
-	markupWhiteColor: "rgba(0,0,0,0.7)",
+	markupBlackColor: "rgb(255,255,255)",
+	markupWhiteColor: "rgb(0,0,0)",
 	markupNoneColor: "rgba(0,0,0,0.7)",
 	markupLinesWidth: function(board) {
 		return board.stoneRadius/8;
@@ -265,8 +269,8 @@ var theme_variable = function(key, board) {
 var shadow_handler = {
 	draw:
 		function(args, board) {
-		if(!WGo.isPC||!args.c)
-		{return;}
+		 if(!args.c)
+		 {return;}
 			if(WGo.display_var_length)
 				if(WGo.display_var_length>0&&args.num>WGo.display_var_length)
 				{return;}
@@ -462,11 +466,13 @@ Board.drawHandlers = {
 				if(args.c == WGo.W) {
 					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,sr/3,xr-sr/5,yr-sr/5,5*sr/5);
 					radgrad.addColorStop(0, '#fff');
-					radgrad.addColorStop(1, '#aaa');
+					if(WGo.isPC)
+						radgrad.addColorStop(1, '#aaa');
 				}
 				else {
 					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,1,xr-sr/5,yr-sr/5,4*sr/5);
-					radgrad.addColorStop(0, '#666');
+					if(WGo.isPC)
+						radgrad.addColorStop(0, '#666');
 					radgrad.addColorStop(1, '#000');
 				}
 
@@ -475,9 +481,26 @@ Board.drawHandlers = {
 				this.fillStyle = radgrad;
 				this.arc(xr-board.ls, yr-board.ls, Math.max(0, sr-0.5), 0, 2*Math.PI, true);
 				this.fill();
+				if(args.c == WGo.W) {
+					this.fillStyle = "black";
+				}
+				else
+				{
+					this.fillStyle = "white";
+				}
+				var font = "verdana";
+				this.font = Math.round(sr*1.3)+"px "+font;
+				if(args.movenum)
+				{
+					if(args.movenum<10)
+						this.fillText(args.movenum, xr-0.45*sr, yr+0.45*sr, 1.4*sr);
+					else
+						this.fillText(args.movenum, xr-0.72*sr, yr+0.45*sr, 1.4*sr);
+				}
 			}
 		},
 		// adding shadow handler
+
 		shadow: shadow_handler,
 	},
 
@@ -527,38 +550,91 @@ Board.drawHandlers = {
 	REALISTIC: {
 		// draw handler for stone layer
 		stone: {
-			// drawing function - args object contain info about drawing object, board is main board object
-			// this function is called from canvas2D context
 			draw: function(args, board) {
 				var xr = board.getX(args.x),
 					yr = board.getY(args.y),
-					sr = board.stoneRadius,
-					radgrad;
+					sr = board.stoneRadius;
 
-				// set stone texture
+				var whiteCount = board.whiteStoneGraphic.length;
+				var blackCount = board.blackStoneGraphic.length;
+
+				if(typeof this.randIndex === 'undefined') {
+					this.randIndex = Math.ceil(Math.random()*1e5);
+				}
+
+				var redraw = function() {
+					board.redraw();
+				};
+
+				// Check if image has been loaded properly
+				// see https://stereochro.me/ideas/detecting-broken-images-js
+				var isOkay = function(img) {
+					if (typeof img === 'string') { return false; }
+					if (!img.complete) { return false; }
+					if (typeof img.naturalWidth != "undefined" && img.naturalWidth == 0) {
+						return false;
+					}
+					return true;
+				};
+
 				if(args.c == WGo.W) {
-					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,sr/3,xr-sr/5,yr-sr/5,5*sr/5);
-					radgrad.addColorStop(0, '#fff');
-					if(WGo.isPC)
-					radgrad.addColorStop(1, '#aaa');
-				}
-				else {
-					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,1,xr-sr/5,yr-sr/5,4*sr/5);
-					if(WGo.isPC)
-					radgrad.addColorStop(0, '#666');
-					radgrad.addColorStop(1, '#000');
-				}
+					var idx = this.randIndex % whiteCount;
+					if(typeof board.whiteStoneGraphic[idx] === 'string')
+					{
+						// The image has not been loaded yet
+						var stoneGraphic = new Image();
+						// Redraw the whole board after the image has been loaded.
+						// This prevents 'missing stones' and similar graphical errors
+						// especially on slower internet connections.
+						stoneGraphic.onload = redraw;
+						stoneGraphic.src = board.whiteStoneGraphic[idx];
+						board.whiteStoneGraphic[idx] = stoneGraphic;
+					}
 
-				// paint stone
-				this.beginPath();
-				this.fillStyle = radgrad;
-				this.arc(xr-board.ls, yr-board.ls, Math.max(0, sr-0.5), 0, 2*Math.PI, true);
-				this.fill();
+					if(isOkay(board.whiteStoneGraphic[idx])) {
+						this.drawImage(board.whiteStoneGraphic[idx], xr - sr, yr - sr, 2*sr, 2*sr);
+					}
+					else {
+						// Fall back to SHELL handler if there was a problem loading the image
+						Board.drawHandlers.SHELL.stone.draw.call(this, args, board);
+					}
+				}
+				else { // args.c == WGo.B
+					var idx = this.randIndex % blackCount;
+					if(typeof board.blackStoneGraphic[idx] === 'string')
+					{
+						var stoneGraphic = new Image();
+						stoneGraphic.onload = redraw;
+						stoneGraphic.src = board.blackStoneGraphic[idx];
+						board.blackStoneGraphic[idx] = stoneGraphic;
+					}
+
+					if(isOkay(board.blackStoneGraphic[idx])) {
+						this.drawImage(board.blackStoneGraphic[idx], xr - sr, yr - sr, 2*sr, 2*sr);
+					}
+					else {
+						Board.drawHandlers.SHELL.stone.draw.call(this, args, board);
+					}
+				}
+				if(args.c == WGo.W) {
+					this.fillStyle = "black";
+				}
+				else
+				{
+					this.fillStyle = "white";
+				}
+				var font = "verdana";
+				this.font = Math.round(sr*1.3)+"px "+font;
+				if(args.movenum)
+				{
+					if(args.movenum<10)
+						this.fillText(args.movenum, xr-0.45*sr, yr+0.45*sr, 1.4*sr);
+					else
+						this.fillText(args.movenum, xr-0.72*sr, yr+0.45*sr, 1.4*sr);
+				}
 			}
 		},
-		// adding shadow handler
-
-		shadow: shadow_handler,
+		shadow: shadow_handler_realistic,
 	},
 
 	GLOW: {
@@ -730,6 +806,22 @@ Board.drawHandlers = {
 		},
 	},
 
+	CR2: {
+		stone: {
+			draw: function(args, board) {
+				var xr = board.getX(args.x),
+					yr = board.getY(args.y),
+					sr = board.stoneRadius;
+
+				this.strokeStyle = args.c || get_markup_color(board, args.x, args.y);
+				this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
+				this.beginPath();
+				this.arc(xr-board.ls, yr-board.ls, sr*1.6/2, 0, 2*Math.PI, true);
+				this.stroke();
+			},
+		},
+	},
+
 	// Label drawing handler
 	LB: {
 		stone: {
@@ -840,18 +932,22 @@ Board.drawHandlers = {
 				var playouts=getPlayoutsString(args.playouts);
 					this.font = "bold "+Math.round(sr*0.75)+"px "+font;
 					this.fillText(args.winrate.toFixed(1), xr-0.75*sr, yr-0.18*sr, 1.4*sr);
+					if(WGo.kataShowMean&&args.scoreMean)
 				this.fillText(args.scoreMean.toFixed(1), xr-0.75*sr, yr+0.63*sr, 1.4*sr);
-				// if(args.playouts<10)
-				// {
-				// 	this.fillText(playouts, xr-0.3*sr, yr+0.63*sr, 1.35*sr);
-				// }
-				// else if(args.playouts<100)
-				// {this.fillText(playouts, xr-0.6*sr, yr+0.63*sr, 1.35*sr);}
-				// else if(args.playouts<1000)
-				// {this.fillText(playouts, xr-0.7*sr, yr+0.63*sr, 1.35*sr);}
-				// else{
-				// this.fillText(playouts, xr-0.65*sr, yr+0.63*sr, 1.35*sr);
-				// }
+					else{
+						if(args.playouts<10)
+						{
+							this.fillText(playouts, xr-0.3*sr, yr+0.63*sr, 1.35*sr);
+						}
+						else if(args.playouts<100)
+						{this.fillText(playouts, xr-0.6*sr, yr+0.63*sr, 1.35*sr);}
+						else if(args.playouts<1000)
+						{this.fillText(playouts, xr-0.7*sr, yr+0.63*sr, 1.35*sr);}
+						else{
+						this.fillText(playouts, xr-0.65*sr, yr+0.63*sr, 1.35*sr);
+						}
+					}
+
 			}
 		},
 		shadow: shadow_handler,
@@ -976,64 +1072,86 @@ Board.drawHandlers = {
 		stone: {
 			draw: function(args, board) {
 				if(WGo.display_var_length)
-				if(WGo.display_var_length>0&&args.num>WGo.display_var_length)
-				{return;}
+					if(WGo.display_var_length>0&&args.num>WGo.display_var_length)
+					{return;}
 				var xr = board.getX(args.x),
 					yr = board.getY(args.y),
-					sr = board.stoneRadius,
-					radgrad;
-				var font = "verdana"; //calibri is WGo's default
-				{
-					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,sr/3,xr-sr/5,yr-sr/5,5*sr/5);
-					var isblack;
-					if(args.c == WGo.W) {
-						if (args.num % 2 == 0) {
-							radgrad.addColorStop(0, "rgb(0,0,0)");
-							isblack = true;
-						} else {
-							radgrad.addColorStop(0, "rgb(255,255,255)");
-							isblack = false;
-						}
-					}
-					else
-					{
-						if(args.num%2==0)
-						{
-							isblack=false;
-							radgrad.addColorStop(0, 	"rgb(255,255,255)");
-						}
-						else{
-						isblack=true;
-							radgrad.addColorStop(0, 	"rgb(0,0,0)");
-					}
-					}
-					this.beginPath();
-					this.fillStyle = radgrad;
-					this.arc(xr - board.ls, yr - board.ls, Math.max(0, sr - 0.5), 0, 2 * Math.PI, true);
-					this.fill();
-					if(isblack)
-						this.fillStyle = "white";
-						else
-					this.fillStyle = "black";
-				}
-				this.font = Math.round(sr*1.3)+"px "+font;
-				if(args.num<10)
-				this.fillText(args.num, xr-0.45*sr, yr+0.45*sr, 1.4*sr);
-				else
-					this.fillText(args.num, xr-0.72*sr, yr+0.45*sr, 1.4*sr);
-				// if(args.playouts<10)
-				// {
-				// 	this.fillText(playouts, xr-0.3*sr, yr+0.63*sr, 1.35*sr);
-				// }
-				// else if(args.playouts<100)
-				// {this.fillText(playouts, xr-0.6*sr, yr+0.63*sr, 1.35*sr);}
-				// else if(args.playouts<1000)
-				// {this.fillText(playouts, xr-0.7*sr, yr+0.63*sr, 1.35*sr);}
-				// else{
-				// 	this.fillText(playouts, xr-0.65*sr, yr+0.63*sr, 1.35*sr);
-				// }
-			}
+					sr = board.stoneRadius;
 
+				var whiteCount = board.whiteStoneGraphic.length;
+				var blackCount = board.blackStoneGraphic.length;
+
+				if(typeof this.randIndex === 'undefined') {
+					this.randIndex = Math.ceil(Math.random()*1e5);
+				}
+
+				var redraw = function() {
+					board.redraw();
+				};
+
+				// Check if image has been loaded properly
+				// see https://stereochro.me/ideas/detecting-broken-images-js
+				var isOkay = function(img) {
+					if (typeof img === 'string') { return false; }
+					if (!img.complete) { return false; }
+					if (typeof img.naturalWidth != "undefined" && img.naturalWidth == 0) {
+						return false;
+					}
+					return true;
+				};
+				var isblack;
+				if((args.c == WGo.W&&(args.num % 2 != 0))||(args.c == WGo.B&&(args.num % 2 == 0))) {
+					isblack=false;
+					var idx = this.randIndex % whiteCount;
+					if(typeof board.whiteStoneGraphic[idx] === 'string')
+					{
+						// The image has not been loaded yet
+						var stoneGraphic = new Image();
+						// Redraw the whole board after the image has been loaded.
+						// This prevents 'missing stones' and similar graphical errors
+						// especially on slower internet connections.
+						stoneGraphic.onload = redraw;
+						stoneGraphic.src = board.whiteStoneGraphic[idx];
+						board.whiteStoneGraphic[idx] = stoneGraphic;
+					}
+
+					if(isOkay(board.whiteStoneGraphic[idx])) {
+						this.drawImage(board.whiteStoneGraphic[idx], xr - sr, yr - sr, 2*sr, 2*sr);
+					}
+					else {
+						// Fall back to SHELL handler if there was a problem loading the image
+						Board.drawHandlers.SHELL.stone.draw.call(this, args, board);
+					}
+				}
+				else { // args.c == WGo.B
+					isblack=true;
+					var idx = this.randIndex % blackCount;
+					if(typeof board.blackStoneGraphic[idx] === 'string')
+					{
+						var stoneGraphic = new Image();
+						stoneGraphic.onload = redraw;
+						stoneGraphic.src = board.blackStoneGraphic[idx];
+						board.blackStoneGraphic[idx] = stoneGraphic;
+					}
+
+					if(isOkay(board.blackStoneGraphic[idx])) {
+						this.drawImage(board.blackStoneGraphic[idx], xr - sr, yr - sr, 2*sr, 2*sr);
+					}
+					else {
+						Board.drawHandlers.SHELL.stone.draw.call(this, args, board);
+					}
+				}
+				var font = "verdana";
+				if(isblack)
+					this.fillStyle = "white";
+				else
+					this.fillStyle = "black";
+			this.font = Math.round(sr*1.3)+"px "+font;
+	if(args.num<10)
+		this.fillText(args.num, xr-0.45*sr, yr+0.45*sr, 1.4*sr);
+	else
+		this.fillText(args.num, xr-0.72*sr, yr+0.45*sr, 1.4*sr);
+			}
 		},
 		shadow: shadow_handler,
 	},
