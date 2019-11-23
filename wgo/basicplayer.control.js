@@ -421,8 +421,11 @@ Control.menu = [{
 var clickedMC=false;
 	var interval;
 Control.widgets = [
+
 	{
+
 	constructor: control.Group,
+
 	args: {
 		name: "control",
 		widgets: [

@@ -77,10 +77,9 @@ var kifu_loaded = function(e) {
 		this.white.name.innerHTML = WGo.t("white");
 		this.white.info.rank.val.innerHTML = "-";
 	}
-	
 	this.black.info.caps.val.innerHTML = "0";
 	this.white.info.caps.val.innerHTML = "0";
-	
+
 	if(info.TM) {
 		this.setPlayerTime("black", info.TM);
 		this.setPlayerTime("white", info.TM);
@@ -157,8 +156,8 @@ InfoBox.prototype.setPlayerTime = function(color, time) {
 };
 
 InfoBox.prototype.updateDimensions = function() {
-	modify_font_size(this.black.name);
-	modify_font_size(this.white.name);
+	// modify_font_size(this.black.name);
+	// modify_font_size(this.white.name);
 };
 
 var bp_layouts = WGo.BasicPlayer.layouts;
