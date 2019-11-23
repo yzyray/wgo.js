@@ -824,10 +824,12 @@ Board.drawHandlers = {
 					yr = board.getY(args.y),
 					sr = board.stoneRadius;
 
-				this.strokeStyle = args.c || get_markup_color(board, args.x, args.y);
+
+				this.strokeStyle = "rgba(255,0,0,0.75)";
+				//this.strokeStyle = args.c || get_markup_color(board, args.x, args.y);
 				this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
 				this.beginPath();
-				this.arc(xr-board.ls, yr-board.ls, sr*1.6/2, 0, 2*Math.PI, true);
+				this.arc(xr-board.ls, yr-board.ls, sr*1.65/2, 0, 2*Math.PI, true);
 				this.stroke();
 			},
 		},
@@ -1062,15 +1064,15 @@ Board.drawHandlers = {
 
 
 					radgrad = this.createRadialGradient(xr-2*sr/5,yr-2*sr/5,1,xr-sr/5,yr-sr/5,4*sr/5);
-				radgrad.addColorStop(0, "rgba(0,0,0,0.3)");
+				radgrad.addColorStop(0, "rgba(255,0,0,0.8)");
 
 
 				// paint stone
 				this.beginPath();
-				this.fillStyle = radgrad;
+				this.strokeStyle = radgrad;
 				this.arc(xr-board.ls, yr-board.ls, Math.max(0, sr-0.5), 0, 2*Math.PI, true);
-				this.lineWidth   = 2;
-				this.fill();
+				this.lineWidth   = 4;
+				this.stroke();
 			}
 		}
 	},
