@@ -63,7 +63,14 @@
 		{document.write('<link rel="stylesheet" type="text/css" href="wgo/wgo.player.css"/>');
 		}
 		else
-		{document.write('<link rel="stylesheet" type="text/css" href="wgo/wgo.player.cellphone.css"/>');}
+		{
+			var devicewidth = document.documentElement.clientWidth;
+			var deviceheight = document.documentElement.clientHeight;
+			if(deviceheight>devicewidth)
+			document.write('<link rel="stylesheet" type="text/css" href="wgo/wgo.player.cellphone.css"/>');
+			else
+				document.write('<link rel="stylesheet" type="text/css" href="wgo/wgo.player.css"/>');
+		}
 		// var w=screen.width;
 		// var h=screen.height;
 		// if(w<h)document.write('<link rel="stylesheet" type="text/css" href="wgo/wgo.player.cellphone.css"/>');

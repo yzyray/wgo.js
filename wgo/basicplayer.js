@@ -187,16 +187,16 @@
 			var o = document.getElementById("main");
 			// var scale = devicewidth / 600;  // 分母——设计稿的尺寸
 			// var scale2 = deviceheight / 895;
-			var w=screen.width;
-			var h=screen.height;
-			if(h>w)
+			// var w=screen.width;
+			// var h=screen.height;
+			if(deviceheight>devicewidth)
 				WGo.isWideMode=false;
 			else{
 				WGo.isWideMode=true;
 				if(deviceheight>devicewidth)
 					WGo.isWideMode=false;
 			}
-			if(isPC)
+			if(isPC||WGo.isWideMode)
 			{
 				if(WGo.isWideMode)
 					o.style.height=(100)+"%"

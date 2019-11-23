@@ -555,6 +555,7 @@ Control.widgets = [
 					init:
 						function () {
 							this.element.innerText="试下";
+							this.element.style.fontSize = 15+'px';
 						},
 				}
 			}

@@ -467,7 +467,7 @@ button.wgo-button {
 	border-radius: 2px;
 	background-color: rgba(255,255,255,0.3);
 	width: 65px;
-	height: 45px;
+	height: 35px;
 	margin: 0 3px;
 	vertical-align: middle;
 }
@@ -551,9 +551,9 @@ button.wgo-button2 {
 	border: 1px solid rgba(200,200,200,0.3);
 	border-radius: 2px;
 	background-color: rgba(255,255,255,0.3);
+	width: 65px;
+	height: 35px;
 	margin: 0 3px;
-	width: 40px;
-	height: 45px;
 	vertical-align: middle;
 }
 
@@ -590,7 +590,7 @@ button.wgo-button2.wgo-selected:hover {
 	left: 1px;
 }
 
-.wgo-button2-first::before, .wgo-button2-multiprev::before, .wgo-button2-previous::before  {
+.wgo-button2-first::before, .wgo-button-multiprev::before, .wgo-button-previous::before  {
 	transform: scaleX(-1);
 	-moz-transform: scaleX(-1);
 	-webkit-transform: scaleX(-1);
@@ -622,15 +622,16 @@ button.wgo-button2.wgo-selected:hover {
 	content: '\e81a';
 }
 
+.wgo-button2-about::before  {
+	content: '\e80f';
+	font-size: 30px;
+	font-weight: normal;
+}
 .wgo-button2-menu::before  {
 	content: '\e81b';
 	font-size: 25px;
 	font-weight: normal;
 	padding-top: 5px;
-}
-.wgo-button2-menu2::before  {
-	font-size: 15px;
-	font-weight: normal;
 }
 .wgo-button2-tryplay::before  {
 	font-size: 15px;
