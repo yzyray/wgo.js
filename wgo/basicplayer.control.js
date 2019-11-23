@@ -424,38 +424,24 @@ Control.widgets = [
 	{
 	constructor: control.Group,
 	args: {
-		name: "left",
-		widgets: [{
-			constructor: control.Button3,
-			args: {
-				name: "menu",
-				togglable: true,
-				click: player_menu,
-			}
-		},
-			]
-	}
-},
-	{
-	constructor: control.Group,
-	args: {
-		name: "right",
-		widgets: [{
-			constructor: control.Button,
-			args: {
-				name: "about",
-				click: function(player) {
-					player.showMessage(WGo.t("about-text"));
-				},
-			}
-		}]
-	}
-},
-	{
-	constructor: control.Group,
-	args: {
 		name: "control",
-		widgets: [{
+		widgets: [
+			{
+				constructor: control.Group,
+				args: {
+					name: "left",
+					widgets: [{
+						constructor: control.Button3,
+						args: {
+							name: "menu",
+							togglable: true,
+							click: player_menu,
+						}
+					},
+					]
+				}
+			},
+			{
 			constructor: control.Button3,
 			args: {
 				name: "first",
@@ -702,8 +688,24 @@ Control.widgets = [
 					player.goTo(p);
 					}
 				},
-			}
-		}]
+					},
+		},
+			{
+				constructor: control.Group,
+				args: {
+					name: "right",
+					widgets: [{
+						constructor: control.Button,
+						args: {
+							name: "about",
+							click: function(player) {
+								player.showMessage(WGo.t("about-text"));
+							},
+						}
+					}]
+				}
+			},
+		]
 	}
 }];
 

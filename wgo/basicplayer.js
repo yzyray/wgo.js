@@ -212,9 +212,9 @@
 				WGo.trueScale=1;
 			}
 			 else{
-			 	var scale=deviceheight/915.0;
+			 	var scale=deviceheight/930.0;
 			 	var w=devicewidth/scale;
-				o.style.height=(833)+"px";
+				o.style.height=(900)+"px";
 				o.style.width=(w)+"px";
 			 	document.body.style.zoom = scale;
 				WGo.trueScale=scale;
