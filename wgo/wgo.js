@@ -798,11 +798,14 @@ Board.drawHandlers = {
 					yr = board.getY(args.y),
 					sr = board.stoneRadius;
 
-				this.strokeStyle = args.c || get_markup_color(board, args.x, args.y);
-				this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
+				this.fillStyle = "red";
+				//this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
 				this.beginPath();
-				this.arc(xr-board.ls, yr-board.ls, sr/2, 0, 2*Math.PI, true);
-				this.stroke();
+				this.moveTo(xr-board.ls+sr/2, yr-board.ls+sr*0.3);
+				this.lineTo(xr-board.ls, yr-board.ls-sr*0.5);
+				this.lineTo(xr-board.ls-sr/2, yr-board.ls+sr*0.3);
+				//this.arc(xr-board.ls, yr-board.ls, sr/6, 0, 2*Math.PI, true);
+				this.fill();
 			},
 		},
 	},

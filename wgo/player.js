@@ -853,6 +853,9 @@ if(_last_mark&&WGo.isMouseOnBestMove)
 {
 	if(WGo.display_var_length)
 		if(WGo.display_var_length<0) {
+			if(WGo.isPC)
+				WGo.display_var_length = 2;
+				else
 			WGo.display_var_length = 1;
 			this.board.redraw();
 		}
