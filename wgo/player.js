@@ -387,7 +387,7 @@ if(interval)
 			if(WGo.display_var_length)
 				WGo.display_var_length = 2;
 			WGo.curBoard.redraw();
-		interval=setInterval(() => {
+		interval=setInterval(function () {
 					if(WGo.display_var_length<0) {
 						WGo.display_var_length = 1;
 					}

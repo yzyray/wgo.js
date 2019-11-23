@@ -392,12 +392,8 @@ var player_menu = function(player) {
  * List of widgets (probably MenuItem objects) to be displayed in drop-down menu.
  */
 
-function sleep(delay) {
-	var start = (new Date()).getTime();
-	while((new Date()).getTime() - start < delay) {
-		continue;
-	}
-}
+
+
  
 Control.menu = [{
 	constructor: control.MenuItem,
@@ -589,7 +585,7 @@ Control.widgets = [
 						else
 						{	this.element.innerText="停止";
 							WGo.isAutoMode=true;
-						interval=setInterval(() => {
+							interval=setInterval(function autoMode() {
 								if(WGo.isMouseOnBestMove)
 								{
 									if(WGo.display_var_length)
@@ -598,10 +594,23 @@ Control.widgets = [
 											WGo.curBoard.redraw();
 										}
 										else if (WGo.display_var_length<WGo.var_length)
-											WGo.display_var_length++;
-									WGo.curBoard.redraw();
+										{WGo.display_var_length++;
+											WGo.curBoard.redraw();}
 								}
-							}, 700);
+							},700);
+						// interval=setInterval(() => {
+						// 	if(WGo.isMouseOnBestMove)
+						// 	{
+						// 		if(WGo.display_var_length)
+						// 			if(WGo.display_var_length<0) {
+						// 				WGo.display_var_length = 1;
+						// 				WGo.curBoard.redraw();
+						// 			}
+						// 			else if (WGo.display_var_length<WGo.var_length)
+						// 				WGo.display_var_length++;
+						// 		WGo.curBoard.redraw();
+						// 	}
+						// 	}, 700);
 						}
 						},
 					init:
