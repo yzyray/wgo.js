@@ -306,12 +306,17 @@ var shadow_handler = {
 // Shadow handler for the 'REALISITC' rendering mode
 var shadow_handler_realistic = {
 	draw: function(args, board) {
+		if(!args.c)
+		{return;}
+		if(WGo.display_var_length)
+			if(WGo.display_var_length>0&&args.num>WGo.display_var_length)
+			{return;}
 		var xr = board.getX(args.x),
 			yr = board.getY(args.y),
 			sr = board.stoneRadius,
-			lsX = 1.0,
-			lsY = -5.0,
-			blur = 5.0;
+			lsX = -1.5,
+			lsY = -2.0,
+			blur = 4.5;
 
 		this.beginPath();
 
@@ -327,6 +332,8 @@ var shadow_handler_realistic = {
 		this.fill();
 	},
 	clear: function(args, board) {
+		if(!args.c)
+		{return;}
 		var xr = board.getX(args.x),
 			yr = board.getY(args.y),
 			sr = board.stoneRadius,
@@ -635,7 +642,7 @@ Board.drawHandlers = {
 				}
 			}
 		},
-		shadow: shadow_handler,
+		shadow: shadow_handler_realistic,
 	},
 
 	GLOW: {
@@ -1021,7 +1028,7 @@ Board.drawHandlers = {
 
 			}
 		},
-		shadow: shadow_handler,
+		shadow: shadow_handler_realistic,
 	},
 
 	TR: {
@@ -1224,7 +1231,7 @@ Board.drawHandlers = {
 		this.fillText(args.num, xr-0.72*sr, yr+0.45*sr, 1.4*sr);
 			}
 		},
-		shadow: shadow_handler,
+		shadow: shadow_handler_realistic,
 	},
 	//
 	// variation: {
