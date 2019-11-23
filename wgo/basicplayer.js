@@ -220,7 +220,7 @@
 				WGo.trueScale=scale;
 				if(!WGo.isWideMode)
 				{
-					WGo.commentheight=Math.max(784-w,185);
+					WGo.commentheight=Math.max(804-w,185);
 				}
 			 }
 
