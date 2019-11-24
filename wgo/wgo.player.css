@@ -145,7 +145,7 @@
 	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(47%,rgba(246,246,246,1)), color-stop(100%,rgba(237,237,237,1)));
 	background: -webkit-linear-gradient(-45deg,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
 	background: -o-linear-gradient(-45deg,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
-	background: -ms-linear-gradient(-45deg,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);/
+	background: -ms-linear-gradient(-45deg,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
 background: linear-gradient(135deg,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
 }
 
@@ -797,7 +797,7 @@ input[type="text"].wgo-player-mn-value  {
 	z-index: 900;
 	/*transform: scaleY(-1);*/
 	/*transform: rotate(-180deg);*/
-	margin-top: -130px;
+	/*margin-top: -160px;*/
 	box-shadow: 0 0 20px 0 rgba(127,127,127,0.5);
 	font-weight: bold;
 	color: #292929;

@@ -57,7 +57,7 @@ var fullscreenProcess = function(elem) {
  * Toggle fullscreen mode.
  */
 	
-Player.prototype.toggleFullscreen: function() {
+Player.prototype.toggleFullscreen= function() {
 	if(FSCHANGE) {
 		document[FSCHANGE] = fullscreenChange.bind(this);
 		fullscreenProcess.call(undefined, this.view.element);

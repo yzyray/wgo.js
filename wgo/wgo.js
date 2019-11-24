@@ -203,8 +203,8 @@ Board.themes.old = {
 	shadowSize: function(board) {
 		return board.shadowSize;
 	},
-	markupBlackColor: "rgba(255,255,255,0.8)",
-	markupWhiteColor: "rgba(0,0,0,0.8)",
+	markupBlackColor: "rgba(255,255,255,1.0)",
+	markupWhiteColor: "rgba(0,0,0,1.0)",
 	markupNoneColor: "rgba(0,0,0,0.8)",
 	markupLinesWidth: function(board) {
 		return board.autoLineWidth ? board.stoneRadius/7 : board.lineWidth;
@@ -826,7 +826,6 @@ Board.drawHandlers = {
 
 
 				this.strokeStyle = "rgba(255,0,0,0.75)";
-				//this.strokeStyle = args.c || get_markup_color(board, args.x, args.y);
 				this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
 				this.beginPath();
 				this.arc(xr-board.ls, yr-board.ls, sr*1.65/2, 0, 2*Math.PI, true);
@@ -841,19 +840,25 @@ Board.drawHandlers = {
 			draw: function(args, board) {
 				var xr = board.getX(args.x),
 					yr = board.getY(args.y),
-					sr = board.stoneRadius,
-					font = args.font || theme_variable("font", board) || "";
+					sr = board.stoneRadius;
+				//	font = args.font || theme_variable("font", board) || "";
 
 				this.fillStyle = args.c || get_markup_color(board, args.x, args.y);
 
-				if(args.text.length == 1) this.font = Math.round(sr*1.5)+"px "+font;
-				else if(args.text.length == 2) this.font = Math.round(sr*1.2)+"px "+font;
-				else this.font = Math.round(sr)+"px "+font;
+			//	if(args.text.length == 1) this.font = Math.round(sr*1.5)+"px "+font;
+			//	else if(args.text.length == 2) this.font = Math.round(sr*1.2)+"px "+font;
+				//else this.font = Math.round(sr)+"px "+font;
 
 				//this.beginPath();
 				//this.textBaseline="middle";
-			//	this.textAlign="center";
-				this.fillText(args.text, xr-0.5*sr, yr+0.5*sr, 2*sr);
+				this.textAlign="left";
+				var font = "verdana";
+				this.font = Math.round(sr*1.3)+"px "+font;
+				if((args.text+"").length == 1)
+				this.fillText(args.text, xr-0.45*sr, yr+0.45*sr, 1.4*sr);
+				else
+					this.fillText(args.text, xr-0.72*sr, yr+0.45*sr, 1.4*sr);
+			//	else this.fillText(args.text, xr-0.5*sr, yr+0.5*sr, 2*sr);
 
 
 			},
@@ -1003,6 +1008,22 @@ Board.drawHandlers = {
 					this.fillStyle = radgrad;
 					this.arc(xr - board.ls, yr - board.ls, Math.max(0, sr - 0.5), 0, 2 * Math.PI, true);
 					this.fill();
+					if(args.percentplayouts>=2.0)
+					{
+						this.strokeStyle = "rgb(0,0,255)";
+						this.lineWidth = 1.7;
+						this.beginPath();
+						this.arc(xr-board.ls, yr-board.ls, sr, 0, 2*Math.PI, true);
+						this.stroke();
+					}
+					else if(args.c)
+					{
+						this.strokeStyle = "rgb(255,0,0)";
+						this.lineWidth = 1.7;
+						this.beginPath();
+						this.arc(xr-board.ls, yr-board.ls, sr, 0, 2*Math.PI, true);
+						this.stroke();
+					}
 					//percentplayouts
 					if(isblack)
 						this.fillStyle = "white";
@@ -1887,6 +1908,23 @@ Board.prototype = {
 		}
 	},
 
+	removeAllObjectsMoveNum: function() {
+		for(var i = 0; i < this.size; i++) {
+			for(var j = 0; j < this.size; j++)
+			{
+				var layers = this.obj_arr[i][j];
+				for(var z = 0; z < layers.length; z++) {
+					if (this.obj_arr[i][j][z].type == "LB"||this.obj_arr[i][j][z].type =="TRS") {
+						this.removeObject(this.obj_arr[i][j][z]);
+						//this.removeLayer(this.obj_arr[i][j][z]);
+						//	this.obj_arr[i][j].splice(z, 1);
+						//clearField.call(this, i,j);
+					}
+				}
+			}
+		}
+		this.redraw();
+	},
 
 	removeAllObjectsBM: function() {
 		for(var i = 0; i < this.size; i++) {

@@ -73,7 +73,7 @@ WGo.curNode=e.node;
 			}
 			else
 			{
-				type="CR";
+				type="TRS";
 			}
 			add.push({
 				type: type,

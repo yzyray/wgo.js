@@ -421,7 +421,21 @@ Control.menu = [{
 var clickedMC=false;
 	var interval;
 Control.widgets = [
-
+	{
+		constructor: control.Group,
+		args: {
+			name: "left",
+			widgets: [{
+				constructor: control.Button3,
+				args: {
+					name: "menu",
+					togglable: true,
+					click: player_menu,
+				}
+			},
+			]
+		}
+	},
 	{
 
 	constructor: control.Group,
@@ -429,21 +443,7 @@ Control.widgets = [
 	args: {
 		name: "control",
 		widgets: [
-			{
-				constructor: control.Group,
-				args: {
-					name: "left",
-					widgets: [{
-						constructor: control.Button3,
-						args: {
-							name: "menu",
-							togglable: true,
-							click: player_menu,
-						}
-					},
-					]
-				}
-			},
+
 			{
 			constructor: control.Button3,
 			args: {
@@ -523,6 +523,7 @@ Control.widgets = [
 							}
 							else
 							{
+								WGo.curBoard.removeAllObjectsMoveNum();
 								WGo.editMode=true;
 								WGo.editMoveNum=1;
 								if(WGo.isMouseOnBestMove)

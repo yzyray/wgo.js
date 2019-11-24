@@ -223,11 +223,24 @@
 					WGo.commentheight=Math.max(804-w,185);
 				}
 			 }
+			document.body.addEventListener('touchmove',bodyScroll,false);
 
 
+			// window.ontouchmove=function(e){
+			// 	e.preventDefault && e.preventDefault();
+			// 	e.returnValue=false;
+			// 	e.stopPropagation && e.stopPropagation();
+			// 	alert("a7");
+			// 	return false;
+			// };
 
 		}
 
+		function bodyScroll(event){
+
+			event.preventDefault();
+
+		}
 		//window.onload = window.onresize = function () {
 		bodyScale();
 		//};
