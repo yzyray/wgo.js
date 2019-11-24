@@ -884,6 +884,8 @@ else{
 		if(this.frozen || !this.kifu) return;
 		if(WGo.editMode)
 		WGo.curBoard.removeAllObjectsOutLine();
+		if(WGo.editMoveNum>1)
+		WGo.editMoveNum--;
 		if(_last_mark&&WGo.isMouseOnBestMove)
 		{
 			if(WGo.display_var_length)
