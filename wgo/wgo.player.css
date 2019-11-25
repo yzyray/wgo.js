@@ -408,7 +408,7 @@ a.wgo-move-link {
 
 .wgo-player-top .wgo-comments-content, .wgo-player-bottom .wgo-comments-content {
     position: absolute;
-    left: 40px;
+    left: 0px;
     right: 0;
     top: 0;
     bottom: 0;

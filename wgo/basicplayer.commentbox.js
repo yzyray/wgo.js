@@ -312,22 +312,36 @@
                         var playouts = getPlayoutsString(bestMoves[i].playouts);
                         var coords=formatWidth(bestMoves[i].coordinate+"",3);
                         var percent = bestMoves[i].playouts / bestMoves[i].totalplayouts * 100;
-                        moveComment += "\n" + "选点" + formatWidth(i + 1,2) + ": "+ coords + " 胜率:" + formatWidth(bestMoves[i].winrate.toFixed(1),4);
-                        //+ "计算量:" + playouts + " " + percent;
+                        moveComment += "\n"+"选点" + formatWidth(i + 1,2) + ": "+ coords + "　胜率:" + formatWidth(bestMoves[i].winrate.toFixed(1),4);
+
                         if (bestMoves[i].scoreMean)
-                            moveComment += " 目差" + bestMoves[i].scoreMean.toFixed(1);
-                        moveComment +=" 推荐度:";
+                            moveComment += "　目差" + bestMoves[i].scoreMean.toFixed(1);
+                        moveComment += "　计算量:";
                         if(percent<10)
                         {
-                            moveComment+="□";
+                            if(percent<3)
+                            {
+                                moveComment+="▎";
+                            }
+                           else if(percent<5)
+                            {
+                                moveComment+="▋";
+                            }
+                            else
+                            moveComment+="▉";
+                        }
+
+                        else if(percent>70){
+                            moveComment+="███████";
                         }
                         else
                         {
                             for (var s=0;s*10<percent;s++)
                             {
-                                moveComment+="■";
+                                moveComment+="█";
                             }
                         }
+                        moveComment+=" "+percent.toFixed(1)+"%"+" "+ playouts;
                         moveComment +="</a></p>";
                     }
             }
