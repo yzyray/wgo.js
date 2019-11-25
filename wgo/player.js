@@ -107,7 +107,7 @@
         this.board.addObject(add);
 
         //add bestmoves
-        if (_last_mark) {
+        if (WGo._last_mark) {
             this.board.removeAllObjectsVR();
         }
         this.board.removeAllObjectsBM();
@@ -262,7 +262,7 @@
         this.init();
         this.initGame();
     }
-    var _last_mark, var_length, interval;
+    var   interval;
 
     var mouse_move_bestmoves = function (x, y) {
         if (WGo.lastX == x && WGo.lastY == y) return;
@@ -272,7 +272,7 @@
             clearInterval(interval);
             interval = null;
         }
-        if (_last_mark) {
+        if (WGo._last_mark) {
             this.board.removeAllObjectsVR();
         }
 
@@ -303,7 +303,7 @@
                     bestMoveInfo.type = "BM";
                     this.board.addObject(bestMoveInfo);
                 }
-                _last_mark = true;
+                WGo._last_mark = true;
                 var variations = bestmove.variation;
                 for (var i = 1; i < variations.length; i++) {
                     var data = variations[i].split("_");
@@ -321,11 +321,11 @@
                     else
                         WGo.display_var_length = -1;
                 }
-                var_length = variations.length;
+                // var_length = variations.length;
                 WGo.var_length = variations.length
             } else {
                 WGo.isMouseOnBestMove = false;
-                if (_last_mark) {
+                if (WGo._last_mark) {
                     var node = WGo.curNode;
                     if (node.bestMoves)
                         for (var i = 0; i < node.bestMoves.length; i++) {
@@ -343,12 +343,12 @@
                             }
                         }
                     this.board.redraw();
-                    _last_mark = false;
+                    WGo._last_mark = false;
                 }
             }
         } else {
             WGo.isMouseOnBestMove = false;
-            if (_last_mark) {
+            if (WGo._last_mark) {
                 var node = WGo.curNode;
                 if (node.bestMoves)
                     for (var i = 0; i < node.bestMoves.length; i++) {
@@ -366,7 +366,7 @@
                         }
                     }
                 this.board.redraw();
-                _last_mark = false;
+                WGo._last_mark = false;
             }
         }
     }
@@ -392,7 +392,7 @@
         if (WGo.lastX == x && WGo.lastY == y && WGo.isMouseOnBestMove) {
             this.board.removeAllObjectsVR();
             WGo.isMouseOnBestMove = false;
-            if (_last_mark) {
+            if (WGo._last_mark) {
                 var node = WGo.curNode;
                 if (node.bestMoves)
                     for (var i = 0; i < node.bestMoves.length; i++) {
@@ -410,7 +410,7 @@
                         }
                     }
                 this.board.redraw();
-                _last_mark = false;
+                WGo._last_mark = false;
             }
             WGo.lastX = -1;
             WGo.lastY = -1;
@@ -419,7 +419,7 @@
         WGo.lastX = x;
         WGo.lastY = y;
 
-        if (_last_mark) {
+        if (WGo._last_mark) {
             this.board.removeAllObjectsVR();
         }
 
@@ -459,7 +459,7 @@
             if (hasBestMoves) {
                 if (WGo.mouseBestMove == bestmove && WGo.isMouseOnBestMove) {
                     WGo.isMouseOnBestMove = false;
-                    if (_last_mark) {
+                    if (WGo._last_mark) {
                         var node = WGo.curNode;
                         if (node.bestMoves)
                             for (var i = 0; i < node.bestMoves.length; i++) {
@@ -477,7 +477,7 @@
                                 }
                             }
                         this.board.redraw();
-                        _last_mark = false;
+                        WGo._last_mark = false;
                     }
                     WGo.lastX = -1;
                     WGo.lastY = -1;
@@ -498,7 +498,7 @@
                     bestMoveInfo.type = "BM";
                     this.board.addObject(bestMoveInfo);
                 }
-                _last_mark = true;
+                WGo._last_mark = true;
                 var variations = bestmove.variation;
                 for (var i = 1; i < variations.length; i++) {
                     var data = variations[i].split("_");
@@ -516,11 +516,11 @@
                     else
                         WGo.display_var_length = -1;
                 }
-                var_length = variations.length;
+                //  var_length = variations.length;
                 WGo.var_length = variations.length;
             } else {
                 WGo.isMouseOnBestMove = false;
-                if (_last_mark) {
+                if (WGo._last_mark) {
                     var node = WGo.curNode;
                     if (node.bestMoves)
                         for (var i = 0; i < node.bestMoves.length; i++) {
@@ -538,12 +538,12 @@
                             }
                         }
                     this.board.redraw();
-                    _last_mark = false;
+                    WGo._last_mark = false;
                 }
             }
         } else {
             WGo.isMouseOnBestMove = false;
-            if (_last_mark) {
+            if (WGo._last_mark) {
                 var node = WGo.curNode;
                 if (node.bestMoves)
                     for (var i = 0; i < node.bestMoves.length; i++) {
@@ -561,7 +561,7 @@
                         }
                     }
                 this.board.redraw();
-                _last_mark = false;
+                WGo._last_mark = false;
             }
         }
     }
@@ -820,7 +820,7 @@
             if (this.frozen || !this.kifu) return;
             if (WGo.editMode)
                 WGo.curBoard.removeAllObjectsOutLine();
-            if (_last_mark && WGo.isMouseOnBestMove) {
+            if (WGo._last_mark && WGo.isMouseOnBestMove) {
                 if (WGo.display_var_length)
                     if (WGo.display_var_length < 0) {
                         if (WGo.isPC)
@@ -828,7 +828,7 @@
                         else
                             WGo.display_var_length = 1;
                         this.board.redraw();
-                    } else if (WGo.display_var_length < var_length)
+                    } else if (WGo.display_var_length < WGo.var_length)
                         WGo.display_var_length++;
                 this.board.redraw();
             } else {
@@ -853,10 +853,10 @@
                 WGo.curBoard.removeAllObjectsOutLine();
             //if(WGo.editMoveNum>1)
             //WGo.editMoveNum--;
-            if (_last_mark && WGo.isMouseOnBestMove) {
+            if (WGo._last_mark && WGo.isMouseOnBestMove) {
                 if (WGo.display_var_length)
                     if (WGo.display_var_length < 0)
-                        WGo.display_var_length = var_length - 1;
+                        WGo.display_var_length = WGo.var_length - 1;
                     else if (WGo.display_var_length > 1)
                         WGo.display_var_length--;
                 this.board.redraw();

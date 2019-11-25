@@ -53,13 +53,111 @@
         this.board.addObject(this._tmp_mark);
     }
 
+
+    var mark_variations = function (index) {
+        WGo.commentVarClickedNow=true;
+        setTimeout(function(){  WGo.commentVarClickedNow=false; }, 100);
+        WGo.curBoard.removeAllObjectsVR();
+        WGo.curBoard.removeAllObjectsBM();
+        var   bestmove = WGo.curNode.bestMoves[index];
+        if( WGo.lastX== bestmove.x&&  WGo.lastY == bestmove.y)
+        {
+            WGo.lastX=-1;
+            WGo.lastY=-1;
+            WGo.isMouseOnBestMove = false;
+            WGo._last_mark=false;
+                var node = WGo.curNode;
+                if (node.bestMoves)
+                    for (var i = 0; i < node.bestMoves.length; i++) {
+                        var bestMove = node.bestMoves[i];
+                        if (bestMove.coordinate) {
+                            var bestMoveInfo = new Object();
+                            bestMoveInfo.x = bestMove.x;
+                            bestMoveInfo.y = bestMove.y;
+                            bestMoveInfo.scoreMean = bestMove.scoreMean;
+                            bestMoveInfo.winrate = bestMove.winrate;
+                            bestMoveInfo.playouts = bestMove.playouts;
+                            bestMoveInfo.percentplayouts = bestMove.percentplayouts;
+                            bestMoveInfo.type = "BM";
+                            this.board.addObject(bestMoveInfo);
+                        }
+                    }
+                return;
+        }
+        WGo.lastX = bestmove.x;
+        WGo.lastY = bestmove.y;
+        WGo.isMouseOnBestMove = true;
+        WGo.mouseBestMove = bestmove;
+        this.board.removeAllObjectsBM(bestmove.x, bestmove.y);
+        {
+            var bestMoveInfo = new Object();
+            bestMoveInfo.c = WGo.mainGame.turn;
+            bestMoveInfo.x = bestmove.x;
+            bestMoveInfo.y = bestmove.y;
+            bestMoveInfo.winrate = bestmove.winrate;
+            bestMoveInfo.scoreMean = bestmove.scoreMean;
+            bestMoveInfo.playouts = bestmove.playouts;
+            bestMoveInfo.percentplayouts = bestmove.percentplayouts;
+            bestMoveInfo.type = "BM";
+            this.board.addObject(bestMoveInfo);
+        }
+        var variations = bestmove.variation;
+        for (var i = 1; i < variations.length; i++) {
+            var data = variations[i].split("_");
+
+            var mark = {
+                type: "variation",
+                x: data[0],
+                y: data[1],
+                c: WGo.mainGame.turn,
+                num: i + 1
+            };
+            this.board.addObject(mark);
+            if (WGo.isAutoMode)
+                WGo.display_var_length = 1;
+            else
+                WGo.display_var_length = -1;
+        }
+        WGo.var_length = variations.length;
+        WGo._last_mark=true;
+    }
+
+   var formatWidth= function(str, width){
+        str += '';
+       var blank =String.fromCharCode(160);
+        if(str.length<width)
+            return formatWidth(blank+str, width)
+        else
+            return str
+    }
+
     var unmark = function () {
         this.board.removeObject(this._tmp_mark);
         delete this._tmp_mark;
+        // WGo.curBoard.removeAllObjectsVR();
+        // WGo.curBoard.removeAllObjectsBM();
+        // WGo.isMouseOnBestMove = false;
+        //     var node = WGo.curNode;
+        //     if (node.bestMoves)
+        //         for (var i = 0; i < node.bestMoves.length; i++) {
+        //             var bestMove = node.bestMoves[i];
+        //             if (bestMove.coordinate) {
+        //                 var bestMoveInfo = new Object();
+        //                 bestMoveInfo.x = bestMove.x;
+        //                 bestMoveInfo.y = bestMove.y;
+        //                 bestMoveInfo.scoreMean = bestMove.scoreMean;
+        //                 bestMoveInfo.winrate = bestMove.winrate;
+        //                 bestMoveInfo.playouts = bestMove.playouts;
+        //                 bestMoveInfo.percentplayouts = bestMove.percentplayouts;
+        //                 bestMoveInfo.type = "BM";
+        //                 this.board.addObject(bestMoveInfo);
+        //             }
+        //         }
+
     }
 
     var mouse_click = function () {
-        if (WGo.isMouseOnBestMove) {
+        if (! WGo.commentVarClickedNow&&WGo.isMouseOnBestMove) {
             WGo.lastX = -1;
             WGo.lastY = -1;
             WGo.isMouseOnBestMove = false;
@@ -87,8 +185,14 @@
     var search_nodes = function (nodes, player) {
         for (var i in nodes) {
             if (nodes[i].className && nodes[i].className == "wgo-move-link") {
-                nodes[i].addEventListener("mouseover", mark.bind(player, nodes[i].innerHTML));
+                if(WGo.curNode.bestMoves[WGo.commentBindBestMoveIndex].coordinate)
+                {
+                    if(WGo.isPC)
+                        nodes[i].addEventListener("mousemove", mark.bind(player, WGo.curNode.bestMoves[WGo.commentBindBestMoveIndex].coordinate));
+                    nodes[i].addEventListener("click", mark_variations.bind(player, WGo.commentBindBestMoveIndex));
                 nodes[i].addEventListener("mouseout", unmark.bind(player));
+                }
+                WGo.commentBindBestMoveIndex++;
             } else if (nodes[i].childNodes && nodes[i].childNodes.length) search_nodes(nodes[i].childNodes, player);
         }
     }
@@ -167,7 +271,8 @@
         }
 
         this.comment_text.innerHTML = msg + this.getCommentText(e.node.comment, e.node.bestMoves, this.player.config.formatNicks, this.player.config.formatMoves);
-
+        this.comment_text.style.fontSize = 18 + 'px';
+        WGo.commentBindBestMoveIndex=0;
         if (this.player.config.formatMoves) {
             if (this.comment_text.childNodes && this.comment_text.childNodes.length) search_nodes(this.comment_text.childNodes, this.player);
         }
@@ -203,23 +308,40 @@
             for (var i = 0; i < bestMoves.length; i++) {
                 if (bestMoves[i])
                     if (bestMoves[i].coordinate) {
+                        moveComment +="<p><a class=\"wgo-move-link\">";
                         var playouts = getPlayoutsString(bestMoves[i].playouts);
-                        var percent = "占比" + (bestMoves[i].playouts / bestMoves[i].totalplayouts * 100).toFixed(1) + "%";
-                        moveComment += "\n" + "选点" + (i + 1) + ":" + bestMoves[i].coordinate + "胜率:" + bestMoves[i].winrate + "计算量:" + playouts + " " + percent;
+                        var coords=formatWidth(bestMoves[i].coordinate+"",3);
+                        var percent = bestMoves[i].playouts / bestMoves[i].totalplayouts * 100;
+                        moveComment += "\n" + "选点" + formatWidth(i + 1,2) + ": "+ coords + " 胜率:" + formatWidth(bestMoves[i].winrate.toFixed(1),4);
+                        //+ "计算量:" + playouts + " " + percent;
                         if (bestMoves[i].scoreMean)
                             moveComment += " 目差" + bestMoves[i].scoreMean.toFixed(1);
+                        moveComment +=" 推荐度:";
+                        if(percent<10)
+                        {
+                            moveComment+="□";
+                        }
+                        else
+                        {
+                            for (var s=0;s*10<percent;s++)
+                            {
+                                moveComment+="■";
+                            }
+                        }
+                        moveComment +="</a></p>";
                     }
             }
         if (comment && WGo.isWideMode) {
-            finalcomment = comment + moveComment;
+            finalcomment = "<p>"+comment +"</p>"+ moveComment;
         } else {
             finalcomment = moveComment;
         }
 
         if (finalcomment.length > 0) {
-            var comm = "<p>" + WGo.filterHTML(finalcomment).replace(/\n/g, "</p><p>") + "</p>";
-            if (formatNicks) comm = comm.replace(/(<p>)([^:]{3,}:)\s/g, '<p><span class="wgo-comments-nick">$2</span> ');
-            if (formatMoves) comm = comm.replace(/\b[a-zA-Z]1?\d\b/g, '<a href="javascript:void(0)" class="wgo-move-link">$&</a>');
+            var comm = finalcomment;//"<p>" + WGo.filterHTML(finalcomment).replace(/\n/g, "</p><p>") + "</p>";
+           // if (formatMoves) comm ="<a href=\"javascript:void(0)\" class=\"wgo-move-link\">"+comm+"</a>";
+          //  if (formatNicks) comm = comm.replace(/(<p>)([^:]{3,}:)\s/g, '<p><span class="wgo-comments-nick">$2</span> ');
+          //  if (formatMoves) comm = comm.replace(/\b[a-zA-Z]1?\d\b/g, '<a href="javascript:void(0)" class="wgo-move-link">$&</a>');
             return comm;
         }
         return "";
