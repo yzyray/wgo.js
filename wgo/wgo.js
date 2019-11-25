@@ -487,11 +487,11 @@
                     if (args.c == WGo.W) {
                         radgrad = this.createRadialGradient(xr - 2 * sr / 5, yr - 2 * sr / 5, sr / 3, xr - sr / 5, yr - sr / 5, 5 * sr / 5);
                         radgrad.addColorStop(0, '#fff');
-                        if (WGo.isPC)
+
                             radgrad.addColorStop(1, '#aaa');
                     } else {
                         radgrad = this.createRadialGradient(xr - 2 * sr / 5, yr - 2 * sr / 5, 1, xr - sr / 5, yr - sr / 5, 4 * sr / 5);
-                        if (WGo.isPC)
+
                             radgrad.addColorStop(0, '#666');
                         radgrad.addColorStop(1, '#000');
                     }
@@ -505,14 +505,6 @@
                         this.fillStyle = "black";
                     } else {
                         this.fillStyle = "white";
-                    }
-                    var font = "verdana";
-                    this.font = Math.round(sr * 1.3) + "px " + font;
-                    if (args.movenum) {
-                        if (args.movenum < 10)
-                            this.fillText(args.movenum, xr - 0.45 * sr, yr + 0.45 * sr, 1.4 * sr);
-                        else
-                            this.fillText(args.movenum, xr - 0.72 * sr, yr + 0.45 * sr, 1.4 * sr);
                     }
                 }
             },
@@ -911,86 +903,37 @@
                     {
                         radgrad = this.createRadialGradient(xr - 2 * sr / 5, yr - 2 * sr / 5, sr / 3, xr - sr / 5, yr - sr / 5, 5 * sr / 5);
                         if (args.c) {
-                            var whiteCount = board.whiteStoneGraphic.length;
-                            var blackCount = board.blackStoneGraphic.length;
-
-                            if (typeof this.randIndex === 'undefined') {
-                                this.randIndex = Math.ceil(Math.random() * 1e5);
-                            }
-
-                            var redraw = function () {
-                                board.redraw();
-                            };
-
-                            // Check if image has been loaded properly
-                            // see https://stereochro.me/ideas/detecting-broken-images-js
-                            var isOkay = function (img) {
-                                if (typeof img === 'string') {
-                                    return false;
-                                }
-                                if (!img.complete) {
-                                    return false;
-                                }
-                                if (typeof img.naturalWidth != "undefined" && img.naturalWidth == 0) {
-                                    return false;
-                                }
-                                return true;
-                            };
-
                             if (args.c == WGo.W) {
-                                isblack = false;
-                                var idx = this.randIndex % whiteCount;
-                                if (typeof board.whiteStoneGraphic[idx] === 'string') {
-                                    // The image has not been loaded yet
-                                    var stoneGraphic = new Image();
-                                    // Redraw the whole board after the image has been loaded.
-                                    // This prevents 'missing stones' and similar graphical errors
-                                    // especially on slower internet connections.
-                                    stoneGraphic.onload = redraw;
-                                    stoneGraphic.src = board.whiteStoneGraphic[idx];
-                                    board.whiteStoneGraphic[idx] = stoneGraphic;
-                                }
+                                isblack=false;
+                                radgrad = this.createRadialGradient(xr - 2 * sr / 5, yr - 2 * sr / 5, sr / 3, xr - sr / 5, yr - sr / 5, 5 * sr / 5);
+                                radgrad.addColorStop(0, '#fff');
 
-                                if (isOkay(board.whiteStoneGraphic[idx])) {
-                                    this.drawImage(board.whiteStoneGraphic[idx], xr - sr, yr - sr, 2 * sr, 2 * sr);
-                                } else {
-                                    // Fall back to SHELL handler if there was a problem loading the image
-                                    Board.drawHandlers.SHELL.stone.draw.call(this, args, board);
-                                }
-                            } else { // args.c == WGo.B
-                                isblack = true;
-                                var idx = this.randIndex % blackCount;
-                                if (typeof board.blackStoneGraphic[idx] === 'string') {
-                                    var stoneGraphic = new Image();
-                                    stoneGraphic.onload = redraw;
-                                    stoneGraphic.src = board.blackStoneGraphic[idx];
-                                    board.blackStoneGraphic[idx] = stoneGraphic;
-                                }
+                                    radgrad.addColorStop(1, '#aaa');
+                            } else {
+                                isblack=true;
+                                radgrad = this.createRadialGradient(xr - 2 * sr / 5, yr - 2 * sr / 5, 1, xr - sr / 5, yr - sr / 5, 4 * sr / 5);
 
-                                if (isOkay(board.blackStoneGraphic[idx])) {
-                                    this.drawImage(board.blackStoneGraphic[idx], xr - sr, yr - sr, 2 * sr, 2 * sr);
-                                } else {
-                                    Board.drawHandlers.SHELL.stone.draw.call(this, args, board);
-                                }
+                                    radgrad.addColorStop(0, '#666');
+                                radgrad.addColorStop(1, '#000');
                             }
-                            //
-                            //
-                            // 	if(args.c==WGo.B)
-                            // {
-                            // 	radgrad.addColorStop(0, "rgb(0,0,0)");
-                            // 	isblack = true;
-                            // } else {
-                            // 	radgrad.addColorStop(0, "rgb(255,255,255)");
-                            // 	isblack = false;
-                            // }
 
+                            // paint stone
+                            this.beginPath();
+                            this.fillStyle = radgrad;
+                            this.arc(xr - board.ls, yr - board.ls, Math.max(0, sr - 0.5), 0, 2 * Math.PI, true);
+                            this.fill();
+                            if (args.c == WGo.W) {
+                                this.fillStyle = "black";
+                            } else {
+                                this.fillStyle = "white";
+                            }
                         } else {
                             if (args.percentplayouts >= 2.0) {
                                 radgrad.addColorStop(0, "rgb(0,240,255)");
                             } else if (args.percentplayouts >= 0.3) {
                                 radgrad.addColorStop(0, "rgba(0,240,0," + Math.sqrt(args.percentplayouts) + ")");
                             } else {
-                                radgrad.addColorStop(0, "rgba(255,80,0," + (Math.sqrt(args.percentplayouts) < 0.2 ? 0.2 : Math.sqrt(args.percentplayouts)) + ")");
+                                radgrad.addColorStop(0, "rgba(255,70,0," + (Math.sqrt(args.percentplayouts) < 0.2 ? 0.2 : Math.sqrt(args.percentplayouts)) + ")");
                             }
                         }
                         //radgrad.addColorStop(0, 	"rgb(0,255,0,"+args.percentplayouts+")");
@@ -1036,7 +979,7 @@
 
                 }
             },
-            shadow: shadow_handler_realistic,
+            shadow: shadow_handler,
         },
 
         TR: {
@@ -1163,69 +1106,34 @@
                         }
                     var xr = board.getX(args.x),
                         yr = board.getY(args.y),
-                        sr = board.stoneRadius;
+                        sr = board.stoneRadius,
+                    radgrad;
 
-                    var whiteCount = board.whiteStoneGraphic.length;
-                    var blackCount = board.blackStoneGraphic.length;
-
-                    if (typeof this.randIndex === 'undefined') {
-                        this.randIndex = Math.ceil(Math.random() * 1e5);
-                    }
-
-                    var redraw = function () {
-                        board.redraw();
-                    };
-
-                    // Check if image has been loaded properly
-                    // see https://stereochro.me/ideas/detecting-broken-images-js
-                    var isOkay = function (img) {
-                        if (typeof img === 'string') {
-                            return false;
-                        }
-                        if (!img.complete) {
-                            return false;
-                        }
-                        if (typeof img.naturalWidth != "undefined" && img.naturalWidth == 0) {
-                            return false;
-                        }
-                        return true;
-                    };
+                    // set stone texture
                     var isblack;
                     if ((args.c == WGo.W && (args.num % 2 != 0)) || (args.c == WGo.B && (args.num % 2 == 0))) {
-                        isblack = false;
-                        var idx = this.randIndex % whiteCount;
-                        if (typeof board.whiteStoneGraphic[idx] === 'string') {
-                            // The image has not been loaded yet
-                            var stoneGraphic = new Image();
-                            // Redraw the whole board after the image has been loaded.
-                            // This prevents 'missing stones' and similar graphical errors
-                            // especially on slower internet connections.
-                            stoneGraphic.onload = redraw;
-                            stoneGraphic.src = board.whiteStoneGraphic[idx];
-                            board.whiteStoneGraphic[idx] = stoneGraphic;
-                        }
+                        isblack=false;
+                        radgrad = this.createRadialGradient(xr - 2 * sr / 5, yr - 2 * sr / 5, sr / 3, xr - sr / 5, yr - sr / 5, 5 * sr / 5);
+                        radgrad.addColorStop(0, '#fff');
 
-                        if (isOkay(board.whiteStoneGraphic[idx])) {
-                            this.drawImage(board.whiteStoneGraphic[idx], xr - sr, yr - sr, 2 * sr, 2 * sr);
-                        } else {
-                            // Fall back to SHELL handler if there was a problem loading the image
-                            Board.drawHandlers.SHELL.stone.draw.call(this, args, board);
-                        }
-                    } else { // args.c == WGo.B
-                        isblack = true;
-                        var idx = this.randIndex % blackCount;
-                        if (typeof board.blackStoneGraphic[idx] === 'string') {
-                            var stoneGraphic = new Image();
-                            stoneGraphic.onload = redraw;
-                            stoneGraphic.src = board.blackStoneGraphic[idx];
-                            board.blackStoneGraphic[idx] = stoneGraphic;
-                        }
+                            radgrad.addColorStop(1, '#aaa');
+                    } else {
+                        isblack=true;
+                        radgrad = this.createRadialGradient(xr - 2 * sr / 5, yr - 2 * sr / 5, 1, xr - sr / 5, yr - sr / 5, 4 * sr / 5);
 
-                        if (isOkay(board.blackStoneGraphic[idx])) {
-                            this.drawImage(board.blackStoneGraphic[idx], xr - sr, yr - sr, 2 * sr, 2 * sr);
-                        } else {
-                            Board.drawHandlers.SHELL.stone.draw.call(this, args, board);
-                        }
+                            radgrad.addColorStop(0, '#666');
+                        radgrad.addColorStop(1, '#000');
+                    }
+
+                    // paint stone
+                    this.beginPath();
+                    this.fillStyle = radgrad;
+                    this.arc(xr - board.ls, yr - board.ls, Math.max(0, sr - 0.5), 0, 2 * Math.PI, true);
+                    this.fill();
+                    if (args.c == WGo.W) {
+                        this.fillStyle = "black";
+                    } else {
+                        this.fillStyle = "white";
                     }
                     var font = "verdana";
                     if(args.num==WGo.display_var_length||args.num==WGo.var_length)
@@ -1243,7 +1151,7 @@
                         this.fillText(args.num, xr - 0.72 * sr, yr + 0.45 * sr, 1.4 * sr);
                 }
             },
-            shadow: shadow_handler_realistic,
+            shadow: shadow_handler,
         },
         //
         // variation: {
@@ -2064,7 +1972,7 @@
                 {x: 17, y: 10}, {x: 3, y: 17}, {x: 10, y: 17}, {x: 17, y: 17}],
         },
         //stoneHandler: Board.drawHandlers.SHELL,
-        stoneHandler: Board.drawHandlers.REALISTIC, // New photograph based stones
+        stoneHandler: Board.drawHandlers.NORMAL, // New photograph based stones
         starSize: 1, // deprecated
         shadowSize: 1, // deprecated
         stoneSize: 1, // deprecated
@@ -2085,22 +1993,9 @@
         //whiteStoneGraphic: [ WGo.DIR+"white_64.png" ], // Single image only, lowres
         //blackStoneGraphic: [ WGo.DIR+"black_64.png" ], // Single image only, lowres
 
-        whiteStoneGraphic: [WGo.DIR + "stones/white00_128.png",
-            WGo.DIR + "stones/white01_128.png",
-            WGo.DIR + "stones/white02_128.png",
-            WGo.DIR + "stones/white03_128.png",
-            WGo.DIR + "stones/white04_128.png",
-            WGo.DIR + "stones/white05_128.png",
-            WGo.DIR + "stones/white06_128.png",
-            WGo.DIR + "stones/white07_128.png",
-            WGo.DIR + "stones/white08_128.png",
-            WGo.DIR + "stones/white09_128.png",
-            WGo.DIR + "stones/white10_128.png"
+        whiteStoneGraphic: [WGo.DIR + "stones/white0.png"
         ],
-        blackStoneGraphic: [WGo.DIR + "stones/black00_128.png",
-            WGo.DIR + "stones/black01_128.png",
-            WGo.DIR + "stones/black02_128.png",
-            WGo.DIR + "stones/black03_128.png"
+        blackStoneGraphic: [WGo.DIR + "stones/black0.png"
         ],
 
         theme: {}

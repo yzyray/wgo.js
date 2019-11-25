@@ -320,7 +320,10 @@ if(WGo.clickedComment)
         }
 
         this.comment_text.innerHTML = msg + this.getCommentText(e.node.comment, e.node.bestMoves, this.player.config.formatNicks, this.player.config.formatMoves);
-        this.comment_text.style.fontSize = 18 + 'px';
+        if(WGo.isWideMode)
+            this.comment_text.style.fontSize = 14 + 'px';
+            else
+                this.comment_text.style.fontSize = 18 + 'px';
         WGo.commentBindBestMoveIndex=0;
         if (this.player.config.formatMoves) {
             if (this.comment_text.childNodes && this.comment_text.childNodes.length) search_nodes(this.comment_text.childNodes, this.player);
@@ -390,7 +393,7 @@ if(WGo.clickedComment)
                                 moveComment+="█";
                             }
                         }
-                        moveComment+=" "+percent.toFixed(1)+"%"+" "+ playouts;
+                        moveComment+=" "+percent.toFixed(1)+"%"+" ("+ playouts+")";
                         moveComment +="</a></p>";
                     }
             }
