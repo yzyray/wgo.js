@@ -1,7 +1,9 @@
 <h1>Board tutorial</h1>
-<p>In this tutorial I try to clarify how to work with WGo.Board. We will make simple board "editor", with ability to add and remove objects like stones, squares and triangles.</p>
+<p>In this tutorial I try to clarify how to work with WGo.Board. We will make simple board "editor", with ability to add
+    and remove objects like stones, squares and triangles.</p>
 <h3>Step one - basic HTML</h3>
-<p>Before you go any further you must <a href="/download">download</a> WGo.js files and put them into your directory. Then we can start making HTML skelet of our application.</p>
+<p>Before you go any further you must <a href="/download">download</a> WGo.js files and put them into your directory.
+    Then we can start making HTML skelet of our application.</p>
 <pre class="prettyprint linenums">
 &lt;!DOCTYPE HTML&gt;
 &lt;html&gt;
@@ -27,7 +29,8 @@
 <p>You can see result <a href="tutorials/tutorial-board-1.html">here</a></p>
 
 <h3>Step two - displaying a board</h3>
-<p>For rendering a board we add javascript to our document which must be executed after target DOM element is loaded. Otherwise it won't work. We can use either <code>onLoad</code> event or put javascript at the end of the file.</p>
+<p>For rendering a board we add javascript to our document which must be executed after target DOM element is loaded.
+    Otherwise it won't work. We can use either <code>onLoad</code> event or put javascript at the end of the file.</p>
 <pre class="prettyprint linenums">
 var board = new WGo.Board(document.getElementById("board"), {
     width: 600,
@@ -48,7 +51,8 @@ var board = new WGo.Board(document.getElementById("board"), {
 <p>You can see result <a href="tutorials/tutorial-board-2.html">here</a></p>
 
 <h3>Step three - adding and removing objects</h3>
-<p>Now comes a little bit harder part. In this step we make possible adding desired objects on the board by mouse clicking. For that we use board's method <code>addEventListener</code>.</p>
+<p>Now comes a little bit harder part. In this step we make possible adding desired objects on the board by mouse
+    clicking. For that we use board's method <code>addEventListener</code>.</p>
 
 <pre class="prettyprint linenums">
 var tool = document.getElementById("tool"); // get the &lt;select&gt; element
@@ -135,7 +139,10 @@ else if(tool.value == "plane") {
 <p>As usual the result is <a href="tutorials/tutorial-board-4.html">here</a></p>
 
 <h3>Step five - adding coordinates</h3>
-<p>Last step of our tutorial is displaying coordinates (labels like A1, A2 ...) around the board. Coordinates are not bind with any single field so we cannot use <code>addObject</code> method. For this kind of drawing there is method <code>addCustomObject</code>. Everything else is similar to adding normal objects - we create <code>WGo.Board.DrawHandler</code> and then we assign it to the board.</p>
+<p>Last step of our tutorial is displaying coordinates (labels like A1, A2 ...) around the board. Coordinates are not
+    bind with any single field so we cannot use <code>addObject</code> method. For this kind of drawing there is method
+    <code>addCustomObject</code>. Everything else is similar to adding normal objects - we create <code>WGo.Board.DrawHandler</code>
+    and then we assign it to the board.</p>
 <pre class="prettyprint linenums">
 var coordinates = {
     // draw on grid layer
@@ -172,7 +179,9 @@ var coordinates = {
 }
 board.addCustomObject(coordinates);
 </pre>
-<p>However this is not enough. As you can see coordinate's labels occupy more space than board's margins offer, so we must extend board's margins. Fortunately we can easily adjust board visible section, so we just modify the constructor.</p>
+<p>However this is not enough. As you can see coordinate's labels occupy more space than board's margins offer, so we
+    must extend board's margins. Fortunately we can easily adjust board visible section, so we just modify the
+    constructor.</p>
 <pre class="prettyprint linenums">
 var board = new WGo.Board(document.getElementById("board"), {
     width: 600,
@@ -184,4 +193,5 @@ var board = new WGo.Board(document.getElementById("board"), {
     }
 });
 </pre>
-<p>This will enlarge right and bottom margin of the board by half field. The final result with all source codes is <a href="tutorials/tutorial-board-5.html">here</a></p>
+<p>This will enlarge right and bottom margin of the board by half field. The final result with all source codes is <a
+        href="tutorials/tutorial-board-5.html">here</a></p>
