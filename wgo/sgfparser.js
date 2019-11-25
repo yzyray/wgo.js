@@ -72,11 +72,11 @@
             var staticInfo = strs[0].split(" ");
             if (staticInfo.length == 3) {
                 if (!node.comment)
-                    node.comment = "\n胜率:" + staticInfo[1] + "计算量:" + staticInfo[2];
+                    node.comment = "\n胜率:" + staticInfo[1] + "　总计算量:" + staticInfo[2];
             }
             if (staticInfo.length == 4) {
                 if (!node.comment)
-                    node.comment = "\n胜率:" + staticInfo[1] + "计算量:" + staticInfo[2] + "目差:" + staticInfo[3];
+                    node.comment = "\n胜率:" + staticInfo[1] + "　总计算量:" + staticInfo[2] + "　目差:" + staticInfo[3];
             }
             var moveInfo = strs[1].split(" info ");
             // if(!node.comment)
