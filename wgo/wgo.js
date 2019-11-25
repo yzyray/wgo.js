@@ -57,6 +57,7 @@
     var commentBindBestMoveIndex;
     var _last_mark;
     var commentVarClickedNow;
+    var clickedComment;
     /**
      * Main namespace - it initializes WGo in first run and then execute main function.
      * You must call WGo.init() if you want to use library, without calling WGo.
@@ -629,13 +630,13 @@
                             Board.drawHandlers.SHELL.stone.draw.call(this, args, board);
                         }
                     }
-                    if (args.c == WGo.W) {
-                        this.fillStyle = "black";
-                    } else {
-                        this.fillStyle = "white";
-                    }
-                    var font = "verdana";
-                    this.font = Math.round(sr * 1.3) + "px " + font;
+                    // if (args.c == WGo.W) {
+                    //     this.fillStyle = "black";
+                    // } else {
+                    //     this.fillStyle = "white";
+                    // }
+                    // var font = "verdana";
+                    // this.font = Math.round(sr * 1.3) + "px " + font;
                     // if(args.movenum)
                     // {
                     // 	if(args.movenum<10)
@@ -1077,7 +1078,7 @@
                     this.strokeStyle = radgrad;
                     this.arc(xr - board.ls, yr - board.ls, Math.max(0, sr - 0.5), 0, 2 * Math.PI, true);
                     this.lineWidth = 4;
-                    this.stroke();
+                    this.fill();
                 }
             }
         },
@@ -1227,10 +1228,14 @@
                         }
                     }
                     var font = "verdana";
-                    if (isblack)
+                    if(args.num==WGo.display_var_length||args.num==WGo.var_length)
+                        this.fillStyle = "rgb(255,0,0)";
+                    else
+                    { if (isblack)
                         this.fillStyle = "white";
                     else
                         this.fillStyle = "black";
+                    }
                     this.font = Math.round(sr * 1.3) + "px " + font;
                     if (args.num < 10)
                         this.fillText(args.num, xr - 0.45 * sr, yr + 0.45 * sr, 1.4 * sr);

@@ -305,6 +305,7 @@
                 }
                 WGo._last_mark = true;
                 var variations = bestmove.variation;
+                WGo.var_length = variations.length;
                 for (var i = 1; i < variations.length; i++) {
                     var data = variations[i].split("_");
 
@@ -322,7 +323,6 @@
                         WGo.display_var_length = -1;
                 }
                 // var_length = variations.length;
-                WGo.var_length = variations.length
             } else {
                 WGo.isMouseOnBestMove = false;
                 if (WGo._last_mark) {
@@ -500,6 +500,7 @@
                 }
                 WGo._last_mark = true;
                 var variations = bestmove.variation;
+                WGo.var_length = variations.length;
                 for (var i = 1; i < variations.length; i++) {
                     var data = variations[i].split("_");
 
@@ -517,7 +518,7 @@
                         WGo.display_var_length = -1;
                 }
                 //  var_length = variations.length;
-                WGo.var_length = variations.length;
+
             } else {
                 WGo.isMouseOnBestMove = false;
                 if (WGo._last_mark) {

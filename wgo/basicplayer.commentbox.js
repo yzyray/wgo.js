@@ -39,18 +39,65 @@
         this.comments.appendChild(this.comment_text);
     }
 
-    var mark = function (move) {
-        var x, y;
-
-        x = move.charCodeAt(0) - 'a'.charCodeAt(0);
-        if (x < 0) x += 'a'.charCodeAt(0) - 'A'.charCodeAt(0);
-        if (x > 7) x--;
-        y = (move.charCodeAt(1) - '0'.charCodeAt(0));
-        if (move.length > 2) y = y * 10 + (move.charCodeAt(2) - '0'.charCodeAt(0));
-        y = this.kifuReader.game.size - y;
-
-        this._tmp_mark = {type: 'MS', x: x, y: y};
-        this.board.addObject(this._tmp_mark);
+    var mark = function (index) {
+if(WGo.clickedComment)
+    return;
+        // var x, y;
+        //
+        // x = move.charCodeAt(0) - 'a'.charCodeAt(0);
+        // if (x < 0) x += 'a'.charCodeAt(0) - 'A'.charCodeAt(0);
+        // if (x > 7) x--;
+        // y = (move.charCodeAt(1) - '0'.charCodeAt(0));
+        // if (move.length > 2) y = y * 10 + (move.charCodeAt(2) - '0'.charCodeAt(0));
+        // y = this.kifuReader.game.size - y;
+        //
+        // this._tmp_mark = {type: 'MS', x: x, y: y};
+        // this.board.addObject(this._tmp_mark);
+        WGo.curBoard.removeAllObjectsVR();
+        WGo.curBoard.removeAllObjectsBM();
+        var   bestmove = WGo.curNode.bestMoves[index];
+        if( WGo.lastX== bestmove.x&&  WGo.lastY == bestmove.y)
+        {
+            WGo.lastX=-1;
+            WGo.lastY=-1;
+            WGo.isMouseOnBestMove = false;
+            WGo._last_mark=false;
+        }
+      //  WGo.lastX = bestmove.x;
+      //  WGo.lastY = bestmove.y;
+        WGo.isMouseOnBestMove = true;
+        WGo.mouseBestMove = bestmove;
+        this.board.removeAllObjectsBM(bestmove.x, bestmove.y);
+        {
+            var bestMoveInfo = new Object();
+            bestMoveInfo.c = WGo.mainGame.turn;
+            bestMoveInfo.x = bestmove.x;
+            bestMoveInfo.y = bestmove.y;
+            bestMoveInfo.winrate = bestmove.winrate;
+            bestMoveInfo.scoreMean = bestmove.scoreMean;
+            bestMoveInfo.playouts = bestmove.playouts;
+            bestMoveInfo.percentplayouts = bestmove.percentplayouts;
+            bestMoveInfo.type = "BM";
+            this.board.addObject(bestMoveInfo);
+        }
+        var variations = bestmove.variation;
+        for (var i = 1; i < variations.length; i++) {
+            var data = variations[i].split("_");
+            WGo.var_length = variations.length;
+            var mark = {
+                type: "variation",
+                x: data[0],
+                y: data[1],
+                c: WGo.mainGame.turn,
+                num: i + 1
+            };
+            this.board.addObject(mark);
+            if (WGo.isAutoMode)
+                WGo.display_var_length = 1;
+            else
+                WGo.display_var_length = -1;
+        }
+        WGo._last_mark=true;
     }
 
 
@@ -62,6 +109,7 @@
         var   bestmove = WGo.curNode.bestMoves[index];
         if( WGo.lastX== bestmove.x&&  WGo.lastY == bestmove.y)
         {
+            WGo.clickedComment=false;
             WGo.lastX=-1;
             WGo.lastY=-1;
             WGo.isMouseOnBestMove = false;
@@ -84,6 +132,7 @@
                     }
                 return;
         }
+        WGo.clickedComment=true;
         WGo.lastX = bestmove.x;
         WGo.lastY = bestmove.y;
         WGo.isMouseOnBestMove = true;
@@ -104,7 +153,7 @@
         var variations = bestmove.variation;
         for (var i = 1; i < variations.length; i++) {
             var data = variations[i].split("_");
-
+            WGo.var_length = variations.length;
             var mark = {
                 type: "variation",
                 x: data[0],
@@ -118,7 +167,6 @@
             else
                 WGo.display_var_length = -1;
         }
-        WGo.var_length = variations.length;
         WGo._last_mark=true;
     }
 
@@ -160,6 +208,7 @@
         if (! WGo.commentVarClickedNow&&WGo.isMouseOnBestMove) {
             WGo.lastX = -1;
             WGo.lastY = -1;
+            WGo.clickedComment=false
             WGo.isMouseOnBestMove = false;
             WGo.curBoard.removeAllObjectsVR();
             var node = WGo.curNode;
@@ -188,7 +237,7 @@
                 if(WGo.curNode.bestMoves[WGo.commentBindBestMoveIndex].coordinate)
                 {
                     if(WGo.isPC)
-                        nodes[i].addEventListener("mousemove", mark.bind(player, WGo.curNode.bestMoves[WGo.commentBindBestMoveIndex].coordinate));
+                        nodes[i].addEventListener("mousemove", mark.bind(player, WGo.commentBindBestMoveIndex));
                     nodes[i].addEventListener("click", mark_variations.bind(player, WGo.commentBindBestMoveIndex));
                 nodes[i].addEventListener("mouseout", unmark.bind(player));
                 }

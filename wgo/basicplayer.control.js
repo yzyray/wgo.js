@@ -513,6 +513,7 @@
                                     this._editable.set(!this._editable.editMode);
                                     if (!this._editable.editMode) {
                                         WGo.curBoard.removeAllObjectsOutLine();
+                                        WGo.curBoard.removeAllObjectsMoveNum();
                                         WGo.editMode = false;
                                         WGo.editMoveNumStart = 1;
                                         WGo.firsEditPlayed = false;
