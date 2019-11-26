@@ -352,7 +352,7 @@
                                 this.board.addObject(bestMoveInfo);
                             }
                         }
-                    if(!WGo.isShowingMoveNum)
+                    if(!WGo.isShowingMoveNum&&!WGo.editMode)
                     {  var lastMark = new Object();
                     lastMark.type="TRS";
                         lastMark.x= node.move.x;
@@ -555,7 +555,7 @@
                                 this.board.addObject(bestMoveInfo);
                             }
                         }
-                    if(!WGo.isShowingMoveNum)
+                    if(!WGo.isShowingMoveNum&&!WGo.editMode)
                     {  var lastMark = new Object();
                         lastMark.type="TRS";
                         lastMark.x= node.move.x;
