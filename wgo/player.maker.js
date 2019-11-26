@@ -7,24 +7,7 @@
     /*
      *  add solid triangle for show
      */
-    WGo.Board.drawHandlers['TRS'] = {
-        stone: {
-            draw: function (args, board) {
-                var xr = board.getX(args.x),
-                    yr = board.getY(args.y),
-                    sr = board.stoneRadius;
 
-                this.fillStyle = "red";
-                //this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
-                this.beginPath();
-                this.moveTo(xr - board.ls + sr / 2, yr - board.ls + sr * 0.3);
-                this.lineTo(xr - board.ls, yr - board.ls - sr * 0.5);
-                this.lineTo(xr - board.ls - sr / 2, yr - board.ls + sr * 0.3);
-                //this.arc(xr-board.ls, yr-board.ls, sr/6, 0, 2*Math.PI, true);
-                this.fill();
-            }
-        }
-    }
     var Marker = {};
     var defConfig = {
         markerStyle: 'TRS',//display style
@@ -149,9 +132,26 @@
         },
     }
     WGo.Player.Marker = Marker
+    // function IsPC() {
+    //     var userAgentInfo = navigator.userAgent;
+    //     var Agents = ["Android", "iPhone",
+    //         "SymbianOS", "Windows Phone",
+    //         "iPad", "iPod"];
+    //     var flag = true;
+    //     for (var v = 0; v < Agents.length; v++) {
+    //         if (userAgentInfo.indexOf(Agents[v]) > 0) {
+    //             flag = false;
+    //             break;
+    //         }
+    //     }
+    //     return flag;
+    // }
 
-
-
+//
+// if(!IsPC())
+// {
+//     return;
+// }
 
     if (WGo.BasicPlayer && WGo.BasicPlayer.component.Control) {
         WGo.BasicPlayer.component.Control.menu.push({

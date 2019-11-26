@@ -308,9 +308,6 @@
                 this.fill();
             },
         clear: function (args, board) {
-            if (!WGo.isPC) {
-                return;
-            }
             var xr = board.getX(args.x),
                 yr = board.getY(args.y),
                 sr = board.stoneRadius;
@@ -553,7 +550,7 @@
                     this.stroke();
                 }
             },
-            shadow: shadow_handler,
+            shadow: shadow_handler_realistic,
         },
 
         // handler for image based stones
@@ -767,7 +764,7 @@
                     }
                 }
             },
-            shadow: shadow_handler,
+             shadow: shadow_handler,
         },
 
         MONO: {
@@ -892,7 +889,24 @@
                 }
             }
         },
+       'TRS':{
+           stone: {
+               draw: function (args, board) {
+                   var xr = board.getX(args.x),
+                       yr = board.getY(args.y),
+                       sr = board.stoneRadius;
 
+                   this.fillStyle = "red";
+                   //this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
+                   this.beginPath();
+                   this.moveTo(xr - board.ls + sr / 2, yr - board.ls + sr * 0.3);
+                   this.lineTo(xr - board.ls, yr - board.ls - sr * 0.5);
+                   this.lineTo(xr - board.ls - sr / 2, yr - board.ls + sr * 0.3);
+                   //this.arc(xr-board.ls, yr-board.ls, sr/6, 0, 2*Math.PI, true);
+                   this.fill();
+               }
+           }
+       },
         BM: {
             stone: {
                 draw: function (args, board) {
@@ -1856,7 +1870,7 @@ else
                     }
                 }
             }
-            this.redraw();
+          //  this.redraw();
         },
 
         removeAllObjectsVR: function () {

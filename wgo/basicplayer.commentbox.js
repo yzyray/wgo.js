@@ -129,11 +129,13 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
                             this.board.addObject(bestMoveInfo);
                         }
                     }
-            var lastMark = new Object();
-            lastMark.type="TRS";
-            lastMark.x= node.move.x;
-            lastMark.y=node.move.y;
-            this.board.addObject(lastMark);
+            if(!WGo.isShowingMoveNum)
+            {  var lastMark = new Object();
+                lastMark.type="TRS";
+                lastMark.x= node.move.x;
+                lastMark.y=node.move.y;
+                this.board.addObject(lastMark);
+            }
                 return;
         }
         WGo.commentVarClicked=true;
@@ -236,11 +238,13 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
                         WGo.curBoard.addObject(bestMoveInfo);
                     }
                 }
-            var lastMark = new Object();
-            lastMark.type="TRS";
-            lastMark.x= node.move.x;
-            lastMark.y=node.move.y;
-            WGo.curBoard.addObject(lastMark);
+            if(!WGo.isShowingMoveNum)
+            {  var lastMark = new Object();
+                lastMark.type="TRS";
+                lastMark.x= node.move.x;
+                lastMark.y=node.move.y;
+                this.board.addObject(lastMark);
+            }
             WGo.curBoard.redraw();
         }
     }

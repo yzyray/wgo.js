@@ -58,23 +58,7 @@
 
         this.notification();
         WGo.curNode = e.node;
-        // add current move marker
-        if (e.node.move && this.config.markLastMove) {
-            if (e.node.move.pass) this.notification(WGo.t((e.node.move.c == WGo.B ? "b" : "w") + "pass"));
-            else {
-                var type;
-                if (WGo.editMode) {
-                    type = "CR2";
-                } else {
-                    type = "TRS";
-                }
-                add.push({
-                    type: type,
-                    x: e.node.move.x,
-                    y: e.node.move.y
-                });
-            }
-        }
+
 
         // add variation letters
         if (e.node.children.length > 1 && this.config.displayVariations) {
@@ -126,6 +110,30 @@
                     this.board.addObject(bestMoveInfo);
                 }
             }
+        // add current move marker
+        if (e.node.move && this.config.markLastMove) {
+            if (e.node.move.pass) this.notification(WGo.t((e.node.move.c == WGo.B ? "b" : "w") + "pass"));
+            else {
+                var type;
+                if (WGo.editMode) {
+                    type = "CR2";
+                } else {
+                    type = "TRS";
+                }
+                if(!WGo.isShowingMoveNum)
+                {  var lastMark = new Object();
+                    lastMark.type=type;
+                    lastMark.x= e.node.move.x;
+                    lastMark.y=e.node.move.y;
+                    WGo.curBoard.addObject(lastMark);
+                }
+                // add.push({
+                //     type: type,
+                //     x: e.node.move.x,
+                //     y: e.node.move.y
+                // });
+            }
+        }
     }
 
 // preparing board
@@ -344,12 +352,14 @@
                                 this.board.addObject(bestMoveInfo);
                             }
                         }
-                    var lastMark = new Object();
+                    if(!WGo.isShowingMoveNum)
+                    {  var lastMark = new Object();
                     lastMark.type="TRS";
                         lastMark.x= node.move.x;
                         lastMark.y=node.move.y;
                     this.board.addObject(lastMark);
-                        this.board.redraw();
+                    }
+                  //  this.board.redraw();
                     WGo._last_mark = false;
                 }
             }
@@ -372,7 +382,7 @@
                             this.board.addObject(bestMoveInfo);
                         }
                     }
-                this.board.redraw();
+               // this.board.redraw();
                 WGo._last_mark = false;
             }
         }
@@ -416,7 +426,7 @@
                             this.board.addObject(bestMoveInfo);
                         }
                     }
-                this.board.redraw();
+               // this.board.redraw();
                 WGo._last_mark = false;
             }
             WGo.lastX = -1;
@@ -483,7 +493,7 @@
                                     this.board.addObject(bestMoveInfo);
                                 }
                             }
-                        this.board.redraw();
+                     //   this.board.redraw();
                         WGo._last_mark = false;
                     }
                     WGo.lastX = -1;
@@ -545,12 +555,14 @@
                                 this.board.addObject(bestMoveInfo);
                             }
                         }
-                    var lastMark = new Object();
-                    lastMark.type="TRS";
-                    lastMark.x= node.move.x;
-                    lastMark.y=node.move.y;
-                    this.board.addObject(lastMark);
-                    this.board.redraw();
+                    if(!WGo.isShowingMoveNum)
+                    {  var lastMark = new Object();
+                        lastMark.type="TRS";
+                        lastMark.x= node.move.x;
+                        lastMark.y=node.move.y;
+                        this.board.addObject(lastMark);
+                    }
+                  //  this.board.redraw();
                     WGo._last_mark = false;
                 }
             }
@@ -573,7 +585,7 @@
                             this.board.addObject(bestMoveInfo);
                         }
                     }
-                this.board.redraw();
+              //  this.board.redraw();
                 WGo._last_mark = false;
             }
         }
