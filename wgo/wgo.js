@@ -58,6 +58,9 @@
     var _last_mark;
     var commentVarClickedNow;
     var clickedComment;
+    var commentVarClicked;
+    var mainWidth;
+    var mainHeight;
     /**
      * Main namespace - it initializes WGo in first run and then execute main function.
      * You must call WGo.init() if you want to use library, without calling WGo.
@@ -833,15 +836,14 @@
                         yr = board.getY(args.y),
                         sr = board.stoneRadius;
                     //	font = args.font || theme_variable("font", board) || "";
-
-                    this.fillStyle = args.c || get_markup_color(board, args.x, args.y);
-
                     //	if(args.text.length == 1) this.font = Math.round(sr*1.5)+"px "+font;
                     //	else if(args.text.length == 2) this.font = Math.round(sr*1.2)+"px "+font;
                     //else this.font = Math.round(sr)+"px "+font;
 
                     //this.beginPath();
                     //this.textBaseline="middle";
+
+                    this.fillStyle = args.c || get_markup_color(board, args.x, args.y);
                     this.textAlign = "left";
                     var font = "verdana";
                     this.font = Math.round(sr * 1.3) + "px " + font;
@@ -941,19 +943,41 @@
                         this.fillStyle = radgrad;
                         this.arc(xr - board.ls, yr - board.ls, Math.max(0, sr - 0.5), 0, 2 * Math.PI, true);
                         this.fill();
-                        if (args.percentplayouts >= 2.0) {
-                            this.strokeStyle = "rgb(0,0,255)";
-                            this.lineWidth = 1.7;
-                            this.beginPath();
-                            this.arc(xr - board.ls, yr - board.ls, sr, 0, 2 * Math.PI, true);
-                            this.stroke();
-                        } else if (args.c) {
+                         if (args.c) {
+if( args.BMbyComment)
+{
+    this.strokeStyle = "rgba(255,0,0,0.75)";
+    this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
+    this.beginPath();
+    this.arc(xr - board.ls, yr - board.ls, sr * 1.65 / 2, 0, 2 * Math.PI, true);
+    this.stroke();
+    this.fillStyle = "red";
+    this.textAlign = "left";
+    var font = "verdana";
+    this.font = Math.round(sr * 1.3) + "px " + font;
+    this.fillText(1, xr - 0.45 * sr, yr + 0.45 * sr, 1.4 * sr);
+    return;
+}
+else
+{
                             this.strokeStyle = "rgb(255,0,0)";
-                            this.lineWidth = 1.7;
+                            if(WGo.isPC)
+                                this.lineWidth = 1.7;
+                                else
+                                this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
                             this.beginPath();
                             this.arc(xr - board.ls, yr - board.ls, sr, 0, 2 * Math.PI, true);
                             this.stroke();
+}
                         }
+                    else
+                         if (args.percentplayouts >= 2.0) {
+                             this.strokeStyle = "rgb(0,0,255)";
+                             this.lineWidth = 1.7;
+                             this.beginPath();
+                             this.arc(xr - board.ls, yr - board.ls, sr, 0, 2 * Math.PI, true);
+                             this.stroke();
+                         }
                         //percentplayouts
                         if (isblack)
                             this.fillStyle = "white";
@@ -1136,7 +1160,7 @@
                         this.fillStyle = "white";
                     }
                     var font = "verdana";
-                    if(args.num==WGo.display_var_length||args.num==WGo.var_length)
+                    if(args.num==WGo.display_var_length&&WGo.var_length>0)
                         this.fillStyle = "rgb(255,0,0)";
                     else
                     { if (isblack)
@@ -1823,7 +1847,7 @@
                 for (var j = 0; j < this.size; j++) {
                     var layers = this.obj_arr[i][j];
                     for (var z = 0; z < layers.length; z++) {
-                        if (this.obj_arr[i][j][z].type == "BM") {
+                        if (this.obj_arr[i][j][z].type == "BM"||this.obj_arr[i][j][z].type=="TRS") {
                             this.removeObject(this.obj_arr[i][j][z]);
                             //this.removeLayer(this.obj_arr[i][j][z]);
                             //	this.obj_arr[i][j].splice(z, 1);
@@ -1857,7 +1881,7 @@
                 for (var j = 0; j < this.size; j++) {
                     var layers = this.obj_arr[i][j];
                     for (var z = 0; z < layers.length; z++) {
-                        if (this.obj_arr[i][j][z].type == "outline") {
+                        if (this.obj_arr[i][j][z].type == "outline"||this.obj_arr[i][j][z].type =="CR2") {
                             this.removeObject(this.obj_arr[i][j][z]);
                             //this.removeLayer(this.obj_arr[i][j][z]);
                             //	this.obj_arr[i][j].splice(z, 1);

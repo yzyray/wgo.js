@@ -440,35 +440,7 @@
                 name: "control",
                 widgets: [
 
-                    {
-                        constructor: control.Button3,
-                        args: {
-                            name: "first",
-                            disabled: true,
-                            init: function (player) {
-                                player.addEventListener("update", butupd_first.bind(this));
-                                player.addEventListener("frozen", but_frozen.bind(this));
-                                player.addEventListener("unfrozen", but_unfrozen.bind(this));
-                            },
-                            click: function (player) {
-                                player.first();
-                            },
-                        }
-                    }, {
-                        constructor: control.Button3,
-                        args: {
-                            name: "last",
-                            disabled: true,
-                            init: function (player) {
-                                player.addEventListener("update", butupd_last.bind(this));
-                                player.addEventListener("frozen", but_frozen.bind(this));
-                                player.addEventListener("unfrozen", but_unfrozen.bind(this));
-                            },
-                            click: function (player) {
-                                player.last()
-                            },
-                        }
-                    },
+
                     {
                         constructor: control.Button2,
                         args: {
@@ -512,8 +484,14 @@
                                     this._editable = this._editable || new WGo.Player.Editable(player, player.board);
                                     this._editable.set(!this._editable.editMode);
                                     if (!this._editable.editMode) {
-                                        WGo.curBoard.removeAllObjectsOutLine();
                                         WGo.curBoard.removeAllObjectsMoveNum();
+                                        WGo.curBoard.removeAllObjectsOutLine();
+                                        var node=WGo.curNode;
+                                        var lastMark = new Object();
+                                        lastMark.type="TRS";
+                                        lastMark.x= node.move.x;
+                                        lastMark.y=node.move.y;
+                                        WGo.curBoard.addObject(lastMark);
                                         WGo.editMode = false;
                                         WGo.editMoveNumStart = 1;
                                         WGo.firsEditPlayed = false;
@@ -618,7 +596,37 @@
                                 },
                         }
                     }
-                    , {
+                    ,
+                    {
+                        constructor: control.Button3,
+                        args: {
+                            name: "first",
+                            disabled: true,
+                            init: function (player) {
+                                player.addEventListener("update", butupd_first.bind(this));
+                                player.addEventListener("frozen", but_frozen.bind(this));
+                                player.addEventListener("unfrozen", but_unfrozen.bind(this));
+                            },
+                            click: function (player) {
+                                player.first();
+                            },
+                        }
+                    }, {
+                        constructor: control.Button3,
+                        args: {
+                            name: "last",
+                            disabled: true,
+                            init: function (player) {
+                                player.addEventListener("update", butupd_last.bind(this));
+                                player.addEventListener("frozen", but_frozen.bind(this));
+                                player.addEventListener("unfrozen", but_unfrozen.bind(this));
+                            },
+                            click: function (player) {
+                                player.last()
+                            },
+                        }
+                    },
+                    {
                         constructor: control.Button,
                         args: {
                             name: "multiprev",

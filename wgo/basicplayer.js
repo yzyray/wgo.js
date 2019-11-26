@@ -179,6 +179,7 @@
         function bodyScale() {
             var devicewidth = document.documentElement.clientWidth;
             var deviceheight = document.documentElement.clientHeight;
+        //    alert( deviceheight+"_"+ devicewidth );
             if (deviceheight / devicewidth > 1630 / 980) {
                 deviceheight = devicewidth * 1630 / 980;
             }
@@ -189,6 +190,7 @@
             // var scale2 = deviceheight / 895;
             // var w=screen.width;
             // var h=screen.height;
+          //  alert(  o.offsetHeight+"_"+ o.offsetWidth);
             if (deviceheight > devicewidth)
                 WGo.isWideMode = false;
             else {
@@ -211,9 +213,13 @@
                 document.body.style.zoom = scale;
                 WGo.trueScale = scale;
                 if (!WGo.isWideMode) {
-                    WGo.commentheight = Math.max(804 - w, 185);
+                    WGo.commentheight = Math.max(152*900/w, 185);
+                 //   alert(  o.style.height+"_"+ o.style.width+"_"+WGo.commentheight );
                 }
             }
+            WGo.mainWidth= o.offsetWidth;
+            WGo.mainHeight= o.offsetHeight;
+        //    alert(WGo.mainWidth+"_"+WGo.mainHeight);
             document.body.addEventListener('touchmove', bodyScroll, false);
 
 
@@ -236,7 +242,6 @@
         //window.onload = window.onresize = function () {
         bodyScale();
         //};
-
 
         this.updateDimensions();
 
@@ -610,4 +615,6 @@
         }
     });
 
+    // var o = document.getElementsByName("wgo-button2");
+    // o.style.width=(200)+"px";
 })(WGo);

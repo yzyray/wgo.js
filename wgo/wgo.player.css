@@ -497,7 +497,7 @@ a.wgo-move-link {
 /* button widget */
 
 button.wgo-button {
-    border: 1px solid rgba(200, 200, 200, 0.3);
+    border: 1px solid rgba(150, 150, 150, 0.7);
     border-radius: 2px;
     background-color: rgba(255, 255, 255, 0.3);
     width: 58px;
@@ -582,7 +582,7 @@ button.wgo-button.wgo-selected:hover {
 /* button widget */
 
 button.wgo-button2 {
-    border: 1px solid rgba(200, 200, 200, 0.3);
+    border: 1px solid rgba(150, 150, 150, 0.7);
     border-radius: 2px;
     background-color: rgba(255, 255, 255, 0.3);
     width: 62px;
@@ -682,7 +682,7 @@ button.wgo-button2.wgo-selected:hover {
 
 /* move number widget */
 button.wgo-button3 {
-    border: 1px solid rgba(200, 200, 200, 0.3);
+    border: 1px solid rgba(150, 150, 150, 0.7);
     border-radius: 2px;
     background-color: rgba(255, 255, 255, 0.3);
     width: 50px;

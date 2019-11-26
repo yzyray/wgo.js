@@ -40,7 +40,7 @@
     }
 
     var mark = function (index) {
-if(WGo.clickedComment)
+if(WGo.clickedComment|| WGo.commentVarClicked)
     return;
         // var x, y;
         //
@@ -58,10 +58,7 @@ if(WGo.clickedComment)
         var   bestmove = WGo.curNode.bestMoves[index];
         if( WGo.lastX== bestmove.x&&  WGo.lastY == bestmove.y)
         {
-            WGo.lastX=-1;
-            WGo.lastY=-1;
-            WGo.isMouseOnBestMove = false;
-            WGo._last_mark=false;
+          return;
         }
       //  WGo.lastX = bestmove.x;
       //  WGo.lastY = bestmove.y;
@@ -71,6 +68,7 @@ if(WGo.clickedComment)
         {
             var bestMoveInfo = new Object();
             bestMoveInfo.c = WGo.mainGame.turn;
+            bestMoveInfo.BMbyComment=true;
             bestMoveInfo.x = bestmove.x;
             bestMoveInfo.y = bestmove.y;
             bestMoveInfo.winrate = bestmove.winrate;
@@ -109,6 +107,7 @@ if(WGo.clickedComment)
         var   bestmove = WGo.curNode.bestMoves[index];
         if( WGo.lastX== bestmove.x&&  WGo.lastY == bestmove.y)
         {
+            WGo.commentVarClicked=false;
             WGo.clickedComment=false;
             WGo.lastX=-1;
             WGo.lastY=-1;
@@ -130,8 +129,14 @@ if(WGo.clickedComment)
                             this.board.addObject(bestMoveInfo);
                         }
                     }
+            var lastMark = new Object();
+            lastMark.type="TRS";
+            lastMark.x= node.move.x;
+            lastMark.y=node.move.y;
+            this.board.addObject(lastMark);
                 return;
         }
+        WGo.commentVarClicked=true;
         WGo.clickedComment=true;
         WGo.lastX = bestmove.x;
         WGo.lastY = bestmove.y;
@@ -141,6 +146,7 @@ if(WGo.clickedComment)
         {
             var bestMoveInfo = new Object();
             bestMoveInfo.c = WGo.mainGame.turn;
+            bestMoveInfo.BMbyComment=true;
             bestMoveInfo.x = bestmove.x;
             bestMoveInfo.y = bestmove.y;
             bestMoveInfo.winrate = bestmove.winrate;
@@ -180,32 +186,35 @@ if(WGo.clickedComment)
     }
 
     var unmark = function () {
-        this.board.removeObject(this._tmp_mark);
-        delete this._tmp_mark;
-        // WGo.curBoard.removeAllObjectsVR();
-        // WGo.curBoard.removeAllObjectsBM();
-        // WGo.isMouseOnBestMove = false;
-        //     var node = WGo.curNode;
-        //     if (node.bestMoves)
-        //         for (var i = 0; i < node.bestMoves.length; i++) {
-        //             var bestMove = node.bestMoves[i];
-        //             if (bestMove.coordinate) {
-        //                 var bestMoveInfo = new Object();
-        //                 bestMoveInfo.x = bestMove.x;
-        //                 bestMoveInfo.y = bestMove.y;
-        //                 bestMoveInfo.scoreMean = bestMove.scoreMean;
-        //                 bestMoveInfo.winrate = bestMove.winrate;
-        //                 bestMoveInfo.playouts = bestMove.playouts;
-        //                 bestMoveInfo.percentplayouts = bestMove.percentplayouts;
-        //                 bestMoveInfo.type = "BM";
-        //                 this.board.addObject(bestMoveInfo);
-        //             }
-        //         }
+        if(  WGo.commentVarClicked)
+            return;
+        // this.board.removeObject(this._tmp_mark);
+        // delete this._tmp_mark;
+        WGo.curBoard.removeAllObjectsVR();
+        WGo.curBoard.removeAllObjectsBM();
+        WGo.isMouseOnBestMove = false;
+            var node = WGo.curNode;
+            if (node.bestMoves)
+                for (var i = 0; i < node.bestMoves.length; i++) {
+                    var bestMove = node.bestMoves[i];
+                    if (bestMove.coordinate) {
+                        var bestMoveInfo = new Object();
+                        bestMoveInfo.x = bestMove.x;
+                        bestMoveInfo.y = bestMove.y;
+                        bestMoveInfo.scoreMean = bestMove.scoreMean;
+                        bestMoveInfo.winrate = bestMove.winrate;
+                        bestMoveInfo.playouts = bestMove.playouts;
+                        bestMoveInfo.percentplayouts = bestMove.percentplayouts;
+                        bestMoveInfo.type = "BM";
+                        this.board.addObject(bestMoveInfo);
+                    }
+                }
 
     }
 
     var mouse_click = function () {
         if (! WGo.commentVarClickedNow&&WGo.isMouseOnBestMove) {
+            WGo.commentVarClicked=false;
             WGo.lastX = -1;
             WGo.lastY = -1;
             WGo.clickedComment=false
@@ -227,6 +236,11 @@ if(WGo.clickedComment)
                         WGo.curBoard.addObject(bestMoveInfo);
                     }
                 }
+            var lastMark = new Object();
+            lastMark.type="TRS";
+            lastMark.x= node.move.x;
+            lastMark.y=node.move.y;
+            WGo.curBoard.addObject(lastMark);
             WGo.curBoard.redraw();
         }
     }

@@ -265,6 +265,8 @@
     var   interval;
 
     var mouse_move_bestmoves = function (x, y) {
+        if(WGo.commentVarClicked)
+            return;
         if (WGo.lastX == x && WGo.lastY == y) return;
         WGo.lastX = x;
         WGo.lastY = y;
@@ -342,7 +344,12 @@
                                 this.board.addObject(bestMoveInfo);
                             }
                         }
-                    this.board.redraw();
+                    var lastMark = new Object();
+                    lastMark.type="TRS";
+                        lastMark.x= node.move.x;
+                        lastMark.y=node.move.y;
+                    this.board.addObject(lastMark);
+                        this.board.redraw();
                     WGo._last_mark = false;
                 }
             }
@@ -538,6 +545,11 @@
                                 this.board.addObject(bestMoveInfo);
                             }
                         }
+                    var lastMark = new Object();
+                    lastMark.type="TRS";
+                    lastMark.x= node.move.x;
+                    lastMark.y=node.move.y;
+                    this.board.addObject(lastMark);
                     this.board.redraw();
                     WGo._last_mark = false;
                 }
@@ -622,7 +634,21 @@
             } else if (this.config.sgfFile) {
                 this.loadSgfFromFile(this.config.sgfFile, this.config.move);
             }
-
+            if (!WGo.isPC &&! WGo.isWideMode)
+            {
+                var o = document.getElementsByTagName("button");
+                for (var i = 0; i < o.length; i++) {
+                    if (o[i].className.startsWith("wgo-button3")) {
+                        o[i].style.width = Math.min(WGo.mainWidth / 16.4,50) + "px";
+                        // if(o[i].offsetWidth>0)
+                        // alert("bt3 "+o[i].offsetWidth+"_"+o[i].offsetHeight);
+                    } else if (o[i].className.startsWith("wgo-button2")) {
+                        o[i].style.width = (Math.min(WGo.mainWidth / 13.6,65)) + "px";
+                    } else if (o[i].className.startsWith("wgo-button")) {
+                        o[i].style.width = (Math.min(WGo.mainWidth / 9,85)) + "px";
+                    }
+                }
+            }
         },
 
         /**

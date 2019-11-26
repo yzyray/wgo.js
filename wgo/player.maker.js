@@ -149,6 +149,10 @@
         },
     }
     WGo.Player.Marker = Marker
+
+
+
+
     if (WGo.BasicPlayer && WGo.BasicPlayer.component.Control) {
         WGo.BasicPlayer.component.Control.menu.push({
             constructor: WGo.BasicPlayer.control.MenuItem,
