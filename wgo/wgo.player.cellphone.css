@@ -326,14 +326,38 @@
     box-sizing: border-box;
 }
 
+
+
+.wgo-comments-winrate {
+    /*padding: 3px 5px;*/
+    /*border: 1px solid rgba(200, 200, 200, 0.3);*/
+    /*background-color: rgba(255, 255, 255, 0.3);*/
+    /*border-radius: 2px;*/
+    /*text-align:justify;*/
+    /*text-align-last:justify;*/
+    /*height: 38%;*/
+    /*overflow-y: auto;*/
+    background-color: rgba(255, 0, 0, 1.0);
+}
+
 .wgo-comments-content {
     padding: 3px 5px;
     border: 1px solid rgba(200, 200, 200, 0.3);
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 2px;
-    overflow-y: auto;
+    /*text-align:justify;*/
+    /*text-align-last:justify;*/
     height: 62%;
+    overflow-y: auto;
 }
+/*.wgo-comments-content {*/
+/*    padding: 3px 5px;*/
+/*    border: 1px solid rgba(200, 200, 200, 0.3);*/
+/*    background-color: rgba(255, 255, 255, 0.3);*/
+/*    border-radius: 2px;*/
+/*    overflow-y: auto;*/
+/*    height: 62%;*/
+/*}*/
 
 .wgo-comments-content p {
     font-size: 0.9em;
@@ -387,11 +411,20 @@ a.wgo-move-link {
 /* right and left modifications */
 
 .wgo-player-right .wgo-comments-content, .wgo-player-left .wgo-comments-content {
-    position: absolute;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
+    /*position: absolute;*/
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    height:62%;
     top: 40px;
+}
+.wgo-player-right .wgo-comments-winrate, .wgo-player-left .wgo-comments-winrate {
+    /*position: absolute;*/
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 50%;
+    height:38%;
 }
 
 .wgo-player-right .wgo-commentbox, .wgo-player-left .wgo-commentbox {
@@ -402,17 +435,31 @@ a.wgo-move-link {
     top: 170px;
 }
 
+
+
+
 /* top and bottom modifications */
 
+
 .wgo-player-top .wgo-comments-content, .wgo-player-bottom .wgo-comments-content {
-    position: absolute;
+    /*position: absolute;*/
     left: -2px;
     right: 0;
     top: 0;
     bottom: 0;
+    height:62%;
     margin-top: -10px;
-
 }
+.wgo-player-top .wgo-comments-winrate, .wgo-player-bottom .wgo-comments-winrate {
+    /*position: absolute;*/
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 50%;
+    height:40%;
+    /*!*height:50%;*!*/
+}
+
 
 /* TODO: handle too long title */
 .wgo-player-top .wgo-commentbox .wgo-box-title, .wgo-player-bottom .wgo-commentbox .wgo-box-title {

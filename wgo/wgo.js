@@ -61,6 +61,7 @@
     var commentVarClicked;
     var mainWidth;
     var mainHeight;
+    var winratecanvas;
     /**
      * Main namespace - it initializes WGo in first run and then execute main function.
      * You must call WGo.init() if you want to use library, without calling WGo.

@@ -389,7 +389,40 @@
     }
 
     var mouse_click_pc = function () {
-        if (WGo.isMouseOnBestMove) {
+        if(WGo.commentVarClicked)
+        {
+            WGo.commentVarClicked=false;
+            WGo.lastX = -1;
+            WGo.lastY = -1;
+            WGo.clickedComment=false
+            WGo.isMouseOnBestMove = false;
+            WGo.curBoard.removeAllObjectsVR();
+            var node = WGo.curNode;
+            if (node.bestMoves)
+                for (var i = 0; i < node.bestMoves.length; i++) {
+                    var bestMove = node.bestMoves[i];
+                    if (bestMove.coordinate) {
+                        var bestMoveInfo = new Object();
+                        bestMoveInfo.x = bestMove.x;
+                        bestMoveInfo.y = bestMove.y;
+                        bestMoveInfo.scoreMean = bestMove.scoreMean;
+                        bestMoveInfo.winrate = bestMove.winrate;
+                        bestMoveInfo.playouts = bestMove.playouts;
+                        bestMoveInfo.percentplayouts = bestMove.percentplayouts;
+                        bestMoveInfo.type = "BM";
+                        WGo.curBoard.addObject(bestMoveInfo);
+                    }
+                }
+            if(!WGo.isShowingMoveNum)
+            {  var lastMark = new Object();
+                lastMark.type="TRS";
+                lastMark.x= node.move.x;
+                lastMark.y=node.move.y;
+                this.board.addObject(lastMark);
+            }
+            WGo.curBoard.redraw();
+        }
+        else if (WGo.isMouseOnBestMove) {
             if (WGo.display_var_length)
                 WGo.display_var_length = 2;
             WGo.curBoard.redraw();
@@ -660,6 +693,37 @@
                         o[i].style.width = (Math.min(WGo.mainWidth / 9,85)) + "px";
                     }
                 }
+            }
+            if(WGo.isPC)
+            {if( WGo.isWideMode)
+            {
+                var o = document.getElementsByTagName("button");
+                for (var i = 0; i < o.length; i++) {
+                    if (o[i].className.startsWith("wgo-button3")) {
+                        o[i].style.width = Math.min(WGo.mainWidth / 25,40) + "px";
+                        // if(o[i].offsetWidth>0)
+                        // alert("bt3 "+o[i].offsetWidth+"_"+o[i].offsetHeight);
+                    } else if (o[i].className.startsWith("wgo-button2")) {
+                        o[i].style.width = (Math.min(WGo.mainWidth / 18.5,60)) + "px";
+                    } else if (o[i].className.startsWith("wgo-button")) {
+                        o[i].style.width = (Math.min(WGo.mainWidth / 18.5,60)) + "px";
+                    }
+                }
+            }
+            else{
+                var o = document.getElementsByTagName("button");
+                for (var i = 0; i < o.length; i++) {
+                    if (o[i].className.startsWith("wgo-button3")) {
+                        o[i].style.width = Math.min(WGo.mainWidth / 17,40) + "px";
+                        // if(o[i].offsetWidth>0)
+                        // alert("bt3 "+o[i].offsetWidth+"_"+o[i].offsetHeight);
+                    } else if (o[i].className.startsWith("wgo-button2")) {
+                        o[i].style.width = (Math.min(WGo.mainWidth / 13,55)) + "px";
+                    } else if (o[i].className.startsWith("wgo-button")) {
+                        o[i].style.width = (Math.min(WGo.mainWidth / 13,65)) + "px";
+                    }
+                }
+            }
             }
         },
 

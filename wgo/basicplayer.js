@@ -200,12 +200,14 @@
             }
             if (isPC || WGo.isWideMode) {
                 if (WGo.isWideMode)
-                    o.style.height = (100) + "%"
+                { o.style.height = (100) + "%"}
                 else
-                    o.style.height = (100) + "%" + "-25px";
+                   {o.style.height = (96) + "%"
+                   }
                 o.style.width = (100) + "%";
                 WGo.trueScale = 1;
             } else {
+
                 var scale = deviceheight / 930.0;
                 var w = devicewidth / scale;
                 o.style.height = (900) + "px";

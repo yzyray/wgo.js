@@ -20,14 +20,28 @@
         this.comments_title.innerHTML = WGo.t("comments");
         this.box.appendChild(this.comments_title);
 
+
+
         this.comments = document.createElement("div");
         this.comments.className = "wgo-comments-content";
         this.box.appendChild(this.comments);
+
+        this.winratePanel = document.createElement("div");
+        this.winratePanel.className = "wgo-comments-winrate";
+        this.box.appendChild(this.winratePanel)
+
+        this.winratecanvas = document.createElement("canvas");
+        this.winratecanvas.className = "wgo-comments-winrate-canvas";
+        this.winratecanvas.style.width="100%";
+        this.winratecanvas.style.height="100%";
+        this.winratePanel.appendChild(this.winratecanvas)
+        WGo.winratecanvas=this.winratecanvas;
 
         this.help = document.createElement("div");
         this.help.className = "wgo-help";
         this.help.style.display = "none";
         this.comments.appendChild(this.help);
+
 
         this.notification = document.createElement("div");
         this.notification.className = "wgo-notification";
@@ -37,7 +51,34 @@
         this.comment_text = document.createElement("div");
         this.comment_text.className = "wgo-comment-text";
         this.comments.appendChild(this.comment_text);
+
+
+
+
     }
+
+    var drawWinrate=function()
+    {
+        var canvas = WGo.winratecanvas;
+            var height=canvas.height;
+        var width=canvas.width;
+       var g2d = canvas.getContext("2d");
+        g2d.fillStyle="blue";
+        g2d.fillRect(0,0,width,height);
+        // alert(width+"_"+height);
+
+    }
+
+    var clearWinrate=function()
+    {
+        var canvas = WGo.winratecanvas;
+        var height=canvas.height;
+        var width=canvas.width;
+        var g2d = canvas.getContext("2d");
+        g2d.clearRect(0,0,width,height);
+
+    }
+
 
     var mark = function (index) {
 if(WGo.clickedComment|| WGo.commentVarClicked)
@@ -100,6 +141,7 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
 
 
     var mark_variations = function (index) {
+        drawWinrate();
         WGo.commentVarClickedNow=true;
         setTimeout(function(){  WGo.commentVarClickedNow=false; }, 100);
         WGo.curBoard.removeAllObjectsVR();
@@ -216,6 +258,7 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
 
     var mouse_click = function () {
         if (! WGo.commentVarClickedNow&&WGo.isMouseOnBestMove) {
+            clearWinrate();
             WGo.commentVarClicked=false;
             WGo.lastX = -1;
             WGo.lastY = -1;
