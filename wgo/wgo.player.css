@@ -337,6 +337,7 @@
     /*height: 50%;*/
     /*overflow-y: auto;*/
     background-color: rgba(255, 0, 0, 1.0);
+    width:100%;
 }
 
 .wgo-comments-content {
@@ -408,6 +409,7 @@ a.wgo-move-link {
     bottom: 0px;
     height:50%;
     top: 40px;
+    width:100%;
 }
 .wgo-player-right .wgo-comments-winrate, .wgo-player-left .wgo-comments-winrate {
     /*position: absolute;*/
@@ -415,6 +417,18 @@ a.wgo-move-link {
     right: 0px;
     bottom: 0px;
     top: 50%;
+    height:50%;
+    width:100%;
+}
+
+.wgo-player-right .wgo-comments-winrate-canvas, .wgo-player-left .wgo-comments-winrate-canvas {
+    position: absolute;
+    width:100%;
+    height:50%;
+}
+.wgo-player-right .wgo-comments-winrate-canvas2, .wgo-player-left .wgo-comments-winrate-canvas2 {
+    position: absolute;
+    width:100%;
     height:50%;
 }
 
@@ -435,6 +449,7 @@ a.wgo-move-link {
     top: 0;
     bottom: 0;
     height:50%;
+    width:100%;
 
 }
 .wgo-player-top .wgo-comments-winrate, .wgo-player-bottom .wgo-comments-winrate {
@@ -443,8 +458,19 @@ a.wgo-move-link {
     right: 0px;
     bottom: 0px;
     top: 50%;
+    width:100%;
     height:45%;
     /*!*height:50%;*!*/
+}
+.wgo-player-top .wgo-comments-winrate-canvas, .wgo-player-bottom .wgo-comments-winrate-canvas {
+    position: absolute;
+    width:100%;
+    height:45%;
+}
+.wgo-player-top .wgo-comments-winrate-canvas2, .wgo-player-bottom .wgo-comments-winrate-canvas2 {
+    position: absolute;
+    width:100%;
+    height:45%;
 }
 
 

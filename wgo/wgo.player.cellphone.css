@@ -426,6 +426,16 @@ a.wgo-move-link {
     top: 50%;
     height:38%;
 }
+.wgo-player-right .wgo-comments-winrate-canvas, .wgo-player-left .wgo-comments-winrate-canvas {
+    position: absolute;
+    width:100%;
+    height:38%;
+}
+.wgo-player-right .wgo-comments-winrate-canvas2, .wgo-player-left .wgo-comments-winrate-canvas2 {
+    position: absolute;
+    width:100%;
+    height:38%;
+}
 
 .wgo-player-right .wgo-commentbox, .wgo-player-left .wgo-commentbox {
     position: absolute;
@@ -459,6 +469,17 @@ a.wgo-move-link {
     height:40%;
     /*!*height:50%;*!*/
 }
+.wgo-player-top .wgo-comments-winrate-canvas, .wgo-player-bottom .wgo-comments-winrate-canvas {
+    position: absolute;
+    width:100%;
+    height:40%;
+}
+.wgo-player-top .wgo-comments-winrate-canvas2, .wgo-player-bottom .wgo-comments-winrate-canvas2 {
+    position: absolute;
+    width:100%;
+    height:40%;
+}
+
 
 
 /* TODO: handle too long title */

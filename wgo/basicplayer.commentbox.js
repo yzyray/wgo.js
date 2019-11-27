@@ -29,13 +29,16 @@
         this.winratePanel = document.createElement("div");
         this.winratePanel.className = "wgo-comments-winrate";
         this.box.appendChild(this.winratePanel)
-
+WGo.winratePanel=this.winratePanel;
         this.winratecanvas = document.createElement("canvas");
         this.winratecanvas.className = "wgo-comments-winrate-canvas";
-        this.winratecanvas.style.width="100%";
-        this.winratecanvas.style.height="100%";
         this.winratePanel.appendChild(this.winratecanvas)
         WGo.winratecanvas=this.winratecanvas;
+
+        this.winratecanvas2 = document.createElement("canvas");
+        this.winratecanvas2.className = "wgo-comments-winrate-canvas2";
+        this.winratePanel.appendChild(this.winratecanvas2)
+        WGo.winratecanvas2=this.winratecanvas2;
 
         this.help = document.createElement("div");
         this.help.className = "wgo-help";
@@ -59,6 +62,7 @@
 
     var drawWinrate=function()
     {
+
         var canvas = WGo.winratecanvas;
             var height=canvas.height;
         var width=canvas.width;
@@ -66,12 +70,25 @@
         g2d.fillStyle="blue";
         g2d.fillRect(0,0,width,height);
         // alert(width+"_"+height);
+        drawWinrate2();
+
+
+    }
+    var drawWinrate2=function()
+    {
+        var canvas = WGo.winratecanvas2;
+        var height=canvas.height;
+        var width=canvas.width;
+        var g2d = canvas.getContext("2d");
+        g2d.fillStyle="green";
+        g2d.fillRect(0,0,width,height);
+        // alert(width+"_"+height);
 
     }
 
     var clearWinrate=function()
     {
-        var canvas = WGo.winratecanvas;
+        var canvas = WGo.winratecanvas2;
         var height=canvas.height;
         var width=canvas.width;
         var g2d = canvas.getContext("2d");
