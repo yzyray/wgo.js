@@ -1793,12 +1793,14 @@ else
                 clearField.call(this, obj.x, obj.y);
                 // if object of this type is on the board, replace it
                 var layers = this.obj_arr[obj.x][obj.y];
+                if(obj.type!='variation'){
                 for (var z = 0; z < layers.length; z++) {
                     if (layers[z].type == obj.type) {
                         layers[z] = obj;
                         drawField.call(this, obj.x, obj.y);
                         return;
                     }
+                }
                 }
 
                 // if object is a stone, add it at the beginning, otherwise at the end
