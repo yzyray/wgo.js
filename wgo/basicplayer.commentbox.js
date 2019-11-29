@@ -12,11 +12,12 @@
 
 
         if (WGo.commentheight)
-            this.box.style.height = (WGo.commentheight) + "px";
-
-
+        {    this.box.style.height = (WGo.commentheight) + "px";
+        // this.box.style.top=-3+"px";
+        }
         this.comments_title = document.createElement("div");
         this.comments_title.className = "wgo-box-title";
+        if(WGo.isPC||WGo.isWideMode)
         this.comments_title.innerHTML = WGo.t("comments");
         this.box.appendChild(this.comments_title);
 
@@ -64,24 +65,30 @@ WGo.winratePanel=this.winratePanel;
     {
 
         var canvas = WGo.winratecanvas;
-            var height=canvas.height;
-        var width=canvas.width;
-       var g2d = canvas.getContext("2d");
+        var    width = canvas.offsetWidth;
+        var    height = canvas.offsetHeight;
+        var g2d = canvas.getContext("2d");
+        canvas.width = width;
+        canvas.height = height;
         g2d.fillStyle="blue";
-        g2d.fillRect(0,0,width,height);
+        g2d.fillRect(0,0,  parseInt(width), parseInt(height));
         // alert(width+"_"+height);
         drawWinrate2();
-
 
     }
     var drawWinrate2=function()
     {
         var canvas = WGo.winratecanvas2;
-        var height=canvas.height;
-        var width=canvas.width;
+        var    width = canvas.offsetWidth;
+        var    height = canvas.offsetHeight;
         var g2d = canvas.getContext("2d");
+        canvas.width = width;
+        canvas.height = height;
         g2d.fillStyle="green";
-        g2d.fillRect(0,0,width,height);
+        // g2d.fillRect(0,0,  parseInt(width/4), parseInt(height/4));
+        // g2d.moveTo(0, 0)
+        // g2d.lineTo(70, 70.5)
+        // g2d.stroke();
         // alert(width+"_"+height);
 
     }
@@ -188,7 +195,7 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
                             this.board.addObject(bestMoveInfo);
                         }
                     }
-            if(!WGo.isShowingMoveNum)
+            if(!WGo.isShowingMoveNum&&!WGo.editMode)
             {  var lastMark = new Object();
                 lastMark.type="TRS";
                 lastMark.x= node.move.x;
@@ -218,6 +225,10 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
             this.board.addObject(bestMoveInfo);
         }
         var variations = bestmove.variation;
+        if (WGo.isAutoMode)
+            WGo.display_var_length = 1;
+        else
+            WGo.display_var_length = -1;
         for (var i = 1; i < variations.length; i++) {
             var data = variations[i].split("_");
             WGo.var_length = variations.length;
@@ -229,10 +240,6 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
                 num: i + 1
             };
             this.board.addObject(mark);
-            if (WGo.isAutoMode)
-                WGo.display_var_length = 1;
-            else
-                WGo.display_var_length = -1;
         }
         WGo._last_mark=true;
     }
@@ -270,7 +277,13 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
                         this.board.addObject(bestMoveInfo);
                     }
                 }
-
+        if(!WGo.isShowingMoveNum&&!WGo.editMode)
+        {  var lastMark = new Object();
+            lastMark.type="TRS";
+            lastMark.x= node.move.x;
+            lastMark.y=node.move.y;
+            WGo.curBoard.addObject(lastMark);
+        }
     }
 
     var mouse_click = function () {
@@ -298,14 +311,13 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
                         WGo.curBoard.addObject(bestMoveInfo);
                     }
                 }
-            if(!WGo.isShowingMoveNum)
+            if(!WGo.isShowingMoveNum&&!WGo.editMode)
             {  var lastMark = new Object();
                 lastMark.type="TRS";
                 lastMark.x= node.move.x;
                 lastMark.y=node.move.y;
-                this.board.addObject(lastMark);
+                WGo.curBoard.addObject(lastMark);
             }
-            WGo.curBoard.redraw();
         }
     }
 
@@ -346,6 +358,7 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
         prepare_dom.call(this);
         player.addEventListener("kifuLoaded", function (e) {
             if (e.kifu.hasComments()) {
+                if(WGo.isPC||WGo.isWideMode)
                 this.comments_title.innerHTML = WGo.t("comments");
                 this.element.className = "wgo-commentbox";
 

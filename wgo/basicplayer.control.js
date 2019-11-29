@@ -292,7 +292,7 @@
         var move = this.move = document.createElement("input");
         move.type = "text";
         move.value = "0";
-        if (!WGo.isPC && !WGo.isWideMode)
+        if (!WGo.isPC && !WGo.isWideMode&&!WGo.isIPAD)
             move.onfocus = function () {
                 move.blur()
             };
@@ -523,7 +523,7 @@
                                             }, 500);
                                             var bestMove = WGo.mouseBestMove;
                                             var variations = bestMove.variation;
-                                            for (var s = 0; s < variations.length; s++) {
+                                            for (var s = 0; s < variations.length&&s<WGo.display_var_length; s++) {
                                                 var data = variations[s].split("_");
                                                 WGo.curPlayer.kifuReader.node.appendChild(new WGo.KNode({
                                                     move: {
@@ -641,8 +641,8 @@
                             },
                             click: function (player) {
                                 if (WGo.isMouseOnBestMove) {
-                                    WGo.display_var_length = 2;
-                                    WGo.curBoard.redraw();
+                                    WGo.display_var_length = 1;
+                                    WGo.curBoard.redrawVar();
                                 } else {
                                     var p = WGo.clone(player.kifuReader.path);
                                     p.m -= 10;
@@ -698,8 +698,8 @@
                                     if (WGo.var_length)
                                         WGo.display_var_length = WGo.var_length;
                                     else
-                                        WGo.display_var_length = 2;
-                                    WGo.curBoard.redraw();
+                                        WGo.display_var_length = 1;
+                                    WGo.curBoard.redrawVar();
                                 } else {
                                     var p = WGo.clone(player.kifuReader.path);
                                     p.m += 10;

@@ -64,6 +64,9 @@
     var winratecanvas;
     var winratecanvas2;
     var winratePanel;
+    var bestmovesClicked;
+    var isIPAD;
+    var isIPHONE;
     /**
      * Main namespace - it initializes WGo in first run and then execute main function.
      * You must call WGo.init() if you want to use library, without calling WGo.
@@ -961,21 +964,21 @@
                         this.arc(xr - board.ls, yr - board.ls, Math.max(0, sr - 0.5), 0, 2 * Math.PI, true);
                         this.fill();
                          if (args.c) {
-if( args.BMbyComment)
-{
-    this.strokeStyle = "rgba(255,0,0,0.75)";
-    this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
-    this.beginPath();
-    this.arc(xr - board.ls, yr - board.ls, sr * 1.65 / 2, 0, 2 * Math.PI, true);
-    this.stroke();
-    this.fillStyle = "red";
-    this.textAlign = "left";
-    var font = "verdana";
-    this.font = Math.round(sr * 1.3) + "px " + font;
-    this.fillText(1, xr - 0.45 * sr, yr + 0.45 * sr, 1.4 * sr);
-    return;
-}
-else
+// if( args.BMbyComment)
+// {
+//     this.strokeStyle = "rgba(255,0,0,0.75)";
+//     this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
+//     this.beginPath();
+//     this.arc(xr - board.ls, yr - board.ls, sr * 1.65 / 2, 0, 2 * Math.PI, true);
+//     this.stroke();
+//     this.fillStyle = "red";
+//     this.textAlign = "left";
+//     var font = "verdana";
+//     this.font = Math.round(sr * 1.3) + "px " + font;
+//     this.fillText(1, xr - 0.45 * sr, yr + 0.45 * sr, 1.4 * sr);
+//     return;
+// }
+// else
 {
                             this.strokeStyle = "rgb(255,0,0)";
                             if(WGo.isPC)
@@ -1691,6 +1694,57 @@ else
         /**
          * Redraw everything.
          */
+        redrawVar: function () {
+            try {
+                // redraw layers
+
+                for (var i = 0; i < this.size; i++) {
+                    for (var j = 0; j < this.size; j++) {
+                        var layers = this.obj_arr[i][j];
+                        for (var z = 0; z < layers.length; z++) {
+                            if (this.obj_arr[i][j][z].type == "variation") {
+                                if(this.obj_arr[i][j][z].num<=WGo.display_var_length){
+                                    clearField.call(this, i, j);
+                                drawField.call(this, i, j);
+                                break;
+                                }
+                                else{
+                                    clearField.call(this, i, j);
+                                }
+                                //this.removeLayer(this.obj_arr[i][j][z]);
+                                //	this.obj_arr[i][j].splice(z, 1);
+                                //clearField.call(this, i,j);
+                            }
+                        }
+                    }
+                }
+                // for (var i = 0; i < this.layers.length; i++) {
+                //     this.layers[i].clear(this);
+                //     this.layers[i].draw(this);
+                // }
+                //
+                // // redraw field objects
+                // for (var i = 0; i < this.size; i++) {
+                //     for (var j = 0; j < this.size; j++) {
+                //         drawField.call(this, i, j);
+                //     }
+                // }
+
+                // redraw custom objects
+                // for (var i = 0; i < this.obj_list.length; i++) {
+                //     var obj = this.obj_list[i];
+                //     var handler = obj.handler;
+                //
+                //     for (var layer in handler) {
+                //         handler[layer].draw.call(this[layer].getContext(obj.args), obj.args, this);
+                //     }
+                // }
+            } catch (err) {
+                // If the board is too small some canvas painting function can throw an exception, but we don't want to break our app
+                console.log("WGo board failed to render. Error: " + err.message);
+            }
+        },
+
 
         redraw: function () {
             try {
@@ -1793,7 +1847,8 @@ else
                 clearField.call(this, obj.x, obj.y);
                 // if object of this type is on the board, replace it
                 var layers = this.obj_arr[obj.x][obj.y];
-                if(obj.type!='variation'){
+                if(obj.type!='variation')
+                {
                 for (var z = 0; z < layers.length; z++) {
                     if (layers[z].type == obj.type) {
                         layers[z] = obj;
@@ -1851,6 +1906,7 @@ else
                     for (var z = 0; z < layers.length; z++) {
                         if (this.obj_arr[i][j][z].type == "LB" || this.obj_arr[i][j][z].type == "TRS") {
                             this.removeObject(this.obj_arr[i][j][z]);
+                            z--;
                             //this.removeLayer(this.obj_arr[i][j][z]);
                             //	this.obj_arr[i][j].splice(z, 1);
                             //clearField.call(this, i,j);
@@ -1868,6 +1924,7 @@ else
                     for (var z = 0; z < layers.length; z++) {
                         if (this.obj_arr[i][j][z].type == "BM"||this.obj_arr[i][j][z].type=="TRS") {
                             this.removeObject(this.obj_arr[i][j][z]);
+                            z--;
                             //this.removeLayer(this.obj_arr[i][j][z]);
                             //	this.obj_arr[i][j].splice(z, 1);
                             //clearField.call(this, i,j);
@@ -1882,9 +1939,11 @@ else
             for (var i = 0; i < this.size; i++) {
                 for (var j = 0; j < this.size; j++) {
                     var layers = this.obj_arr[i][j];
+
                     for (var z = 0; z < layers.length; z++) {
                         if (this.obj_arr[i][j][z].type == "variation") {
                             this.removeObject(this.obj_arr[i][j][z]);
+                            z--;
                             //this.removeLayer(this.obj_arr[i][j][z]);
                             //	this.obj_arr[i][j].splice(z, 1);
                             //clearField.call(this, i,j);
@@ -1892,7 +1951,7 @@ else
                     }
                 }
             }
-            //this.redraw();
+           // this.redraw();
         },
 
         removeAllObjectsOutLine: function () {
@@ -1902,6 +1961,7 @@ else
                     for (var z = 0; z < layers.length; z++) {
                         if (this.obj_arr[i][j][z].type == "outline"||this.obj_arr[i][j][z].type =="CR2") {
                             this.removeObject(this.obj_arr[i][j][z]);
+                            z--;
                             //this.removeLayer(this.obj_arr[i][j][z]);
                             //	this.obj_arr[i][j].splice(z, 1);
                             //clearField.call(this, i,j);

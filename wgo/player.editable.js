@@ -118,7 +118,7 @@
             //WGo.isEditPlaying=true;
             var bestMove = WGo.mouseBestMove;
             var variations = bestMove.variation;
-            for (var s = 0; s < variations.length; s++) {
+            for (var s = 0; s < variations.length&&s<WGo.display_var_length; s++) {
                 var data = variations[s].split("_");
                 this.player.kifuReader.node.appendChild(new WGo.KNode({
                     move: {
@@ -135,7 +135,8 @@
             }
             //	WGo.isEditPlaying=false;
             WGo.isMouseOnBestMove = false;
-        } else {
+        } else
+            {
             if (this.player.frozen || !this.player.kifuReader.game.isValid(x, y)) return;
             this.player.kifuReader.node.appendChild(new WGo.KNode({
                 move: {

@@ -316,6 +316,10 @@
                 WGo._last_mark = true;
                 var variations = bestmove.variation;
                 WGo.var_length = variations.length;
+                if (WGo.isAutoMode)
+                    WGo.display_var_length = 1;
+                else
+                    WGo.display_var_length = -1;
                 for (var i = 1; i < variations.length; i++) {
                     var data = variations[i].split("_");
 
@@ -327,11 +331,8 @@
                         num: i + 1
                     };
                     this.board.addObject(mark);
-                    if (WGo.isAutoMode)
-                        WGo.display_var_length = 1;
-                    else
-                        WGo.display_var_length = -1;
                 }
+
                 // var_length = variations.length;
             } else {
                 WGo.isMouseOnBestMove = false;
@@ -389,6 +390,8 @@
     }
 
     var mouse_click_pc = function () {
+        if(WGo.editMode)
+            return;
         if(WGo.commentVarClicked)
         {
             WGo.commentVarClicked=false;
@@ -425,14 +428,14 @@
         else if (WGo.isMouseOnBestMove) {
             if (WGo.display_var_length)
                 WGo.display_var_length = 2;
-            WGo.curBoard.redraw();
+            WGo.curBoard.redrawVar();
             interval = setInterval(function () {
                 if (WGo.display_var_length < 0) {
                     WGo.display_var_length = 1;
                 }
                 if (WGo.display_var_length < WGo.var_length)
                     WGo.display_var_length++;
-                WGo.curBoard.redraw();
+                WGo.curBoard.redrawVar();
             }, 700);
         }
     }
@@ -551,6 +554,10 @@
                 WGo._last_mark = true;
                 var variations = bestmove.variation;
                 WGo.var_length = variations.length;
+                if (WGo.isAutoMode)
+                    WGo.display_var_length = 1;
+                else
+                    WGo.display_var_length = -1;
                 for (var i = 1; i < variations.length; i++) {
                     var data = variations[i].split("_");
 
@@ -562,10 +569,6 @@
                         num: i + 1
                     };
                     this.board.addObject(mark);
-                    if (WGo.isAutoMode)
-                        WGo.display_var_length = 1;
-                    else
-                        WGo.display_var_length = -1;
                 }
                 //  var_length = variations.length;
 
@@ -926,14 +929,15 @@
             if (WGo._last_mark && WGo.isMouseOnBestMove) {
                 if (WGo.display_var_length)
                     if (WGo.display_var_length < 0) {
-                        if (WGo.isPC)
+                        if (!WGo.commentVarClicked)
                             WGo.display_var_length = 2;
                         else
                             WGo.display_var_length = 1;
-                        this.board.redraw();
                     } else if (WGo.display_var_length < WGo.var_length)
-                        WGo.display_var_length++;
-                this.board.redraw();
+                    {  WGo.display_var_length++;
+              }
+                this.board.redrawVar();
+                    return;
             } else {
                 WGo.lastX = -1;
                 WGo.lastY = -1;
@@ -961,8 +965,9 @@
                     if (WGo.display_var_length < 0)
                         WGo.display_var_length = WGo.var_length - 1;
                     else if (WGo.display_var_length > 1)
-                        WGo.display_var_length--;
-                this.board.redraw();
+                     WGo.display_var_length--;
+                this.board.redrawVar();
+                return;
             } else {
                 WGo.lastX = -1;
                 WGo.lastY = -1;

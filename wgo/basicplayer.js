@@ -175,6 +175,37 @@
 
         }.bind(this));
 
+        var os = function () {
+            if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+
+                if (window.location.href.indexOf("?mobile") < 0) {
+
+                    try {
+                        if (/iPad/i.test(navigator.userAgent)) {
+                       WGo.isIPAD=true;
+                        }
+                        if (/iPhone/i.test(navigator.userAgent)) {
+                            WGo.isIPHONE=true;
+                        }
+                        // if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                        //
+                        //     window.location.href = "http://www.baidu.com";
+                        //
+                        // } else if (/iPad/i.test(navigator.userAgent)) {
+                        //
+                        // } else {
+                        //
+                        //     window.location.href = "http://www.baidu.com";
+                        //
+                        // }
+
+                    } catch (e) {
+                    }
+
+                }
+
+            }
+        }
 
         function bodyScale() {
             var devicewidth = document.documentElement.clientWidth;
@@ -215,7 +246,7 @@
                 document.body.style.zoom = scale;
                 WGo.trueScale = scale;
                 if (!WGo.isWideMode) {
-                    WGo.commentheight = Math.max(152*900/w, 185);
+                    WGo.commentheight = Math.max(168.5*816/w, 185);
                  //   alert(  o.style.height+"_"+ o.style.width+"_"+WGo.commentheight );
                 }
             }
@@ -243,6 +274,7 @@
 
         //window.onload = window.onresize = function () {
         bodyScale();
+        os();
         //};
 
         this.updateDimensions();
