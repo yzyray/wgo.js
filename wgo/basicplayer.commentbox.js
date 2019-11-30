@@ -78,13 +78,22 @@
             if(WGo.isWideMode)
                 height = WGo.commentWrapper.offsetHeight-WGo.commentTitle.offsetHeight-WGo.commentContent.offsetHeight;
                 else
-            height= canvas.offsetHeight;
+            height= canvas.offsetHeight-3;
         }
-        canvas.style.height=height+"px";
-        var g2d = canvas.getContext("2d");
+        // canvas.style.height=height+"px";
+WGo.winratePanel.style.height=height+"px";
+        width=width*2;
+            height=height*2
         canvas.width = width;
         canvas.height = height;
-        g2d.fillStyle="rgb(155,155,155)";
+        // if(!WGo.isPC&&!WGo.isWideMode) {
+        canvas.style.width = width / 2 + "px";
+        canvas.style.height = height / 2 + "px";
+
+        var g2d = canvas.getContext("2d");
+        // canvas.width = width;
+        // canvas.height = height;
+        g2d.fillStyle="rgb(165,165,165)";
         g2d.fillRect(0,0,  parseInt(width), parseInt(height));
 
         var stratnode = WGo.mianKifu.root;
@@ -101,7 +110,12 @@
         else
             lineWidth=height/50;
 
-        var sr=Math.max(Math.round(height/20),14);
+        if(!WGo.isPC&&!WGo.isWideMode)
+            var sr=Math.max(Math.round(height/10),28);
+        else if(WGo.isIPAD)
+            var sr=Math.max(Math.round(height/15),21);
+        else
+            var sr=Math.max(Math.round(height/20),14);
         g2d.lineWidth=lineWidth/2;
         g2d.setLineDash([10, 10]);
         g2d.strokeStyle= "rgb(210,210,210)";
@@ -130,9 +144,9 @@
         var font = "Calibri";
         g2d.fillStyle = "rgb(210,210,210)";
         g2d.font = sr + "px " + font;
-        g2d.fillText("50",1, height/2+ Math.max(sr,14)/3);
-        g2d.fillText("75",1, height/4+ Math.max(sr,14)/3);
-        g2d.fillText("25",1, height*3/4+ Math.max(sr,14)/3);
+        g2d.fillText("50",4, height/2+ Math.max(sr,14)/3);
+        g2d.fillText("75",4, height/4+ Math.max(sr,14)/3);
+        g2d.fillText("25",4, height*3/4+ Math.max(sr,14)/3);
         //
         // g2d.lineWidth=lineWidth;
         // g2d.beginPath();
@@ -153,9 +167,9 @@
         {
             var winHeight;
             if(node.move.c==WGo.B)
-                winHeight=3+(height-6)*node.bestMoves[0].winrate/100;
+                winHeight=6+(height-12)*node.bestMoves[0].winrate/100;
             else
-                winHeight=3+(height-6)*(100-node.bestMoves[0].winrate)/100;
+                winHeight=6+(height-12)*(100-node.bestMoves[0].winrate)/100;
             g2d.strokeStyle="rgb(0,255,0)";
             g2d.lineWidth=lineWidth;
             g2d.beginPath();
@@ -203,13 +217,30 @@ WGo.drawWinrate=drawWinrate;
             if(WGo.isWideMode)
                 height = WGo.commentWrapper.offsetHeight-WGo.commentTitle.offsetHeight-WGo.commentContent.offsetHeight;
             else
-                height= canvas.offsetHeight;
+                height= WGo.winratePanel.offsetHeight;
         }
-        canvas.style.height=height+"px";
+        // if(!WGo.isPC&&!WGo.isWideMode)
+        {width=width*2;
+        height=height*2}
         canvas.width = width;
         canvas.height = height;
+        // if(!WGo.isPC&&!WGo.isWideMode) {
+            canvas.style.width = width / 2 + "px";
+            canvas.style.height = height / 2 + "px";
+        // }
+        // else
+        // {     canvas.style.width = width  + "px";
+        // canvas.style.height = height + "px";
+        // }
+        // canvas.style.zoom=;
+
         var g2d = canvas.getContext("2d");
         g2d.clearRect(0,0,width,height);
+        if(!WGo.isPC&&!WGo.isWideMode)
+            var sr=Math.max(Math.round(height/10),28);
+            else if(WGo.isIPAD)
+            var sr=Math.max(Math.round(height/15),21);
+            else
         var sr=Math.max(Math.round(height/20),14);
         var startWidth=sr*1.5;
         var nowWidth=width-startWidth*2;
@@ -234,11 +265,17 @@ WGo.drawWinrate=drawWinrate;
         if (node.bestMoves&&node.bestMoves[0]&&node.bestMoves[0].winrate)
         {
             var winHeight;
-            if(node.move.c==WGo.B)
-                winHeight=3+(height-6)*node.bestMoves[0].winrate/100;
+            // if(!WGo.isPC&&!WGo.isWideMode)
+            {if(node.move.c==WGo.B)
+                winHeight=6+(height-12)*node.bestMoves[0].winrate/100;
             else
-                winHeight=3+(height-6)*(100-node.bestMoves[0].winrate)/100;
-
+                winHeight=6+(height-12)*(100-node.bestMoves[0].winrate)/100;}
+            // else
+            // {if(node.move.c==WGo.B)
+            //     winHeight=5+(height-10)*node.bestMoves[0].winrate/100;
+            // else
+            //     winHeight=5+(height-10)*(100-node.bestMoves[0].winrate)/100;
+            // }
             g2d.fillStyle = "rgb(255,0,0)";
             g2d.beginPath();
             g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), winHeight, sr/ 5, 0, 2 * Math.PI, true);
@@ -479,8 +516,17 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
     }
 
     var mouse_click = function () {
+//         var o = document.getElementById("main");
+//         o.setAttribute("data-wgo", "qp\\test2.sgf");
+//         var pl_elems = document.querySelectorAll("[data-wgo],[data-wgo-diagram]");
+//
+//         for (var i = 0; i < pl_elems.length; i++) {
+//             WGo.player_from_tag(pl_elems[i]);
+//         }
+// return;
+
         if (! WGo.commentVarClickedNow&&WGo.isMouseOnBestMove) {
-            clearWinrate();
+            //clearWinrate();
             WGo.commentVarClicked=false;
             WGo.lastX = -1;
             WGo.lastY = -1;

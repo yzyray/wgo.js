@@ -237,6 +237,7 @@
                    }
                 o.style.width = (100) + "%";
                 WGo.trueScale = 1;
+                document.body.style.zoom = 1;
             } else {
 
                 var scale = deviceheight / 930.0;
@@ -246,7 +247,7 @@
                 document.body.style.zoom = scale;
                 WGo.trueScale = scale;
                 if (!WGo.isWideMode) {
-                    WGo.commentheight = Math.max(168.5*816/w, 185);
+                    WGo.commentheight =168.5*816/w;
                  //   alert(  o.style.height+"_"+ o.style.width+"_"+WGo.commentheight );
                 }
             }
@@ -640,6 +641,7 @@
     }
 
     WGo.BasicPlayer = BasicPlayer;
+    WGo.player_from_tag=player_from_tag;
 
     window.addEventListener("load", function () {
         var pl_elems = document.querySelectorAll("[data-wgo],[data-wgo-diagram]");
