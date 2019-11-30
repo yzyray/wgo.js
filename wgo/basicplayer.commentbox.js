@@ -153,9 +153,9 @@
         {
             var winHeight;
             if(node.move.c==WGo.B)
-                winHeight=(height-3)*node.bestMoves[0].winrate/100;
+                winHeight=3+(height-6)*node.bestMoves[0].winrate/100;
             else
-                winHeight=(height-3)*(100-node.bestMoves[0].winrate)/100;
+                winHeight=3+(height-6)*(100-node.bestMoves[0].winrate)/100;
             g2d.strokeStyle="rgb(0,255,0)";
             g2d.lineWidth=lineWidth;
             g2d.beginPath();
@@ -235,9 +235,9 @@ WGo.drawWinrate=drawWinrate;
         {
             var winHeight;
             if(node.move.c==WGo.B)
-                winHeight=(height-3)*node.bestMoves[0].winrate/100;
+                winHeight=3+(height-6)*node.bestMoves[0].winrate/100;
             else
-                winHeight=(height-3)*(100-node.bestMoves[0].winrate)/100;
+                winHeight=3+(height-6)*(100-node.bestMoves[0].winrate)/100;
 
             g2d.fillStyle = "rgb(255,0,0)";
             g2d.beginPath();
