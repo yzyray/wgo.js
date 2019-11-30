@@ -21,13 +21,13 @@
         this.comments_title.innerHTML = WGo.t("comments");
         this.box.appendChild(this.comments_title);
     WGo.commentTitle=this.comments_title;
-
-
-        this.comments = document.createElement("div");
-        this.comments.className = "wgo-comments-content";
-        this.box.appendChild(this.comments);
-        WGo.commentContent=this.comments;
-
+//
+// if(!WGo.isPC)
+// {      this.comments = document.createElement("div");
+//         this.comments.className = "wgo-comments-content";
+//         this.box.appendChild(this.comments);
+//         WGo.commentContent=this.comments;
+// }
         this.winratePanel = document.createElement("div");
         this.winratePanel.className = "wgo-comments-winrate";
         this.box.appendChild(this.winratePanel)
@@ -37,6 +37,12 @@
         this.winratePanel.appendChild(this.winratecanvas)
         WGo.winratecanvas=this.winratecanvas;
 
+      //  if(WGo.isPC)
+        {      this.comments = document.createElement("div");
+            this.comments.className = "wgo-comments-content";
+            this.box.appendChild(this.comments);
+            WGo.commentContent=this.comments;
+        }
         this.winratecanvas2 = document.createElement("canvas");
         this.winratecanvas2.className = "wgo-comments-winrate-canvas2";
         this.winratePanel.appendChild(this.winratecanvas2)
@@ -110,12 +116,15 @@ WGo.winratePanel.style.height=height+"px";
         else
             lineWidth=height/50;
 
-        if(!WGo.isPC&&!WGo.isWideMode)
-            var sr=Math.max(Math.round(height/10),28);
-        else if(WGo.isIPAD)
-            var sr=Math.max(Math.round(height/15),21);
+        // if(!WGo.isPC&&!WGo.isWideMode)
+        //     var sr=Math.max(Math.round(height/10),56);
+        // else if(WGo.isIPAD)
+        //     var sr=Math.max(Math.round(height/15),42);
+        // else
+        if(WGo.isIPAD)
+            var sr=Math.max(Math.round(height/15),32);
         else
-            var sr=Math.max(Math.round(height/20),14);
+            var sr=Math.max(Math.round(height/15),36);
         g2d.lineWidth=lineWidth/2;
         g2d.setLineDash([10, 10]);
         g2d.strokeStyle= "rgb(210,210,210)";
@@ -236,12 +245,13 @@ WGo.drawWinrate=drawWinrate;
 
         var g2d = canvas.getContext("2d");
         g2d.clearRect(0,0,width,height);
-        if(!WGo.isPC&&!WGo.isWideMode)
-            var sr=Math.max(Math.round(height/10),28);
-            else if(WGo.isIPAD)
-            var sr=Math.max(Math.round(height/15),21);
-            else
-        var sr=Math.max(Math.round(height/20),14);
+        // if(!WGo.isPC&&!WGo.isWideMode)
+        //     var sr=Math.max(Math.round(height/10),56);
+        // else
+        if(WGo.isIPAD)
+            var sr=Math.max(Math.round(height/15),32);
+        else
+            var sr=Math.max(Math.round(height/15),36);
         var startWidth=sr*1.5;
         var nowWidth=width-startWidth*2;
         var node = WGo.curNode;
@@ -278,7 +288,7 @@ WGo.drawWinrate=drawWinrate;
             // }
             g2d.fillStyle = "rgb(255,0,0)";
             g2d.beginPath();
-            g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), winHeight, sr/ 5, 0, 2 * Math.PI, true);
+            g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), winHeight, sr/ 7, 0, 2 * Math.PI, true);
             g2d.closePath();
             g2d.fill();
 
