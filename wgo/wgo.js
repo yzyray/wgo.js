@@ -1018,13 +1018,13 @@
                         this.fillText(args.scoreMean.toFixed(1), xr - 0.75 * sr, yr + 0.63 * sr, 1.4 * sr);
                     else {
                         if (args.playouts < 10) {
-                            this.fillText(playouts, xr - 0.3 * sr, yr + 0.63 * sr, 1.35 * sr);
+                            this.fillText(playouts, xr - 0.3 * sr, yr + 0.63 * sr, 1.45 * sr);
                         } else if (args.playouts < 100) {
-                            this.fillText(playouts, xr - 0.6 * sr, yr + 0.63 * sr, 1.35 * sr);
+                            this.fillText(playouts, xr - 0.6 * sr, yr + 0.63 * sr, 1.45 * sr);
                         } else if (args.playouts < 1000) {
-                            this.fillText(playouts, xr - 0.7 * sr, yr + 0.63 * sr, 1.35 * sr);
+                            this.fillText(playouts, xr - 0.7 * sr, yr + 0.63 * sr, 1.45 * sr);
                         } else {
-                            this.fillText(playouts, xr - 0.65 * sr, yr + 0.63 * sr, 1.35 * sr);
+                            this.fillText(playouts, xr - 0.7 * sr, yr + 0.63 * sr, 1.45 * sr);
                         }
                     }
 

@@ -84,7 +84,7 @@
         var g2d = canvas.getContext("2d");
         canvas.width = width;
         canvas.height = height;
-        g2d.fillStyle="rgb(135,135,135)";
+        g2d.fillStyle="rgb(155,155,155)";
         g2d.fillRect(0,0,  parseInt(width), parseInt(height));
 
         var stratnode = WGo.mianKifu.root;
@@ -96,8 +96,8 @@
         }
         WGo.allMoveNum=moveNum;
         var lineWidth;
-        if(WGo.isPC||WGo.isWideMode)
-            lineWidth=height/100;
+        if(WGo.isWideMode)
+            lineWidth=Math.min(height,width*1.5)/180;
         else
             lineWidth=height/50;
 
@@ -142,7 +142,7 @@
         // g2d.closePath();
 
         var startWidth=sr*1.5;
-        var nowWidth=width-startWidth;
+        var nowWidth=width-startWidth*2;
 
         var lastWinrateHeight;
 
@@ -153,9 +153,9 @@
         {
             var winHeight;
             if(node.move.c==WGo.B)
-                winHeight=height*node.bestMoves[0].winrate/100;
+                winHeight=(height-3)*node.bestMoves[0].winrate/100;
             else
-                winHeight=height*(100-node.bestMoves[0].winrate)/100;
+                winHeight=(height-3)*(100-node.bestMoves[0].winrate)/100;
             g2d.strokeStyle="rgb(0,255,0)";
             g2d.lineWidth=lineWidth;
             g2d.beginPath();
@@ -212,12 +212,12 @@ WGo.drawWinrate=drawWinrate;
         g2d.clearRect(0,0,width,height);
         var sr=Math.max(Math.round(height/20),14);
         var startWidth=sr*1.5;
-        var nowWidth=width-startWidth;
+        var nowWidth=width-startWidth*2;
         var node = WGo.curNode;
         var moveNum=WGo.curPlayer.kifuReader.path.m;
         var lineWidth;
-        if(WGo.isPC||WGo.isWideMode)
-            lineWidth=height/100;
+        if(WGo.isWideMode)
+            lineWidth=Math.min(height,width*1.5)/180;
         else
             lineWidth=height/50;
 
@@ -235,9 +235,9 @@ WGo.drawWinrate=drawWinrate;
         {
             var winHeight;
             if(node.move.c==WGo.B)
-                winHeight=height*node.bestMoves[0].winrate/100;
+                winHeight=(height-3)*node.bestMoves[0].winrate/100;
             else
-                winHeight=height*(100-node.bestMoves[0].winrate)/100;
+                winHeight=(height-3)*(100-node.bestMoves[0].winrate)/100;
 
             g2d.fillStyle = "rgb(255,0,0)";
             g2d.beginPath();
@@ -261,17 +261,17 @@ WGo.drawWinrate=drawWinrate;
                 textHeight=winHeight-0.3*sr;
             }
                 if(WGo.isPC||WGo.isWideMode)
-                {if(moveNum<WGo.allMoveNum*0.9)
+                {if(moveNum<WGo.allMoveNum*0.98)
             g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum), textHeight);
                 else
-                    g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.9, textHeight);
+                    g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*0.5, textHeight);
                 }
                 else
                 {
-                    if(moveNum<WGo.allMoveNum*0.94)
+                    if(moveNum<WGo.allMoveNum*0.98)
                         g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum), textHeight);
                     else
-                        g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.9, textHeight);
+                        g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*0.5, textHeight);
 
                 }
         }
