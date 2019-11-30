@@ -134,6 +134,7 @@
                 // });
             }
         }
+        WGo.drawWinrate2();
     }
 
 // preparing board

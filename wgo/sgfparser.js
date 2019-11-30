@@ -276,7 +276,7 @@
             }
         }
         WGo.mianKifu = kifu;
-
+        WGo.drawWinrate();
         function bodyScale() {
             var devicewidth = document.documentElement.clientWidth;
             var deviceheight = document.documentElement.clientHeight;
@@ -305,6 +305,7 @@
 
         var isPC = IsPC();
         WGo.editMoveNum = 1;
+
 //if(!isPC)
         //bodyScale();
 

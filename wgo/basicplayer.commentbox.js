@@ -9,7 +9,7 @@
             mouse_click()
         };
         this.element.appendChild(this.box);
-
+    WGo.commentWrapper= this.box;
 
         if (WGo.commentheight)
         {    this.box.style.height = (WGo.commentheight) + "px";
@@ -20,17 +20,18 @@
         if(WGo.isPC||WGo.isWideMode)
         this.comments_title.innerHTML = WGo.t("comments");
         this.box.appendChild(this.comments_title);
-
+    WGo.commentTitle=this.comments_title;
 
 
         this.comments = document.createElement("div");
         this.comments.className = "wgo-comments-content";
         this.box.appendChild(this.comments);
+        WGo.commentContent=this.comments;
 
         this.winratePanel = document.createElement("div");
         this.winratePanel.className = "wgo-comments-winrate";
         this.box.appendChild(this.winratePanel)
-WGo.winratePanel=this.winratePanel;
+    WGo.winratePanel=this.winratePanel;
         this.winratecanvas = document.createElement("canvas");
         this.winratecanvas.className = "wgo-comments-winrate-canvas";
         this.winratePanel.appendChild(this.winratecanvas)
@@ -40,6 +41,7 @@ WGo.winratePanel=this.winratePanel;
         this.winratecanvas2.className = "wgo-comments-winrate-canvas2";
         this.winratePanel.appendChild(this.winratecanvas2)
         WGo.winratecanvas2=this.winratecanvas2;
+
 
         this.help = document.createElement("div");
         this.help.className = "wgo-help";
@@ -61,37 +63,227 @@ WGo.winratePanel=this.winratePanel;
 
     }
 
-    var drawWinrate=function()
-    {
+    var drawWinrate=function() {
 
         var canvas = WGo.winratecanvas;
-        var    width = canvas.offsetWidth;
-        var    height = canvas.offsetHeight;
+        var width = canvas.offsetWidth;
+        var height;
+        if(WGo.isPC)
+        {if(WGo.isWideMode)
+         height = WGo.commentWrapper.offsetHeight-WGo.commentTitle.offsetHeight-WGo.commentContent.offsetHeight;
+        else
+            height = WGo.commentWrapper.offsetHeight-WGo.commentContent.offsetHeight;}
+        else
+        {
+            if(WGo.isWideMode)
+                height = WGo.commentWrapper.offsetHeight-WGo.commentTitle.offsetHeight-WGo.commentContent.offsetHeight;
+                else
+            height= canvas.offsetHeight;
+        }
+        canvas.style.height=height+"px";
         var g2d = canvas.getContext("2d");
         canvas.width = width;
         canvas.height = height;
-        g2d.fillStyle="blue";
+        g2d.fillStyle="rgb(135,135,135)";
         g2d.fillRect(0,0,  parseInt(width), parseInt(height));
+
+        var stratnode = WGo.mianKifu.root;
+        var node = WGo.mianKifu.root;
+        var moveNum = 0;
+        while (stratnode.children[0]) {
+            stratnode = stratnode.children[0];
+            moveNum++;
+        }
+        WGo.allMoveNum=moveNum;
+        var lineWidth;
+        if(WGo.isPC||WGo.isWideMode)
+            lineWidth=height/100;
+        else
+            lineWidth=height/50;
+
+        var sr=Math.max(Math.round(height/20),14);
+        g2d.lineWidth=lineWidth/2;
+        g2d.setLineDash([10, 10]);
+        g2d.strokeStyle= "rgb(210,210,210)";
+
+        g2d.beginPath();
+        g2d.moveTo(sr*1.5, height*3/4);
+        g2d.lineTo(width, height*3/4);
+        g2d.stroke();
+        g2d.closePath();
+
+
+        g2d.beginPath();
+        g2d.moveTo(sr*1.5, height/2);
+        g2d.lineTo(width, height/2);
+        g2d.stroke();
+        g2d.closePath();
+
+        g2d.beginPath();
+        g2d.moveTo(sr*1.5, height/4);
+        g2d.lineTo(width, height/4);
+        g2d.stroke();
+        g2d.closePath();
+        g2d.setLineDash([]);
+
+
+        var font = "Calibri";
+        g2d.fillStyle = "rgb(210,210,210)";
+        g2d.font = sr + "px " + font;
+        g2d.fillText("50",1, height/2+ Math.max(sr,14)/3);
+        g2d.fillText("75",1, height/4+ Math.max(sr,14)/3);
+        g2d.fillText("25",1, height*3/4+ Math.max(sr,14)/3);
+        //
+        // g2d.lineWidth=lineWidth;
+        // g2d.beginPath();
+        // g2d.moveTo(2, height-sr);
+        // g2d.lineTo(sr*1.5, height-sr);
+        // g2d.stroke();
+        // g2d.closePath();
+
+        var startWidth=sr*1.5;
+        var nowWidth=width-startWidth;
+
+        var lastWinrateHeight;
+
+        for(var i=0;i<moveNum;i++)
+        {
+            node=node.children[0];
+            if (node.bestMoves[0]&&node.bestMoves[0].winrate)
+        {
+            var winHeight;
+            if(node.move.c==WGo.B)
+                winHeight=height*node.bestMoves[0].winrate/100;
+            else
+                winHeight=height*(100-node.bestMoves[0].winrate)/100;
+            g2d.strokeStyle="rgb(0,255,0)";
+            g2d.lineWidth=lineWidth;
+            g2d.beginPath();
+            if(lastWinrateHeight)
+            g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeight);
+            else
+                g2d.moveTo(startWidth+nowWidth*i/moveNum, winHeight);
+            g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, winHeight);
+            lastWinrateHeight=winHeight;
+
+            g2d.stroke();
+            g2d.closePath();
+        }
+            else if(lastWinrateHeight)
+            {
+                g2d.strokeStyle="rgb(0,0,255)";
+                g2d.lineWidth=lineWidth;
+                g2d.beginPath();
+                g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeight);
+                g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastWinrateHeight);
+                g2d.stroke();
+                g2d.closePath();
+            }
+        }
+
+      //  g2d.fillRect(0,0,  parseInt(width/2), parseInt(height/2));
         // alert(width+"_"+height);
-        drawWinrate2();
+        //drawWinrate2();
 
     }
+
+WGo.drawWinrate=drawWinrate;
     var drawWinrate2=function()
     {
         var canvas = WGo.winratecanvas2;
-        var    width = canvas.offsetWidth;
-        var    height = canvas.offsetHeight;
-        var g2d = canvas.getContext("2d");
+        var width = canvas.offsetWidth;
+        var height;
+        if(WGo.isPC)
+        {if(WGo.isWideMode)
+            height = WGo.commentWrapper.offsetHeight-WGo.commentTitle.offsetHeight-WGo.commentContent.offsetHeight;
+        else
+            height = WGo.commentWrapper.offsetHeight-WGo.commentContent.offsetHeight;}
+        else
+        {
+            if(WGo.isWideMode)
+                height = WGo.commentWrapper.offsetHeight-WGo.commentTitle.offsetHeight-WGo.commentContent.offsetHeight;
+            else
+                height= canvas.offsetHeight;
+        }
+        canvas.style.height=height+"px";
         canvas.width = width;
         canvas.height = height;
-        g2d.fillStyle="green";
-        // g2d.fillRect(0,0,  parseInt(width/4), parseInt(height/4));
-        // g2d.moveTo(0, 0)
-        // g2d.lineTo(70, 70.5)
-        // g2d.stroke();
-        // alert(width+"_"+height);
+        var g2d = canvas.getContext("2d");
+        g2d.clearRect(0,0,width,height);
+        var sr=Math.max(Math.round(height/20),14);
+        var startWidth=sr*1.5;
+        var nowWidth=width-startWidth;
+        var node = WGo.curNode;
+        var moveNum=WGo.curPlayer.kifuReader.path.m;
+        var lineWidth;
+        if(WGo.isPC||WGo.isWideMode)
+            lineWidth=height/100;
+        else
+            lineWidth=height/50;
+
+        g2d.lineWidth=lineWidth/2;
+        g2d.setLineDash([10, 10]);
+        g2d.strokeStyle= "rgb(210,210,210)";
+
+        g2d.beginPath();
+        g2d.moveTo(startWidth+nowWidth*(moveNum/WGo.allMoveNum), 0);
+        g2d.lineTo(startWidth+nowWidth*(moveNum/WGo.allMoveNum), height);
+        g2d.stroke();
+        g2d.closePath()
+        g2d.setLineDash([]);
+        if (node.bestMoves&&node.bestMoves[0]&&node.bestMoves[0].winrate)
+        {
+            var winHeight;
+            if(node.move.c==WGo.B)
+                winHeight=height*node.bestMoves[0].winrate/100;
+            else
+                winHeight=height*(100-node.bestMoves[0].winrate)/100;
+
+            g2d.fillStyle = "rgb(255,0,0)";
+            g2d.beginPath();
+            g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), winHeight, sr/ 5, 0, 2 * Math.PI, true);
+            g2d.closePath();
+            g2d.fill();
+
+            var font = "Calibri";
+            g2d.fillStyle = "rgb(0,0,0)";
+            g2d.font = "bold "+sr + "px " + font;
+            var textHeight;
+            var winrate=node.bestMoves[0].winrate;
+            if(node.move.c==WGo.B)
+                winrate=100-winrate;
+            if(winrate>80)
+            {
+                textHeight=winHeight+sr;
+            }
+                else
+            {
+                textHeight=winHeight-0.3*sr;
+            }
+                if(WGo.isPC||WGo.isWideMode)
+                {if(moveNum<WGo.allMoveNum*0.9)
+            g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum), textHeight);
+                else
+                    g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.9, textHeight);
+                }
+                else
+                {
+                    if(moveNum<WGo.allMoveNum*0.94)
+                        g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum), textHeight);
+                    else
+                        g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.9, textHeight);
+
+                }
+        }
+
+
+
+
+
+
 
     }
+    WGo.drawWinrate2=drawWinrate2;
 
     var clearWinrate=function()
     {
@@ -165,7 +357,7 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
 
 
     var mark_variations = function (index) {
-        drawWinrate();
+
         WGo.commentVarClickedNow=true;
         setTimeout(function(){  WGo.commentVarClickedNow=false; }, 100);
         WGo.curBoard.removeAllObjectsVR();
