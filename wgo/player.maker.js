@@ -27,6 +27,42 @@
         this.init();
     }
 
+    var toggleShowMoveNum= function (player) {
+        if(WGo.isMouseOnBestMove)
+            return;
+        var menu= WGo.BasicPlayer.component.Control.menu;
+        menu._marker =  menu._marker || new WGo.Player.Marker(player, player.board);
+        if (!menu._isFirst) {
+            player.config.markLastMove = false;
+            menu._marker.clearDefaultSytle();
+            menu._marker.switchMaker();
+            menu._isFirst = true;
+            menu._marker.switchMaker({
+                'markerStyle': 'LB',
+                'markerNum': 0
+            });
+            WGo.moveMaker = menu._marker;
+            WGo.isShowingMoveNum = true;
+        } else if (menu._marker.config.markerStyle == 'TRS') {
+            menu._marker.switchMaker({
+                'markerStyle': 'LB',
+                'markerNum': 0
+            });
+        } else if (menu._marker.config.markerStyle == 'LB' && menu._marker.config.markerNum == 0) {
+            menu._marker.switchMaker({
+                'markerStyle': 'LB',
+                'markerNum': 5
+            });
+        } else if (menu._marker.config.markerStyle == 'LB' && menu._marker.config.markerNum == 5) {
+            menu._marker.switchMaker({
+                'markerStyle': 'TRS',
+                'markerNum': 1
+            });
+            WGo.isShowingMoveNum = false;
+        }
+    };
+    WGo.toggleShowMoveNum=toggleShowMoveNum;
+
     Marker.prototype = {
         init: function () {
             this._bindEvent();
@@ -139,39 +175,7 @@
             args: {
                 name: "switchmarker",
                 togglable: true,
-                click: function (player) {
-                    if(WGo.isMouseOnBestMove)
-                        return;
-                    this._marker = this._marker || new WGo.Player.Marker(player, player.board);
-                    if (!this._isFirst) {
-                        player.config.markLastMove = false;
-                        this._marker.clearDefaultSytle();
-                        this._marker.switchMaker();
-                        this._isFirst = true;
-                        this._marker.switchMaker({
-                            'markerStyle': 'LB',
-                            'markerNum': 0
-                        });
-                        WGo.moveMaker = this._marker;
-                        WGo.isShowingMoveNum = true;
-                    } else if (this._marker.config.markerStyle == 'TRS') {
-                        this._marker.switchMaker({
-                            'markerStyle': 'LB',
-                            'markerNum': 0
-                        });
-                    } else if (this._marker.config.markerStyle == 'LB' && this._marker.config.markerNum == 0) {
-                        this._marker.switchMaker({
-                            'markerStyle': 'LB',
-                            'markerNum': 5
-                        });
-                    } else if (this._marker.config.markerStyle == 'LB' && this._marker.config.markerNum == 5) {
-                        this._marker.switchMaker({
-                            'markerStyle': 'TRS',
-                            'markerNum': 1
-                        });
-                        WGo.isShowingMoveNum = false;
-                    }
-                },
+                click:function (player){toggleShowMoveNum(player)},
             }
         });
     }

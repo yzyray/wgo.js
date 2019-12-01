@@ -1187,6 +1187,12 @@
             document.getElementById('up').click();
             // console.log("key1：" + keyCode+",isCtrl："+isCtrl);
         }
+        if (event.which == 67) {
+            WGo.curPlayer.setCoordinates(! WGo.curPlayer.coordinates);
+        }
+        if (event.which == 77) {
+            WGo.toggleShowMoveNum( WGo.curPlayer);
+        }
     }
     var player_terms = {
         "about-text": "<h1>WGo.js Player 2.0</h1>"
