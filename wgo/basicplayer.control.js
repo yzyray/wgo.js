@@ -450,6 +450,8 @@
     var clickedMC = false;
     var interval;
     var togglePoScoreMean=function(){
+        if(!WGo.isKataData)
+            return;
         clickedMC = !clickedMC;
         if (clickedMC) {
             WGo.menuPoScoreMean.element.innerText = "目差";
@@ -458,7 +460,7 @@
             WGo.menuPoScoreMean.element.innerText = "计算量";
             WGo.kataShowMean = true;
         }
-        WGo.curBoard.redraw();
+        WGo.curBoard.redrawBM();
     };
     WGo.togglePoScoreMean=togglePoScoreMean;
     var toggleTryPlay=function(player){
