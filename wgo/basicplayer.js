@@ -174,7 +174,7 @@
             }
             WGo.drawWinrate();WGo.drawWinrate2();
              // setTimeout(function(){  }, 100);
-
+            WGo.updatePosition();
         }.bind(this));
 
         var os = function () {
@@ -257,6 +257,7 @@
             WGo.mainHeight= o.offsetHeight;
         //    alert(WGo.mainWidth+"_"+WGo.mainHeight);
             document.body.addEventListener('touchmove', bodyScroll, false);
+
 
 
             // window.ontouchmove=function(e){

@@ -38,6 +38,8 @@
             this.winratePanel.addEventListener('mousedown', startMoveWinrate);
             this.winratePanel.addEventListener('mousemove', moveWinrate);
             this.winratePanel.addEventListener('mouseup', stopMoveWinrate);
+            this.winratePanel.addEventListener('mouseout', stopMoveWinrate);
+
         }
         else{
         this.winratePanel.addEventListener('touchstart',touchWinrate, false);

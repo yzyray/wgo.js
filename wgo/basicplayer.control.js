@@ -739,21 +739,21 @@
                             },
                         },
                     },
-                    {
-                        constructor: control.Group,
-                        args: {
-                            name: "right",
-                            widgets: [{
-                                constructor: control.Button,
-                                args: {
-                                    name: "about",
-                                    click: function (player) {
-                                        player.showMessage(WGo.t("about-text"));
-                                    },
-                                }
-                            }]
-                        }
-                    },
+                    // {
+                    //     constructor: control.Group,
+                    //     args: {
+                    //         name: "right",
+                    //         widgets: [{
+                    //             constructor: control.Button,
+                    //             args: {
+                    //                 name: "about",
+                    //                 click: function (player) {
+                    //                     player.showMessage(WGo.t("about-text"));
+                    //                 },
+                    //             }
+                    //         }]
+                    //     }
+                    // },
                 ]
             }
         }];
