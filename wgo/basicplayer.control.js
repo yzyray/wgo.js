@@ -285,6 +285,8 @@
     control.MenuFile = WGo.extendClass(control.Clickable, function (player, args) {
         var elem = this.element = document.createElement("div");
         elem.className = "wgo-menu-item wgo-menu-item-" + args.name;
+        // if(!WGo.isPC)
+        //     elem.style.display="none";
         elem.title = WGo.t(args.name);
         elem.innerHTML = elem.title;
         this.init(player, args);
@@ -419,6 +421,7 @@
                 name: "本地棋谱",
                 togglable: false,
                 click: function () {
+                    // setTimeout(function(){  }, 100);
                     document.getElementById('up').click();
                 }
             }

@@ -543,6 +543,7 @@ a.wgo-move-link {
 
 .wgo-ctrlgroup-left {
     float: left;
+    /*padding:0px 0px 0px 1%;*/
 }
 
 .wgo-ctrlgroup-right {

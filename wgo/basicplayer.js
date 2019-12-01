@@ -169,12 +169,13 @@
 
 
         window.addEventListener("resize", function () {
+             WGo.updatePosition();
             if (!this.noresize) {
                 this.updateDimensions();
             }
             WGo.drawWinrate();WGo.drawWinrate2();
              // setTimeout(function(){  }, 100);
-            WGo.updatePosition();
+
         }.bind(this));
 
         var os = function () {
@@ -330,8 +331,12 @@
             manageComponents.call(this);
             this.lastLayout = this.currentLayout;
         }
-
-        //var bw = this.width - this.regions.left.element.clientWidth - this.regions.right.element.clientWidth;
+// if( WGo.positionPercent)
+//         var bw = this.width*WGo.positionPercent;
+// else //if(this.width*0.7>this.height)
+//     var bw = this.width*0.7;
+//else
+   // var bw= this.width*0.7-44;
         var bw = this.dom.board.clientWidth;
         var bh = this.height || this.maxHeight;
 

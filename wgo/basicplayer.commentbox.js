@@ -38,7 +38,7 @@
             this.winratePanel.addEventListener('mousedown', startMoveWinrate);
             this.winratePanel.addEventListener('mousemove', moveWinrate);
             this.winratePanel.addEventListener('mouseup', stopMoveWinrate);
-            this.winratePanel.addEventListener('mouseout', stopMoveWinrate);
+       //     this.winratePanel.addEventListener('mouseout', stopMoveWinrate);
 
         }
         else{
@@ -184,10 +184,12 @@
             var moveNum=Math.round ((x-startWidth)/(width-2*startWidth)*WGo.allMoveNum);
             WGo.curPlayer.goTo(moveNum);
         }
+        window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
     };
     var stopMoveWinrate=function()
     {
         clicked=false;
+        window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
     }
 
 
@@ -244,7 +246,7 @@ WGo.winrateWidth=width;
         WGo.maxScoreMean=maxScoreMean;
         var lineWidth;
         if(WGo.isWideMode)
-            lineWidth=Math.min(height,width*1.5)/120;
+            lineWidth=Math.min(height,width*1.5)/130;
         else
             lineWidth=height/40;
 
@@ -258,8 +260,8 @@ WGo.winrateWidth=width;
         else
             var sr=Math.max(Math.round(height/15),36);
         g2d.lineWidth=lineWidth/2;
-        g2d.setLineDash([10, 10]);
-        g2d.strokeStyle= "rgb(210,210,210)";
+        g2d.setLineDash([16, 16]);
+        g2d.strokeStyle= "rgb(180,180,0)";
 
         g2d.beginPath();
         g2d.moveTo(sr*1.5, height*3/4);
@@ -283,7 +285,7 @@ WGo.winrateWidth=width;
 
 
         var font = "Calibri";
-        g2d.fillStyle = "rgb(210,210,210)";
+        g2d.fillStyle = "rgb(210,210,0)";
         g2d.font = sr*3/4 + "px " + font;
         g2d.fillText("50",4, height/2+ Math.max(sr,14)/3);
         g2d.fillText("75",4, height/4+ Math.max(sr,14)/3);
@@ -313,7 +315,7 @@ WGo.winrateWidth=width;
                 winHeight=6+(height-12)*node.bestMoves[0].winrate/100;
             else
                 winHeight=6+(height-12)*(100-node.bestMoves[0].winrate)/100;
-            g2d.strokeStyle="rgb(0,255,0)";
+            g2d.strokeStyle="rgb(0,0,255)";
             g2d.lineWidth=lineWidth;
             g2d.beginPath();
             if(lastWinrateHeight)
@@ -328,7 +330,7 @@ WGo.winrateWidth=width;
         }
             else if(lastWinrateHeight)
             {
-                g2d.strokeStyle="rgb(0,0,255)";
+                g2d.strokeStyle="rgb(0,255,255)";
                 g2d.lineWidth=lineWidth;
                 g2d.beginPath();
                 g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeight);
@@ -366,7 +368,7 @@ WGo.winrateWidth=width;
             }
             else if(lastScoreHeight)
             {
-                g2d.strokeStyle="rgb(220,0,220)";
+                g2d.strokeStyle="rgb(255,0,255)";
                 g2d.lineWidth=lineWidth;
                 g2d.beginPath();
                 g2d.moveTo(startWidth+nowWidth*i/moveNum, lastScoreHeight);
@@ -431,8 +433,8 @@ WGo.drawWinrate=drawWinrate;
             lineWidth=height/50;
 
         g2d.lineWidth=lineWidth/2;
-        g2d.setLineDash([10, 10]);
-        g2d.strokeStyle= "rgb(240,240,240)";
+        g2d.setLineDash([16, 16]);
+        g2d.strokeStyle= "rgb(255,255,0)";
 
         g2d.beginPath();
         g2d.moveTo(startWidth+nowWidth*(moveNum/WGo.allMoveNum), 0);
@@ -452,41 +454,47 @@ if( WGo.isKataData ){
             {  scoreHeight=6+(height-12)*(0.5-(node.bestMoves[0].scoreMean)/(WGo.maxScoreMean*2));
             score=node.bestMoves[0].scoreMean;}
 
-            g2d.fillStyle = "rgb(255,100,0)";
-            g2d.beginPath();
-            g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), scoreHeight, sr/ 7, 0, 2 * Math.PI, true);
-            g2d.closePath();
-            g2d.fill();
 
             var font = "Calibri";
             g2d.fillStyle = "rgb(255,255,255)";
-            g2d.font = "bold "+sr*3/4 + "px " + font;
+            g2d.font = "bold "+sr*4/5 + "px " + font;
             var textHeight;
             if(scoreHeight<height*0.1)
             {
-                textHeight=scoreHeight+0.5*sr;
+                textHeight=scoreHeight+0.72*sr;
             }
             else
             {
-                textHeight=scoreHeight;
+                textHeight=scoreHeight-0.2*sr;
             }
             var text=score.toFixed(1);
             if(moveNum<WGo.allMoveNum*0.98)
             {
-                if(text.length==3)
-                g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.1, textHeight);
-                if(text.length==4)
-                    g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.45, textHeight);
+                // if(score<0)
+                // { if(text.length==3)
+                // g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.25, textHeight);
+                // if(text.length==4)
+                //     g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.65, textHeight);
+                //     if(text.length==5)
+                //         g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.1, textHeight);
+                // }
+                // else
+                {
+                    if(text.length==3)
+                        g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.15, textHeight);
+                    if(text.length==4)
+                        g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.55, textHeight);
                     if(text.length==5)
-                        g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.8, textHeight);
+                        g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2, textHeight);
+                }
             }
             else {
                 if(text.length==3)
-                    g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.6, textHeight);
+                    g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.7, textHeight);
                 if(text.length==4)
-                    g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.05, textHeight);
+                    g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.15, textHeight);
                 if(text.length==5)
-                    g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.3, textHeight);
+                    g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.55, textHeight);
             }
         }
 }
@@ -504,14 +512,10 @@ if( WGo.isKataData ){
             // else
             //     winHeight=5+(height-10)*(100-node.bestMoves[0].winrate)/100;
             // }
-            g2d.fillStyle = "rgb(255,0,0)";
-            g2d.beginPath();
-            g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), winHeight, sr/ 7, 0, 2 * Math.PI, true);
-            g2d.closePath();
-            g2d.fill();
+
 
             var font = "Calibri";
-            g2d.fillStyle = "rgb(0,0,0)";
+            g2d.fillStyle = "rgb(0,255,0)";
             g2d.font = "bold "+sr + "px " + font;
             var textHeight;
             var winrate=node.bestMoves[0].winrate;
@@ -519,18 +523,30 @@ if( WGo.isKataData ){
                 winrate=100-winrate;
             if(winrate>80)
             {
-                textHeight=winHeight+sr;
+                textHeight=winHeight+0.95*sr;
             }
                 else
             {
-                textHeight=winHeight-0.3*sr;
+                textHeight=winHeight-0.25*sr;
             }
 
-                    if(moveNum<WGo.allMoveNum*0.98&&WGo.isKataData)
+                    if(moveNum<WGo.allMoveNum*0.98)
                         g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)+sr*0.15, textHeight);
                     else
                         g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*0.5, textHeight);
 
+            g2d.fillStyle = "rgb(255,255,255)";
+            g2d.beginPath();
+            g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), scoreHeight, sr/ 7, 0, 2 * Math.PI, true);
+            g2d.closePath();
+            g2d.fill();
+
+
+            g2d.fillStyle = "rgb(0,255,0)";
+            g2d.beginPath();
+            g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), winHeight, sr/ 7, 0, 2 * Math.PI, true);
+            g2d.closePath();
+            g2d.fill();
 
         }
     }
