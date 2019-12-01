@@ -671,10 +671,10 @@
                     // if(o[i].offsetWidth>0)
                     // alert("bt3 "+o[i].offsetWidth+"_"+o[i].offsetHeight);
                 } else if (o[i].className.startsWith("wgo-button2")) {
-                    o[i].style.width = (Math.min(WGo.mainHeight / 15,50)) + "px";
-                    o[i].style.fontSize = (Math.min(WGo.mainHeight / 15,50))/4+ 'px';
+                    o[i].style.width = (Math.min(WGo.mainHeight / 13,55)) + "px";
+                    o[i].style.fontSize = (Math.min(WGo.mainHeight / 15,55))/4+ 'px';
                 } else if (o[i].className.startsWith("wgo-button")) {
-                    o[i].style.width = (Math.min(WGo.mainHeight / 15,60)) + "px";
+                    o[i].style.width = (Math.min(WGo.mainHeight / 13,60)) + "px";
                 }
             }
         }
