@@ -449,6 +449,110 @@
      */
     var clickedMC = false;
     var interval;
+    var togglePoScoreMean=function(){
+        clickedMC = !clickedMC;
+        if (clickedMC) {
+            WGo.menuPoScoreMean.element.innerText = "目差";
+            WGo.kataShowMean = false;
+        } else {
+            WGo.menuPoScoreMean.element.innerText = "计算量";
+            WGo.kataShowMean = true;
+        }
+        WGo.curBoard.redraw();
+    };
+    WGo.togglePoScoreMean=togglePoScoreMean;
+    var toggleTryPlay=function(player){
+            clickedMC = !clickedMC;
+            if (clickedMC)
+                WGo.tryPlay.element.innerText = "返回";
+            else
+                WGo.tryPlay.element.innerText = "试下";
+            if (WGo.editClicked)
+                return;
+        WGo.tryPlay._editable =  WGo.tryPlay._editable || new WGo.Player.Editable(player, player.board);
+        WGo.tryPlay._editable.set(! WGo.tryPlay._editable.editMode);
+            if (! WGo.tryPlay._editable.editMode) {
+                WGo.curBoard.removeAllObjectsMoveNum();
+                WGo.curBoard.removeAllObjectsOutLine();
+                var node=WGo.curNode;
+                var lastMark = new Object();
+                lastMark.type="TRS";
+                lastMark.x= node.move.x;
+                lastMark.y=node.move.y;
+                WGo.curBoard.addObject(lastMark);
+                WGo.editMode = false;
+                WGo.editMoveNumStart = 1;
+                WGo.firsEditPlayed = false;
+                //		WGo.editMoveNum=1;
+                if (!WGo.isShowingMoveNum)
+                    WGo.tryPlay._marker._unbindEvent();
+                else {
+                    if (WGo.moveMaker)
+                        WGo.moveMaker._bindEvent();
+                }
+            } else {
+                WGo.curBoard.removeAllObjectsMoveNum();
+                WGo.editMode = true;
+                WGo.editMoveNumStart = player.kifuReader.path.m;
+                //if(!WGo.Player.Marker)
+                if ( WGo.tryPlay._marker && WGo.editUnbind) {
+                    WGo.tryPlay._marker._bindEvent();
+                    WGo.editUnbind = false;
+                } else
+                    WGo.tryPlay._marker = new WGo.Player.Marker(player, player.board);
+
+                //	WGo.editMoveNum=1;
+                if (WGo.isMouseOnBestMove) {
+                    WGo.editClicked = true;
+                    setTimeout(function () {
+                        WGo.editClicked = false;
+                    }, 500);
+                    var bestMove = WGo.mouseBestMove;
+                    var variations = bestMove.variation;
+                    for (var s = 0; s < variations.length&&s<WGo.display_var_length; s++) {
+                        var data = variations[s].split("_");
+                        WGo.curPlayer.kifuReader.node.appendChild(new WGo.KNode({
+                            move: {
+                                x: parseInt(data[0]),
+                                y: parseInt(data[1]),
+                                c: WGo.curPlayer.kifuReader.game.turn,
+                                //movenum: WGo.editMoveNum
+                            },
+                            _edited: true
+                        }));
+                        WGo.curPlayer.next_edit(WGo.curPlayer.kifuReader.node.children.length - 1);
+                        //	WGo.editMoveNum++;
+                    }
+                    //	WGo.isEditPlaying=false;
+                    WGo.isMouseOnBestMove = false;
+                }
+            }
+    };
+    WGo.toggleTryPlay=toggleTryPlay;
+    var toggleAutoPlay=function(){
+        if (interval) {
+            clearInterval(interval);
+            WGo.autoPlay.element.innerText = "自动";
+            interval = null;
+            WGo.isAutoMode = false;
+        } else {
+            WGo.autoPlay.element.innerText = "停止";
+            WGo.isAutoMode = true;
+            interval = setInterval(function autoMode() {
+                if (WGo.isMouseOnBestMove) {
+                    if (WGo.display_var_length)
+                        if (WGo.display_var_length < 0) {
+                            WGo.display_var_length = 1;
+                            WGo.curBoard.redraw();
+                        } else if (WGo.display_var_length < WGo.var_length) {
+                            WGo.display_var_length++;
+                            WGo.curBoard.redraw();
+                        }
+                }
+            }, 700);
+        }
+    };
+    WGo.toggleAutoPlay=toggleAutoPlay;
     Control.widgets = [
         {
             constructor: control.Group,
@@ -481,18 +585,11 @@
                             togglable: true,
                             click:
                                 function () {
-                                    clickedMC = !clickedMC;
-                                    if (clickedMC) {
-                                        this.element.innerText = "目差";
-                                        WGo.kataShowMean = false;
-                                    } else {
-                                        this.element.innerText = "计算量";
-                                        WGo.kataShowMean = true;
-                                    }
-                                    WGo.curBoard.redraw();
+                                    togglePoScoreMean();
                                 },
                             init:
                                 function () {
+                                    WGo.menuPoScoreMean=this;
                                     this.element.innerText = "计算量";
                                     this.element.style.fontSize = 12 + 'px';
                                     WGo.meanPo = this.element;
@@ -505,76 +602,12 @@
                         args: {
                             name: "tryplay",
                             togglable: true,
-                            click:
-                                function (player) {
-                                    clickedMC = !clickedMC;
-                                    if (clickedMC)
-                                        this.element.innerText = "返回";
-                                    else
-                                        this.element.innerText = "试下";
-                                    if (WGo.editClicked)
-                                        return;
-                                    this._editable = this._editable || new WGo.Player.Editable(player, player.board);
-                                    this._editable.set(!this._editable.editMode);
-                                    if (!this._editable.editMode) {
-                                        WGo.curBoard.removeAllObjectsMoveNum();
-                                        WGo.curBoard.removeAllObjectsOutLine();
-                                        var node=WGo.curNode;
-                                        var lastMark = new Object();
-                                        lastMark.type="TRS";
-                                        lastMark.x= node.move.x;
-                                        lastMark.y=node.move.y;
-                                        WGo.curBoard.addObject(lastMark);
-                                        WGo.editMode = false;
-                                        WGo.editMoveNumStart = 1;
-                                        WGo.firsEditPlayed = false;
-                                        //		WGo.editMoveNum=1;
-                                        if (!WGo.isShowingMoveNum)
-                                            this._marker._unbindEvent();
-                                        else {
-                                            if (WGo.moveMaker)
-                                                WGo.moveMaker._bindEvent();
-                                        }
-                                    } else {
-                                        WGo.curBoard.removeAllObjectsMoveNum();
-                                        WGo.editMode = true;
-                                        WGo.editMoveNumStart = player.kifuReader.path.m;
-                                        //if(!WGo.Player.Marker)
-                                        if (this._marker && WGo.editUnbind) {
-                                            this._marker._bindEvent();
-                                            WGo.editUnbind = false;
-                                        } else
-                                            this._marker = new WGo.Player.Marker(player, player.board);
-
-                                        //	WGo.editMoveNum=1;
-                                        if (WGo.isMouseOnBestMove) {
-                                            WGo.editClicked = true;
-                                            setTimeout(function () {
-                                                WGo.editClicked = false;
-                                            }, 500);
-                                            var bestMove = WGo.mouseBestMove;
-                                            var variations = bestMove.variation;
-                                            for (var s = 0; s < variations.length&&s<WGo.display_var_length; s++) {
-                                                var data = variations[s].split("_");
-                                                WGo.curPlayer.kifuReader.node.appendChild(new WGo.KNode({
-                                                    move: {
-                                                        x: parseInt(data[0]),
-                                                        y: parseInt(data[1]),
-                                                        c: WGo.curPlayer.kifuReader.game.turn,
-                                                        //movenum: WGo.editMoveNum
-                                                    },
-                                                    _edited: true
-                                                }));
-                                                WGo.curPlayer.next_edit(WGo.curPlayer.kifuReader.node.children.length - 1);
-                                                //	WGo.editMoveNum++;
-                                            }
-                                            //	WGo.isEditPlaying=false;
-                                            WGo.isMouseOnBestMove = false;
-                                        }
-                                    }
-                                },
+                            click:  function (player) {
+                                toggleTryPlay(player);
+                            },
                             init:
                                 function () {
+                                    WGo.tryPlay=this;
                                     this.element.innerText = "试下";
                                     this.element.style.fontSize = 15 + 'px';
                                 },
@@ -586,44 +619,12 @@
                             name: "autoplay",
                             togglable: true,
                             click:
-                                function (player) {
-                                    if (interval) {
-                                        clearInterval(interval);
-                                        this.element.innerText = "自动";
-                                        interval = null;
-                                        WGo.isAutoMode = false;
-                                    } else {
-                                        this.element.innerText = "停止";
-                                        WGo.isAutoMode = true;
-                                        interval = setInterval(function autoMode() {
-                                            if (WGo.isMouseOnBestMove) {
-                                                if (WGo.display_var_length)
-                                                    if (WGo.display_var_length < 0) {
-                                                        WGo.display_var_length = 1;
-                                                        WGo.curBoard.redraw();
-                                                    } else if (WGo.display_var_length < WGo.var_length) {
-                                                        WGo.display_var_length++;
-                                                        WGo.curBoard.redraw();
-                                                    }
-                                            }
-                                        }, 700);
-                                        // interval=setInterval(() => {
-                                        // 	if(WGo.isMouseOnBestMove)
-                                        // 	{
-                                        // 		if(WGo.display_var_length)
-                                        // 			if(WGo.display_var_length<0) {
-                                        // 				WGo.display_var_length = 1;
-                                        // 				WGo.curBoard.redraw();
-                                        // 			}
-                                        // 			else if (WGo.display_var_length<WGo.var_length)
-                                        // 				WGo.display_var_length++;
-                                        // 		WGo.curBoard.redraw();
-                                        // 	}
-                                        // 	}, 700);
-                                    }
+                                function () {
+                                    toggleAutoPlay();
                                 },
                             init:
                                 function () {
+                                WGo.autoPlay=this;
                                     this.element.innerText = "自动";
                                     this.element.style.fontSize = 15 + 'px';
                                 },

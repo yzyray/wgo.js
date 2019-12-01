@@ -1182,16 +1182,25 @@
     /**
      * For another language support, extend this object with similiar object.
      */
-    var keypress =function (event) {
+    var keypress =function (event) {//O
         if (event.which == 79) {
             document.getElementById('up').click();
             // console.log("key1：" + keyCode+",isCtrl："+isCtrl);
         }
-        if (event.which == 67) {
+        if (event.which == 67) {//C
             WGo.curPlayer.setCoordinates(! WGo.curPlayer.coordinates);
         }
-        if (event.which == 77) {
+        if (event.which == 77) {//M
             WGo.toggleShowMoveNum( WGo.curPlayer);
+        }
+        if (event.which == 88) {//X切换计算量/目差
+            WGo.togglePoScoreMean();
+        }
+        if (event.which == 86) {//V
+            WGo.toggleTryPlay(WGo.curPlayer);
+        }
+        if (event.which == 65) {//A
+            WGo.toggleAutoPlay();
         }
     }
     var player_terms = {
