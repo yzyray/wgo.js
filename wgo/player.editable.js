@@ -114,7 +114,7 @@
             WGo.firsEditPlayed = true;
             WGo.editMoveNumStart = WGo.curPlayer.kifuReader.path.m;
         }
-        if (WGo.isMouseOnBestMove) {
+        if (WGo.isMouseOnBestMove&&WGo.display_var_length>0) {
             //WGo.isEditPlaying=true;
             var bestMove = WGo.mouseBestMove;
             var variations = bestMove.variation;

@@ -2068,7 +2068,7 @@
                                 var fileString = evt.target.result; // 读取文件内容
                                 // console.log(fileString)
                                 // alert(fileString)
-
+                                WGo.isKataData=false;
                                 var o = document.getElementById("main");
                                 o.setAttribute("data-wgo", fileString);
                                 var pl_elems = document.querySelectorAll("[data-wgo],[data-wgo-diagram]");
@@ -2080,7 +2080,6 @@
                                 WGo.drawWinrate();
                           }
                         }
-
                     }
                 </script>
             </div>

@@ -120,7 +120,7 @@
                 } else {
                     type = "TRS";
                 }
-                if(!WGo.isShowingMoveNum)
+                // if(!WGo.isShowingMoveNum)
                 {  var lastMark = new Object();
                     lastMark.type=type;
                     lastMark.x= e.node.move.x;
@@ -357,7 +357,7 @@
                                 this.board.addObject(bestMoveInfo);
                             }
                         }
-                    if(!WGo.isShowingMoveNum&&!WGo.editMode)
+                    if(!WGo.editMode)
                     {  var lastMark = new Object();
                     lastMark.type="TRS";
                         lastMark.x= node.move.x;
@@ -420,7 +420,7 @@
                         WGo.curBoard.addObject(bestMoveInfo);
                     }
                 }
-            if(!WGo.isShowingMoveNum)
+            // if(!WGo.isShowingMoveNum)
             {  var lastMark = new Object();
                 lastMark.type="TRS";
                 lastMark.x= node.move.x;
@@ -595,7 +595,7 @@
                                 this.board.addObject(bestMoveInfo);
                             }
                         }
-                    if(!WGo.isShowingMoveNum&&!WGo.editMode)
+                    if(!WGo.editMode)
                     {  var lastMark = new Object();
                         lastMark.type="TRS";
                         lastMark.x= node.move.x;

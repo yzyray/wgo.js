@@ -140,6 +140,8 @@
                 name: "switchmarker",
                 togglable: true,
                 click: function (player) {
+                    if(WGo.isMouseOnBestMove)
+                        return;
                     this._marker = this._marker || new WGo.Player.Marker(player, player.board);
                     if (!this._isFirst) {
                         player.config.markLastMove = false;

@@ -1932,7 +1932,7 @@ var updatePosition;
                 for (var j = 0; j < this.size; j++) {
                     var layers = this.obj_arr[i][j];
                     for (var z = 0; z < layers.length; z++) {
-                        if (this.obj_arr[i][j][z].type == "BM"||this.obj_arr[i][j][z].type=="TRS") {
+                        if (this.obj_arr[i][j][z].type == "BM"||this.obj_arr[i][j][z].type=="TRS"||this.obj_arr[i][j][z].type=="LB") {
                             this.removeObject(this.obj_arr[i][j][z]);
                             z--;
                             //this.removeLayer(this.obj_arr[i][j][z]);
@@ -1943,6 +1943,7 @@ var updatePosition;
                 }
             }
           //  this.redraw();
+
         },
 
         removeAllObjectsVR: function () {

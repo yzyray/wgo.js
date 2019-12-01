@@ -306,7 +306,7 @@ WGo.winrateWidth=width;
         for(var i=0;i<moveNum;i++)
         {
             node=node.children[0];
-            if (node.bestMoves[0]&&node.bestMoves[0].winrate)
+            if (node.bestMoves&&node.bestMoves[0]&&node.bestMoves[0].winrate)
         {
             var winHeight;
             if(node.move.c==WGo.B)
@@ -638,7 +638,7 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
                             this.board.addObject(bestMoveInfo);
                         }
                     }
-            if(!WGo.isShowingMoveNum&&!WGo.editMode)
+            if(!WGo.editMode)
             {  var lastMark = new Object();
                 lastMark.type="TRS";
                 lastMark.x= node.move.x;
@@ -720,7 +720,7 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
                         this.board.addObject(bestMoveInfo);
                     }
                 }
-        if(!WGo.isShowingMoveNum&&!WGo.editMode)
+        if(!WGo.editMode)
         {  var lastMark = new Object();
             lastMark.type="TRS";
             lastMark.x= node.move.x;
@@ -763,7 +763,7 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
                         WGo.curBoard.addObject(bestMoveInfo);
                     }
                 }
-            if(!WGo.isShowingMoveNum&&!WGo.editMode)
+            if(!WGo.editMode)
             {  var lastMark = new Object();
                 lastMark.type="TRS";
                 lastMark.x= node.move.x;
@@ -940,6 +940,10 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
                         moveComment +="</a></p>";
                     }
             }
+        if (bestMoves&&bestMoves[0]&&!comment)
+        {
+            comment="<p>"+WGo.curNode.comment2+"</p>"+comment;
+        }
         if (comment && WGo.isWideMode) {
             finalcomment = "<p>"+comment +"</p>"+ moveComment;
         } else {
