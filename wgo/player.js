@@ -147,6 +147,7 @@
 
         // activate wheel
         if (this.config.enableWheel) this.setWheel(true);
+        this.setOpenKey();
     }
 
 // detecting scrolling of element - e.g. when we are scrolling text in comment box, we want to be aware.
@@ -1110,6 +1111,11 @@
                 this.element.removeEventListener(type, this._wheel_listener);
                 delete this._wheel_listener;
             }
+
+        },
+
+        setOpenKey: function () {
+            document.addEventListener("keyup", keypress,true);
         },
 
         /**
@@ -1128,6 +1134,7 @@
         },
 
     }
+
 
     Player.default = {
         sgf: undefined,
@@ -1155,7 +1162,12 @@
     /**
      * For another language support, extend this object with similiar object.
      */
-
+    var keypress =function (event) {
+        if (event.which == 79) {
+            document.getElementById('up').click();
+            // console.log("key1：" + keyCode+",isCtrl："+isCtrl);
+        }
+    }
     var player_terms = {
         "about-text": "<h1>WGo.js Player 2.0</h1>"
             + "<p>WGo.js Player is extension of WGo.js, HTML5 library for purposes of game of go. It allows to replay go game records and it has many features like score counting. It is also designed to be easily extendable.</p>"

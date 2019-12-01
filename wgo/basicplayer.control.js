@@ -281,6 +281,17 @@
         this.init(player, args);
     });
 
+
+    control.MenuFile = WGo.extendClass(control.Clickable, function (player, args) {
+        var elem = this.element = document.createElement("div");
+        elem.className = "wgo-menu-item wgo-menu-item-" + args.name;
+        elem.title = WGo.t(args.name);
+        elem.innerHTML = elem.title;
+        this.init(player, args);
+    });
+
+
+
     /**
      * Widget for move counter.
      */
@@ -393,7 +404,26 @@
 
 
 
-    Control.menu = [{
+    Control.menu = [
+        {   constructor: control.MenuItem,
+            args: {
+                name: "关于",
+                togglable: false,
+                click: function (player) {
+                    player.showMessage(WGo.t("about-text"));
+                }
+            }
+        },
+        {   constructor: control.MenuFile,
+            args: {
+                name: "本地棋谱",
+                togglable: false,
+                click: function () {
+                    document.getElementById('up').click();
+                }
+            }
+        },
+        {
         constructor: control.MenuItem,
         args: {
             name: "switch-coo",
@@ -406,7 +436,8 @@
                 if (player.coordinates) this.select();
             }
         }
-    }];
+    }
+    ];
 
     /**
      * List of widgets (probably Button objects) to be displayed.

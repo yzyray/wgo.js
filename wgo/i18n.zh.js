@@ -49,7 +49,7 @@ WGo.i18n[WGo.lang] = {
     "last": "最后手",
     "switch-coo": "显示坐标",
     "menu": "菜单",
-    "comments": "注解",
+    "comments": "胜率图",
     "gameinfo": "棋局",
     "editmode": "试下模式",
     "playmode": "对弈模式",
