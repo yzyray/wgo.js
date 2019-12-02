@@ -226,13 +226,16 @@
             // var h=screen.height;
           //  alert(  o.offsetHeight+"_"+ o.offsetWidth);
             if (deviceheight > devicewidth)
-                WGo.isWideMode = false;
+            { WGo.isWideMode = false;
+           }
             else {
+
+                // wgo-box-title
                 WGo.isWideMode = true;
-                if (deviceheight > devicewidth)
-                    WGo.isWideMode = false;
+                // if (deviceheight > devicewidth)
+                //     WGo.isWideMode = false;
             }
-            if (isPC || WGo.isWideMode) {
+            if (WGo.isWideMode) {
                 if (WGo.isWideMode)
                 { o.style.height = (100) + "%"}
                 else
@@ -243,14 +246,17 @@
                 document.body.style.zoom = 1;
             } else {
 
-                var scale = deviceheight / 930.0;
+                var scale = deviceheight / 950.0;
                 var w = devicewidth / scale;
                 o.style.height = (900) + "px";
                 o.style.width = (w) + "px";
                 document.body.style.zoom = scale;
                 WGo.trueScale = scale;
                 if (!WGo.isWideMode) {
-                    WGo.commentheight =168.5*816/w;
+                    if(WGo.isPC)
+                        WGo.commentheight =Math.max(810-w,185);
+                        else
+                    WGo.commentheight =Math.max(805-w,185);
                  //   alert(  o.style.height+"_"+ o.style.width+"_"+WGo.commentheight );
                 }
             }

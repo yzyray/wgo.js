@@ -643,7 +643,8 @@
         var devicewidth = document.documentElement.clientWidth;
         var deviceheight = document.documentElement.clientHeight;
         if (devicewidth > deviceheight) {
-
+            var o = document.getElementById("commenttitile");
+                o.style.display="";
             if (WGo.mainWidth * 0.7 > WGo.mainHeight) {
                 var percent = Math.round(WGo.mainHeight * 100 / WGo.mainWidth);
                 WGo.positionPercent = percent;
@@ -677,8 +678,10 @@
                 for (var i = 0; i < o1.length; i++) {
                     o3[i].style.paddingLeft = 0 + "px";
                 }
+
                 var o4 = document.getElementById("last");
                 o4.style.padding="0px 0px 0px 23px";
+
             }
 
         if (!WGo.isPC &&! WGo.isWideMode)
@@ -716,6 +719,9 @@
         } }
         else{
             WGo.positionPercent = false;
+            var o = document.getElementById("commenttitile");
+            o.style.display="none";
+
             var o1 = document.getElementsByClassName("wgo-player-center");
             for (var i = 0; i < o1.length; i++) {
                 o1[i].style.width = "";
@@ -744,6 +750,13 @@
                         o[i].style.width = (Math.min(WGo.mainWidth / 13,65)) + "px";
                     }
                 }
+                var o3=document.getElementById("main");
+            o3.style.margin="0px 0px 0px 0px";
+            o3.style.top="-8px";
+                var o4 = document.getElementById("last");
+                o4.style.padding="0px 0px 0px 0px";
+
+                // o4.style.height="30px";
             }
         }
 

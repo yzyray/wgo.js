@@ -17,6 +17,7 @@
         }
         this.comments_title = document.createElement("div");
         this.comments_title.className = "wgo-box-title";
+        this.comments_title.id="commenttitile";
         if(WGo.isPC||WGo.isWideMode)
         this.comments_title.innerHTML = WGo.t("comments");
         this.box.appendChild(this.comments_title);
@@ -261,7 +262,7 @@ WGo.winrateWidth=width;
             var sr=Math.max(Math.round(height/15),36);
         g2d.lineWidth=lineWidth/2;
         g2d.setLineDash([16, 16]);
-        g2d.strokeStyle= "rgb(180,180,0)";
+        g2d.strokeStyle= "rgb(200,200,0)";
 
         g2d.beginPath();
         g2d.moveTo(sr*1.5, height*3/4);
