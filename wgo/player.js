@@ -36,7 +36,7 @@
         try {
             //	xmlhttp.setDefaultEncoding("utf-8")
             xmlhttp.open("GET", url, true);
-            xmlhttp.overrideMimeType("text/html;charset=gb2312");
+            xmlhttp.overrideMimeType("text/html;charset=utf-8");
             xmlhttp.send();
         } catch (err) {
             throw new FileError(url, 2);

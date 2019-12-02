@@ -957,9 +957,9 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
                         moveComment +="</a></p>";
                     }
             }
-        if (bestMoves&&bestMoves[0]&&!comment)
+        if (bestMoves&&bestMoves[0])
         {
-            comment="<p>"+WGo.curNode.comment2+"</p>"+comment;
+            comment="<p>"+WGo.curNode.comment2+"</p>";//+comment;
         }
         if (comment && WGo.isWideMode) {
             finalcomment = "<p>"+comment +"</p>"+ moveComment;

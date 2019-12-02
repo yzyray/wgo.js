@@ -77,6 +77,53 @@
     var winrateStartWidth;
 var maxScoreMean;
 var updatePosition;
+
+    var Utf8ToGb2312=function(str1){
+        var substr = "";
+        var a = "";
+        var b = "";
+        var c = "";
+        var i = -1;
+        i = str1.indexOf("%");
+        if(i==-1){
+            return str1;
+        }
+        while(i!= -1){
+            if(i<3){
+                substr = substr + str1.substr(0,i-1);
+                str1 = str1.substr(i+1,str1.length-i);
+                a = str1.substr(0,2);
+                str1 = str1.substr(2,str1.length - 2);
+                if(parseInt("0x" + a) & 0x80 == 0){
+                    substr = substr + String.fromCharCode(parseInt("0x" + a));
+                }
+                else if(parseInt("0x" + a) & 0xE0 == 0xC0){ //two byte
+                    b = str1.substr(1,2);
+                    str1 = str1.substr(3,str1.length - 3);
+                    var widechar = (parseInt("0x" + a) & 0x1F) << 6;
+                    widechar = widechar | (parseInt("0x" + b) & 0x3F);
+                    substr = substr + String.fromCharCode(widechar);
+                }
+                else{
+                    b = str1.substr(1,2);
+                    str1 = str1.substr(3,str1.length - 3);
+                    c = str1.substr(1,2);
+                    str1 = str1.substr(3,str1.length - 3);
+                    var widechar = (parseInt("0x" + a) & 0x0F) << 12;
+                    widechar = widechar | ((parseInt("0x" + b) & 0x3F) << 6);
+                    widechar = widechar | (parseInt("0x" + c) & 0x3F);
+                    substr = substr + String.fromCharCode(widechar);
+                }
+            }
+            else {
+                substr = substr + str1.substring(0,i);
+                str1= str1.substring(i);
+            }
+            i = str1.indexOf("%");
+        }
+
+        return substr+str1;
+    };
     /**
      * Main namespace - it initializes WGo in first run and then execute main function.
      * You must call WGo.init() if you want to use library, without calling WGo.
@@ -2585,6 +2632,8 @@ var updatePosition;
          * @return array removed stones
          */
 
+
+
         validatePosition: function () {
             var c, p,
                 white = 0,
@@ -2620,5 +2669,5 @@ var updatePosition;
 
 // register WGo
     window.WGo = WGo;
-
+WGo.Utf8ToGb2312=Utf8ToGb2312;
 })(window);

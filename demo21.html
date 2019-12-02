@@ -47,6 +47,7 @@
     <script type="text/javascript" src="wgo/i18n.zh.js"></script>
     <script type="text/javascript" src="wgo/Table.js"></script>
     <script type="text/javascript" src="wgo/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="wgo/encoding.min.js"></script>
     <script>
         function IsPC() {
             var userAgentInfo = navigator.userAgent;
@@ -2037,14 +2038,11 @@
     <div class="row" style="width: 100%; height:100%;">
         <div style="width: 100%; height:100%;">
             <div id="main" data-wgo="qp\test3.sgf" style="width:100%;height:833px;margin: 0px 0px 0px 20px">
-                当前浏览器不支持WGo.js,<a id="main4" href="qp\test4.sgf">直接点击下载SGF棋谱</a>
+                当前浏览器不支持WGo.js,<a id="main4" href="qp\test2.sgf">直接点击下载SGF棋谱</a>
             </div>
             <div id="last" style="height:25px;padding: 0px 0px 0px 20px">
-                <button style="height: 22px;" onclick="opens()">本地棋谱</button> <a id="main2" href="qp\test5.sgf" download="测试棋谱.sgf">下载棋谱</a>(来自<a id="main3" href="qp\test5.sgf">LizzieYzy版</a>) <a href="qp\test5.sgf">操作说明</a>:<font color="#00008b">蓝色</font>><font color="green">绿色</font>><font color="orange">橙色</font>,上方胜率,下方目差/计算量,<font color="#00008b">蓝色</font>为胜率曲线,<font color="purple">紫色</font>为目差曲线,电脑端可用滚轮控制变化图(<a href="qp\test5.sgf">下载桌面版AI分析软件</a>)
-<!--                <a href='javascript:void(0);' class="blueButton">文件   <input type="file" id ="fileId" class="myFileUpload" /></a>-->
-<!--                <button  type = "submit" name = "btn" value = "load" id = "btnId" onclick="check()">加载</button>-->
+                <button style="height: 22px;" onclick="opens()">本地棋谱</button> <a id="main2" href="qp\test2.sgf" download="测试棋谱.sgf">下载棋谱</a>(来自<a id="main3" href="qp\test2.sgf">LizzieYzy版</a>) <a href="qp\test2.sgf">操作说明</a>:<font color="#00008b">蓝色</font>><font color="green">绿色</font>><font color="orange">橙色</font>,上方胜率,下方目差/计算量,<font color="#00008b">蓝色</font>为胜率曲线,<font color="purple">紫色</font>为目差曲线,电脑端可用滚轮控制变化图(<a href="qp\test2.sgf">下载桌面版AI分析软件</a>)
                 </div>
-
             <div style=" height:0px; overflow:hidden; position:absolute;">
                 <input type="file" id="up" onchange="check()"/></div></div>
                 <script>
@@ -2055,24 +2053,18 @@
                     }
                     function check() {
                         var objFile = document.getElementById("up");
-                        if(objFile.value == "") {
-                            // alert("不能为空");
+                        if (objFile.value == "") {
                             return false;
                         }
-
-                        // console.log(objFile.files[0].size); // 文件字节数
-
-                        var files = $('#up').prop('files');//获取到文件列表
-                        if(files.length == 0){
+                        var files = $('#up').prop('files');
+                        if (files.length == 0) {
                             alert('请选择文件');
-                        }else{
-                            var reader = new FileReader();//新建一个FileReader
-                            reader.readAsText(files[0], "gb2312");//读取文件
-                            reader.onload = function(evt){ //读取完文件之后会回来这里
-                                var fileString = evt.target.result; // 读取文件内容
-                                // console.log(fileString)
-                                // alert(fileString)
-                                WGo.isKataData=false;
+                        } else {
+                            var reader = new FileReader();
+                            reader.readAsText(files[0], "utf-8");
+                            reader.onload = function (evt) {
+                                var fileString = evt.target.result;
+                                WGo.isKataData = false;
                                 var o = document.getElementById("main");
                                 o.setAttribute("data-wgo", fileString);
                                 var pl_elems = document.querySelectorAll("[data-wgo],[data-wgo-diagram]");
@@ -2080,9 +2072,8 @@
                                 for (var i = 0; i < pl_elems.length; i++) {
                                     WGo.player_from_tag(pl_elems[i]);
                                 }
-
                                 WGo.drawWinrate();
-                          }
+                            }
                         }
                     }
                 </script>

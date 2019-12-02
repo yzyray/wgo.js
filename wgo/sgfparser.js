@@ -76,7 +76,7 @@
             }
             if (staticInfo.length == 4) {
                 // if (!node.comment)
-                    node.comment2 = "\n胜率:" + staticInfo[1] + "　总计算量:" + staticInfo[2] + "　目差:" + staticInfo[3];
+                    node.comment2 = "\n胜率:" + staticInfo[1] + "　目差:" + staticInfo[3] + "　总计算量:" + staticInfo[2];
             }
             var moveInfo = strs[1].split(" info ");
             // if(!node.comment)
