@@ -9,19 +9,19 @@
             mouse_click()
         };
         this.element.appendChild(this.box);
-    WGo.commentWrapper= this.box;
+        WGo.commentWrapper= this.box;
 
         if (WGo.commentheight)
         {    this.box.style.height = (WGo.commentheight) + "px";
-        // this.box.style.top=-3+"px";
+            // this.box.style.top=-3+"px";
         }
         this.comments_title = document.createElement("div");
         this.comments_title.className = "wgo-box-title";
         this.comments_title.id="commenttitile";
         if(WGo.isPC||WGo.isWideMode)
-        this.comments_title.innerHTML = WGo.t("comments");
+            this.comments_title.innerHTML = WGo.t("comments");
         this.box.appendChild(this.comments_title);
-    WGo.commentTitle=this.comments_title;
+        WGo.commentTitle=this.comments_title;
 //
 // if(!WGo.isPC)
 // {      this.comments = document.createElement("div");
@@ -33,19 +33,19 @@
         this.winratePanel.className = "wgo-comments-winrate";
         this.box.appendChild(this.winratePanel)
         if(WGo.isPC){
-        // this.winratePanel.onclick= function (e) {
-        //     clickWinrate(e);
-        // };
+            // this.winratePanel.onclick= function (e) {
+            //     clickWinrate(e);
+            // };
             this.winratePanel.addEventListener('mousedown', startMoveWinrate);
             this.winratePanel.addEventListener('mousemove', moveWinrate);
             this.winratePanel.addEventListener('mouseup', stopMoveWinrate);
-       //     this.winratePanel.addEventListener('mouseout', stopMoveWinrate);
+            //     this.winratePanel.addEventListener('mouseout', stopMoveWinrate);
 
         }
         else{
-        this.winratePanel.addEventListener('touchstart',touchWinrate, false);
-        this.winratePanel.addEventListener('touchmove',touchWinrate, false);
-        this.winratePanel.addEventListener('touchend',touchWinrate, false);
+            this.winratePanel.addEventListener('touchstart',touchWinrate, false);
+            this.winratePanel.addEventListener('touchmove',touchWinrate, false);
+            this.winratePanel.addEventListener('touchend',touchWinrate, false);
         }
         WGo.winratePanel=this.winratePanel;
         this.winratecanvas = document.createElement("canvas");
@@ -53,7 +53,7 @@
         this.winratePanel.appendChild(this.winratecanvas)
         WGo.winratecanvas=this.winratecanvas;
 
-      //  if(WGo.isPC)
+        //  if(WGo.isPC)
         {      this.comments = document.createElement("div");
             this.comments.className = "wgo-comments-content";
             this.box.appendChild(this.comments);
@@ -94,7 +94,7 @@
 
         switch(event.type){
             case "touchstart":
-                 x=event.touches[0].clientX/WGo.trueScale;
+                x=event.touches[0].clientX/WGo.trueScale;
                 break;
             case "touchend":
                 x=event.changedTouches[0].clientX/WGo.trueScale;
@@ -105,7 +105,7 @@
                 break;
         }
 
-    var width=WGo.winrateWidth;
+        var width=WGo.winrateWidth;
         var startWidth=WGo.winrateStartWidth;
 
         if (x<startWidth)
@@ -200,21 +200,21 @@
         var height;
         if(WGo.isPC)
         {if(WGo.isWideMode)
-         height = WGo.commentWrapper.offsetHeight-WGo.commentTitle.offsetHeight-WGo.commentContent.offsetHeight;
+            height = WGo.commentWrapper.offsetHeight-WGo.commentTitle.offsetHeight-WGo.commentContent.offsetHeight;
         else
             height = WGo.commentWrapper.offsetHeight-WGo.commentContent.offsetHeight;}
         else
         {
             if(WGo.isWideMode)
                 height = WGo.commentWrapper.offsetHeight-WGo.commentTitle.offsetHeight-WGo.commentContent.offsetHeight;
-                else
-            height= canvas.offsetHeight-3;
+            else
+                height= canvas.offsetHeight-3;
         }
         // canvas.style.height=height+"px";
-WGo.winratePanel.style.height=height+"px";
-WGo.winrateWidth=width;
+        WGo.winratePanel.style.height=height+"px";
+        WGo.winrateWidth=width;
         width=width*2;
-            height=height*2
+        height=height*2
         canvas.width = width;
         canvas.height = height;
         // if(!WGo.isPC&&!WGo.isWideMode) {
@@ -225,16 +225,16 @@ WGo.winrateWidth=width;
         g2d.clearRect(0,0,width,height);
         // canvas.width = width;
         // canvas.height = height;
-       // if(WGo.isPC)
-            g2d.fillStyle="rgb(138,138,138)";
-       //     else
-       // g2d.fillStyle="rgb(130,130,130)";
+        // if(WGo.isPC)
+        // g2d.fillStyle="rgb(158,158,158)";
+        //     else
+        g2d.fillStyle="rgb(165,165,165)";
         g2d.fillRect(0,0,  parseInt(width), parseInt(height));
 
         var stratnode = WGo.mianKifu.root;
         var node = WGo.mianKifu.root;
         var moveNum = 0;
-        var maxScoreMean=0;
+        var maxScoreMean=20;
         while (stratnode.children[0]) {
             stratnode = stratnode.children[0];
             moveNum++;
@@ -322,7 +322,7 @@ WGo.winrateWidth=width;
                         scoreHeight=6+(height-12)*(0.5+node.bestMoves[0].scoreMean/(maxScoreMean*2));
                     else
                         scoreHeight=6+(height-12)*(0.5-(node.bestMoves[0].scoreMean)/(maxScoreMean*2));
-                    g2d.strokeStyle="rgb(256,110,255)";
+                    g2d.strokeStyle="rgb(256,55,255)";
                     g2d.lineWidth=lineWidth;
                     g2d.beginPath();
                     if(lastScoreHeight)
@@ -337,7 +337,7 @@ WGo.winrateWidth=width;
                 }
                 else if(lastScoreHeight)
                 {
-                    g2d.strokeStyle="rgb(256,110,255)";
+                    g2d.strokeStyle="rgb(256,55,255)";
                     g2d.lineWidth=lineWidth;
                     g2d.beginPath();
                     g2d.moveTo(startWidth+nowWidth*i/moveNum, lastScoreHeight);
@@ -352,25 +352,25 @@ WGo.winrateWidth=width;
         {
             node=node.children[0];
             if (node.bestMoves&&node.bestMoves[0]&&node.bestMoves[0].winrate)
-        {
-            var winHeight;
-            if(node.move.c==WGo.B)
-                winHeight=6+(height-12)*node.bestMoves[0].winrate/100;
-            else
-                winHeight=6+(height-12)*(100-node.bestMoves[0].winrate)/100;
-            g2d.strokeStyle="rgb(0,255,255)";
-            g2d.lineWidth=lineWidth*3.3/5;
-            g2d.beginPath();
-            if(lastWinrateHeight)
-            g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeight);
-            else
-                g2d.moveTo(startWidth+nowWidth*i/moveNum, winHeight);
-            g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, winHeight);
-            lastWinrateHeight=winHeight;
+            {
+                var winHeight;
+                if(node.move.c==WGo.B)
+                    winHeight=6+(height-12)*node.bestMoves[0].winrate/100;
+                else
+                    winHeight=6+(height-12)*(100-node.bestMoves[0].winrate)/100;
+                g2d.strokeStyle="rgb(0,255,255)";
+                g2d.lineWidth=lineWidth*3.3/5;
+                g2d.beginPath();
+                if(lastWinrateHeight)
+                    g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeight);
+                else
+                    g2d.moveTo(startWidth+nowWidth*i/moveNum, winHeight);
+                g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, winHeight);
+                lastWinrateHeight=winHeight;
 
-            g2d.stroke();
-            g2d.closePath();
-        }
+                g2d.stroke();
+                g2d.closePath();
+            }
             else if(lastWinrateHeight)
             {
                 g2d.strokeStyle="rgb(0,255,0)";
@@ -386,7 +386,7 @@ WGo.winrateWidth=width;
 
     }
 
-WGo.drawWinrate=drawWinrate;
+    WGo.drawWinrate=drawWinrate;
     var drawWinrate2=function()
     {
         var canvas = WGo.winratecanvas2;
@@ -406,12 +406,12 @@ WGo.drawWinrate=drawWinrate;
         }
         // if(!WGo.isPC&&!WGo.isWideMode)
         {width=width*2;
-        height=height*2}
+            height=height*2}
         canvas.width = width;
         canvas.height = height;
         // if(!WGo.isPC&&!WGo.isWideMode) {
-            canvas.style.width = width / 2 + "px";
-            canvas.style.height = height / 2 + "px";
+        canvas.style.width = width / 2 + "px";
+        canvas.style.height = height / 2 + "px";
         // }
         // else
         // {     canvas.style.width = width  + "px";
@@ -448,62 +448,62 @@ WGo.drawWinrate=drawWinrate;
         g2d.stroke();
         g2d.closePath()
         g2d.setLineDash([]);
-if( WGo.isKataData ){
-        if (node.bestMoves&&node.bestMoves[0]&&node.bestMoves[0].scoreMean)
-        {
-            var scoreHeight;
-            var score;
-            if(node.move.c==WGo.B)
-            {scoreHeight=6+(height-12)*(0.5+node.bestMoves[0].scoreMean/(WGo.maxScoreMean*2));
-                score=-node.bestMoves[0].scoreMean;}
-            else
-            {  scoreHeight=6+(height-12)*(0.5-(node.bestMoves[0].scoreMean)/(WGo.maxScoreMean*2));
-            score=node.bestMoves[0].scoreMean;}
+        if( WGo.isKataData ){
+            if (node.bestMoves&&node.bestMoves[0]&&node.bestMoves[0].scoreMean)
+            {
+                var scoreHeight;
+                var score;
+                if(node.move.c==WGo.B)
+                {scoreHeight=6+(height-12)*(0.5+node.bestMoves[0].scoreMean/(WGo.maxScoreMean*2));
+                    score=-node.bestMoves[0].scoreMean;}
+                else
+                {  scoreHeight=6+(height-12)*(0.5-(node.bestMoves[0].scoreMean)/(WGo.maxScoreMean*2));
+                    score=node.bestMoves[0].scoreMean;}
 
 
-            var font = "Calibri";
-            g2d.fillStyle = "rgb(255,255,255)";
-            g2d.font = "bold "+sr*4/5 + "px " + font;
-            var textHeight;
-            if(scoreHeight<height*0.1)
-            {
-                textHeight=scoreHeight+0.72*sr;
-            }
-            else
-            {
-                textHeight=scoreHeight-0.2*sr;
-            }
-            var text=score.toFixed(1);
-            if(moveNum<WGo.allMoveNum*0.98)
-            {
-                // if(score<0)
-                // { if(text.length==3)
-                // g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.25, textHeight);
-                // if(text.length==4)
-                //     g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.65, textHeight);
-                //     if(text.length==5)
-                //         g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.1, textHeight);
-                // }
-                // else
+                var font = "Calibri";
+                g2d.fillStyle = "rgb(0,0,255)";
+                g2d.font = "bold "+sr*5/6 + "px " + font;
+                var textHeight;
+                if(scoreHeight<height*0.1)
                 {
+                    textHeight=scoreHeight+0.75*sr;
+                }
+                else
+                {
+                    textHeight=scoreHeight-0.2083*sr;
+                }
+                var text=score.toFixed(1);
+                if(moveNum<WGo.allMoveNum*0.98)
+                {
+                    // if(score<0)
+                    // { if(text.length==3)
+                    // g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.25, textHeight);
+                    // if(text.length==4)
+                    //     g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.65, textHeight);
+                    //     if(text.length==5)
+                    //         g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.1, textHeight);
+                    // }
+                    // else
+                    {
+                        if(text.length==3)
+                            g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.18, textHeight);
+                        if(text.length==4)
+                            g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.59, textHeight);
+                        if(text.length==5)
+                            g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.05, textHeight);
+                    }
+                }
+                else {
                     if(text.length==3)
-                        g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.15, textHeight);
+                        g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.76, textHeight);
                     if(text.length==4)
-                        g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.55, textHeight);
+                        g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.22, textHeight);
                     if(text.length==5)
-                        g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2, textHeight);
+                        g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.62, textHeight);
                 }
             }
-            else {
-                if(text.length==3)
-                    g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.7, textHeight);
-                if(text.length==4)
-                    g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.15, textHeight);
-                if(text.length==5)
-                    g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.55, textHeight);
-            }
         }
-}
         if (node.bestMoves&&node.bestMoves[0]&&node.bestMoves[0].winrate)
         {
             var winHeight;
@@ -521,7 +521,7 @@ if( WGo.isKataData ){
 
 
             var font = "Calibri";
-            g2d.fillStyle = "rgb(0,0,255)";
+            g2d.fillStyle = "rgb(0,0,0)";
             g2d.font = "bold "+sr + "px " + font;
             var textHeight;
             var winrate=node.bestMoves[0].winrate;
@@ -531,15 +531,15 @@ if( WGo.isKataData ){
             {
                 textHeight=winHeight+0.95*sr;
             }
-                else
+            else
             {
                 textHeight=winHeight-0.25*sr;
             }
 
-                    if(moveNum<WGo.allMoveNum*0.98)
-                        g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)+sr*0.15, textHeight);
-                    else
-                        g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*0.5, textHeight);
+            if(moveNum<WGo.allMoveNum*0.98)
+                g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)+sr*0.15, textHeight);
+            else
+                g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*0.5, textHeight);
 
             g2d.fillStyle = "rgb(255,255,255)";
             g2d.beginPath();
@@ -548,7 +548,7 @@ if( WGo.isKataData ){
             g2d.fill();
 
 
-            g2d.fillStyle = "rgb(0,0,255)";
+            g2d.fillStyle = "rgb(0,0,0)";
             g2d.beginPath();
             g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), winHeight, sr/ 7, 0, 2 * Math.PI, true);
             g2d.closePath();
@@ -570,8 +570,8 @@ if( WGo.isKataData ){
 
 
     var mark = function (index) {
-if(WGo.clickedComment|| WGo.commentVarClicked)
-    return;
+        if(WGo.clickedComment|| WGo.commentVarClicked)
+            return;
         // var x, y;
         //
         // x = move.charCodeAt(0) - 'a'.charCodeAt(0);
@@ -588,10 +588,10 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
         var   bestmove = WGo.curNode.bestMoves[index];
         if( WGo.lastX== bestmove.x&&  WGo.lastY == bestmove.y)
         {
-          return;
+            return;
         }
-      //  WGo.lastX = bestmove.x;
-      //  WGo.lastY = bestmove.y;
+        //  WGo.lastX = bestmove.x;
+        //  WGo.lastY = bestmove.y;
         WGo.isMouseOnBestMove = true;
         WGo.mouseBestMove = bestmove;
         this.board.removeAllObjectsBM(bestmove.x, bestmove.y);
@@ -644,22 +644,22 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
             WGo.lastY=-1;
             WGo.isMouseOnBestMove = false;
             WGo._last_mark=false;
-                var node = WGo.curNode;
-                if (node.bestMoves)
-                    for (var i = 0; i < node.bestMoves.length; i++) {
-                        var bestMove = node.bestMoves[i];
-                        if (bestMove.coordinate) {
-                            var bestMoveInfo = new Object();
-                            bestMoveInfo.x = bestMove.x;
-                            bestMoveInfo.y = bestMove.y;
-                            bestMoveInfo.scoreMean = bestMove.scoreMean;
-                            bestMoveInfo.winrate = bestMove.winrate;
-                            bestMoveInfo.playouts = bestMove.playouts;
-                            bestMoveInfo.percentplayouts = bestMove.percentplayouts;
-                            bestMoveInfo.type = "BM";
-                            this.board.addObject(bestMoveInfo);
-                        }
+            var node = WGo.curNode;
+            if (node.bestMoves)
+                for (var i = 0; i < node.bestMoves.length; i++) {
+                    var bestMove = node.bestMoves[i];
+                    if (bestMove.coordinate) {
+                        var bestMoveInfo = new Object();
+                        bestMoveInfo.x = bestMove.x;
+                        bestMoveInfo.y = bestMove.y;
+                        bestMoveInfo.scoreMean = bestMove.scoreMean;
+                        bestMoveInfo.winrate = bestMove.winrate;
+                        bestMoveInfo.playouts = bestMove.playouts;
+                        bestMoveInfo.percentplayouts = bestMove.percentplayouts;
+                        bestMoveInfo.type = "BM";
+                        this.board.addObject(bestMoveInfo);
                     }
+                }
             if(!WGo.editMode)
             {  var lastMark = new Object();
                 lastMark.type="TRS";
@@ -667,7 +667,7 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
                 lastMark.y=node.move.y;
                 this.board.addObject(lastMark);
             }
-                return;
+            return;
         }
         WGo.commentVarClicked=true;
         WGo.clickedComment=true;
@@ -709,9 +709,9 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
         WGo._last_mark=true;
     }
 
-   var formatWidth= function(str, width){
+    var formatWidth= function(str, width){
         str += '';
-       var blank =String.fromCharCode(160);
+        var blank =String.fromCharCode(160);
         if(str.length<width)
             return formatWidth(blank+str, width)
         else
@@ -726,22 +726,22 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
         WGo.curBoard.removeAllObjectsVR();
         WGo.curBoard.removeAllObjectsBM();
         WGo.isMouseOnBestMove = false;
-            var node = WGo.curNode;
-            if (node.bestMoves)
-                for (var i = 0; i < node.bestMoves.length; i++) {
-                    var bestMove = node.bestMoves[i];
-                    if (bestMove.coordinate) {
-                        var bestMoveInfo = new Object();
-                        bestMoveInfo.x = bestMove.x;
-                        bestMoveInfo.y = bestMove.y;
-                        bestMoveInfo.scoreMean = bestMove.scoreMean;
-                        bestMoveInfo.winrate = bestMove.winrate;
-                        bestMoveInfo.playouts = bestMove.playouts;
-                        bestMoveInfo.percentplayouts = bestMove.percentplayouts;
-                        bestMoveInfo.type = "BM";
-                        this.board.addObject(bestMoveInfo);
-                    }
+        var node = WGo.curNode;
+        if (node.bestMoves)
+            for (var i = 0; i < node.bestMoves.length; i++) {
+                var bestMove = node.bestMoves[i];
+                if (bestMove.coordinate) {
+                    var bestMoveInfo = new Object();
+                    bestMoveInfo.x = bestMove.x;
+                    bestMoveInfo.y = bestMove.y;
+                    bestMoveInfo.scoreMean = bestMove.scoreMean;
+                    bestMoveInfo.winrate = bestMove.winrate;
+                    bestMoveInfo.playouts = bestMove.playouts;
+                    bestMoveInfo.percentplayouts = bestMove.percentplayouts;
+                    bestMoveInfo.type = "BM";
+                    this.board.addObject(bestMoveInfo);
                 }
+            }
         if(!WGo.editMode)
         {  var lastMark = new Object();
             lastMark.type="TRS";
@@ -803,7 +803,7 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
                     if(WGo.isPC)
                         nodes[i].addEventListener("mousemove", mark.bind(player, WGo.commentBindBestMoveIndex));
                     nodes[i].addEventListener("click", mark_variations.bind(player, WGo.commentBindBestMoveIndex));
-                nodes[i].addEventListener("mouseout", unmark.bind(player));
+                    nodes[i].addEventListener("mouseout", unmark.bind(player));
                 }
                 WGo.commentBindBestMoveIndex++;
             } else if (nodes[i].childNodes && nodes[i].childNodes.length) search_nodes(nodes[i].childNodes, player);
@@ -833,7 +833,7 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
         player.addEventListener("kifuLoaded", function (e) {
             if (e.kifu.hasComments()) {
                 if(WGo.isPC||WGo.isWideMode)
-                this.comments_title.innerHTML = WGo.t("comments");
+                    this.comments_title.innerHTML = WGo.t("comments");
                 this.element.className = "wgo-commentbox";
 
                 this._update = function (e) {
@@ -887,8 +887,8 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
         this.comment_text.innerHTML = msg + this.getCommentText(e.node.comment, e.node.bestMoves, this.player.config.formatNicks, this.player.config.formatMoves);
         if(WGo.isWideMode)
             this.comment_text.style.fontSize = 14 + 'px';
-            else
-                this.comment_text.style.fontSize = 18 + 'px';
+        else
+            this.comment_text.style.fontSize = 18 + 'px';
         WGo.commentBindBestMoveIndex=0;
         if (this.player.config.formatMoves) {
             if (this.comment_text.childNodes && this.comment_text.childNodes.length) search_nodes(this.comment_text.childNodes, this.player);
@@ -940,12 +940,12 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
                             {
                                 moveComment+="▎";
                             }
-                           else if(percent<5)
+                            else if(percent<5)
                             {
                                 moveComment+="▋";
                             }
                             else
-                            moveComment+="▉";
+                                moveComment+="▉";
                         }
 
                         else if(percent>70){
@@ -974,9 +974,9 @@ if(WGo.clickedComment|| WGo.commentVarClicked)
 
         if (finalcomment.length > 0) {
             var comm = finalcomment;//"<p>" + WGo.filterHTML(finalcomment).replace(/\n/g, "</p><p>") + "</p>";
-           // if (formatMoves) comm ="<a href=\"javascript:void(0)\" class=\"wgo-move-link\">"+comm+"</a>";
-          //  if (formatNicks) comm = comm.replace(/(<p>)([^:]{3,}:)\s/g, '<p><span class="wgo-comments-nick">$2</span> ');
-          //  if (formatMoves) comm = comm.replace(/\b[a-zA-Z]1?\d\b/g, '<a href="javascript:void(0)" class="wgo-move-link">$&</a>');
+            // if (formatMoves) comm ="<a href=\"javascript:void(0)\" class=\"wgo-move-link\">"+comm+"</a>";
+            //  if (formatNicks) comm = comm.replace(/(<p>)([^:]{3,}:)\s/g, '<p><span class="wgo-comments-nick">$2</span> ');
+            //  if (formatMoves) comm = comm.replace(/\b[a-zA-Z]1?\d\b/g, '<a href="javascript:void(0)" class="wgo-move-link">$&</a>');
             return comm;
         }
         return "";
