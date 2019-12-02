@@ -225,7 +225,10 @@ WGo.winrateWidth=width;
         g2d.clearRect(0,0,width,height);
         // canvas.width = width;
         // canvas.height = height;
-        g2d.fillStyle="rgb(140,140,140)";
+       // if(WGo.isPC)
+            g2d.fillStyle="rgb(138,138,138)";
+       //     else
+       // g2d.fillStyle="rgb(130,130,130)";
         g2d.fillRect(0,0,  parseInt(width), parseInt(height));
 
         var stratnode = WGo.mianKifu.root;
@@ -247,9 +250,9 @@ WGo.winrateWidth=width;
         WGo.maxScoreMean=maxScoreMean;
         var lineWidth;
         if(WGo.isWideMode)
-            lineWidth=Math.min(height,width*1.5)/130;
+            lineWidth=Math.min(height,width*1.5)/120;
         else
-            lineWidth=height/40;
+            lineWidth=height/30;
 
         // if(!WGo.isPC&&!WGo.isWideMode)
         //     var sr=Math.max(Math.round(height/10),56);
@@ -260,7 +263,7 @@ WGo.winrateWidth=width;
             var sr=Math.max(Math.round(height/15),32);
         else
             var sr=Math.max(Math.round(height/15),36);
-        g2d.lineWidth=lineWidth/2;
+        g2d.lineWidth=lineWidth/2.3;
         g2d.setLineDash([16, 16]);
         g2d.strokeStyle= "rgb(200,200,0)";
 
@@ -306,6 +309,45 @@ WGo.winrateWidth=width;
         var lastWinrateHeight;
 
 
+        if( WGo.isKataData ){
+            var lastScoreHeight;
+            node=node = WGo.mianKifu.root;
+            for(var i=0;i<moveNum;i++)
+            {
+                node=node.children[0];
+                if (node.bestMoves[0]&&node.bestMoves[0].scoreMean)
+                {
+                    var scoreHeight;
+                    if(node.move.c==WGo.B)
+                        scoreHeight=6+(height-12)*(0.5+node.bestMoves[0].scoreMean/(maxScoreMean*2));
+                    else
+                        scoreHeight=6+(height-12)*(0.5-(node.bestMoves[0].scoreMean)/(maxScoreMean*2));
+                    g2d.strokeStyle="rgb(256,110,255)";
+                    g2d.lineWidth=lineWidth;
+                    g2d.beginPath();
+                    if(lastScoreHeight)
+                        g2d.moveTo(startWidth+nowWidth*i/moveNum, lastScoreHeight);
+                    else
+                        g2d.moveTo(startWidth+nowWidth*i/moveNum, scoreHeight);
+                    g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, scoreHeight);
+                    lastScoreHeight=scoreHeight;
+
+                    g2d.stroke();
+                    g2d.closePath();
+                }
+                else if(lastScoreHeight)
+                {
+                    g2d.strokeStyle="rgb(256,110,255)";
+                    g2d.lineWidth=lineWidth;
+                    g2d.beginPath();
+                    g2d.moveTo(startWidth+nowWidth*i/moveNum, lastScoreHeight);
+                    g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastScoreHeight);
+                    g2d.stroke();
+                    g2d.closePath();
+                }
+            }
+        }
+        node=node = WGo.mianKifu.root;
         for(var i=0;i<moveNum;i++)
         {
             node=node.children[0];
@@ -316,8 +358,8 @@ WGo.winrateWidth=width;
                 winHeight=6+(height-12)*node.bestMoves[0].winrate/100;
             else
                 winHeight=6+(height-12)*(100-node.bestMoves[0].winrate)/100;
-            g2d.strokeStyle="rgb(0,0,255)";
-            g2d.lineWidth=lineWidth;
+            g2d.strokeStyle="rgb(0,255,255)";
+            g2d.lineWidth=lineWidth*3.3/5;
             g2d.beginPath();
             if(lastWinrateHeight)
             g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeight);
@@ -331,8 +373,8 @@ WGo.winrateWidth=width;
         }
             else if(lastWinrateHeight)
             {
-                g2d.strokeStyle="rgb(0,255,255)";
-                g2d.lineWidth=lineWidth;
+                g2d.strokeStyle="rgb(0,255,0)";
+                g2d.lineWidth=lineWidth*3.3/5;
                 g2d.beginPath();
                 g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeight);
                 g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastWinrateHeight);
@@ -341,44 +383,7 @@ WGo.winrateWidth=width;
             }
         }
 
-        if( WGo.isKataData ){
-        var lastScoreHeight;
-        node=node = WGo.mianKifu.root;
-        for(var i=0;i<moveNum;i++)
-        {
-            node=node.children[0];
-            if (node.bestMoves[0]&&node.bestMoves[0].scoreMean)
-            {
-                var scoreHeight;
-                if(node.move.c==WGo.B)
-                    scoreHeight=6+(height-12)*(0.5+node.bestMoves[0].scoreMean/(maxScoreMean*2));
-                else
-                    scoreHeight=6+(height-12)*(0.5-(node.bestMoves[0].scoreMean)/(maxScoreMean*2));
-                g2d.strokeStyle="rgb(255,0,255)";
-                g2d.lineWidth=lineWidth/2.5;
-                g2d.beginPath();
-                if(lastScoreHeight)
-                    g2d.moveTo(startWidth+nowWidth*i/moveNum, lastScoreHeight);
-                else
-                    g2d.moveTo(startWidth+nowWidth*i/moveNum, scoreHeight);
-                g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, scoreHeight);
-                lastScoreHeight=scoreHeight;
 
-                g2d.stroke();
-                g2d.closePath();
-            }
-            else if(lastScoreHeight)
-            {
-                g2d.strokeStyle="rgb(255,0,255)";
-                g2d.lineWidth=lineWidth;
-                g2d.beginPath();
-                g2d.moveTo(startWidth+nowWidth*i/moveNum, lastScoreHeight);
-                g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastScoreHeight);
-                g2d.stroke();
-                g2d.closePath();
-            }
-        }
-        }
     }
 
 WGo.drawWinrate=drawWinrate;
@@ -516,7 +521,7 @@ if( WGo.isKataData ){
 
 
             var font = "Calibri";
-            g2d.fillStyle = "rgb(0,255,0)";
+            g2d.fillStyle = "rgb(0,0,255)";
             g2d.font = "bold "+sr + "px " + font;
             var textHeight;
             var winrate=node.bestMoves[0].winrate;
@@ -543,7 +548,7 @@ if( WGo.isKataData ){
             g2d.fill();
 
 
-            g2d.fillStyle = "rgb(0,255,0)";
+            g2d.fillStyle = "rgb(0,0,255)";
             g2d.beginPath();
             g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), winHeight, sr/ 7, 0, 2 * Math.PI, true);
             g2d.closePath();
