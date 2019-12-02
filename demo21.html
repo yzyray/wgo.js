@@ -2072,6 +2072,10 @@
                                 for (var i = 0; i < pl_elems.length; i++) {
                                     WGo.player_from_tag(pl_elems[i]);
                                 }
+                                WGo.maxScoreMean=20;
+                                if(WGo.editMode)
+                                {WGo.tryPlay.element.innerText = "试下";
+                                WGo.clickedMC=false;}
                                 WGo.drawWinrate();
                             }
                         }

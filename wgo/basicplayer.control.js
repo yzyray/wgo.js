@@ -467,8 +467,8 @@
     };
     WGo.togglePoScoreMean=togglePoScoreMean;
     var toggleTryPlay=function(player){
-            clickedMC = !clickedMC;
-            if (clickedMC)
+            WGo.clickedMC = !WGo.clickedMC;
+            if (WGo.clickedMC)
                 WGo.tryPlay.element.innerText = "返回";
             else
                 WGo.tryPlay.element.innerText = "试下";
