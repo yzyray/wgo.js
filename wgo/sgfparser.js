@@ -13,6 +13,37 @@
         kifu.info[c][type] = value[0];
     }
 
+    var getStrLen=  function (val) {
+        var len = 0;
+        for (var i = 0; i < val.length; i++) {
+            var a = val.charAt(i);
+            if (a.match(/[^\x00-\xff]/ig) != null) {
+                len += 2;
+            }
+            else {
+                len += 1;
+            }
+        }
+        return len;
+    }
+
+    var getFirst8=  function (val) {
+        var len = 0;
+        var truelen=0;
+        for (var i = 0; i < val.length; i++) {
+            var a = val.charAt(i);
+            if (a.match(/[^\x00-\xff]/ig) != null) {
+                len += 2;
+            }
+            else {
+                len += 1;
+            }
+            truelen+=1;
+            if(len>16)
+                return truelen;
+        }
+        return truelen;
+    }
 // handling properties specifically
     var properties = WGo.SGF.properties = {}
 
@@ -70,12 +101,19 @@
         var strs = value.toString().split("\n"); //字符分割
         if (strs.length >= 2) {
             var staticInfo = strs[0].split(" ");
+
             if (staticInfo.length == 3) {
                 // if (!node.comment)
+                node.engine=staticInfo[0];
+                if(getStrLen(staticInfo[0])>16)
+                    node.enginemin=staticInfo[0].substring(0,getFirst8(staticInfo[0]));
                     node.comment2 = "\n胜率:" + staticInfo[1] + "　总计算量:" + staticInfo[2];
             }
             if (staticInfo.length == 4) {
                 // if (!node.comment)
+                node.engine=staticInfo[0];
+                if(getStrLen(staticInfo[0])>16)
+                    node.enginemin=staticInfo[0].substring(0,getFirst8(staticInfo[0]));
                     node.comment2 = "\n胜率:" + staticInfo[1] + "　目差:" + staticInfo[3] + "　总计算量:" + staticInfo[2];
             }
             var moveInfo = strs[1].split(" info ");

@@ -1,0 +1,2205 @@
+(;DT[2019-12-03]KM[7.5]PB[KataGo 6b]RE[白(KataGo hzy6b)胜]DZ[G]SZ[19]PW[KataGo hzy6b]CA[]AP[Lizzie: yzy1.1]C[白棋 胜率: 57.3% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 53.9% 
+盘面: 5.8 局面复杂度: 25.6
+(KataGohzy6b / 3.7k 计算量)];B[dd]C[黑棋 胜率: 42.7% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 46.2% 
+盘面: 5.8 局面复杂度: 25.6
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 49.5% (+0.0%)
+盘面: 7.3 局面复杂度: 32.5
+(KataGo 6b / 111 计算量)
+步时: 0.305秒
+整局用时:22.637秒]LZ[15b无电源 42.7 1.0k
+move Q4 visits 448 winrate 5732 pv Q4 D4 Q16 R3 Q3 R4 Q5 S6 F17 R7 C6 L3 Q7 D6 info move D4 visits 217 winrate 5718 pv D4 C3 C4 D3 E4 F2 Q3 R16 P17 Q15 M17 R5 info move Q16 visits 221 winrate 5718 pv Q16 R17 Q17 R16 Q15 S14 R4 D4 C3 D3 C4 C6 B6 info move C4 visits 36 winrate 5672 pv C4 Q4 Q16 E3 D6 R17 R16 Q17 info move Q17 visits 34 winrate 5676 pv Q17 Q4 D4 R15 O16 C3 D3 C4 C6 info move Q3 visits 31 winrate 5696 pv Q3 Q16 D4 R5 P4 C6 F3 C4 info move R4 visits 30 winrate 5685 pv R4 D4 Q16 P3 Q5 R17 Q17 R16 info move D3 visits 11 winrate 5706 pv D3 Q4 Q16 C5 F4 R17 info move R16 visits 10 winrate 5694 pv R16 Q4 D4 P17 Q14 C3 info ];W[pp]C[白棋 胜率: 57.1% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 53.7% 
+盘面: 5.9 局面复杂度: 25.5
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 54.8% (+0.0%)
+盘面: 5.4 局面复杂度: 25.7
+(KataGo hzy6b / 134 计算量)
+步时: 0.405秒
+整局用时:26.869秒]LZ[15b无电源 57.1 1.0k
+move R3 visits 304 winrate 4288 pv R3 Q3 R4 Q5 S6 Q16 D4 F17 R7 C6 L3 Q7 D6 C5 info move D4 visits 290 winrate 4260 pv D4 Q16 R17 Q17 R16 Q15 S14 F3 R13 C14 L17 Q13 D14 C15 info move Q16 visits 288 winrate 4260 pv Q16 D4 R3 R4 Q3 P4 O2 C14 N3 O17 R9 N4 O16 P17 info move R16 visits 60 winrate 4256 pv R16 D4 R3 R4 Q3 P4 O2 C17 D17 C16 C14 C15 info move D3 visits 60 winrate 4253 pv D3 Q16 R3 Q3 R4 Q5 S6 C17 C16 D17 F17 info move O3 visits 21 winrate 4232 pv O3 D4 Q16 P3 O4 Q6 K4 R17 R16 info move R6 visits 20 winrate 4227 pv R6 Q16 D4 R5 Q6 O4 Q10 C3 D3 info ];B[pc]C[黑棋 胜率: 42.5% 
+(15b无电源 / 495 计算量)
+
+黑棋 胜率: 46.3% 
+盘面: 5.8 局面复杂度: 25.6
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 48.8% (+0.8%)
+盘面: 6.6 局面复杂度: 32.1
+(KataGo 6b / 145 计算量)
+步时: 0.303秒]LZ[15b无电源 42.5 495
+move D4 visits 420 winrate 5754 pv D4 Q14 C17 C16 D17 F17 E17 E16 F18 B17 B18 E18 B16 C18 A17 D18 B17 G18 F16 G17 C14 F14 D12 C3 C4 D3 E4 F2 F15 G15 E15 G16 O17 R6 info move C4 visits 48 winrate 5724 pv C4 E3 D3 E4 C6 R6 O3 R14 J3 E7 H5 info move D3 visits 18 winrate 5717 pv D3 C5 R15 E4 E3 F4 G3 P16 G4 R12 G6 C8 info move C3 visits 6 winrate 5698 pv C3 Q14 C17 C16 D17 info move R15 visits 3 winrate 5520 pv R15 D4 P16 info ];W[dq]C[白棋 胜率: 56.9% 
+(15b无电源 / 490 计算量)
+
+白棋 胜率: 53.3% 
+盘面: 6.0 局面复杂度: 26.1
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 54.1% (+0.7%)
+盘面: 5.7 局面复杂度: 25.9
+(KataGo hzy6b / 108 计算量)
+步时: 0.304秒]LZ[15b无电源 56.9 490
+move C5 visits 201 winrate 4313 pv C5 R15 E4 E3 F4 G3 P16 C17 D17 C16 C14 C15 D15 info move R3 visits 91 winrate 4324 pv R3 Q3 R4 Q5 S6 R15 C5 P16 P17 O16 N17 F4 info move Q14 visits 95 winrate 4273 pv Q14 C17 C16 D17 F17 E17 E16 F18 B17 B18 E18 B16 info move R14 visits 49 winrate 4263 pv R14 C6 D4 C4 E3 D2 E4 D5 E5 E6 F6 info move Q15 visits 54 winrate 4258 pv Q15 C6 R3 R4 Q3 O3 O2 N3 N2 info ];B[fd]C[黑棋 胜率: 40.4% 
+(15b无电源 / 469 计算量)
+
+黑棋 胜率: 43.3% 
+盘面: 4.4 局面复杂度: 26.1
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 48.4% (+0.3%)
+盘面: 6.3 局面复杂度: 32.1
+(KataGo 6b / 104 计算量)
+步时: 0.203秒]LZ[15b无电源 40.4 469
+move R15 visits 161 winrate 5959 pv R15 D5 C5 C6 C4 D6 F4 D10 P16 P17 O16 N17 M15 R3 R4 Q3 info move Q15 visits 183 winrate 5930 pv Q15 R15 R14 R16 Q14 O16 Q10 D5 C5 C6 C4 D6 F3 D10 O3 R8 R6 R11 Q11 info move C6 visits 98 winrate 5846 pv C6 Q14 R6 D4 C4 E3 D2 E4 D5 E5 E6 F6 E7 F7 E8 C3 info move D5 visits 22 winrate 5883 pv D5 Q14 R6 Q7 R12 D6 C5 R7 Q6 info move D6 visits 5 winrate 5802 pv D6 Q14 R6 C8 B15 info ];W[qe]C[白棋 胜率: 58.6% 
+(15b无电源 / 695 计算量)
+
+白棋 胜率: 56.5% 
+盘面: 4.5 局面复杂度: 26.2
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 57.5% (-3.4%)
+盘面: 4.2 局面复杂度: 26.3
+(KataGo hzy6b / 110 计算量)
+步时: 0.303秒]LZ[15b无电源 58.6 695
+move D5 visits 258 winrate 4137 pv D5 C5 C6 C4 D6 F4 D10 P16 P17 O16 N17 M15 O3 R6 H3 G3 H4 F6 info move P16 visits 143 winrate 4074 pv P16 C6 R12 Q14 P12 S17 R6 Q6 Q7 P6 R4 R3 R5 Q3 info move C5 visits 54 winrate 4072 pv C5 P16 P17 O16 N17 N16 M17 M16 L16 L15 K15 O17 O18 P18 N18 R17 Q18 info move O16 visits 192 winrate 3974 pv O16 C6 R6 Q11 D4 C4 E3 D2 E4 D5 E5 E6 info move R3 visits 23 winrate 3934 pv R3 P16 P17 O16 N17 Q3 R4 R6 R5 Q5 S6 info move R16 visits 17 winrate 3906 pv R16 Q15 O16 Q11 D5 C5 C6 info move R13 visits 8 winrate 3979 pv R13 P16 Q16 Q15 P15 P14 O15 info ];B[co]C[黑棋 胜率: 40.4% 
+(15b无电源 / 529 计算量)
+
+黑棋 胜率: 43.2% 
+盘面: 4.3 局面复杂度: 26.1
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 48.5% (-0.1%)
+盘面: 6.5 局面复杂度: 32.4
+(KataGo 6b / 151 计算量)
+步时: 0.303秒]LZ[15b无电源 40.4 529
+move E4 visits 127 winrate 5956 pv E4 P16 C8 R12 Q14 P12 S17 R6 info move F4 visits 121 winrate 5885 pv F4 O16 C9 R6 O3 R12 C4 B4 B3 C11 E9 E11 G9 info move P16 visits 196 winrate 5885 pv P16 P17 O16 N17 E4 N16 C8 N14 R12 R3 R4 Q3 O3 P3 info move C4 visits 36 winrate 5822 pv C4 D5 F3 E4 E3 D9 P16 P17 O16 N17 info move O16 visits 49 winrate 5839 pv O16 Q15 Q16 P16 R16 P17 P15 Q14 P14 R14 R17 O17 info ];W[ep]C[白棋 胜率: 59.0% 
+(15b无电源 / 604 计算量)
+
+白棋 胜率: 55.9% 
+盘面: 4.7 局面复杂度: 26.4
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 56.7% (+0.8%)
+盘面: 4.4 局面复杂度: 26.3
+(KataGo hzy6b / 114 计算量)
+步时: 0.305秒]LZ[15b无电源 59.0 604
+move P16 visits 191 winrate 4099 pv P16 C8 R12 R6 D6 C11 B3 H3 Q14 info move R6 visits 48 winrate 4115 pv R6 P16 P17 O16 N17 R8 N16 N15 M15 M14 N14 info move O16 visits 187 winrate 4015 pv O16 C8 D6 C11 B3 H4 R3 Q3 R4 R6 R5 info move C8 visits 71 winrate 4043 pv C8 O16 Q15 Q16 P16 R16 P17 P15 Q14 P14 R14 R17 O17 P13 S15 S16 S13 T15 info move R3 visits 22 winrate 4034 pv R3 R4 Q3 O3 O2 P16 P17 O16 info move Q13 visits 20 winrate 4086 pv Q13 R13 R12 Q12 R11 P16 P14 P17 R14 S15 info move R13 visits 22 winrate 3918 pv R13 P16 Q16 Q15 P15 P14 O15 Q13 N16 R12 O14 O13 N13 O12 N12 info move R16 visits 17 winrate 3902 pv R16 Q15 O17 P16 P17 Q11 C8 R6 L3 info move D8 visits 10 winrate 3961 pv D8 P16 P17 O16 N17 M15 info move D9 visits 8 winrate 3979 pv D9 O16 Q15 Q16 P16 R16 info move R12 visits 8 winrate 3871 pv R12 P16 Q16 Q15 P15 P17 info ];B[ck]C[黑棋 胜率: 38.9% 
+(15b无电源 / 545 计算量)
+
+黑棋 胜率: 43.6% 
+盘面: 4.4 局面复杂度: 26.1
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 48.4% (+0.2%)
+盘面: 6.3 局面复杂度: 32.4
+(KataGo 6b / 154 计算量)
+步时: 0.304秒]LZ[15b无电源 38.9 545
+move D6 visits 157 winrate 6109 pv D6 C6 D7 C7 P16 P17 O16 N17 N16 M17 M16 L16 L15 K15 O17 O18 P18 N18 R17 Q18 L14 K14 K13 info move P16 visits 154 winrate 6040 pv P16 P17 O16 N17 M15 R3 Q3 R4 R6 R5 Q5 S6 R2 R7 Q6 S8 S3 S4 T4 S5 K4 H3 K2 J5 K5 J6 info move O16 visits 189 winrate 5963 pv O16 Q15 Q16 P16 R16 P17 P15 Q14 P14 R14 R17 O17 P13 S15 S16 S13 T15 S14 Q18 P18 R18 N16 R12 S12 R10 S11 R11 info move R6 visits 37 winrate 5972 pv R6 O16 Q12 K3 M3 G3 D6 C6 D7 C7 info move B15 visits 8 winrate 5757 pv B15 C16 C12 O16 C14 R3 R4 Q3 info ];W[dn]C[白棋 胜率: 60.6% 
+(15b无电源 / 838 计算量)
+
+白棋 胜率: 56.1% 
+盘面: 4.6 局面复杂度: 26.0
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 56.9% (-0.2%)
+盘面: 4.1 局面复杂度: 26.3
+(KataGo hzy6b / 111 计算量)
+步时: 0.303秒]LZ[15b无电源 60.6 838
+move C6 visits 742 winrate 3944 pv C6 P16 P17 O16 N17 D7 C7 N16 M17 M16 L16 L15 K15 O17 O18 P18 N18 R17 Q18 L14 K14 K13 L13 K16 L17 J13 H14 J14 J15 info move O16 visits 53 winrate 3684 pv O16 C6 R6 Q11 O3 O4 N4 O5 Q3 R3 P3 R4 R9 L4 info move P16 visits 43 winrate 3871 pv P16 C6 R12 B15 C14 B14 C16 C12 C11 D12 B12 info ];B[cn]C[黑棋 胜率: 39.3% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 43.5% 
+盘面: 4.3 局面复杂度: 26.0
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 47.8% (+0.6%)
+盘面: 5.9 局面复杂度: 32.5
+(KataGo 6b / 149 计算量)
+步时: 0.308秒]LZ[15b无电源 39.3 1.0k
+move P16 visits 377 winrate 6071 pv P16 P17 O16 N17 D7 C7 N16 M17 M16 L16 L15 K15 O17 O18 P18 N18 R17 Q18 L14 K14 K13 L13 K16 L17 J13 H14 J14 J15 H15 J16 info move D7 visits 394 winrate 6033 pv D7 C7 P16 P17 O16 N17 N16 M17 M16 L16 L15 K15 O17 O18 P18 N18 R17 Q18 L14 K14 K13 L13 K16 L17 J13 H14 J14 J15 info move O16 visits 213 winrate 6052 pv O16 Q15 Q16 P16 R16 P17 P15 Q14 P14 R14 R17 O17 P13 S15 S16 S13 T15 S14 Q18 P18 R18 N16 R12 S12 R11 S11 S10 S9 info move R6 visits 26 winrate 5957 pv R6 O16 D7 C7 L3 D8 Q12 G5 F6 F8 G8 info ];W[qn]C[白棋 胜率: 59.1% 
+(15b无电源 / 680 计算量)
+
+白棋 胜率: 55.4% 
+盘面: 4.9 局面复杂度: 26.4
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 56.2% (+0.7%)
+盘面: 4.5 局面复杂度: 26.0
+(KataGo hzy6b / 134 计算量)
+步时: 0.303秒]LZ[15b无电源 59.1 680
+move O16 visits 443 winrate 4089 pv O16 Q12 K3 D7 C7 M3 H4 G3 H3 G4 H6 M5 info move P16 visits 93 winrate 3961 pv P16 Q12 L3 D7 C7 J3 O3 P3 O4 P6 P14 R13 K16 O13 info move R13 visits 41 winrate 3790 pv R13 D7 C7 P16 Q16 Q15 P15 P14 O15 Q13 N16 Q11 O14 L3 D8 H17 info move L3 visits 32 winrate 3976 pv L3 D7 C7 J3 O16 O3 R12 R9 Q10 Q9 O10 J5 P9 R10 info move K3 visits 20 winrate 3956 pv K3 D7 C7 H3 O16 N3 R12 R9 info move Q12 visits 14 winrate 3927 pv Q12 D7 C7 P16 Q16 Q15 P15 P17 P18 O18 info move R16 visits 12 winrate 3813 pv R16 Q15 O17 P16 P17 Q11 info move R12 visits 10 winrate 3885 pv R12 P16 Q16 Q15 P15 O16 info move Q11 visits 8 winrate 3897 pv Q11 D7 C7 P16 P17 info move N16 visits 7 winrate 3886 pv N16 D7 C7 P15 O17 Q11 info ];B[qd]C[黑棋 胜率: 37.0% 
+(15b无电源 / 826 计算量)
+
+黑棋 胜率: 44.0% 
+盘面: 4.7 局面复杂度: 26.6
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 48.5% (-0.7%)
+盘面: 6.4 局面复杂度: 32.3
+(KataGo 6b / 161 计算量)
+步时: 0.321秒]LZ[15b无电源 37.0 826
+move Q15 visits 722 winrate 6297 pv Q15 O16 D7 C7 Q11 K3 M3 G3 H4 H3 K4 G4 J4 L3 info move D7 visits 95 winrate 6290 pv D7 C7 Q15 O17 P16 P17 Q11 L3 J3 O3 P3 O4 P6 J4 H4 K4 info move P16 visits 9 winrate 5870 pv P16 P17 D7 C7 O16 S15 info ];W[dm]C[白棋 胜率: 62.7% 
+(15b无电源 / 817 计算量)
+
+白棋 胜率: 55.3% 
+盘面: 5.0 局面复杂度: 26.6
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 55.7% (+0.5%)
+盘面: 4.8 局面复杂度: 26.4
+(KataGo hzy6b / 113 计算量)
+步时: 0.304秒]LZ[15b无电源 62.7 817
+move C7 visits 716 winrate 3726 pv C7 Q15 O16 Q11 K3 H3 O3 M3 H4 G4 J4 G5 N4 info move Q15 visits 85 winrate 3576 pv Q15 C7 K16 L4 Q7 Q6 O7 C14 C15 F18 D18 info move B8 visits 16 winrate 3503 pv B8 Q15 O17 Q11 L3 J3 info ];B[cm]C[黑棋 胜率: 37.1% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 44.5% 
+盘面: 4.9 局面复杂度: 26.7
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 48.9% (-0.4%)
+盘面: 6.8 局面复杂度: 32.2
+(KataGo 6b / 145 计算量)
+步时: 0.306秒]LZ[15b无电源 37.1 1.0k
+move Q15 visits 1007 winrate 6287 pv Q15 O16 Q11 K3 H3 O3 M3 H4 G4 J4 G5 N4 L4 info move P16 visits 9 winrate 5918 pv P16 P17 O16 S15 R14 S14 Q16 S17 R12 info ];W[pe]C[白棋 胜率: 62.7% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 55.4% 
+盘面: 5.0 局面复杂度: 26.7
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 56.1% (-0.4%)
+盘面: 4.6 局面复杂度: 26.5
+(KataGo hzy6b / 131 计算量)
+步时: 0.303秒]LZ[15b无电源 62.7 1.0k
+move O16 visits 526 winrate 3732 pv O16 Q11 K3 H3 O3 M3 H4 G4 J4 G5 N4 L4 info move O17 visits 511 winrate 3684 pv O17 P16 P17 Q11 K3 M3 G3 H4 H3 K4 G4 J4 L3 L4 M2 N2 G6 D9 info ];B[nd]C[黑棋 胜率: 37.3% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 44.2% 
+盘面: 4.8 局面复杂度: 26.5
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 48.1% (+0.8%)
+盘面: 6.2 局面复杂度: 32.4
+(KataGo 6b / 138 计算量)
+步时: 0.202秒]LZ[15b无电源 37.3 1.0k
+move Q11 visits 735 winrate 6272 pv Q11 L3 J3 O3 P3 O4 P6 L16 N6 J4 H4 K4 H3 J6 J17 info move Q12 visits 200 winrate 6194 pv Q12 K3 M3 G3 G5 D8 L5 E2 D2 E3 D4 J4 info move M16 visits 38 winrate 6217 pv M16 O14 Q12 K16 M14 O12 Q10 K14 M12 info move P17 visits 13 winrate 6196 pv P17 P16 Q16 R17 O17 N16 M18 N17 N18 Q18 P19 info move M17 visits 11 winrate 5961 pv M17 N17 M16 O14 Q12 J16 L4 D8 info move L3 visits 11 winrate 5958 pv L3 Q11 P12 P11 O12 R13 O11 P9 info move D9 visits 5 winrate 5841 pv D9 D10 D8 C10 Q11 info ];W[pi]C[白棋 胜率: 62.3% 
+(15b无电源 / 949 计算量)
+
+白棋 胜率: 55.4% 
+盘面: 5.0 局面复杂度: 26.8
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 56.4% (-0.3%)
+盘面: 4.5 局面复杂度: 26.4
+(KataGo hzy6b / 124 计算量)
+步时: 0.204秒]LZ[15b无电源 62.3 949
+move L3 visits 273 winrate 3765 pv L3 J3 O3 P3 O4 P6 L16 N6 J4 H4 K4 H3 J6 J17 info move K3 visits 290 winrate 3735 pv K3 H3 O3 M3 P14 Q13 P12 Q12 H4 G3 O5 info move P14 visits 149 winrate 3726 pv P14 Q13 K3 M3 G3 H4 H3 K4 G4 J4 info move D8 visits 190 winrate 3671 pv D8 L3 P14 Q13 P12 P11 O11 O10 N10 O9 N9 info move L16 visits 25 winrate 3677 pv L16 L3 D8 M15 M16 O15 P16 L6 P15 P14 info move M16 visits 13 winrate 3646 pv M16 L3 D8 L16 L15 M17 L17 K16 info move J3 visits 9 winrate 3538 pv J3 L3 F3 G5 D8 K5 D2 info ];B[ph]C[黑棋 胜率: 33.7% 
+(15b无电源 / 381 计算量)
+
+黑棋 胜率: 40.0% 
+盘面: 2.7 局面复杂度: 26.4
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 48.4% (-0.3%)
+盘面: 6.4 局面复杂度: 32.1
+(KataGo 6b / 113 计算量)
+步时: 0.242秒]LZ[15b无电源 33.7 381
+move M17 visits 66 winrate 6630 pv M17 N17 P12 M16 Q13 L3 J3 O3 P3 O4 P6 J4 H4 K4 info move P12 visits 214 winrate 6573 pv P12 Q13 R11 P14 S16 P11 O12 P10 N11 S12 info move P11 visits 27 winrate 6445 pv P11 L3 J3 O3 P3 O4 P12 P14 Q13 L16 O6 P5 P7 info move R12 visits 54 winrate 6364 pv R12 R13 Q13 P12 R11 P13 Q14 P11 P10 O10 O9 P9 Q10 N10 info move R11 visits 20 winrate 6313 pv R11 O12 P11 O14 M17 N17 L3 D8 N18 info ];W[oh]C[白棋 胜率: 65.9% 
+(15b无电源 / 701 计算量)
+
+白棋 胜率: 58.8% 
+盘面: 3.3 局面复杂度: 26.4
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 58.4% (-2.0%)
+盘面: 3.6 局面复杂度: 26.1
+(KataGo hzy6b / 121 计算量)
+步时: 0.34秒]LZ[15b无电源 65.9 701
+move Q13 visits 561 winrate 3414 pv Q13 O15 R11 R10 S10 Q10 S12 S9 P13 P16 P17 N16 info move P11 visits 59 winrate 3064 pv P11 P13 Q10 R11 R10 S11 O11 P17 P16 Q16 R17 O17 N16 info move R11 visits 37 winrate 2438 pv R11 R12 Q13 R13 P13 P11 O14 R10 S11 S10 O12 O11 N12 N11 info move P13 visits 33 winrate 3107 pv P13 Q13 R12 R11 R13 Q14 S11 S10 S13 P11 S15 O13 L3 S16 info move L3 visits 7 winrate 2728 pv L3 J3 O3 P3 O4 Q13 L16 info move D8 visits 4 winrate 2666 pv D8 Q13 F3 info ];B[pg]C[黑棋 胜率: 30.0% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 40.0% 
+盘面: 2.7 局面复杂度: 26.6
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 47.0% (+1.4%)
+盘面: 5.3 局面复杂度: 32.7
+(KataGo 6b / 156 计算量)
+步时: 0.32秒]LZ[15b无电源 30.0 1.0k
+move P13 visits 629 winrate 6995 pv P13 P14 Q14 R11 R10 S12 Q10 S10 S9 P15 S13 S15 R13 R12 T12 info move O15 visits 87 winrate 6659 pv O15 R11 R10 S10 Q10 S12 S9 P13 P16 P17 N16 info move R11 visits 241 winrate 6506 pv R11 P14 Q16 R17 O15 P15 P16 P17 S14 P11 O12 O14 N15 N14 M15 N17 M14 info move S16 visits 16 winrate 6155 pv S16 R11 P13 R10 R18 S17 R17 info move P11 visits 14 winrate 6195 pv P11 P14 S16 S17 Q16 R17 O15 info move Q16 visits 8 winrate 6390 pv Q16 R17 P13 R11 R10 P14 Q14 P11 info move P16 visits 7 winrate 6380 pv P16 P17 O15 R11 N16 O17 info ];W[og]C[白棋 胜率: 70.8% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 59.8% 
+盘面: 2.8 局面复杂度: 26.6
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 60.8% (-2.4%)
+盘面: 2.4 局面复杂度: 26.6
+(KataGo hzy6b / 129 计算量)
+步时: 0.326秒]LZ[15b无电源 70.8 1.0k
+move P14 visits 466 winrate 2918 pv P14 Q14 R11 R10 S12 Q10 S10 S9 S14 R13 R12 S15 O14 S13 T13 R14 info move R11 visits 540 winrate 2807 pv R11 R10 S12 Q10 S10 S9 P14 Q14 S14 R13 R12 S15 S16 P15 T15 O14 info ];B[qi]C[黑棋 胜率: 25.3% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 39.5% 
+盘面: 2.5 局面复杂度: 26.6
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 45.9% (+1.1%)
+盘面: 4.6 局面复杂度: 33.0
+(KataGo 6b / 107 计算量)
+步时: 0.202秒]LZ[15b无电源 25.3 1.0k
+move R10 visits 913 winrate 7465 pv R10 S12 Q10 S10 S9 R9 T10 S11 Q9 R8 S8 P14 Q14 S14 R13 R12 info move Q10 visits 38 winrate 6333 pv Q10 R10 R9 S13 S16 S9 S8 P14 Q9 S17 Q14 O14 R13 info move P11 visits 22 winrate 6273 pv P11 R10 S14 R7 S7 R8 Q6 S8 S16 S17 info move O15 visits 14 winrate 6442 pv O15 R10 N16 O17 N17 P11 Q10 O11 info move P14 visits 10 winrate 6314 pv P14 Q10 P11 R9 P17 O17 P16 P18 O18 info move Q16 visits 9 winrate 6102 pv Q16 R17 R10 P14 Q14 P11 Q10 O12 info move P17 visits 5 winrate 6353 pv P17 P16 Q16 R17 P14 info move P16 visits 4 winrate 6434 pv P16 P17 O15 info move S16 visits 2 winrate 6310 pv S16 R10 info ];W[qj]C[白棋 胜率: 74.0% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 60.6% 
+盘面: 2.4 局面复杂度: 26.7
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 61.3% (-0.6%)
+盘面: 2.1 局面复杂度: 26.3
+(KataGo hzy6b / 119 计算量)
+步时: 0.203秒]LZ[15b无电源 74.0 1.0k
+move S12 visits 386 winrate 2598 pv S12 Q10 S10 S9 S14 R13 R12 P16 P17 O15 N15 S15 info move P14 visits 445 winrate 2492 pv P14 Q14 P11 Q10 S12 O14 S10 R13 R12 P16 P17 R8 S9 O11 R9 info move P11 visits 85 winrate 2526 pv P11 Q10 P14 O14 Q14 P15 O15 N14 S13 S16 S17 S14 S11 S10 T12 T10 R13 info move S10 visits 77 winrate 2262 pv S10 R12 S11 R13 Q10 P11 R9 L3 M16 D8 D9 E9 E10 F10 F9 E8 info move Q10 visits 14 winrate 1967 pv Q10 P11 S10 R9 S12 S9 P14 Q14 S14 S15 P15 info ];B[rh]C[黑棋 胜率: 23.2% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 35.7% 
+盘面: 0.7 局面复杂度: 26.6
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 46.6% (-0.6%)
+盘面: 5.1 局面复杂度: 33.2
+(KataGo 6b / 123 计算量)
+步时: 0.206秒]LZ[15b无电源 23.2 1.0k
+move Q10 visits 854 winrate 7684 pv Q10 S10 S9 S14 R13 R12 P16 P17 O15 N15 S15 O14 P14 P15 info move S11 visits 85 winrate 6630 pv S11 R12 Q10 P14 Q14 P15 S16 S10 S9 S14 S15 T11 Q16 P17 info move R13 visits 28 winrate 6855 pv R13 R12 Q10 S10 S9 P14 Q14 S14 S15 info move Q16 visits 27 winrate 6629 pv Q16 R17 Q10 S10 S9 P14 Q14 O14 S13 P11 N13 R9 Q9 info move S10 visits 11 winrate 6081 pv S10 P14 Q14 P11 Q10 P15 O11 S15 info move P17 visits 3 winrate 6748 pv P17 P16 info move P16 visits 3 winrate 6265 pv P16 P17 S11 info move O15 visits 1 winrate 5778 pv O15 info ];W[ri]C[白棋 胜率: 63.3% 
+(15b无电源 / 665 计算量)
+
+白棋 胜率: 57.2% 
+盘面: 4.0 局面复杂度: 26.8
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 53.3% 
+盘面: 5.1 局面复杂度: 0.0
+(KataGo6b / 124 计算量)
+
+白棋 胜率: 59.6% (+1.7%)
+盘面: 2.8 局面复杂度: 26.5
+(KataGo hzy6b / 105 计算量)
+步时: 0.202秒]LZ[15b无电源 63.3 665
+move R12 visits 665 winrate 3668 pv R12 Q10 P14 S16 S14 S15 S17 Q14 S10 S9 T11 O15 info ];B[qh]C[黑棋 胜率: 35.5% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 41.9% 
+盘面: 3.6 局面复杂度: 26.9
+(KataGohzy6b / 1.1k 计算量)
+
+黑棋 胜率: 46.7% (-0.2%)
+盘面: 5.1 局面复杂度: 33.2
+(KataGo 6b / 124 计算量)
+步时: 0.203秒]LZ[15b无电源 35.5 1.0k
+move Q16 visits 150 winrate 6453 pv Q16 R17 S10 P14 Q14 P11 Q10 S15 S14 P15 N13 P16 R14 N12 O11 M13 N14 info move Q10 visits 700 winrate 6256 pv Q10 P14 S16 S17 Q16 R17 Q14 S14 O15 N16 N15 M15 M16 L15 M17 N18 N13 J16 L4 info move P11 visits 74 winrate 5810 pv P11 S10 S9 T11 Q9 P14 Q16 R17 O15 P15 P16 P17 O14 info move S10 visits 22 winrate 5698 pv S10 P14 Q14 P11 Q10 P15 O11 S15 L4 D8 F7 info move P16 visits 16 winrate 5884 pv P16 P17 O15 S10 Q10 S9 N16 O17 info move P17 visits 14 winrate 5983 pv P17 P16 Q16 R17 P14 Q10 P11 R9 S10 S9 O17 info move P10 visits 12 winrate 5968 pv P10 S10 S9 T11 R9 P14 Q16 R17 P16 P17 O15 info move S9 visits 8 winrate 6540 pv S9 P14 Q14 P11 Q10 T11 info move O15 visits 7 winrate 5450 pv O15 Q10 P11 R9 S10 S9 N16 info ];W[pj]C[白棋 胜率: 60.6% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 58.0% 
+盘面: 3.7 局面复杂度: 26.9
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 61.3% (-1.6%)
+盘面: 2.1 局面复杂度: 26.6
+(KataGo hzy6b / 122 计算量)
+步时: 0.203秒]LZ[15b无电源 60.6 1.0k
+move P14 visits 995 winrate 3943 pv P14 S16 S17 Q14 P15 S14 S10 S9 T11 Q16 R17 S13 T16 S15 P11 O11 P10 R9 P16 info move S10 visits 14 winrate 2491 pv S10 S9 P14 S16 T11 O14 P15 info ];B[of]C[黑棋 胜率: 37.7% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 39.8% 
+盘面: 2.7 局面复杂度: 26.5
+(KataGohzy6b / 1.1k 计算量)
+
+黑棋 胜率: 46.1% (+0.6%)
+盘面: 4.7 局面复杂度: 33.7
+(KataGo 6b / 130 计算量)
+步时: 0.202秒]LZ[15b无电源 37.7 1.0k
+move P15 visits 84 winrate 6229 pv P15 O15 Q14 O14 S10 N12 O11 P2 O3 O2 Q3 M3 info move S16 visits 564 winrate 6150 pv S16 S17 Q14 P15 S14 S10 S9 T11 Q16 R17 S13 T16 S15 P11 O11 P10 R9 P16 T13 info move Q14 visits 259 winrate 5849 pv Q14 P15 S14 S10 S9 T11 S16 S17 Q16 R17 S13 T16 S15 P11 O11 P10 R9 info move Q16 visits 122 winrate 5790 pv Q16 R17 Q14 P15 S14 S10 S9 T11 S16 S17 S13 T16 S15 P11 O11 P10 R9 P16 T13 info move P16 visits 10 winrate 5572 pv P16 P17 Q14 P15 S14 S10 S9 T11 S16 S17 info move P17 visits 5 winrate 5461 pv P17 P16 Q16 R17 P15 info move O14 visits 4 winrate 5904 pv O14 P15 Q16 R17 info ];W[pf]C[白棋 胜率: 54.1% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 53.0% 
+盘面: 6.1 局面复杂度: 27.4
+(KataGohzy6b / 1.1k 计算量)
+
+白棋 胜率: 62.4% (-1.2%)
+盘面: 1.7 局面复杂度: 26.6
+(KataGo hzy6b / 108 计算量)
+步时: 0.203秒]LZ[15b无电源 54.1 1.0k
+move P15 visits 921 winrate 4594 pv P15 S14 S10 S16 S9 Q16 P17 R17 Q8 N12 S7 M16 M15 L16 L15 info move S10 visits 49 winrate 2947 pv S10 S9 P15 T10 S14 S15 S16 T15 Q16 S13 T13 R14 info move S14 visits 18 winrate 3754 pv S14 P15 S15 L4 D8 N14 Q5 P5 J3 info move O14 visits 17 winrate 2853 pv O14 S10 N12 O11 S15 S14 S16 S13 P2 Q2 info move P11 visits 2 winrate 2718 pv P11 S10 info ];B[oe]C[黑棋 胜率: 44.3% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 46.2% 
+盘面: 5.8 局面复杂度: 27.2
+(KataGohzy6b / 1.1k 计算量)
+
+黑棋 胜率: 46.1% (-0.0%)
+盘面: 4.7 局面复杂度: 34.2
+(KataGo 6b / 146 计算量)
+步时: 0.202秒]LZ[15b无电源 44.3 1.0k
+move S14 visits 388 winrate 5567 pv S14 S10 S16 S9 Q16 P17 R17 Q8 S7 S8 O10 P7 M13 L16 O8 O7 N7 info move Q16 visits 269 winrate 5375 pv Q16 R17 S14 S10 S16 S17 S9 T11 S13 T16 S15 P11 O11 P10 R9 P16 T13 info move S15 visits 91 winrate 5383 pv S15 S10 Q16 R17 S9 T11 S13 R13 S14 P16 info move S16 visits 181 winrate 5077 pv S16 S14 S15 S17 Q16 R17 R14 S13 P16 P17 O15 O14 N15 N13 M12 M13 info move S13 visits 36 winrate 5103 pv S13 S10 S9 T11 S16 S14 S15 T13 Q16 R17 P16 info move T11 visits 33 winrate 5516 pv T11 S15 S14 Q16 R14 L3 J3 O3 P3 O4 info move S10 visits 14 winrate 5367 pv S10 S15 S14 Q16 R14 S16 T13 info ];W[rd]C[白棋 胜率: 43.1% 
+(15b无电源 / 973 计算量)
+
+白棋 胜率: 50.8% 
+盘面: 7.2 局面复杂度: 27.4
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 59.8% (+2.6%)
+盘面: 3.1 局面复杂度: 26.8
+(KataGo hzy6b / 124 计算量)
+步时: 0.303秒]LZ[15b无电源 43.1 973
+move S14 visits 893 winrate 5690 pv S14 S15 S17 S18 Q16 T17 R17 R14 T14 S10 R13 T12 S13 info move S10 visits 49 winrate 4167 pv S10 Q16 R17 S14 S9 P17 P16 P18 S17 Q18 T16 S15 info move Q16 visits 21 winrate 2131 pv Q16 S14 S10 S9 T11 S17 P11 O11 P10 N10 info move S17 visits 9 winrate 3186 pv S17 Q16 R17 S14 S10 S9 T11 S13 info move P11 visits 1 winrate 2855 pv P11 info ];B[rj]C[黑棋 胜率: 42.0% 
+(15b无电源 / 863 计算量)
+
+黑棋 胜率: 49.1% 
+盘面: 7.1 局面复杂度: 27.3
+(KataGohzy6b / 1.1k 计算量)
+
+黑棋 胜率: 47.1% (-1.0%)
+盘面: 5.1 局面复杂度: 34.3
+(KataGo 6b / 102 计算量)
+步时: 0.203秒]LZ[15b无电源 42.0 863
+move S14 visits 470 winrate 5802 pv S14 S9 Q16 P17 R17 Q8 N12 S7 M16 M15 L16 M13 M12 L13 H17 L12 L11 info move S9 visits 301 winrate 5474 pv S9 S14 S15 T11 Q16 R17 P16 P17 O17 N15 S17 S18 N17 O18 N18 P18 R18 R19 info move Q16 visits 92 winrate 5343 pv Q16 R17 S14 S17 S9 T11 S13 T16 S15 P11 O11 P10 R9 P16 T13 info ];W[rk]C[白棋 胜率: 47.7% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 50.4% 
+盘面: 7.5 局面复杂度: 27.3
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 55.5% (+4.3%)
+盘面: 4.9 局面复杂度: 27.2
+(KataGo hzy6b / 107 计算量)
+步时: 0.202秒]LZ[15b无电源 47.7 1.0k
+move T11 visits 625 winrate 5231 pv T11 N13 S14 L4 D8 F9 E8 G7 Q5 P5 J3 K3 J4 K6 info move S14 visits 385 winrate 4729 pv S14 S15 T11 Q16 R17 P16 P17 O17 N15 S17 S18 N17 O18 N18 P18 R18 R19 T18 S19 M15 info move Q16 visits 10 winrate 1979 pv Q16 S14 T11 S17 P11 O11 P10 info move S17 visits 6 winrate 2969 pv S17 Q16 R17 S14 T11 S13 info ];B[rf]C[黑棋 胜率: 47.8% 
+(15b无电源 / 1.1k 计算量)
+
+黑棋 胜率: 46.7% 
+盘面: 5.7 局面复杂度: 27.3
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 50.7% (-3.6%)
+盘面: 7.6 局面复杂度: 34.3
+(KataGo 6b / 127 计算量)
+步时: 0.202秒]LZ[15b无电源 47.8 1.1k
+move S15 visits 655 winrate 5220 pv S15 T11 Q16 R17 P16 P17 O17 N15 S17 S18 N17 O18 N18 P18 M15 N14 N16 O15 M14 N13 info move Q16 visits 435 winrate 5239 pv Q16 R17 P16 P17 S15 T11 O17 N15 S17 S18 N17 O18 N18 P18 M15 N14 N16 O15 M14 N13 info move L3 visits 11 winrate 4945 pv L3 T11 M17 N17 L6 D8 F7 info move L4 visits 7 winrate 4804 pv L4 T11 D9 D10 D8 C10 info move R17 visits 4 winrate 4498 pv R17 Q16 S15 S17 info ];W[re]C[白棋 胜率: 50.6% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 53.4% 
+盘面: 5.6 局面复杂度: 27.4
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 54.8% (+0.7%)
+盘面: 5.4 局面复杂度: 27.4
+(KataGo hzy6b / 137 计算量)
+步时: 0.303秒]LZ[15b无电源 50.6 1.0k
+move T11 visits 942 winrate 4940 pv T11 R18 Q18 R17 Q16 S18 L3 J3 J4 H3 O3 P3 O4 K4 L4 K5 info move S17 visits 68 winrate 4401 pv S17 Q16 R17 T10 P16 S13 T13 R14 R13 T12 T11 C8 S10 info move Q16 visits 7 winrate 3802 pv Q16 S17 T11 R18 info ];B[si]C[黑棋 胜率: 49.7% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 45.8% 
+盘面: 5.0 局面复杂度: 27.5
+(KataGohzy6b / 1.1k 计算量)
+
+黑棋 胜率: 50.5% (+0.2%)
+盘面: 7.8 局面复杂度: 34.3
+(KataGo 6b / 113 计算量)
+步时: 0.202秒]LZ[15b无电源 49.7 1.0k
+move R18 visits 155 winrate 5033 pv R18 Q18 R17 Q16 S18 L3 J3 J4 H3 O3 P3 O4 K4 L4 K5 info move R14 visits 100 winrate 5226 pv R14 T14 R18 Q18 R17 Q16 S18 L3 J3 O3 info move Q16 visits 691 winrate 5024 pv Q16 R17 P16 P17 O17 N15 S17 O18 N17 S18 N18 P18 M15 N14 M13 N13 N12 M14 L14 L15 N16 O15 info move R17 visits 48 winrate 4897 pv R17 Q16 R18 Q18 S18 L3 J3 J4 H3 O3 P3 O4 K4 info move P17 visits 15 winrate 4610 pv P17 P16 Q16 R17 O17 N17 N18 info ];W[pd]C[白棋 胜率: 47.8% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 53.9% 
+盘面: 5.1 局面复杂度: 27.5
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 55.3% (-0.5%)
+盘面: 4.9 局面复杂度: 27.6
+(KataGo hzy6b / 108 计算量)
+步时: 0.104秒]LZ[15b无电源 47.8 1.0k
+move R17 visits 959 winrate 5218 pv R17 P16 P17 O17 N15 S17 O18 N17 S18 M15 N14 N18 P18 M13 N13 N12 M14 L14 L15 N16 O15 info move P17 visits 53 winrate 2540 pv P17 R17 P11 N13 M14 N11 L3 J3 O3 P3 info move O17 visits 3 winrate 3027 pv O17 R17 Q18 info move P16 visits 1 winrate 2687 pv P16 info ];B[qc]C[黑棋 胜率: 50.9% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 45.2% 
+盘面: 4.5 局面复杂度: 26.9
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 51.6% (-1.1%)
+盘面: 8.2 局面复杂度: 34.3
+(KataGo 6b / 144 计算量)
+步时: 0.222秒]LZ[15b无电源 50.9 1.0k
+move P16 visits 657 winrate 4914 pv P16 P17 O17 N15 S17 O18 R14 T13 N17 S18 N18 P18 M15 N14 M14 N13 M12 info move P17 visits 352 winrate 4554 pv P17 P16 O17 N17 Q18 R18 P18 S17 N16 O14 M17 N18 M18 L3 J3 O3 P3 O4 K5 J2 info move S17 visits 2 winrate 4168 pv S17 O17 info ];W[od]C[白棋 胜率: 49.1% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 52.5% 
+盘面: 5.7 局面复杂度: 28.3
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 51.4% (+3.9%)
+盘面: 6.4 局面复杂度: 28.4
+(KataGo hzy6b / 116 计算量)
+步时: 0.209秒]LZ[15b无电源 49.1 1.0k
+move P17 visits 1003 winrate 5086 pv P17 O17 N15 S17 O18 R14 T13 N17 S18 N18 P18 M15 N14 M13 M14 L14 N13 N12 info move O17 visits 7 winrate 3483 pv O17 P17 P18 O18 N18 Q18 O19 info ];B[oc]C[黑棋 胜率: 49.9% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 47.2% 
+盘面: 5.5 局面复杂度: 28.2
+(KataGohzy6b / 1.1k 计算量)
+
+黑棋 胜率: 53.3% (-1.7%)
+盘面: 9.4 局面复杂度: 34.7
+(KataGo 6b / 141 计算量)
+步时: 0.203秒]LZ[15b无电源 49.9 1.0k
+move O17 visits 975 winrate 5006 pv O17 N15 S17 O18 R14 T13 N17 S18 N18 P18 M15 N14 M13 M14 L14 N13 N12 info move S17 visits 44 winrate 4300 pv S17 N17 R18 N14 L3 D8 M16 M17 M14 N15 info move O15 visits 27 winrate 3483 pv O15 O14 N15 N14 M14 N13 O17 N16 M15 N17 M12 N12 info ];W[nc]C[白棋 胜率: 48.8% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 52.1% 
+盘面: 6.0 局面复杂度: 28.1
+(KataGohzy6b / 1.1k 计算量)
+
+白棋 胜率: 50.4% (+1.0%)
+盘面: 6.8 局面复杂度: 28.0
+(KataGo hzy6b / 120 计算量)
+步时: 0.202秒]LZ[15b无电源 48.8 1.0k
+move N15 visits 845 winrate 5123 pv N15 S17 O18 R14 T13 N17 S18 N18 P18 M15 N14 M13 M14 L14 N13 N12 info move N16 visits 166 winrate 4555 pv N16 N17 M16 S17 O18 R18 M17 P18 N18 O17 N17 Q18 L3 J3 O3 P3 O4 N14 O13 info move O15 visits 17 winrate 2859 pv O15 N17 M16 S17 S18 P18 R18 T18 T17 info move N17 visits 2 winrate 3479 pv N17 O15 info ];B[md]C[黑棋 胜率: 46.5% 
+(15b无电源 / 661 计算量)
+
+黑棋 胜率: 47.0% 
+盘面: 5.4 局面复杂度: 28.2
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 51.3% (+1.9%)
+盘面: 8.0 局面复杂度: 35.3
+(KataGo 6b / 113 计算量)
+步时: 0.103秒]LZ[15b无电源 46.5 661
+move N17 visits 621 winrate 5348 pv N17 M16 S17 O18 R18 M17 L4 Q18 Q19 N18 T18 D8 C16 C17 B17 C15 B16 D17 info move S17 visits 34 winrate 4328 pv S17 O18 R18 Q18 R19 L3 J3 O3 P3 O4 info move O15 visits 4 winrate 4292 pv O15 O14 N15 N13 info move O18 visits 2 winrate 3057 pv O18 S17 info ];W[mc]C[白棋 胜率: 53.1% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 52.6% 
+盘面: 5.5 局面复杂度: 28.3
+(KataGohzy6b / 1.1k 计算量)
+
+白棋 胜率: 52.7% (-2.3%)
+盘面: 5.8 局面复杂度: 28.0
+(KataGo hzy6b / 122 计算量)
+步时: 0.212秒]LZ[15b无电源 53.1 1.0k
+move M16 visits 994 winrate 4694 pv M16 S17 O18 R18 M17 L4 D8 F9 E8 G7 Q18 Q19 N18 T18 J3 L2 H6 G6 info move M17 visits 21 winrate 4188 pv M17 O15 O14 N15 M16 N14 O13 O12 N13 M13 info ];B[lc]C[黑棋 胜率: 33.6% 
+(15b无电源 / 587 计算量)
+
+黑棋 胜率: 35.6% 
+盘面: 1.1 局面复杂度: 25.6
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 50.6% (+0.7%)
+盘面: 7.7 局面复杂度: 34.2
+(KataGo 6b / 146 计算量)
+步时: 0.205秒]LZ[15b无电源 33.6 587
+move O15 visits 385 winrate 6645 pv O15 O18 O14 L3 J3 O3 P3 O4 K5 D8 M5 O2 P2 info move O14 visits 151 winrate 6529 pv O14 N18 O15 L3 J3 O3 P3 O4 K5 D8 M5 O2 info move M16 visits 22 winrate 5417 pv M16 O18 O15 N18 O14 L3 J3 O3 P3 O4 info move P18 visits 19 winrate 5362 pv P18 Q18 O18 P19 M18 M16 L17 L16 info move M18 visits 7 winrate 3404 pv M18 M16 S17 P18 R18 N18 N14 info move N15 visits 3 winrate 4635 pv N15 M16 O15 info ];W[ne]C[白棋 胜率: 64.7% 
+(15b无电源 / 947 计算量)
+
+白棋 胜率: 63.3% 
+盘面: 1.5 局面复杂度: 25.6
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 62.0% (-9.3%)
+盘面: 2.3 局面复杂度: 26.0
+(KataGo hzy6b / 133 计算量)
+步时: 0.224秒]LZ[15b无电源 64.7 947
+move O14 visits 585 winrate 3526 pv O14 N15 M16 N14 K3 H3 H4 G3 N3 P3 J3 L4 L3 N4 G4 info move M16 visits 283 winrate 3219 pv M16 N14 L3 J3 O3 P3 O2 P2 O5 K5 J2 K2 K3 L2 J4 info move N18 visits 40 winrate 3482 pv N18 N15 M16 L3 D8 L14 K6 J4 info move O18 visits 39 winrate 3488 pv O18 O14 L3 J3 O3 P3 O4 K5 D8 M5 O2 P2 O6 N7 info ];B[ld]C[黑棋 胜率: 29.1% 
+(15b无电源 / 844 计算量)
+
+黑棋 胜率: 36.7% 
+盘面: 1.5 局面复杂度: 25.5
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 46.0% (+4.6%)
+盘面: 4.4 局面复杂度: 32.1
+(KataGo 6b / 122 计算量)
+步时: 0.202秒]LZ[15b无电源 29.1 844
+move S17 visits 161 winrate 7094 pv S17 O18 N14 L3 J3 O3 P3 O4 K5 D8 M5 O2 P2 O6 info move N14 visits 371 winrate 6813 pv N14 L3 J3 O3 P3 O2 M4 J4 H4 K4 O4 H3 G3 H2 info move O14 visits 288 winrate 6733 pv O14 L3 J3 O3 P3 O2 P2 O5 K5 J2 K2 K3 L2 J4 H3 H2 M3 info move P18 visits 24 winrate 6839 pv P18 Q18 N14 L3 M18 L18 N18 M19 info ];W[nf]C[白棋 胜率: 65.6% 
+(15b无电源 / 909 计算量)
+
+白棋 胜率: 60.2% 
+盘面: 2.9 局面复杂度: 25.2
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 61.1% (+0.9%)
+盘面: 2.7 局面复杂度: 25.2
+(KataGo hzy6b / 123 计算量)
+步时: 0.304秒]LZ[15b无电源 65.6 909
+move L3 visits 820 winrate 3444 pv L3 J3 O3 P3 O2 D18 D17 C18 B17 F18 F17 G18 J18 B18 info move P2 visits 56 winrate 2921 pv P2 P3 O3 Q2 P4 Q3 K3 H3 M4 O4 info move K3 visits 33 winrate 3026 pv K3 M3 G3 L5 G5 J4 J3 H4 G4 F2 info ];B[jq]C[黑棋 胜率: 31.6% 
+(15b无电源 / 629 计算量)
+
+黑棋 胜率: 37.1% 
+盘面: 1.4 局面复杂度: 25.9
+(KataGohzy6b / 1.1k 计算量)
+
+黑棋 胜率: 43.9% (+2.2%)
+盘面: 3.0 局面复杂度: 32.1
+(KataGo 6b / 119 计算量)
+步时: 0.206秒]LZ[15b无电源 31.6 629
+move M3 visits 323 winrate 6838 pv M3 H3 L5 F3 J4 G5 D8 D9 E9 E10 info move P18 visits 94 winrate 6839 pv P18 Q18 M3 H3 M18 L18 N18 O19 L5 info move T9 visits 130 winrate 6773 pv T9 T10 M3 H3 L5 F3 G5 J5 D9 D10 E9 E10 F10 info move M18 visits 37 winrate 6817 pv M18 L18 P18 Q18 O18 P19 N19 Q19 M3 G3 L5 G5 J4 info move R14 visits 19 winrate 6706 pv R14 S13 M3 H3 L5 F3 G5 info move H3 visits 16 winrate 6733 pv H3 N3 P3 H4 G3 J3 L4 L3 N4 G4 info move L3 visits 10 winrate 6587 pv L3 L4 M3 M4 N3 J4 H3 info ];W[lq]C[白棋 胜率: 66.9% 
+(15b无电源 / 909 计算量)
+
+白棋 胜率: 58.3% 
+盘面: 3.6 局面复杂度: 25.8
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 61.6% (-0.5%)
+盘面: 2.4 局面复杂度: 25.7
+(KataGo hzy6b / 106 计算量)
+步时: 0.303秒]LZ[15b无电源 66.9 909
+move H3 visits 379 winrate 3311 pv H3 P18 Q18 T9 T10 M18 L18 O18 N19 S17 Q19 L5 F3 info move G3 visits 289 winrate 3151 pv G3 L5 G5 J4 F6 J3 E2 D2 E3 D4 info move H4 visits 55 winrate 3160 pv H4 K4 J4 K5 L3 M4 F3 F4 E2 H6 D8 info move F3 visits 60 winrate 3094 pv F3 H3 F4 J4 F6 K4 D8 F5 G5 E5 H4 G6 info move O2 visits 104 winrate 3080 pv O2 P18 Q18 M18 L18 O18 P19 N19 Q19 O19 info move G4 visits 22 winrate 3089 pv G4 J4 J3 K4 H4 L3 F3 D9 D10 D8 info ];B[fq]C[黑棋 胜率: 29.0% 
+(15b无电源 / 577 计算量)
+
+黑棋 胜率: 38.6% 
+盘面: 2.0 局面复杂度: 26.5
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 47.3% (-3.4%)
+盘面: 5.1 局面复杂度: 32.5
+(KataGo 6b / 111 计算量)
+步时: 0.203秒]LZ[15b无电源 29.0 577
+move J4 visits 151 winrate 7104 pv J4 J3 H3 H2 H4 G3 K4 G5 G2 F2 J2 G1 K2 F5 D9 D10 info move H3 visits 140 winrate 6804 pv H3 F4 J4 F5 K4 F7 D9 C10 F9 D5 G6 F6 H9 J6 K7 info move T9 visits 59 winrate 6893 pv T9 T10 H3 F4 J4 F5 K4 D5 D9 D10 D8 E5 info move D8 visits 59 winrate 6859 pv D8 H4 E10 O3 P3 P2 Q2 P4 Q3 M4 N4 N3 info move P18 visits 48 winrate 6823 pv P18 Q18 H3 F4 J4 K4 J5 F6 F5 G5 info move D9 visits 18 winrate 6734 pv D9 D10 D8 C10 H3 F4 J4 K4 J5 M4 N3 info move M18 visits 24 winrate 6904 pv M18 L18 P18 Q18 O18 P19 H3 F4 J4 F5 K4 F7 info move G5 visits 35 winrate 6450 pv G5 H4 H5 J4 K6 L5 K5 L4 N4 D8 E2 F2 G4 G3 info move H4 visits 37 winrate 6447 pv H4 H3 J4 J3 F4 K4 M5 K6 E9 D11 E11 E12 F11 info move F4 visits 6 winrate 6310 pv F4 G3 H5 M4 N4 info ];W[ob]C[白棋 胜率: 67.1% 
+(15b无电源 / 601 计算量)
+
+白棋 胜率: 60.6% 
+盘面: 2.5 局面复杂度: 26.2
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 65.8% (-4.2%)
+盘面: 0.0 局面复杂度: 26.1
+(KataGo hzy6b / 116 计算量)
+步时: 0.305秒]LZ[15b无电源 67.1 601
+move Q18 visits 598 winrate 3294 pv Q18 J4 J3 H3 H4 G4 H5 G3 K5 M5 O2 N2 info move M18 visits 3 winrate 2036 pv M18 O18 Q18 info ];B[pb]C[黑棋 胜率: 29.9% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 39.2% 
+盘面: 2.3 局面复杂度: 26.2
+(KataGohzy6b / 1.1k 计算量)
+
+黑棋 胜率: 41.5% (+5.8%)
+盘面: 1.2 局面复杂度: 32.8
+(KataGo 6b / 154 计算量)
+步时: 0.303秒]LZ[15b无电源 29.9 1.0k
+move J4 visits 370 winrate 7009 pv J4 J3 H3 H2 H4 G3 K4 M2 N2 L2 N3 D8 G5 R3 R4 S4 S5 S2 info move H3 visits 245 winrate 6675 pv H3 F4 M18 L18 O18 P19 J4 F5 D9 D10 D8 C10 info move T9 visits 51 winrate 6795 pv T9 T10 M18 L18 O18 P19 N19 Q19 H3 F4 J4 info move M18 visits 227 winrate 6581 pv M18 L18 H3 F4 O18 P19 J4 F5 D9 D10 D8 C10 info move G5 visits 38 winrate 6467 pv G5 H4 H5 J4 K6 L5 K5 L4 N4 L6 D8 info move D9 visits 29 winrate 6506 pv D9 D10 D8 C10 H3 F4 J4 F5 E10 E11 F10 F11 info move H4 visits 21 winrate 6626 pv H4 H3 J4 J3 L5 F4 F5 G5 G4 info move D8 visits 21 winrate 6583 pv D8 F4 C4 D5 E5 D9 J4 J3 K4 info move G4 visits 7 winrate 6329 pv G4 G3 H4 H3 J4 K4 info move F4 visits 6 winrate 6327 pv F4 G3 H5 M4 N4 L4 info ];W[lb]C[白棋 胜率: 64.7% 
+(15b无电源 / 897 计算量)
+
+白棋 胜率: 60.7% 
+盘面: 2.4 局面复杂度: 26.1
+(KataGohzy6b / 1.1k 计算量)
+
+白棋 胜率: 63.4% (+2.4%)
+盘面: 0.9 局面复杂度: 26.5
+(KataGo hzy6b / 122 计算量)
+步时: 0.303秒]LZ[15b无电源 64.7 897
+move L18 visits 892 winrate 3529 pv L18 H3 F4 J4 K4 J6 F6 E5 F5 D9 D8 E8 C8 E7 info move P19 visits 3 winrate 1686 pv P19 H3 F4 info move O19 visits 2 winrate 1818 pv O19 H3 info ];B[kb]C[黑棋 胜率: 34.4% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 37.2% 
+盘面: 1.7 局面复杂度: 26.0
+(KataGohzy6b / 1.1k 计算量)
+
+黑棋 胜率: 39.9% (+1.6%)
+盘面: 0.1 局面复杂度: 32.8
+(KataGo 6b / 137 计算量)
+步时: 0.203秒]LZ[15b无电源 34.4 1.0k
+move H3 visits 383 winrate 6556 pv H3 F4 J4 K4 J6 F6 E5 F5 D9 D8 E8 C8 E7 info move T9 visits 48 winrate 6706 pv T9 T10 O18 P19 N19 Q19 H3 F4 J4 F5 K4 F7 D9 D5 C10 info move O18 visits 360 winrate 6358 pv O18 P19 L17 K17 H3 F4 J4 F6 D9 D10 D8 C10 E5 info move N18 visits 200 winrate 6373 pv N18 M19 H3 F4 J4 F5 D9 D5 K4 D10 D8 C10 E5 F6 info move J4 visits 14 winrate 6550 pv J4 J3 O18 P19 K4 H4 H5 info ];W[mb]C[白棋 胜率: 62.9% 
+(15b无电源 / 758 计算量)
+
+白棋 胜率: 58.2% 
+盘面: 3.6 局面复杂度: 26.0
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 61.1% (+2.2%)
+盘面: 1.8 局面复杂度: 26.5
+(KataGo hzy6b / 135 计算量)
+步时: 0.202秒]LZ[15b无电源 62.9 758
+move M19 visits 712 winrate 3711 pv M19 J4 J3 H3 M4 N4 L4 H2 N3 O3 N2 O2 info move O19 visits 28 winrate 1876 pv O19 L17 K18 H3 F4 J4 F6 E5 F5 info move K17 visits 14 winrate 1750 pv K17 O19 Q19 P19 S17 M19 S19 info move P19 visits 4 winrate 1163 pv P19 O19 O18 C16 info ];B[la]C[黑棋 胜率: 32.8% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 41.5% 
+盘面: 3.4 局面复杂度: 26.0
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 44.0% (-4.2%)
+盘面: 3.0 局面复杂度: 32.8
+(KataGo 6b / 135 计算量)
+步时: 0.204秒]LZ[15b无电源 32.8 1.0k
+move J4 visits 494 winrate 6720 pv J4 J3 H3 M4 N3 K4 H4 K6 H6 D8 N4 M6 C16 C17 C15 B17 info move H3 visits 291 winrate 6329 pv H3 F4 J4 F5 D9 F7 K4 C10 E5 F9 C4 C2 E2 info move O19 visits 106 winrate 5615 pv O19 L19 J4 J3 H3 H2 H4 G3 K4 F5 G5 F4 F6 info move N19 visits 39 winrate 5639 pv N19 L19 H3 F4 J4 F6 E5 F5 D8 F8 D9 C10 info move T9 visits 26 winrate 6142 pv T9 T10 H3 F4 J4 F6 K4 D8 F5 info move R14 visits 21 winrate 6451 pv R14 T14 O19 L19 N19 info move D9 visits 12 winrate 6309 pv D9 D10 D8 C10 H3 M4 N4 L4 N3 info move H4 visits 11 winrate 6299 pv H4 H3 J4 J3 F4 K4 M5 info move G5 visits 8 winrate 6131 pv G5 H4 O19 L19 N19 Q19 info move D8 visits 4 winrate 6020 pv D8 F4 C4 B4 info ];W[na]C[白棋 胜率: 55.9% 
+(15b无电源 / 620 计算量)
+
+白棋 胜率: 57.7% 
+盘面: 3.8 局面复杂度: 26.0
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 55.2% (+6.0%)
+盘面: 4.8 局面复杂度: 26.2
+(KataGo hzy6b / 131 计算量)
+步时: 0.303秒]LZ[15b无电源 55.9 620
+move L19 visits 618 winrate 4415 pv L19 J4 J3 H3 M4 N4 L4 H4 N3 O3 N2 O2 M2 N5 D8 H2 L6 C16 C17 info move Q19 visits 2 winrate 1852 pv Q19 H3 info ];B[ka]C[黑棋 胜率: 41.4% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 41.3% 
+盘面: 3.4 局面复杂度: 26.2
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 45.7% (-1.6%)
+盘面: 4.3 局面复杂度: 32.3
+(KataGo 6b / 126 计算量)
+步时: 0.202秒]LZ[15b无电源 41.4 1.0k
+move J4 visits 567 winrate 5863 pv J4 J3 H3 M4 N3 K4 H4 K6 H2 N4 O4 O5 P4 D8 C16 info move H3 visits 247 winrate 5576 pv H3 F4 J4 F5 K4 F7 D9 C10 F9 D5 H9 J6 G6 F6 info move N19 visits 93 winrate 4844 pv N19 Q19 H3 F4 J4 F5 K4 F7 D9 D5 C10 D8 E8 C8 D10 F8 info move T9 visits 33 winrate 5512 pv T9 T10 H3 F4 J4 F6 D8 K4 J5 M4 info move H4 visits 21 winrate 5518 pv H4 H3 J4 J3 K4 L3 M4 L4 L5 info move L17 visits 21 winrate 4659 pv L17 N19 H3 F4 J4 F5 K4 D5 E5 info move G5 visits 10 winrate 4737 pv G5 H4 N19 Q19 H5 J5 G4 H3 info move C16 visits 8 winrate 5605 pv C16 C17 B17 C15 B16 info move D8 visits 8 winrate 5597 pv D8 D9 H3 F9 H5 H2 G2 info move D9 visits 8 winrate 5380 pv D9 D10 D8 C10 H3 M4 N4 L4 info move Q19 visits 2 winrate 4270 pv Q19 N19 info ];W[hq]C[白棋 胜率: 55.1% 
+(15b无电源 / 834 计算量)
+
+白棋 胜率: 57.9% 
+盘面: 3.6 局面复杂度: 26.7
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 59.7% (-4.6%)
+盘面: 2.9 局面复杂度: 26.1
+(KataGo hzy6b / 123 计算量)
+步时: 0.205秒]LZ[15b无电源 55.1 834
+move F4 visits 740 winrate 4495 pv F4 J4 F5 F7 M4 N3 K4 J5 N4 O3 K5 J6 L7 J8 info move O3 visits 41 winrate 4380 pv O3 H5 Q3 R3 R2 P3 Q2 P2 R4 P4 R5 info move M4 visits 31 winrate 4148 pv M4 N4 L4 N3 F4 J4 F6 J6 D8 K8 R3 info move O2 visits 19 winrate 3819 pv O2 P3 F4 J4 K4 K5 L5 J5 M4 N3 info move H4 visits 3 winrate 3658 pv H4 G4 F4 info ];B[fp]C[黑棋 胜率: 43.1% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 41.4% 
+盘面: 3.2 局面复杂度: 26.7
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 44.9% (+0.8%)
+盘面: 3.7 局面复杂度: 33.2
+(KataGo 6b / 111 计算量)
+步时: 0.204秒]LZ[15b无电源 43.1 1.0k
+move J4 visits 727 winrate 5690 pv J4 F5 F7 K4 J6 O3 N4 Q3 R3 R2 Q2 P3 S2 info move H5 visits 120 winrate 5396 pv H5 F5 D9 D10 D8 C10 C8 B8 B9 B10 C4 info move N19 visits 61 winrate 5016 pv N19 Q19 J4 F5 K4 D5 E5 E6 F6 E7 info move D9 visits 50 winrate 5583 pv D9 D10 D8 C10 J4 K4 J5 M4 N3 N4 O3 K5 info move F5 visits 31 winrate 5535 pv F5 H4 J4 G5 J3 J5 K4 K5 L5 L6 M5 R3 P2 info move D8 visits 19 winrate 4983 pv D8 F5 J4 F7 D9 C10 D10 D5 info move S17 visits 2 winrate 4282 pv S17 N19 info ];W[ho]C[白棋 胜率: 48.7% 
+(15b无电源 / 654 计算量)
+
+白棋 胜率: 56.5% 
+盘面: 4.1 局面复杂度: 26.7
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 58.2% (+1.5%)
+盘面: 3.4 局面复杂度: 26.6
+(KataGo hzy6b / 123 计算量)
+步时: 0.303秒]LZ[15b无电源 48.7 654
+move F5 visits 457 winrate 5127 pv F5 K5 F7 D9 D5 C10 B9 F10 H8 K8 H10 F12 D13 D12 C12 C13 info move F6 visits 124 winrate 4595 pv F6 D9 H6 J6 H7 J7 J8 J5 H9 E5 F5 info move G6 visits 56 winrate 4449 pv G6 D9 D10 D8 C10 C8 B8 B9 B7 E10 E11 F10 F11 G10 info move H2 visits 17 winrate 3614 pv H2 G2 H4 J4 G3 G4 J3 H4 F2 J2 G1 info ];B[fn]C[黑棋 胜率: 45.2% 
+(15b无电源 / 669 计算量)
+
+黑棋 胜率: 40.9% 
+盘面: 2.9 局面复杂度: 26.8
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 44.6% (+0.2%)
+盘面: 3.4 局面复杂度: 33.6
+(KataGo 6b / 121 计算量)
+步时: 0.203秒]LZ[15b无电源 45.2 669
+move D9 visits 371 winrate 5478 pv D9 H6 J6 H7 J7 J8 J5 H9 E5 F5 D10 C10 D11 L8 info move E5 visits 151 winrate 5425 pv E5 F5 D8 F8 D9 C10 D10 K5 H7 F10 D11 info move D8 visits 98 winrate 5127 pv D8 H6 J6 H7 J5 J7 K7 K8 L8 K9 L7 D9 E9 E10 info move N19 visits 27 winrate 4986 pv N19 Q19 D9 C10 E5 F5 J4 F9 D10 D11 info move C4 visits 14 winrate 4832 pv C4 D8 D5 F8 K5 O3 P3 info move F5 visits 8 winrate 5039 pv F5 G5 E5 G4 H4 H6 info ];W[dl]C[白棋 胜率: 49.8% 
+(15b无电源 / 633 计算量)
+
+白棋 胜率: 58.6% 
+盘面: 3.2 局面复杂度: 26.8
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 59.4% (-1.2%)
+盘面: 2.8 局面复杂度: 26.9
+(KataGo hzy6b / 135 计算量)
+步时: 0.304秒]LZ[15b无电源 49.8 633
+move H6 visits 549 winrate 5023 pv H6 J6 H7 J7 J8 J5 F8 K8 K9 L9 J9 L10 K11 C4 info move H2 visits 39 winrate 4527 pv H2 C4 D5 E5 F5 E6 J3 H4 F2 L4 info move D9 visits 20 winrate 4411 pv D9 E9 H6 J6 H7 J7 H8 J8 info move G7 visits 15 winrate 4233 pv G7 C4 D5 E5 F5 E6 B10 E10 K5 J6 info move F8 visits 8 winrate 3794 pv F8 C4 D9 D5 C8 G7 info move C4 visits 2 winrate 3749 pv C4 E5 info ];B[dk]C[黑棋 胜率: 41.2% 
+(15b无电源 / 575 计算量)
+
+黑棋 胜率: 41.5% 
+盘面: 3.2 局面复杂度: 26.8
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 44.9% (-0.3%)
+盘面: 3.7 局面复杂度: 34.1
+(KataGo 6b / 100 计算量)
+步时: 0.204秒]LZ[15b无电源 41.2 575
+move E5 visits 223 winrate 5883 pv E5 F5 F8 E9 F7 H2 G2 H4 G3 G4 F2 J3 E3 J5 M5 J7 C16 C17 C15 info move E9 visits 191 winrate 5439 pv E9 H6 J6 H7 J5 E8 F8 E7 J7 F7 J9 F2 info move C4 visits 85 winrate 5394 pv C4 D5 E5 F5 E6 F8 E9 E8 C8 B8 B7 B9 B4 info move F8 visits 76 winrate 5094 pv F8 H6 J6 H7 G5 F5 G6 D5 G7 E9 G10 O3 P3 info ];W[ek]C[白棋 胜率: 51.7% 
+(15b无电源 / 796 计算量)
+
+白棋 胜率: 56.7% 
+盘面: 4.1 局面复杂度: 26.9
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 60.9% (-1.5%)
+盘面: 2.1 局面复杂度: 26.9
+(KataGo hzy6b / 132 计算量)
+步时: 0.304秒]LZ[15b无电源 51.7 796
+move H6 visits 645 winrate 4828 pv H6 J5 G5 E5 J6 K5 K6 L5 E8 G7 info move E10 visits 121 winrate 4120 pv E10 F9 H6 J6 H7 J5 F7 F10 J7 E11 L7 L6 info move E8 visits 10 winrate 2922 pv E8 F8 E7 F5 G5 E5 G6 G4 H6 info move F8 visits 9 winrate 4135 pv F8 E8 K5 C4 H6 D5 J5 C8 info move H2 visits 7 winrate 3777 pv H2 G2 G3 J2 H4 J3 J4 info move D5 visits 4 winrate 3693 pv D5 E5 F5 E6 info ];B[el]C[黑棋 胜率: 38.6% 
+(15b无电源 / 516 计算量)
+
+黑棋 胜率: 36.1% 
+盘面: 0.8 局面复杂度: 26.6
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 44.5% (+0.3%)
+盘面: 3.3 局面复杂度: 34.1
+(KataGo 6b / 104 计算量)
+步时: 0.202秒]LZ[15b无电源 38.6 516
+move F8 visits 400 winrate 6144 pv F8 H6 J6 H7 E7 G5 J5 J7 E5 K6 K5 L5 L4 L6 info move F7 visits 37 winrate 5382 pv F7 H6 J6 G6 E5 G4 F9 H4 C4 E6 D5 info move C4 visits 27 winrate 5453 pv C4 D5 E5 F5 E6 F8 C8 B8 B7 B9 B4 info move D5 visits 26 winrate 5500 pv D5 C4 F8 E10 E7 F10 C3 H2 G2 info move F5 visits 12 winrate 4769 pv F5 E5 G5 D5 E3 F2 G2 N3 info move E5 visits 8 winrate 4730 pv E5 F5 E7 F8 F7 G7 G8 F9 info move E7 visits 6 winrate 5346 pv E7 F8 F7 G7 G8 F9 info ];W[fl]C[白棋 胜率: 57.8% 
+(15b无电源 / 977 计算量)
+
+白棋 胜率: 62.8% 
+盘面: 1.2 局面复杂度: 26.6
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 66.0% (-5.2%)
+盘面: -0.3 局面复杂度: 26.6
+(KataGo hzy6b / 114 计算量)
+步时: 0.303秒]LZ[15b无电源 57.8 977
+move H6 visits 779 winrate 4216 pv H6 J6 E7 G6 F5 E10 E2 H7 F7 G2 N3 N2 O2 info move E7 visits 190 winrate 3315 pv E7 D5 F9 E10 F10 C8 E11 B9 D10 B7 K5 M5 B10 C17 info move E10 visits 4 winrate 3595 pv E10 E7 F10 C4 info move D5 visits 4 winrate 3020 pv D5 E5 E6 F5 info ];B[em]C[黑棋 胜率: 33.2% 
+(15b无电源 / 789 计算量)
+
+黑棋 胜率: 33.7% 
+盘面: -0.5 局面复杂度: 26.7
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 42.1% (+2.5%)
+盘面: 1.5 局面复杂度: 34.2
+(KataGo 6b / 149 计算量)
+步时: 0.304秒]LZ[15b无电源 33.2 789
+move D5 visits 635 winrate 6678 pv D5 F9 E10 G8 F10 C4 G9 G7 H8 H7 J7 F5 J6 F2 J2 N3 N4 M4 info move F5 visits 88 winrate 5471 pv F5 E5 E6 G5 F7 D5 G6 F5 H6 O3 P3 P2 Q2 P4 Q3 M4 N3 N4 O2 O4 M2 M7 L5 info move C4 visits 36 winrate 6371 pv C4 F9 E10 G8 F10 F7 D5 C8 H10 J9 info move E6 visits 26 winrate 6291 pv E6 F7 F5 G5 E5 G4 G6 G7 H6 H4 J4 J3 F2 J5 K4 H2 G2 L4 info move F7 visits 2 winrate 5591 pv F7 E6 info move E10 visits 2 winrate 4613 pv E10 H6 info ];W[do]C[白棋 胜率: 63.3% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 65.4% 
+盘面: -0.1 局面复杂度: 26.8
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 67.8% (-1.8%)
+盘面: -1.4 局面复杂度: 27.1
+(KataGo hzy6b / 117 计算量)
+步时: 0.302秒]LZ[15b无电源 63.3 1.0k
+move F9 visits 915 winrate 3674 pv F9 E10 G8 C4 F10 C8 B8 B7 B9 B5 E11 C17 C16 B16 B15 B18 D18 D17 E17 C18 K5 M5 L6 M6 L8 info move C4 visits 43 winrate 1270 pv C4 F5 G5 F7 H6 E6 H4 J5 J4 G6 G4 K5 L4 O3 L5 info move F7 visits 26 winrate 2479 pv F7 C4 C8 F9 H6 G5 F5 K5 H8 info move H6 visits 14 winrate 2580 pv H6 C4 G5 C8 B8 B7 E10 F9 info move E10 visits 6 winrate 2668 pv E10 F9 C4 F7 E6 F5 info move G5 visits 4 winrate 2157 pv G5 C4 C8 H6 info ];B[fk]C[黑棋 胜率: 37.0% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 34.9% 
+盘面: 0.0 局面复杂度: 26.8
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 40.3% (+1.7%)
+盘面: 0.2 局面复杂度: 34.3
+(KataGo 6b / 126 计算量)
+步时: 0.205秒]LZ[15b无电源 37.0 1.0k
+move E10 visits 1013 winrate 6298 pv E10 G8 C4 F10 C8 B8 B7 B9 B5 E11 C17 C16 B16 B15 B18 D18 D17 E17 C18 K5 M5 L6 M6 L8 info move C8 visits 3 winrate 4963 pv C8 E10 B9 info ];W[ej]C[白棋 胜率: 62.3% 
+(15b无电源 / 1.1k 计算量)
+
+白棋 胜率: 64.5% 
+盘面: 0.2 局面复杂度: 27.1
+(KataGohzy6b / 1.1k 计算量)
+
+白棋 胜率: 68.6% (-0.8%)
+盘面: -1.6 局面复杂度: 26.9
+(KataGo hzy6b / 126 计算量)
+步时: 0.305秒]LZ[15b无电源 62.3 1.1k
+move G8 visits 978 winrate 3771 pv G8 C4 F10 C8 B8 B7 B9 B5 E11 C17 C16 B16 B15 B18 D18 D17 E17 C18 E18 A17 A15 A16 L13 C15 B14 K12 L12 info move F10 visits 72 winrate 3329 pv F10 F5 E11 G6 D10 C17 C16 B16 B15 B18 D18 D17 E17 C18 E18 info move C4 visits 12 winrate 1442 pv C4 F5 G5 F7 E6 G6 G7 E5 G4 H4 H6 info ];B[gl]C[黑棋 胜率: 37.6% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 35.1% 
+盘面: 0.2 局面复杂度: 26.9
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 37.7% (+2.7%)
+盘面: -1.5 局面复杂度: 34.0
+(KataGo 6b / 113 计算量)
+步时: 0.202秒]LZ[15b无电源 37.6 1.0k
+move C4 visits 390 winrate 6241 pv C4 F10 C8 B8 B7 B9 B5 E11 C17 C16 B16 B15 B18 D18 D17 E17 C18 E18 A17 A15 A16 L13 C15 B14 K12 L12 info move C8 visits 324 winrate 6246 pv C8 B8 C4 F10 B7 B9 B5 E11 C17 C16 B16 B15 B18 D18 D17 E17 C18 E18 A17 A15 A16 L13 C15 B14 K12 L12 info move F10 visits 322 winrate 6225 pv F10 C4 G9 G7 H8 H7 J7 F5 J6 N3 N2 O2 O3 N4 P2 M2 O1 M4 info ];W[cp]C[白棋 胜率: 60.4% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 62.4% 
+盘面: 1.4 局面复杂度: 26.8
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 67.4% (+1.2%)
+盘面: -1.1 局面复杂度: 27.0
+(KataGo hzy6b / 126 计算量)
+步时: 0.203秒]LZ[15b无电源 60.4 1.0k
+move F10 visits 905 winrate 3961 pv F10 C8 B8 B7 B9 B5 E11 C17 C16 D18 B17 B18 D17 C18 B16 F18 G18 A18 F17 E18 K5 M5 O2 info move C8 visits 76 winrate 2775 pv C8 F10 G9 G10 J9 H10 J7 C11 B4 B3 A4 info move B10 visits 15 winrate 2409 pv B10 F10 G9 G10 J9 J10 K10 H10 J8 K11 info move B4 visits 4 winrate 2977 pv B4 C8 B8 B3 info ];B[cl]C[黑棋 胜率: 34.0% 
+(15b无电源 / 578 计算量)
+
+黑棋 胜率: 37.0% 
+盘面: 0.9 局面复杂度: 27.5
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 40.4% (-2.7%)
+盘面: 0.3 局面复杂度: 34.2
+(KataGo 6b / 117 计算量)
+步时: 0.202秒]LZ[15b无电源 34.0 578
+move C16 visits 78 winrate 6595 pv C16 C15 B15 C17 B16 D15 B17 C18 C13 B12 B13 C12 D13 D12 E13 E12 F13 info move F10 visits 397 winrate 6325 pv F10 G9 G10 C2 E2 B4 F2 J9 H10 J8 K5 K11 H13 N3 M4 M2 info move D11 visits 85 winrate 6419 pv D11 C2 E2 F2 B4 B11 D2 G10 C14 info move C11 visits 14 winrate 5840 pv C11 D11 C16 C15 B15 D15 info move B5 visits 4 winrate 5476 pv B5 F10 E11 info ];W[fj]C[白棋 胜率: 59.4% 
+(15b无电源 / 867 计算量)
+
+白棋 胜率: 61.3% 
+盘面: 1.6 局面复杂度: 27.6
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 68.1% (-0.6%)
+盘面: -1.4 局面复杂度: 27.1
+(KataGo hzy6b / 104 计算量)
+步时: 0.202秒]LZ[15b无电源 59.4 867
+move G9 visits 819 winrate 4057 pv G9 N19 Q19 G10 J9 H10 J8 C11 B4 B3 A4 A3 B6 D2 K5 M5 D13 K11 info move F7 visits 48 winrate 2587 pv F7 H10 J9 J10 K5 K2 K9 K10 info ];B[gk]C[黑棋 胜率: 33.2% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 34.4% 
+盘面: -0.2 局面复杂度: 27.0
+(KataGohzy6b / 1.1k 计算量)
+
+黑棋 胜率: 38.0% (+2.4%)
+盘面: -1.4 局面复杂度: 34.3
+(KataGo 6b / 125 计算量)
+步时: 0.203秒]LZ[15b无电源 33.2 1.0k
+move N19 visits 238 winrate 6676 pv N19 Q19 G10 H10 H11 J9 J11 K5 K2 D11 J3 L9 F13 D13 C17 C16 info move T9 visits 54 winrate 6909 pv T9 G10 C11 E12 B15 C15 B16 B14 C14 info move G10 visits 436 winrate 5936 pv G10 C2 E2 B4 F2 J9 H10 J8 K5 K11 E13 N3 N4 M2 N2 O3 L2 info move H11 visits 129 winrate 5865 pv H11 G10 G11 F11 C16 C15 B15 C17 B16 D15 B17 info move C11 visits 118 winrate 5391 pv C11 C2 B5 D2 B6 B11 B12 C12 D12 C13 B10 D11 A11 D10 D13 E11 C14 B7 G10 H10 G11 F12 info move D11 visits 33 winrate 5966 pv D11 B11 H11 J9 K4 J4 J3 L4 K5 info ];W[gj]C[白棋 胜率: 56.1% 
+(15b无电源 / 942 计算量)
+
+白棋 胜率: 56.6% 
+盘面: 4.0 局面复杂度: 27.2
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 68.4% (-0.3%)
+盘面: -1.5 局面复杂度: 27.0
+(KataGo hzy6b / 120 计算量)
+步时: 0.207秒]LZ[15b无电源 56.1 942
+move C2 visits 833 winrate 4386 pv C2 E2 B4 F2 J9 J11 M4 N3 K5 J6 N4 O3 L7 K8 K7 J8 info move J9 visits 57 winrate 2544 pv J9 H10 J8 C11 C2 B5 D2 B6 B11 B10 D11 info move H10 visits 52 winrate 2591 pv H10 H11 J10 C11 D11 D10 C10 D12 B11 E11 B12 J11 info ];B[hj]C[黑棋 胜率: 28.1% 
+(15b无电源 / 544 计算量)
+
+黑棋 胜率: 32.3% 
+盘面: -1.5 局面复杂度: 27.3
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 37.0% (+1.0%)
+盘面: -2.0 局面复杂度: 34.2
+(KataGo 6b / 131 计算量)
+步时: 0.203秒]LZ[15b无电源 28.1 544
+move H11 visits 500 winrate 7193 pv H11 J9 G12 J11 J12 K11 C11 B4 B3 B5 C2 E2 D2 D11 D12 D10 info move C11 visits 32 winrate 7128 pv C11 D11 H11 J10 D10 C10 D12 B11 E11 B12 J11 info move D11 visits 12 winrate 6930 pv D11 H11 B11 B4 B3 A4 C2 C14 info ];W[hi]C[白棋 胜率: 67.4% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 67.1% 
+盘面: -1.2 局面复杂度: 27.4
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 67.0% (+1.4%)
+盘面: -1.2 局面复杂度: 27.5
+(KataGo hzy6b / 138 计算量)
+步时: 0.305秒]LZ[15b无电源 67.4 1.0k
+move J9 visits 720 winrate 3257 pv J9 J10 H9 C11 C2 B5 D2 B6 B11 B12 B10 C12 B7 B3 B2 A7 info move J10 visits 275 winrate 2796 pv J10 J11 K10 K11 L10 J8 H8 C11 D11 D10 C10 D12 B11 E11 B12 K4 L11 info move J11 visits 23 winrate 1472 pv J11 H9 J10 G7 H8 F7 E6 G6 F5 G2 F2 info ];B[ij]C[黑棋 胜率: 28.1% 
+(15b无电源 / 788 计算量)
+
+黑棋 胜率: 32.4% 
+盘面: -1.4 局面复杂度: 27.2
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 38.2% (-1.1%)
+盘面: -1.0 局面复杂度: 34.1
+(KataGo 6b / 107 计算量)
+步时: 0.203秒]LZ[15b无电源 28.1 788
+move J11 visits 468 winrate 7186 pv J11 K10 J8 D12 K11 L10 L8 L11 F12 L13 G14 J13 H13 J14 info move G12 visits 80 winrate 7212 pv G12 D11 J11 K10 J8 K11 K12 L12 K13 L13 K14 L14 info move D11 visits 76 winrate 6820 pv D11 C2 E2 B4 F2 J11 H12 J12 info move C11 visits 131 winrate 6631 pv C11 C2 B5 D2 B6 B11 B12 B10 C12 B7 B3 B2 A11 A10 A12 A7 C10 B9 info move J8 visits 33 winrate 7087 pv J8 J11 H12 J12 H13 F12 D11 B11 J13 K13 K14 L13 info ];W[il]C[白棋 胜率: 51.5% 
+(15b无电源 / 553 计算量)
+
+白棋 胜率: 65.6% 
+盘面: -0.9 局面复杂度: 28.1
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 68.3% (-1.4%)
+盘面: -2.2 局面复杂度: 27.9
+(KataGo hzy6b / 142 计算量)
+步时: 0.208秒]LZ[15b无电源 51.5 553
+move C2 visits 499 winrate 4851 pv C2 E2 F2 B2 J11 H12 J12 D11 B11 H13 K5 J6 H2 H9 J13 H14 info move J11 visits 44 winrate 2795 pv J11 H12 J12 H13 D12 E13 D13 J13 K13 K14 L13 E14 info move J7 visits 4 winrate 2050 pv J7 C11 D11 D10 info move G11 visits 3 winrate 2431 pv G11 D11 info move H7 visits 3 winrate 2136 pv H7 J11 K10 info ];B[ii]C[黑棋 胜率: 33.0% 
+(15b无电源 / 571 计算量)
+
+黑棋 胜率: 33.9% 
+盘面: -1.1 局面复杂度: 28.0
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 39.6% (-1.4%)
+盘面: -0.5 局面复杂度: 35.3
+(KataGo 6b / 151 计算量)
+步时: 0.304秒]LZ[15b无电源 33.0 571
+move H12 visits 533 winrate 6703 pv H12 J12 H13 D12 E13 D13 H9 G7 J13 J7 K8 K7 L8 L7 info move D11 visits 25 winrate 6195 pv D11 H12 B11 B4 B3 A4 C2 C14 D13 B13 info move C11 visits 13 winrate 6396 pv C11 H12 E12 B4 B3 B5 C2 info ];W[hh]C[白棋 胜率: 63.7% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 64.8% 
+盘面: -0.4 局面复杂度: 28.0
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 67.5% (+0.8%)
+盘面: -1.7 局面复杂度: 27.9
+(KataGo hzy6b / 129 计算量)
+步时: 0.302秒]LZ[15b无电源 63.7 1.0k
+move J12 visits 966 winrate 3626 pv J12 F12 D12 G14 J14 F15 G16 D15 C16 C15 C13 E15 B16 info move D11 visits 17 winrate 3101 pv D11 J12 F12 H9 G7 K11 info move D12 visits 17 winrate 2947 pv D12 E13 J12 H13 D13 J13 K13 info move F12 visits 7 winrate 2407 pv F12 D11 B11 J12 K12 K13 info move J7 visits 2 winrate 2330 pv J7 H7 info ];B[ih]C[黑棋 胜率: 34.5% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 36.2% 
+盘面: 0.0 局面复杂度: 28.3
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 38.7% (+0.9%)
+盘面: -0.9 局面复杂度: 35.1
+(KataGo 6b / 134 计算量)
+步时: 0.204秒]LZ[15b无电源 34.5 1.0k
+move F12 visits 332 winrate 6550 pv F12 D12 G14 J14 F15 G16 D15 C16 C15 C13 E15 B16 info move H13 visits 450 winrate 6330 pv H13 C2 E2 F2 B2 D12 E13 D13 J13 K13 K14 L13 E14 D14 H9 G7 info move C11 visits 100 winrate 6466 pv C11 C2 B5 D2 B6 B11 C12 B12 B13 info move D11 visits 60 winrate 5489 pv D11 C2 E2 F2 B4 B11 H13 K5 D2 K7 info move E15 visits 43 winrate 6684 pv E15 H13 G13 E13 E16 E17 D15 D17 H14 info move D12 visits 32 winrate 6412 pv D12 F12 C11 D10 E11 C13 D13 C14 F13 D11 G12 info ];W[hg]C[白棋 胜率: 50.3% 
+(15b无电源 / 952 计算量)
+
+白棋 胜率: 52.8% 
+盘面: 5.3 局面复杂度: 28.5
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 66.2% (+1.3%)
+盘面: -1.1 局面复杂度: 28.0
+(KataGo hzy6b / 125 计算量)
+步时: 0.202秒]LZ[15b无电源 50.3 952
+move C2 visits 652 winrate 4974 pv C2 E2 F2 B2 D12 E13 D13 J13 J7 K7 J6 H7 H8 J9 H9 info move D12 visits 164 winrate 3288 pv D12 E13 D13 H9 G7 J13 J7 K8 K7 L8 L7 info move J13 visits 59 winrate 2883 pv J13 C11 D11 D12 D10 E12 C12 C13 B12 info move D11 visits 53 winrate 3219 pv D11 E12 D12 E13 D13 J13 J7 H7 H8 K7 J6 info move F12 visits 24 winrate 2367 pv F12 D11 B11 J13 K13 K14 L13 L14 M14 info ];B[di]C[黑棋 胜率: 32.7% 
+(15b无电源 / 572 计算量)
+
+黑棋 胜率: 33.8% 
+盘面: -0.8 局面复杂度: 27.5
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 41.0% (-2.3%)
+盘面: 0.7 局面复杂度: 35.2
+(KataGo 6b / 117 计算量)
+步时: 0.212秒]LZ[15b无电源 32.7 572
+move E12 visits 395 winrate 6727 pv E12 D12 H9 G7 J13 J7 K8 K7 L8 L7 M8 L4 M4 M7 N8 M14 L13 M13 M12 N12 L12 info move F12 visits 129 winrate 6520 pv F12 E13 H9 G7 J13 J7 K8 K7 L8 info move J13 visits 39 winrate 6119 pv J13 F12 F13 E12 L13 G11 L9 L12 K13 L10 M9 O2 P3 M2 N3 info move E13 visits 9 winrate 5736 pv E13 F12 F13 E11 G11 G14 G13 info ];W[eh]C[白棋 胜率: 68.4% 
+(15b无电源 / 997 计算量)
+
+白棋 胜率: 56.6% 
+盘面: 3.6 局面复杂度: 28.1
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 70.7% (-4.4%)
+盘面: -2.8 局面复杂度: 27.3
+(KataGo hzy6b / 108 计算量)
+步时: 0.303秒]LZ[15b无电源 68.4 997
+move D12 visits 966 winrate 3164 pv D12 H9 H7 J7 H6 G5 F5 J6 J13 H14 F12 G7 F7 G6 J14 H8 F8 G11 info move J13 visits 24 winrate 2469 pv J13 D12 C12 C13 B12 E15 E16 C15 C16 H14 K5 J6 info move D13 visits 7 winrate 2649 pv D13 J13 J7 H7 info ];B[dh]C[黑棋 胜率: 29.1% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 35.8% 
+盘面: 0.3 局面复杂度: 26.9
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 39.6% (+1.4%)
+盘面: 0.1 局面复杂度: 34.9
+(KataGo 6b / 145 计算量)
+步时: 0.305秒]LZ[15b无电源 29.1 1.0k
+move H9 visits 671 winrate 7089 pv H9 H7 J7 H6 G5 F5 J6 J13 H14 F12 G7 F7 G6 J14 H8 F8 H15 J15 H16 G11 info move J13 visits 70 winrate 6616 pv J13 J7 K7 J6 L8 K6 L6 L5 L4 M6 L7 K5 info move E13 visits 207 winrate 6299 pv E13 C2 D2 B4 H9 G7 H6 F5 L8 J13 H14 J14 G16 F15 D13 G2 H2 N3 info move E14 visits 53 winrate 6669 pv E14 D13 J13 J7 K7 J6 H7 H8 G7 F7 info ];W[ig]C[白棋 胜率: 62.9% 
+(15b无电源 / 619 计算量)
+
+白棋 胜率: 60.9% 
+盘面: 2.1 局面复杂度: 26.1
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 68.5% (+2.2%)
+盘面: -2.4 局面复杂度: 27.8
+(KataGo hzy6b / 119 计算量)
+步时: 0.303秒]LZ[15b无电源 62.9 619
+move J7 visits 495 winrate 3710 pv J7 K7 J6 H9 G7 K8 K6 L6 L5 M5 L7 M6 L8 K9 L12 L9 info move K13 visits 54 winrate 2743 pv K13 K14 L14 E13 D13 L13 K12 L15 M14 M15 info move F12 visits 26 winrate 2461 pv F12 H9 G7 K12 L11 L13 J7 K8 K7 info move J6 visits 13 winrate 3232 pv J6 H6 J7 H7 H8 K8 K5 K2 K13 K14 L13 info move H7 visits 12 winrate 2269 pv H7 J7 H6 J6 G5 H9 K13 K14 L13 L14 info move E13 visits 8 winrate 2721 pv E13 L13 F12 G12 J7 info move H8 visits 7 winrate 2546 pv H8 E13 J7 K6 K7 L7 info move F2 visits 4 winrate 2739 pv F2 C2 K13 K14 info ];B[jg]C[黑棋 胜率: 23.8% 
+(15b无电源 / 713 计算量)
+
+黑棋 胜率: 31.2% 
+盘面: -2.7 局面复杂度: 28.2
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 37.9% (+1.7%)
+盘面: -1.0 局面复杂度: 35.0
+(KataGo 6b / 152 计算量)
+步时: 0.314秒]LZ[15b无电源 23.8 713
+move K14 visits 427 winrate 7622 pv K14 L14 H9 G7 L13 K12 L15 M14 M15 J14 K15 H14 G14 J16 G16 H16 F15 G17 info move E13 visits 243 winrate 7522 pv E13 K14 D13 C13 C14 B13 E15 E16 H15 K5 J6 H2 J4 J3 info move H9 visits 37 winrate 7865 pv H9 H7 K14 L13 J7 H6 J6 G5 L14 L11 M13 L9 M10 L7 L6 info move E14 visits 6 winrate 6046 pv E14 F12 K14 E11 info ];W[jf]C[白棋 胜率: 74.0% 
+(15b无电源 / 977 计算量)
+
+白棋 胜率: 68.6% 
+盘面: -2.5 局面复杂度: 28.2
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 69.0% (-0.5%)
+盘面: -2.8 局面复杂度: 28.4
+(KataGo hzy6b / 127 计算量)
+步时: 0.31秒]LZ[15b无电源 74.0 977
+move L13 visits 559 winrate 2598 pv L13 H9 G7 H6 F5 E13 J7 K7 H7 K6 K8 L8 K9 info move L14 visits 383 winrate 2399 pv L14 H9 G7 L13 K12 L15 M14 J15 N14 E13 J7 D13 K7 L4 B13 info move J7 visits 26 winrate 2608 pv J7 K7 J6 H9 G7 K8 K6 L6 L5 M6 M5 info move H7 visits 9 winrate 2387 pv H7 J7 H6 J6 L13 E13 info ];B[kg]C[黑棋 胜率: 24.8% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 31.0% 
+盘面: -2.4 局面复杂度: 27.6
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 38.9% (-1.0%)
+盘面: -0.3 局面复杂度: 34.8
+(KataGo 6b / 110 计算量)
+步时: 0.21秒]LZ[15b无电源 24.8 1.0k
+move H9 visits 599 winrate 7522 pv H9 G7 H6 E5 L8 L14 E13 D13 E15 E16 F15 G15 G14 H15 D15 info move E13 visits 206 winrate 7127 pv E13 C2 D2 B4 H9 G7 H6 F5 L8 L14 B3 C3 L11 L10 M10 M11 L9 info move E14 visits 114 winrate 7103 pv E14 F12 E11 E13 F13 D13 G14 K5 J6 H2 H9 H7 J7 J3 L14 info move L14 visits 36 winrate 6680 pv L14 J7 H7 H8 K7 J6 J9 H9 K6 info move M15 visits 20 winrate 6591 pv M15 J14 H14 J15 G16 J16 F15 E15 F17 E16 info move D13 visits 18 winrate 7003 pv D13 C13 D14 C14 H9 H7 J7 H6 J6 G5 L14 L11 info move E15 visits 16 winrate 6908 pv E15 E13 E16 E17 F15 F17 D15 C16 F13 F12 info move G7 visits 6 winrate 6534 pv G7 F7 H9 H7 J7 G6 info ];W[hk]C[白棋 胜率: 72.4% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 68.0% 
+盘面: -2.6 局面复杂度: 29.0
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 68.7% (+0.3%)
+盘面: -3.3 局面复杂度: 29.3
+(KataGo hzy6b / 114 计算量)
+步时: 0.203秒]LZ[15b无电源 72.4 1.0k
+move G7 visits 752 winrate 2760 pv G7 H6 F5 L14 J14 M13 M12 M14 K8 K9 J9 H8 L9 info move H7 visits 245 winrate 2156 pv H7 J7 H6 J6 G5 L14 L11 M14 L9 K9 M8 M6 K10 M10 L10 J5 info move H8 visits 4 winrate 1515 pv H8 J9 J7 K7 info move H6 visits 4 winrate 1456 pv H6 G7 F7 H8 info ];B[gm]C[黑棋 胜率: 25.6% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 30.0% 
+盘面: -3.6 局面复杂度: 28.6
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 40.4% (-1.4%)
+盘面: 0.6 局面复杂度: 34.5
+(KataGo 6b / 108 计算量)
+步时: 0.202秒]LZ[15b无电源 25.6 1.0k
+move L11 visits 132 winrate 7439 pv L11 L10 L14 M11 L9 L12 H6 M9 L8 info move H6 visits 462 winrate 7328 pv H6 F5 L14 M14 M15 J14 N15 H14 G14 G15 L17 L16 K16 K17 L15 L17 F14 info move E13 visits 100 winrate 7065 pv E13 C2 D2 B4 H6 F5 L8 L14 L11 L10 M10 info move L14 visits 188 winrate 7001 pv L14 M14 M15 J14 M13 M12 N14 H14 F13 E11 G14 G15 F15 H16 E15 F12 E16 G11 D17 info move J6 visits 58 winrate 6920 pv J6 F12 L14 M14 M15 J14 M13 L11 L16 L17 H14 info move M15 visits 39 winrate 7034 pv M15 K8 J9 K9 J7 K7 J6 L5 info move L8 visits 13 winrate 7068 pv L8 L14 E13 D13 E14 J7 K7 J6 K5 F15 H15 K15 F14 info move E14 visits 10 winrate 6673 pv E14 F12 E11 E13 F13 D13 G14 J7 info move J9 visits 2 winrate 6352 pv J9 L14 info ];W[in]C[白棋 胜率: 57.0% 
+(15b无电源 / 574 计算量)
+
+白棋 胜率: 64.4% 
+盘面: -0.7 局面复杂度: 29.3
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 67.0% (+1.7%)
+盘面: -2.8 局面复杂度: 30.0
+(KataGo hzy6b / 114 计算量)
+步时: 0.305秒]LZ[15b无电源 57.0 574
+move F12 visits 504 winrate 4299 pv F12 L14 J14 K12 L12 K11 K9 L11 M11 L10 K8 M12 M13 M14 N13 N12 G11 info move L14 visits 61 winrate 2538 pv L14 E13 D13 E15 E16 F15 E11 F11 G15 G14 info move F2 visits 3 winrate 2185 pv F2 C2 H2 info move G5 visits 2 winrate 2444 pv G5 L14 info move H2 visits 2 winrate 2312 pv H2 G2 info move K7 visits 2 winrate 2059 pv K7 J7 info ];B[kf]C[黑棋 胜率: 26.4% 
+(15b无电源 / 620 计算量)
+
+黑棋 胜率: 34.7% 
+盘面: -1.6 局面复杂度: 29.9
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 42.7% (-2.4%)
+盘面: 2.3 局面复杂度: 35.1
+(KataGo 6b / 141 计算量)
+步时: 0.304秒]LZ[15b无电源 26.4 620
+move E13 visits 495 winrate 7359 pv E13 D13 E15 F15 F14 E16 H15 G5 G2 F2 C2 J9 K8 info move L15 visits 59 winrate 7339 pv L15 K15 J14 M15 E13 D13 J15 L16 E15 E16 F15 E11 F12 H16 info move E14 visits 31 winrate 6970 pv E14 D13 G15 E13 F13 F12 F15 G13 G14 F14 K15 L15 info move J15 visits 16 winrate 6977 pv J15 K15 E13 D13 E15 E16 F15 info move G2 visits 10 winrate 6430 pv G2 F2 E13 D13 C2 E11 F11 info move K15 visits 6 winrate 6480 pv K15 H15 E13 D13 info move E2 visits 3 winrate 6024 pv E2 F2 E13 info ];W[eg]C[白棋 胜率: 53.1% 
+(15b无电源 / 940 计算量)
+
+白棋 胜率: 52.9% 
+盘面: 5.2 局面复杂度: 28.8
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 66.8% (+0.3%)
+盘面: -1.6 局面复杂度: 28.7
+(KataGo hzy6b / 139 计算量)
+步时: 0.303秒]LZ[15b无电源 53.1 940
+move C2 visits 374 winrate 4692 pv C2 E2 F2 B2 H2 J2 J3 G2 H4 H1 J4 F1 K7 J7 G5 info move D13 visits 483 winrate 2695 pv D13 E15 F15 F14 E16 H15 G5 G2 F2 C2 J9 K8 H8 info move G5 visits 38 winrate 2195 pv G5 E15 D15 E16 E17 F15 D14 D17 C17 D18 info move H2 visits 14 winrate 1980 pv H2 J2 J3 G2 H4 H1 G4 info move E11 visits 14 winrate 1657 pv E11 F11 D13 E14 D14 E15 E16 G2 F2 C2 G5 H6 info move C14 visits 12 winrate 2316 pv C14 G15 G5 E2 F2 H2 C2 info move F2 visits 5 winrate 1936 pv F2 C2 H2 D13 L4 info ];B[hr]C[黑棋 胜率: 19.6% 
+(15b无电源 / 490 计算量)
+
+黑棋 胜率: 30.7% 
+盘面: -3.0 局面复杂度: 28.5
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 43.9% (-1.1%)
+盘面: 3.3 局面复杂度: 34.1
+(KataGo 6b / 115 计算量)
+步时: 0.202秒]LZ[15b无电源 19.6 490
+move J2 visits 337 winrate 8040 pv J2 J3 G4 G5 G2 F2 H1 C2 D2 B4 B3 C3 B5 D4 L17 N19 C4 A4 A5 D4 info move G2 visits 115 winrate 7798 pv G2 G3 J2 H4 J3 J4 F2 K2 H1 K5 G5 F5 L7 K1 J1 M4 G4 info move D13 visits 22 winrate 7225 pv D13 J3 B13 B12 M5 B15 G15 F15 info move E15 visits 10 winrate 7476 pv E15 E16 C14 J3 B5 B6 B16 E11 info move G4 visits 6 winrate 6550 pv G4 G5 J2 G2 J3 C2 info ];W[gr]C[白棋 胜率: 66.8% 
+(15b无电源 / 636 计算量)
+
+白棋 胜率: 60.1% 
+盘面: 1.5 局面复杂度: 28.6
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 66.6% (+0.1%)
+盘面: -1.6 局面复杂度: 28.3
+(KataGo hzy6b / 116 计算量)
+步时: 0.325秒]LZ[15b无电源 66.8 636
+move F2 visits 460 winrate 3325 pv F2 J2 C2 D2 B4 B3 C3 B5 D4 L17 N19 C4 A4 A3 D4 K18 O18 C4 E11 A5 F12 F13 G11 info move G3 visits 159 winrate 2185 pv G3 J2 H4 J3 J4 F2 K2 H1 K5 G5 F5 L7 K1 J1 M4 G4 info move H4 visits 17 winrate 889 pv H4 J4 G3 G4 G5 J2 F2 H1 H4 D13 J3 G4 C2 D2 info ];B[gq]C[黑棋 胜率: 19.2% 
+(15b无电源 / 904 计算量)
+
+黑棋 胜率: 31.2% 
+盘面: -2.1 局面复杂度: 28.0
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 46.5% (-2.7%)
+盘面: 4.9 局面复杂度: 34.2
+(KataGo 6b / 103 计算量)
+步时: 0.203秒]LZ[15b无电源 19.2 904
+move F2 visits 458 winrate 8081 pv F2 H4 J3 E2 J2 E3 D2 J4 K4 D1 C1 E1 B2 K2 H1 K1 J1 F1 G5 F5 info move J2 visits 432 winrate 7959 pv J2 H4 J3 J4 F2 K2 H1 K5 G5 F5 L7 K1 E2 J7 K7 H7 K6 J9 info move H4 visits 8 winrate 6067 pv H4 F2 J2 G1 K2 B2 B3 D2 info move G5 visits 6 winrate 6698 pv G5 F5 J2 H4 J3 J4 info ];W[ir]C[白棋 胜率: 78.7% 
+(15b无电源 / 972 计算量)
+
+白棋 胜率: 69.3% 
+盘面: -2.3 局面复杂度: 27.9
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 62.2% (+4.4%)
+盘面: 1.0 局面复杂度: 28.1
+(KataGo hzy6b / 138 计算量)
+步时: 0.303秒]LZ[15b无电源 78.7 972
+move H4 visits 932 winrate 2134 pv H4 J3 J4 F2 K2 H1 L5 D13 M4 N4 N3 O3 N2 O4 L8 T9 T10 B13 info move F2 visits 19 winrate 1340 pv F2 H1 C2 D2 B4 B3 C3 B2 D4 L17 N19 info move E2 visits 10 winrate 1926 pv E2 D2 H4 J3 J4 K2 G5 D13 info move D2 visits 4 winrate 1573 pv D2 C2 H4 J3 info move D13 visits 4 winrate 1553 pv D13 E15 H4 info move E11 visits 3 winrate 1187 pv E11 F11 H4 info ];B[hp]C[黑棋 胜率: 21.1% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 31.1% 
+盘面: -2.2 局面复杂度: 28.0
+(KataGohzy6b / 1.1k 计算量)
+
+黑棋 胜率: 45.9% (+0.6%)
+盘面: 4.4 局面复杂度: 34.5
+(KataGo 6b / 149 计算量)
+步时: 0.202秒]LZ[15b无电源 21.1 1.0k
+move J3 visits 845 winrate 7888 pv J3 J4 F2 K2 H1 L5 L7 M4 N4 N3 O3 N2 O4 M2 D13 M6 M7 N6 info move H1 visits 162 winrate 7748 pv H1 J4 F2 M4 G5 F5 N4 M5 L7 N3 O3 N2 O4 info move G5 visits 16 winrate 6784 pv G5 F5 J3 J4 F2 K2 H1 J5 D13 L5 info ];W[hs]C[白棋 胜率: 74.3% 
+(15b无电源 / 765 计算量)
+
+白棋 胜率: 68.1% 
+盘面: -2.1 局面复杂度: 28.5
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 65.3% (-3.0%)
+盘面: -0.4 局面复杂度: 27.7
+(KataGo hzy6b / 119 计算量)
+步时: 0.102秒]LZ[15b无电源 74.3 765
+move J4 visits 715 winrate 2568 pv J4 F2 D13 G5 F5 G4 J7 K7 H7 K6 K8 L8 K9 G15 F14 info move J3 visits 31 winrate 1737 pv J3 D13 H2 T9 T10 H3 J4 F2 M4 info move E2 visits 19 winrate 2472 pv E2 J4 C2 D2 D1 B2 B1 C3 C1 E3 F2 info ];B[iq]C[黑棋 胜率: 16.8% 
+(15b无电源 / 517 计算量)
+
+黑棋 胜率: 24.4% 
+盘面: -6.4 局面复杂度: 28.2
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 44.7% (+1.2%)
+盘面: 3.8 局面复杂度: 33.7
+(KataGo 6b / 121 计算量)
+步时: 0.203秒]LZ[15b无电源 16.8 517
+move E15 visits 98 winrate 8316 pv E15 F2 J4 H2 L17 N19 H3 G4 info move J4 visits 194 winrate 8371 pv J4 H2 E6 F7 H3 E11 G4 F12 G11 G5 H4 G14 J15 K15 H15 H17 H7 F5 info move D13 visits 187 winrate 8148 pv D13 H2 L11 F2 B5 B6 B4 B13 H3 info move F2 visits 28 winrate 7806 pv F2 H2 E15 E2 E3 H3 E16 E17 info move N19 visits 4 winrate 7878 pv N19 Q19 D13 info move G5 visits 4 winrate 6488 pv G5 F5 F2 H2 info move H2 visits 2 winrate 6715 pv H2 J4 info ];W[fr]C[白棋 胜率: 71.7% 
+(15b无电源 / 523 计算量)
+
+白棋 胜率: 68.4% 
+盘面: -3.0 局面复杂度: 29.3
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 72.0% (-6.7%)
+盘面: -2.6 局面复杂度: 26.1
+(KataGo hzy6b / 127 计算量)
+步时: 0.304秒]LZ[15b无电源 71.7 523
+move D13 visits 377 winrate 2833 pv D13 E15 F15 D14 C14 E16 E17 D17 D15 E14 F17 C13 info move H2 visits 146 winrate 2169 pv H2 D13 H3 B13 E2 E3 F1 D2 G1 B11 info ];B[hr]C[黑棋 胜率: 19.9% 
+(15b无电源 / 631 计算量)
+
+黑棋 胜率: 26.8% 
+盘面: -2.3 局面复杂度: 24.9
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 43.9% (+0.8%)
+盘面: 3.7 局面复杂度: 32.8
+(KataGo 6b / 107 计算量)
+步时: 0.203秒]LZ[15b无电源 19.9 631
+move E15 visits 236 winrate 8011 pv E15 D15 H3 G5 E16 E17 F15 D14 F17 E18 D17 C17 F18 D18 info move D13 visits 334 winrate 7940 pv D13 H3 C13 B12 C12 C11 B13 B15 M5 R3 Q3 Q2 P2 S2 S4 info move R14 visits 19 winrate 7270 pv R14 S13 H3 D13 E15 E16 F15 H2 info move T9 visits 11 winrate 7370 pv T9 C14 H3 K7 J7 H2 E15 E16 H3 info move N19 visits 11 winrate 6695 pv N19 Q19 H3 D13 H2 J5 G5 info move G5 visits 8 winrate 6981 pv G5 F5 H3 E11 F11 H2 D13 info move S17 visits 7 winrate 6629 pv S17 N19 H3 E11 F11 info move C14 visits 3 winrate 7279 pv C14 E2 E3 info move L17 visits 2 winrate 6778 pv L17 N19 info ];W[dg]C[白棋 胜率: 77.8% 
+(15b无电源 / 847 计算量)
+
+白棋 胜率: 71.2% 
+盘面: -0.7 局面复杂度: 24.0
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 75.0% (-3.0%)
+盘面: -2.9 局面复杂度: 24.9
+(KataGo hzy6b / 121 计算量)
+步时: 0.303秒]LZ[15b无电源 77.8 847
+move H3 visits 628 winrate 2225 pv H3 C13 B12 C12 C11 B13 B15 M5 R3 Q3 Q2 P2 S2 L9 M10 L10 info move E2 visits 88 winrate 1916 pv E2 E3 H3 M5 C15 C14 B15 E15 E16 B12 B11 C12 C11 info move E11 visits 55 winrate 2072 pv E11 F11 D10 F13 E2 E3 H3 D2 L5 L8 K7 info move M4 visits 22 winrate 1314 pv M4 H3 J4 N4 M5 M7 N3 O3 N2 O4 M2 T9 T10 B13 info move C15 visits 17 winrate 1573 pv C15 H3 C13 C14 B14 D14 B12 G15 H2 info move C2 visits 10 winrate 1566 pv C2 B4 E2 D2 E3 E1 H3 info move C13 visits 7 winrate 1479 pv C13 C14 B13 H3 E11 F11 H2 info move K7 visits 5 winrate 1577 pv K7 H3 J7 B13 B12 info move L5 visits 5 winrate 1543 pv L5 H3 K7 J4 info move B13 visits 4 winrate 1609 pv B13 H3 K7 J7 info move B12 visits 3 winrate 1568 pv B12 H3 info move O11 visits 2 winrate 1145 pv O11 H3 info move K2 visits 1 winrate 1106 pv K2 info ];B[hq]C[黑棋 胜率: 22.1% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 25.1% 
+盘面: -2.3 局面复杂度: 23.7
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 43.2% (+0.7%)
+盘面: 3.4 局面复杂度: 32.8
+(KataGo 6b / 156 计算量)
+步时: 0.303秒]LZ[15b无电源 22.1 1.0k
+move T9 visits 147 winrate 7787 pv T9 T10 B13 B15 B11 B10 M5 O11 O9 P11 P9 info move C13 visits 324 winrate 7719 pv C13 C2 B2 B3 B4 B1 A2 D2 E2 A3 E3 D1 C3 A1 info move B13 visits 260 winrate 7640 pv B13 E11 F12 B15 B11 C11 B14 B10 C15 C16 B16 B17 A15 info move L9 visits 70 winrate 7728 pv L9 M10 L10 L11 M11 N11 M12 N12 M13 N13 M14 N14 M15 N15 L15 info move L5 visits 40 winrate 7695 pv L5 E2 E3 D2 C2 F1 B4 B13 B14 C13 C14 B16 E15 E16 info move M5 visits 61 winrate 7206 pv M5 C2 B2 B4 C3 B3 D2 A2 B1 R3 P2 Q2 S5 S2 info move B12 visits 43 winrate 7302 pv B12 C2 B2 C13 C14 B13 B14 C12 E15 info move E2 visits 25 winrate 7400 pv E2 M4 N4 M5 M7 N3 O3 N2 O4 M2 T9 T10 info move C16 visits 16 winrate 7438 pv C16 C15 D15 B15 E16 D17 E15 info move G5 visits 7 winrate 7406 pv G5 F5 M5 E2 D2 info move E3 visits 6 winrate 6809 pv E3 L5 L8 N4 O3 K7 info move N19 visits 5 winrate 7075 pv N19 Q19 M5 E2 E3 info move H16 visits 3 winrate 6917 pv H16 E2 D2 info ];W[er]C[白棋 胜率: 71.9% 
+(15b无电源 / 522 计算量)
+
+白棋 胜率: 69.4% 
+盘面: 0.0 局面复杂度: 23.9
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 71.7% (+3.2%)
+盘面: -0.9 局面复杂度: 24.1
+(KataGo hzy6b / 139 计算量)
+步时: 0.353秒]LZ[15b无电源 71.9 522
+move M4 visits 458 winrate 2815 pv M4 N4 M5 M7 N3 O3 N2 N5 O2 M6 K5 P3 C15 C14 B15 E15 E16 info move L5 visits 33 winrate 2165 pv L5 M7 N5 O3 K7 K8 J7 L6 K6 K5 info move C15 visits 15 winrate 2083 pv C15 B13 M4 B11 C11 C14 B10 B15 info move B5 visits 8 winrate 2619 pv B5 B4 M4 N4 M5 info move O3 visits 4 winrate 2090 pv O3 M5 Q3 R3 info move K7 visits 4 winrate 1866 pv K7 M5 M7 info ];B[ce]C[黑棋 胜率: 23.2% 
+(15b无电源 / 497 计算量)
+
+黑棋 胜率: 27.3% 
+盘面: -1.8 局面复杂度: 24.9
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 42.1% (+1.1%)
+盘面: 2.6 局面复杂度: 33.1
+(KataGo 6b / 139 计算量)
+步时: 0.304秒]LZ[15b无电源 23.2 497
+move B13 visits 196 winrate 7683 pv B13 B5 B4 A4 A3 A5 B3 M4 N4 M5 M7 N3 O3 info move C14 visits 152 winrate 7533 pv C14 M4 N3 N4 O4 O3 O2 P3 P2 M6 M8 P4 Q3 info move G5 visits 79 winrate 7513 pv G5 F5 B13 L5 L7 N4 N3 M4 L3 L4 O3 info move E15 visits 32 winrate 7314 pv E15 C13 E16 E17 F17 D17 G16 M4 N4 info move C13 visits 23 winrate 7361 pv C13 B12 B13 M4 N4 M5 M7 N3 O3 N2 O4 info move C12 visits 7 winrate 6890 pv C12 C11 C14 M4 N4 M5 info move B14 visits 7 winrate 6594 pv B14 B12 B13 M4 N4 M5 info move B12 visits 1 winrate 7636 pv B12 info ];W[cf]C[白棋 胜率: 72.9% 
+(15b无电源 / 689 计算量)
+
+白棋 胜率: 68.3% 
+盘面: 0.3 局面复杂度: 24.0
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 71.9% (-0.2%)
+盘面: -1.1 局面复杂度: 23.9
+(KataGo hzy6b / 104 计算量)
+步时: 0.304秒]LZ[15b无电源 72.9 689
+move B5 visits 123 winrate 2708 pv B5 B4 A4 A3 A5 B3 M4 N4 M5 M7 N3 O3 N2 info move M4 visits 348 winrate 2565 pv M4 N4 M5 M7 N3 O3 N2 N5 O2 P3 B15 B12 B11 C12 C11 E15 E16 info move L5 visits 91 winrate 2394 pv L5 L8 N4 L11 K7 L7 B15 N3 M4 O4 info move B15 visits 115 winrate 2004 pv B15 E15 E16 L5 G14 J15 K15 B12 B11 C12 C11 D15 B14 H15 info move B12 visits 6 winrate 2194 pv B12 B15 B16 B13 M4 N4 info move K7 visits 6 winrate 1885 pv K7 M5 M7 L6 info ];B[lp]C[黑棋 胜率: 23.4% 
+(15b无电源 / 918 计算量)
+
+黑棋 胜率: 30.6% 
+盘面: -0.2 局面复杂度: 24.3
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 41.8% (+0.3%)
+盘面: 2.7 局面复杂度: 31.9
+(KataGo 6b / 111 计算量)
+步时: 0.204秒]LZ[15b无电源 23.4 918
+move N4 visits 460 winrate 7661 pv N4 M5 M7 N3 O3 N2 N5 O2 P3 B15 E15 E16 T9 T10 M6 G14 J15 K15 B12 B11 C12 C11 B14 J14 H14 info move N3 visits 314 winrate 7388 pv N3 N4 O4 O5 P4 M8 L4 L5 K5 L3 L6 K4 info move B11 visits 30 winrate 7283 pv B11 B12 B13 C12 B15 B16 A12 B10 B5 B6 info move B15 visits 26 winrate 7212 pv B15 B16 B11 B12 B13 A12 N4 M5 info move T9 visits 26 winrate 7039 pv T9 T10 N4 M5 M7 N3 O3 N2 O2 N5 O4 M2 O7 M9 info move M6 visits 14 winrate 6948 pv M6 N4 P3 O2 M2 O3 K2 info move L4 visits 13 winrate 6100 pv L4 L3 N3 L5 N4 M5 M7 N5 O5 info move G5 visits 12 winrate 7365 pv G5 F5 N4 M5 M7 N3 O3 N2 O2 M2 N5 info move M7 visits 7 winrate 7358 pv M7 N3 N4 M5 O3 N2 O4 info move S17 visits 5 winrate 6840 pv S17 N19 N4 M5 M7 info move E15 visits 4 winrate 6998 pv E15 E16 N4 M5 info move L11 visits 4 winrate 6947 pv L11 L10 N4 M5 info move R14 visits 3 winrate 7000 pv R14 S13 N4 info ];W[mp]C[白棋 胜率: 75.4% 
+(15b无电源 / 990 计算量)
+
+白棋 胜率: 68.5% 
+盘面: 0.3 局面复杂度: 23.8
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 68.1% (+3.8%)
+盘面: 0.5 局面复杂度: 23.5
+(KataGo hzy6b / 105 计算量)
+步时: 0.302秒]LZ[15b无电源 75.4 990
+move M5 visits 958 winrate 2457 pv M5 M7 N3 O3 N2 N5 O2 L4 M6 N6 L3 L6 M2 T9 T10 M10 P3 L11 L12 Q3 Q2 R2 info move L4 visits 32 winrate 1445 pv L4 N5 L6 L8 M10 N8 O10 P9 P11 S17 N19 info ];B[lo]C[黑棋 胜率: 23.3% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 29.0% 
+盘面: -0.6 局面复杂度: 23.5
+(KataGohzy6b / 1.1k 计算量)
+
+黑棋 胜率: 42.0% (-0.2%)
+盘面: 2.8 局面复杂度: 32.0
+(KataGo 6b / 113 计算量)
+步时: 0.202秒]LZ[15b无电源 23.3 1.0k
+move M7 visits 796 winrate 7666 pv M7 N3 O3 N2 N5 O2 L4 M6 N6 L3 L6 M2 T9 T10 M10 P3 L11 L12 Q3 Q2 R2 info move L9 visits 80 winrate 7531 pv L9 M10 M9 M7 N10 N3 O3 N2 O2 M2 T9 T10 B15 B16 info move M8 visits 59 winrate 6962 pv M8 N3 O3 N2 O4 M2 B11 B12 B13 C12 B15 B16 A12 B10 H16 info move L3 visits 28 winrate 6487 pv L3 L4 M7 N3 N2 O3 K2 O2 O4 R3 Q3 Q2 info move B15 visits 10 winrate 7209 pv B15 B16 M7 N3 O3 N2 O2 M2 info move N5 visits 9 winrate 6797 pv N5 M6 M8 N6 L11 L10 M10 L9 L8 info move T9 visits 7 winrate 7255 pv T9 T10 M7 N3 O3 N2 O2 info move L8 visits 6 winrate 7134 pv L8 N3 O3 N2 O2 M2 info move L11 visits 5 winrate 6988 pv L11 L10 M7 N3 info move B11 visits 4 winrate 6728 pv B11 B12 B13 C12 info ];W[lm]C[白棋 胜率: 75.6% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 68.2% 
+盘面: 0.8 局面复杂度: 22.9
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 70.9% (-2.9%)
+盘面: -0.6 局面复杂度: 23.6
+(KataGo hzy6b / 145 计算量)
+步时: 0.303秒]LZ[15b无电源 75.6 1.0k
+move N3 visits 715 winrate 2440 pv N3 O3 N2 N5 O2 L4 M6 N6 L3 L6 M2 M10 P3 L11 K15 K12 H15 info move N5 visits 118 winrate 2187 pv N5 O4 M9 M8 O5 L9 L10 N9 M10 P5 O7 P6 info move B15 visits 125 winrate 2026 pv B15 E15 E16 N5 N3 O3 N2 O2 M2 T9 T10 M9 G14 J15 info move B5 visits 21 winrate 1921 pv B5 L3 L4 K2 N3 N2 O3 O4 O2 M2 info move B12 visits 20 winrate 1835 pv B12 B15 B16 E15 E16 D15 C16 N5 N3 O3 N2 O2 M2 info move K15 visits 5 winrate 1855 pv K15 B15 B16 B13 B5 info ];B[mq]C[黑棋 胜率: 24.0% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 31.3% 
+盘面: 0.7 局面复杂度: 22.7
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 45.8% (-3.8%)
+盘面: 5.2 局面复杂度: 32.0
+(KataGo 6b / 106 计算量)
+步时: 0.206秒]LZ[15b无电源 24.0 1.0k
+move O3 visits 917 winrate 7595 pv O3 N2 N5 M6 N6 O2 L4 L3 L6 M2 T9 T10 M10 P3 L11 L12 Q3 Q2 R2 info move L3 visits 25 winrate 6639 pv L3 L4 N2 O3 K2 O2 O4 R3 Q3 Q2 R2 S2 P2 info move B15 visits 18 winrate 7073 pv B15 B16 O3 N2 O2 N5 O4 M2 B13 A15 info move O4 visits 14 winrate 6844 pv O4 M2 O3 N2 T9 T10 L11 K9 L8 M10 L10 L9 info move T9 visits 13 winrate 6861 pv T9 T10 O3 N2 O2 N5 O4 M2 O7 M9 info move N5 visits 11 winrate 7134 pv N5 O3 M6 K5 M2 Q3 R3 info move M2 visits 10 winrate 6848 pv M2 N2 N5 P2 L4 info move B11 visits 9 winrate 6870 pv B11 B12 B13 C12 B15 B16 A12 B10 info ];W[nq]C[白棋 胜率: 74.9% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 68.4% 
+盘面: 0.8 局面复杂度: 22.6
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 67.9% (+3.1%)
+盘面: 1.0 局面复杂度: 22.7
+(KataGo hzy6b / 128 计算量)
+步时: 0.303秒]LZ[15b无电源 74.9 1.0k
+move N2 visits 1016 winrate 2513 pv N2 N5 S8 M6 M2 R9 T9 L11 M11 M10 N11 L12 M12 info ];B[mr]C[黑棋 胜率: 23.6% 
+(15b无电源 / 1.1k 计算量)
+
+黑棋 胜率: 30.2% 
+盘面: 0.5 局面复杂度: 22.5
+(KataGohzy6b / 1.1k 计算量)
+
+黑棋 胜率: 44.7% (+1.1%)
+盘面: 4.7 局面复杂度: 31.5
+(KataGo 6b / 112 计算量)
+步时: 0.202秒]LZ[15b无电源 23.6 1.1k
+move N5 visits 868 winrate 7637 pv N5 S8 M6 M2 R9 T9 L11 M11 M10 N11 L12 M12 info move O4 visits 102 winrate 6459 pv O4 M2 T9 T10 L11 K9 L8 M10 L10 L9 M9 info move O2 visits 74 winrate 6709 pv O2 N5 O4 M2 B15 B16 B13 B5 B4 A4 A3 A5 B3 A15 info move T9 visits 8 winrate 7039 pv T9 T10 O2 N5 O4 M2 O7 M9 info move M2 visits 4 winrate 6150 pv M2 O2 P3 N5 info ];W[nr]C[白棋 胜率: 65.1% 
+(15b无电源 / 632 计算量)
+
+白棋 胜率: 65.3% 
+盘面: 1.9 局面复杂度: 22.8
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 64.9% (+2.9%)
+盘面: 2.0 局面复杂度: 22.8
+(KataGo hzy6b / 103 计算量)
+步时: 0.102秒]LZ[15b无电源 65.1 632
+move N5 visits 481 winrate 3493 pv N5 O4 M2 L9 M10 L10 M11 L11 L12 M9 B15 E15 E16 H15 K15 info move M2 visits 100 winrate 3022 pv M2 B15 B16 N5 M6 N6 L7 L8 M8 N7 K8 L9 K7 K9 J9 info move O4 visits 47 winrate 3402 pv O4 N5 N6 O5 M6 L11 O6 P5 L10 M10 L9 M9 L8 L7 M8 N7 N8 O7 M2 T9 info move N7 visits 4 winrate 2781 pv N7 M8 O4 info ];B[mo]C[黑棋 胜率: 35.1% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 34.5% 
+盘面: 1.9 局面复杂度: 22.7
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 44.7% (-0.0%)
+盘面: 4.6 局面复杂度: 31.8
+(KataGo 6b / 143 计算量)
+步时: 0.204秒]LZ[15b无电源 35.1 1.0k
+move O4 visits 1002 winrate 6494 pv O4 M2 L9 M10 T9 T10 L10 M11 L11 L12 O7 K15 E15 E16 B15 B16 D15 info ];W[np]C[白棋 胜率: 64.4% 
+(15b无电源 / 1.1k 计算量)
+
+白棋 胜率: 64.8% 
+盘面: 2.1 局面复杂度: 22.7
+(KataGohzy6b / 1.1k 计算量)
+
+白棋 胜率: 67.6% (-2.7%)
+盘面: 1.1 局面复杂度: 22.9
+(KataGo hzy6b / 129 计算量)
+步时: 0.304秒]LZ[15b无电源 64.4 1.1k
+move M2 visits 1004 winrate 3564 pv M2 L9 M10 T9 T10 L10 M11 L11 L12 O7 K15 E15 E16 B15 B16 D15 info move B5 visits 13 winrate 3013 pv B5 B4 M2 T9 T10 O7 M9 info move B15 visits 10 winrate 1973 pv B15 E15 E16 M2 K7 K8 J7 L6 G14 info move N7 visits 6 winrate 2714 pv N7 M8 M2 L11 K15 K12 info move M9 visits 6 winrate 2316 pv M9 M8 L9 M2 K7 L6 info move S8 visits 5 winrate 2032 pv S8 M2 K5 B15 B16 info move O11 visits 3 winrate 2305 pv O11 M2 P11 info move K7 visits 3 winrate 1767 pv K7 M2 M8 info ];B[lk]C[黑棋 胜率: 25.6% 
+(15b无电源 / 596 计算量)
+
+黑棋 胜率: 29.6% 
+盘面: -0.2 局面复杂度: 23.0
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 46.3% (-1.6%)
+盘面: 5.6 局面复杂度: 30.7
+(KataGo 6b / 134 计算量)
+步时: 0.202秒]LZ[15b无电源 25.6 596
+move M8 visits 412 winrate 7442 pv M8 M2 L9 M10 L10 M11 L11 L12 T9 T10 O7 B15 E15 E16 H15 K15 H17 F15 F14 info move L9 visits 111 winrate 7312 pv L9 M10 M8 O9 O7 M2 L10 M11 L11 L12 B15 B16 B13 B11 info move N8 visits 17 winrate 6307 pv N8 M2 T9 T10 B11 B12 B13 C12 B15 B16 A12 info move O7 visits 16 winrate 6261 pv O7 M2 T9 T10 M8 L9 B15 B16 B13 B11 H16 A15 info move T9 visits 10 winrate 6132 pv T9 T10 O7 M2 M8 L9 B15 B16 info move L4 visits 6 winrate 6951 pv L4 L3 M2 N7 N8 info move M2 visits 6 winrate 5679 pv M2 N7 N6 L7 info move L10 visits 5 winrate 6656 pv L10 M10 L11 M11 info move K9 visits 5 winrate 6372 pv K9 L10 M8 M2 info move N7 visits 4 winrate 6570 pv N7 M2 T9 info move B11 visits 4 winrate 6262 pv B11 B12 B13 info ];W[ll]C[白棋 胜率: 72.0% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 69.3% 
+盘面: 0.3 局面复杂度: 22.8
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 66.5% (+1.1%)
+盘面: 1.5 局面复杂度: 22.8
+(KataGo hzy6b / 118 计算量)
+步时: 0.303秒]LZ[15b无电源 72.0 1.0k
+move M2 visits 736 winrate 2800 pv M2 T9 N9 O7 T10 B15 B16 B13 B11 H16 K15 J14 A15 info move N9 visits 111 winrate 2380 pv N9 M2 O7 O6 P11 K5 L4 G5 F5 info move L9 visits 127 winrate 1952 pv L9 M2 K7 K6 L6 K8 J7 H7 L7 L8 H8 G6 info move O9 visits 36 winrate 2184 pv O9 M2 O7 O6 O11 L9 M10 K5 G5 L4 R9 S17 info move O11 visits 5 winrate 1980 pv O11 M2 K5 N9 info move S8 visits 2 winrate 1861 pv S8 M2 info ];B[mk]C[黑棋 胜率: 17.5% 
+(15b无电源 / 679 计算量)
+
+黑棋 胜率: 29.5% 
+盘面: -0.4 局面复杂度: 23.4
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 41.9% (+4.4%)
+盘面: 3.2 局面复杂度: 31.5
+(KataGo 6b / 145 计算量)
+步时: 0.303秒]LZ[15b无电源 17.5 679
+move M2 visits 544 winrate 8248 pv M2 K5 O7 S8 R9 T9 R8 B15 E15 E16 H15 S7 S6 H17 B12 B5 info move O7 visits 61 winrate 6868 pv O7 M2 T9 T10 B15 B16 B13 B5 B4 A4 A3 A5 info move L9 visits 48 winrate 7698 pv L9 L10 M2 O7 O6 N7 N6 M6 N8 O8 info move O8 visits 26 winrate 6227 pv O8 M2 T9 T10 O6 B15 B12 B11 info ];W[nm]C[白棋 胜率: 70.8% 
+(15b无电源 / 676 计算量)
+
+白棋 胜率: 67.1% 
+盘面: 1.3 局面复杂度: 22.4
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 69.1% (-2.6%)
+盘面: 0.4 局面复杂度: 22.6
+(KataGo hzy6b / 122 计算量)
+步时: 0.304秒]LZ[15b无电源 70.8 676
+move M2 visits 614 winrate 2922 pv M2 T9 T10 L9 L10 M10 N11 M11 M12 L11 K10 N10 L8 O9 K9 L7 B15 E15 E16 H15 H17 B12 B11 info move S8 visits 22 winrate 1838 pv S8 M2 K5 R9 T9 R8 B15 E15 E16 H15 info move O8 visits 20 winrate 1591 pv O8 M2 P7 O6 R9 K5 G5 S17 info move B5 visits 12 winrate 2768 pv B5 B4 M2 T9 T10 H16 B15 B12 info move B15 visits 8 winrate 2350 pv B15 B12 B11 C12 info ];B[nl]C[黑棋 胜率: 14.0% 
+(15b无电源 / 591 计算量)
+
+黑棋 胜率: 22.7% 
+盘面: -4.2 局面复杂度: 25.0
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 41.9% (+0.0%)
+盘面: 3.3 局面复杂度: 31.3
+(KataGo 6b / 130 计算量)
+步时: 0.202秒]LZ[15b无电源 14.0 591
+move M2 visits 387 winrate 8603 pv M2 K5 P8 P9 Q8 O6 N7 P6 P7 B15 info move L9 visits 78 winrate 8227 pv L9 L10 M2 K5 P7 S8 R9 T9 B15 B16 B13 A15 B11 B10 info move P7 visits 35 winrate 7070 pv P7 M2 B15 B16 B13 A15 B11 B10 D10 B5 B4 A4 info move B15 visits 34 winrate 8281 pv B15 B16 M2 K5 B13 B11 P7 H15 J15 H16 info move N8 visits 22 winrate 7934 pv N8 O9 M2 P7 O6 R9 S17 N19 R18 info move S17 visits 14 winrate 8218 pv S17 N19 M2 K5 L9 L10 K9 B15 E15 E16 info move T9 visits 14 winrate 7865 pv T9 T10 M2 R9 K5 K7 J7 K8 info move P8 visits 7 winrate 7358 pv P8 P9 Q8 M2 T9 info ];W[om]C[白棋 胜率: 66.7% 
+(15b无电源 / 692 计算量)
+
+白棋 胜率: 70.9% 
+盘面: 0.3 局面复杂度: 21.9
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 75.8% (-6.7%)
+盘面: -1.8 局面复杂度: 22.3
+(KataGo hzy6b / 122 计算量)
+步时: 0.305秒]LZ[15b无电源 66.7 692
+move M2 visits 601 winrate 3331 pv M2 B15 B16 B13 B5 B4 A4 A3 A5 B2 A15 B11 B10 D10 C10 C11 H16 info move B15 visits 36 winrate 2396 pv B15 B12 B11 E15 E16 C12 C11 H15 info move R9 visits 13 winrate 2053 pv R9 Q9 R8 S8 P11 O11 P10 Q8 info move O11 visits 8 winrate 2502 pv O11 P11 M2 T9 T10 B15 B16 info move L9 visits 8 winrate 1720 pv L9 T9 T10 M2 K7 L6 K6 K5 info move B5 visits 7 winrate 2491 pv B5 B4 A4 A3 A5 info move P11 visits 6 winrate 2119 pv P11 S17 N19 R18 O18 info move N7 visits 4 winrate 2269 pv N7 N8 L9 info move S8 visits 4 winrate 1811 pv S8 M2 K5 R9 info move K7 visits 2 winrate 2146 pv K7 K8 info move S17 visits 2 winrate 1498 pv S17 T9 info move L8 visits 1 winrate 2791 pv L8 info ];B[ff]C[黑棋 胜率: 12.9% 
+(15b无电源 / 525 计算量)
+
+黑棋 胜率: 20.8% 
+盘面: -4.0 局面复杂度: 23.8
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 42.1% (-0.2%)
+盘面: 2.8 局面复杂度: 33.5
+(KataGo 6b / 112 计算量)
+步时: 0.209秒]LZ[15b无电源 12.9 525
+move E15 visits 158 winrate 8714 pv E15 E14 B15 B16 D15 C16 F15 G15 G14 E16 D14 H14 G13 H15 M2 K7 K8 info move B15 visits 136 winrate 8563 pv B15 B16 B13 B12 E15 E16 H15 M2 T9 T10 H17 G16 info move B12 visits 92 winrate 8398 pv B12 B11 E15 E14 B15 B16 D15 C16 F15 G15 D14 G16 G14 H14 G13 J14 M2 info move H15 visits 74 winrate 8307 pv H15 B15 E15 F15 K15 J16 H16 J17 H17 F18 J15 info move J15 visits 28 winrate 8321 pv J15 B15 B12 B11 C12 C11 B14 K15 info move D15 visits 11 winrate 8413 pv D15 E15 B15 D14 B13 B16 A16 info move C12 visits 10 winrate 7966 pv C12 C11 B15 B16 D15 C16 E15 F15 info move B13 visits 6 winrate 7962 pv B13 B15 B11 C11 C12 B10 info move B11 visits 6 winrate 7747 pv B11 B12 B13 C12 B15 info move G15 visits 4 winrate 8138 pv G15 F15 J15 K15 info ];W[be]C[白棋 胜率: 85.4% 
+(15b无电源 / 937 计算量)
+
+白棋 胜率: 78.7% 
+盘面: -3.9 局面复杂度: 24.1
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 81.4% (-5.6%)
+盘面: -4.6 局面复杂度: 22.9
+(KataGo hzy6b / 109 计算量)
+步时: 0.311秒]LZ[15b无电源 85.4 937
+move B16 visits 937 winrate 1464 pv B16 B13 B5 B4 A4 A3 A5 B2 A15 B11 B10 info ];B[bd]C[黑棋 胜率: 13.8% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 19.2% 
+盘面: -4.3 局面复杂度: 23.1
+(KataGohzy6b / 1.1k 计算量)
+
+黑棋 胜率: 39.7% (+2.4%)
+盘面: 1.3 局面复杂度: 33.1
+(KataGo 6b / 152 计算量)
+步时: 0.303秒]LZ[15b无电源 13.8 1.0k
+move B13 visits 361 winrate 8622 pv B13 B12 H15 G14 G16 F17 K16 K15 J15 J14 H14 J17 L15 info move E15 visits 304 winrate 8583 pv E15 F15 B13 C12 D15 C16 B12 B11 A16 A17 A15 B18 H15 info move D15 visits 236 winrate 8484 pv D15 C16 E15 F15 B13 B12 H15 K15 E16 E17 D17 D18 F17 E18 G17 G16 H16 info move H15 visits 46 winrate 8577 pv H15 G14 B13 B12 G16 F17 K16 K15 J15 info move C12 visits 27 winrate 8055 pv C12 C11 D15 C16 E15 F15 B13 B12 H15 G17 K15 J16 J15 info move B11 visits 24 winrate 7779 pv B11 B12 B13 C12 A12 B10 H15 K15 E15 F15 E16 E17 D15 C16 info move B12 visits 18 winrate 8214 pv B12 B11 D15 C16 E15 F15 C12 C11 B14 M2 T9 T10 L9 L10 info move G15 visits 2 winrate 8016 pv G15 F15 info ];W[bg]C[白棋 胜率: 83.5% 
+(15b无电源 / 925 计算量)
+
+白棋 胜率: 77.6% 
+盘面: -3.4 局面复杂度: 24.1
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 80.9% (+0.4%)
+盘面: -5.4 局面复杂度: 24.1
+(KataGo hzy6b / 142 计算量)
+步时: 0.331秒]LZ[15b无电源 83.5 925
+move A15 visits 428 winrate 1648 pv A15 E15 E14 B11 C11 B10 B12 A12 C12 C13 B4 B3 A4 info move B5 visits 60 winrate 1502 pv B5 B4 A4 B3 B12 H15 K15 E15 info move B12 visits 272 winrate 1310 pv B12 H15 A15 E15 F15 D15 C16 K15 J16 H16 G17 H17 K17 info move C12 visits 101 winrate 1310 pv C12 H15 K15 E15 F15 D15 C16 B12 B11 A16 info move E11 visits 37 winrate 1430 pv E11 F11 D10 F13 A15 E15 E16 M2 G14 C12 B11 D15 B14 E14 info move B11 visits 27 winrate 1126 pv B11 H15 K15 E15 F15 D15 C16 A16 A17 info ];B[ch]C[黑棋 胜率: 10.0% 
+(15b无电源 / 853 计算量)
+
+黑棋 胜率: 19.4% 
+盘面: -5.2 局面复杂度: 24.6
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 41.0% (-1.3%)
+盘面: 1.7 局面复杂度: 35.1
+(KataGo 6b / 103 计算量)
+步时: 0.103秒]LZ[15b无电源 10.0 853
+move A16 visits 334 winrate 8998 pv A16 A17 A15 B17 D15 C16 B12 B11 E15 F15 H15 K15 H17 G17 G18 F18 M2 info move E15 visits 242 winrate 8836 pv E15 D15 H15 G14 G16 F17 G17 A15 K16 K15 J15 info move D15 visits 44 winrate 8697 pv D15 C16 E15 F15 B12 B11 A16 A17 A15 B18 H15 K15 H17 info move B12 visits 92 winrate 8601 pv B12 A15 D10 C10 B11 C11 B14 B4 B3 A4 A3 B6 M2 info move H15 visits 90 winrate 8357 pv H15 A15 K15 C13 M2 G14 H14 J16 J15 info move J15 visits 45 winrate 8438 pv J15 A15 L15 M15 G15 F15 G16 K16 J16 C13 M2 K5 info move H16 visits 4 winrate 7609 pv H16 A15 K15 H14 info move G14 visits 2 winrate 7205 pv G14 A15 info ];W[bh]C[白棋 胜率: 79.9% 
+(15b无电源 / 669 计算量)
+
+白棋 胜率: 76.7% 
+盘面: -2.6 局面复杂度: 24.0
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 78.2% (+2.7%)
+盘面: -3.7 局面复杂度: 24.5
+(KataGo hzy6b / 134 计算量)
+步时: 0.303秒]LZ[15b无电源 79.9 669
+move A15 visits 506 winrate 2014 pv A15 E15 E14 D15 B14 C13 B11 F15 G15 E16 E17 D14 info move B11 visits 161 winrate 1242 pv B11 A16 A17 A15 B17 D15 C16 E15 F15 H15 K15 H17 G17 G18 F18 M2 info move E11 visits 2 winrate 949 pv E11 F11 info ];B[bi]C[黑棋 胜率: 11.4% 
+(15b无电源 / 825 计算量)
+
+黑棋 胜率: 22.1% 
+盘面: -2.8 局面复杂度: 23.6
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 42.0% (-1.0%)
+盘面: 2.5 局面复杂度: 34.4
+(KataGo 6b / 117 计算量)
+步时: 0.204秒]LZ[15b无电源 11.4 825
+move A16 visits 337 winrate 8857 pv A16 A17 A15 B17 D15 C16 E15 F15 H15 K15 H17 G17 A12 B5 B4 A4 A3 info move E15 visits 293 winrate 8799 pv E15 D15 A15 A12 H15 G14 G16 F17 K16 K15 J15 info move A11 visits 39 winrate 8511 pv A11 B10 A16 A17 A15 B17 D15 C16 E15 info move H15 visits 76 winrate 8111 pv H15 A15 K15 J16 H16 J17 J15 M2 T9 T10 H17 info move D15 visits 32 winrate 8699 pv D15 C16 E15 F15 A16 A17 A15 B18 H15 K15 H17 G17 info move A15 visits 20 winrate 8119 pv A15 M2 H16 H17 J17 G17 B17 info move D10 visits 17 winrate 7506 pv D10 C10 E15 F15 D15 C16 A16 info move J15 visits 8 winrate 7811 pv J15 K15 J14 A15 H17 G17 G15 info move B10 visits 3 winrate 7166 pv B10 A11 A12 info ];W[he]C[白棋 胜率: 79.2% 
+(15b无电源 / 606 计算量)
+
+白棋 胜率: 75.2% 
+盘面: -3.8 局面复杂度: 28.2
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 76.7% (+1.5%)
+盘面: -3.4 局面复杂度: 26.0
+(KataGo hzy6b / 143 计算量)
+步时: 0.333秒]LZ[15b无电源 79.2 606
+move A15 visits 478 winrate 2078 pv A15 E15 F15 D15 C16 K15 G17 H17 J16 H16 K17 J15 G13 G12 H14 A14 B14 G18 info move K15 visits 72 winrate 1089 pv K15 A16 A17 A15 B17 D15 C16 E15 F15 H17 G17 A12 B5 B4 A4 A3 info move B5 visits 18 winrate 1604 pv B5 M2 K15 H17 G17 A16 info move G14 visits 18 winrate 1194 pv G14 A16 A17 A15 C17 D15 C16 info move S8 visits 6 winrate 1460 pv S8 R9 T9 M2 K15 E15 info move L9 visits 5 winrate 1620 pv L9 K7 M2 info move P11 visits 5 winrate 1269 pv P11 S17 N19 R18 O18 info move E11 visits 4 winrate 1473 pv E11 F11 D10 info ];B[gf]C[黑棋 胜率: 9.4% 
+(15b无电源 / 534 计算量)
+
+黑棋 胜率: 21.6% 
+盘面: -5.6 局面复杂度: 27.3
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 39.1% (+2.9%)
+盘面: -0.1 局面复杂度: 36.1
+(KataGo 6b / 110 计算量)
+步时: 0.215秒]LZ[15b无电源 9.4 534
+move A16 visits 213 winrate 9058 pv A16 B17 H14 K15 G16 F17 G17 J16 C13 A17 info move K16 visits 105 winrate 8898 pv K16 H17 A16 A17 A15 B17 D15 C16 E15 G16 L15 M15 H14 M2 info move G16 visits 94 winrate 8872 pv G16 F17 A16 A17 A15 B17 D15 C16 E15 F15 A12 M2 T9 T10 L9 L10 K9 info move A15 visits 50 winrate 8747 pv A15 A12 K16 K15 J15 J14 H14 H17 L15 info move H14 visits 29 winrate 8707 pv H14 H17 L15 M15 K16 A15 info move D10 visits 32 winrate 7906 pv D10 C10 E11 A15 C13 C11 G16 F17 K16 K15 J15 J14 H14 J17 info move D15 visits 5 winrate 8534 pv D15 C16 A16 A17 info move L15 visits 5 winrate 8325 pv L15 M15 G16 F17 info move E15 visits 1 winrate 7390 pv E15 info ];W[je]C[白棋 胜率: 77.3% 
+(15b无电源 / 602 计算量)
+
+白棋 胜率: 74.2% 
+盘面: -3.4 局面复杂度: 29.2
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 74.5% (+2.2%)
+盘面: -4.1 局面复杂度: 28.6
+(KataGo hzy6b / 122 计算量)
+步时: 0.32秒]LZ[15b无电源 77.3 602
+move A15 visits 213 winrate 2270 pv A15 G16 F17 K17 N19 G17 M2 T9 T10 info move J16 visits 319 winrate 1641 pv J16 A16 A17 A15 B17 H14 H16 M2 J15 D15 C16 info move H14 visits 47 winrate 1467 pv H14 J14 J16 A16 A17 A15 B17 D15 C16 info move E11 visits 12 winrate 1630 pv E11 F11 J16 H16 D10 info move F12 visits 11 winrate 1603 pv F12 F13 E11 F11 G12 G13 D10 G11 J16 A16 info ];B[id]C[黑棋 胜率: 12.1% 
+(15b无电源 / 860 计算量)
+
+黑棋 胜率: 23.7% 
+盘面: -2.7 局面复杂度: 24.4
+(KataGohzy6b / 1.1k 计算量)
+
+黑棋 胜率: 38.7% (+0.4%)
+盘面: -0.8 局面复杂度: 36.9
+(KataGo 6b / 116 计算量)
+步时: 0.203秒]LZ[15b无电源 12.1 860
+move A16 visits 350 winrate 8788 pv A16 A17 A15 B17 D15 C16 H14 H16 M2 J15 C13 K5 T9 T10 S17 N19 info move H16 visits 202 winrate 8558 pv H16 J17 A16 A17 A15 B17 H14 J15 D15 C16 E15 G16 H17 info move H14 visits 236 winrate 8338 pv H14 A15 H16 J17 E15 E14 D15 B14 D14 E16 F15 info move J15 visits 18 winrate 7008 pv J15 H14 J14 A15 A14 B14 G5 F5 B15 info move L15 visits 16 winrate 8296 pv L15 M15 H14 J15 H16 J17 H17 G18 H18 info move E15 visits 14 winrate 7890 pv E15 E14 D15 C16 D14 G16 A16 A17 info move L17 visits 8 winrate 7919 pv L17 N19 H16 J17 H14 H17 info move K17 visits 6 winrate 7944 pv K17 H16 L15 info move D15 visits 4 winrate 8009 pv D15 C16 E15 info move D10 visits 4 winrate 7488 pv D10 C10 E11 A15 info move G16 visits 2 winrate 7275 pv G16 F17 info ];W[hf]C[白棋 胜率: 78.2% 
+(15b无电源 / 783 计算量)
+
+白棋 胜率: 75.4% 
+盘面: -1.7 局面复杂度: 23.4
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 78.6% (-4.1%)
+盘面: -5.0 局面复杂度: 27.1
+(KataGo hzy6b / 123 计算量)
+步时: 0.303秒]LZ[15b无电源 78.2 783
+move A15 visits 632 winrate 2178 pv A15 G16 F17 L15 M15 K17 J17 K18 N19 G17 J18 F18 E18 info move J15 visits 74 winrate 958 pv J15 A16 B17 D15 C16 H16 J17 H17 G18 info move H16 visits 34 winrate 1294 pv H16 A16 A17 A15 B17 M2 J15 D15 C16 C13 K5 T9 T10 S17 info move F12 visits 25 winrate 1823 pv F12 F13 E11 F11 G12 G13 D10 G11 A15 info move H17 visits 8 winrate 1148 pv H17 E15 G16 E16 E17 info move E11 visits 6 winrate 1370 pv E11 F11 F12 F13 G12 G13 info move B5 visits 4 winrate 1263 pv B5 B4 J15 H16 info ];B[ie]C[黑棋 胜率: 8.5% 
+(15b无电源 / 675 计算量)
+
+黑棋 胜率: 18.0% 
+盘面: -8.3 局面复杂度: 28.6
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 36.2% (+2.6%)
+盘面: -1.7 局面复杂度: 36.7
+(KataGo 6b / 160 计算量)
+步时: 0.315秒]LZ[15b无电源 8.5 675
+move A16 visits 338 winrate 9155 pv A16 B17 H16 J17 D15 C16 C13 H17 M2 K5 T9 T10 info move H16 visits 169 winrate 8737 pv H16 A15 J17 K16 G17 F17 F18 E18 H18 info move D15 visits 55 winrate 8892 pv D15 C16 A16 A17 A15 A12 B17 C18 H16 E15 J17 K16 G17 info move G16 visits 64 winrate 8599 pv G16 F17 A16 A17 A15 B17 D15 C16 C13 M2 T9 T10 B5 B6 B4 P11 info move E15 visits 15 winrate 8345 pv E15 G16 H16 H17 J17 K16 E16 E17 info move D10 visits 14 winrate 8167 pv D10 C10 H16 J17 E15 E14 info move G17 visits 9 winrate 8256 pv G17 F17 G16 A15 F18 info move A15 visits 6 winrate 8159 pv A15 H16 G15 F15 C13 M2 info move A11 visits 5 winrate 8394 pv A11 A12 A13 A15 info ];W[hd]C[白棋 胜率: 84.5% 
+(15b无电源 / 726 计算量)
+
+白棋 胜率: 78.1% 
+盘面: -5.0 局面复杂度: 27.3
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 82.1% (-3.5%)
+盘面: -8.2 局面复杂度: 28.6
+(KataGo hzy6b / 108 计算量)
+步时: 0.219秒]LZ[15b无电源 84.5 726
+move A15 visits 578 winrate 1555 pv A15 H17 K17 F18 E18 F17 E17 G16 G18 F15 info move J17 visits 125 winrate 847 pv J17 A16 A17 A15 C17 H17 E15 J18 K17 F18 info move F17 visits 10 winrate 656 pv F17 A16 A17 A15 B17 D15 info move F18 visits 7 winrate 473 pv F18 A16 A17 A15 C17 D15 info move E11 visits 5 winrate 702 pv E11 F11 D10 F13 A15 info move H17 visits 1 winrate 285 pv H17 info ];B[ae]C[黑棋 胜率: 14.1% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 18.0% 
+盘面: -5.0 局面复杂度: 23.9
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 34.5% (+1.7%)
+盘面: -1.9 局面复杂度: 35.4
+(KataGo 6b / 130 计算量)
+步时: 0.222秒]LZ[15b无电源 14.1 1.0k
+move H17 visits 286 winrate 8590 pv H17 K17 F18 E18 F17 E17 A14 B14 J17 K16 B15 E11 info move J17 visits 249 winrate 8436 pv J17 K16 F17 E17 F18 H18 H17 J19 E18 D18 E15 E16 info move A14 visits 149 winrate 8400 pv A14 B14 J17 K16 B15 E11 F11 B14 L15 M15 B15 D10 F13 B14 K17 L16 info move F17 visits 88 winrate 8382 pv F17 E17 J17 K16 F18 H18 H17 J19 E18 D18 E15 E16 info move J18 visits 29 winrate 8463 pv J18 K16 G18 F18 G17 F17 K18 L17 G19 info move E15 visits 98 winrate 8386 pv E15 E14 J17 K16 F17 E17 F18 E18 H18 G16 G17 K17 info move L15 visits 33 winrate 8243 pv L15 M15 J17 K16 F17 E17 F18 E18 G16 H18 info move D15 visits 19 winrate 8131 pv D15 B14 E15 E16 F15 C13 M2 E11 F11 G15 J17 K16 info move K17 visits 14 winrate 7412 pv K17 J17 K18 J18 L17 K16 info move G17 visits 13 winrate 8202 pv G17 J17 E18 D18 E17 B14 D17 C17 C18 info move D10 visits 13 winrate 8192 pv D10 C10 A14 B14 J17 K16 info move L17 visits 10 winrate 7492 pv L17 K17 J17 K16 L15 info move K18 visits 2 winrate 7734 pv K18 K17 info ];W[ee]C[白棋 胜率: 82.4% 
+(15b无电源 / 602 计算量)
+
+白棋 胜率: 80.3% 
+盘面: -7.3 局面复杂度: 28.1
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 84.4% (-2.3%)
+盘面: -8.2 局面复杂度: 26.5
+(KataGo hzy6b / 110 计算量)
+步时: 0.32秒]LZ[15b无电源 82.4 602
+move E14 visits 488 winrate 1764 pv E14 J17 K16 A14 B14 L15 M15 B15 E11 F11 B14 J14 N19 B15 D10 F13 info move G16 visits 78 winrate 1302 pv G16 D15 C16 A14 B14 J17 K16 B15 info move D15 visits 22 winrate 1042 pv D15 A14 B14 J17 K16 B15 A16 F17 E17 info move E16 visits 9 winrate 1480 pv E16 J17 K16 K17 L16 G18 info move F15 visits 5 winrate 740 pv F15 D15 C16 A14 B14 info ];B[ef]C[黑棋 胜率: 15.9% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 17.1% 
+盘面: -7.7 局面复杂度: 27.2
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 35.0% (-0.5%)
+盘面: -1.7 局面复杂度: 34.7
+(KataGo 6b / 107 计算量)
+步时: 0.203秒]LZ[15b无电源 15.9 1.0k
+move J17 visits 404 winrate 8408 pv J17 K16 A14 B14 K17 L16 B15 E11 F11 B14 N19 Q19 B15 F12 F13 B14 S17 P19 B15 D10 G12 info move A14 visits 119 winrate 8553 pv A14 B14 E6 F7 B15 E11 F11 B14 J17 K16 B15 D10 F13 B14 K17 L16 B15 info move F17 visits 242 winrate 8296 pv F17 E17 A14 B14 J17 K16 B15 E11 F11 B14 K17 L16 B15 B4 B3 B14 info move D15 visits 120 winrate 7820 pv D15 B14 D14 E16 J17 K16 F15 G16 G15 H17 M2 K5 T9 info move D14 visits 26 winrate 8262 pv D14 D15 J17 K16 A14 B14 K17 L16 B15 A16 G17 info move D10 visits 25 winrate 8075 pv D10 C10 D15 B14 D14 E16 F15 E11 F11 F12 G11 G15 info move G17 visits 16 winrate 8186 pv G17 F17 J17 K16 F18 E18 H18 F19 K18 K17 K19 H19 info move F15 visits 14 winrate 7875 pv F15 G15 G16 E16 J17 K16 F17 info move H17 visits 12 winrate 8288 pv H17 F18 D15 B14 D14 G16 E16 info move K17 visits 12 winrate 7568 pv K17 J17 J18 H17 G17 H18 G16 D14 info move L17 visits 8 winrate 7995 pv L17 N19 J17 K16 F17 E17 info move L15 visits 8 winrate 7851 pv L15 M15 J17 K16 F17 E17 info move J18 visits 4 winrate 7831 pv J18 K16 F17 info move C13 visits 4 winrate 7728 pv C13 B14 F17 E17 info ];W[fe]C[白棋 胜率: 83.0% 
+(15b无电源 / 531 计算量)
+
+白棋 胜率: 75.7% 
+盘面: -4.1 局面复杂度: 28.9
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 78.4% (+5.9%)
+盘面: -4.9 局面复杂度: 25.9
+(KataGo hzy6b / 110 计算量)
+步时: 0.303秒]LZ[15b无电源 83.0 531
+move G15 visits 320 winrate 1703 pv G15 D15 C16 D14 G16 H17 G18 A14 B14 L15 M15 B15 A16 info move D15 visits 126 winrate 1641 pv D15 G15 D14 C13 E16 A14 B14 J17 K16 B15 A16 G17 F18 A12 B5 B4 info move D14 visits 72 winrate 1244 pv D14 C13 G15 F17 E17 G16 F18 E16 G18 A14 B14 D17 E18 B15 A16 info move E16 visits 7 winrate 1645 pv E16 J17 K16 K17 info move B14 visits 6 winrate 1404 pv B14 E16 E17 F17 G15 info ];B[df]C[黑棋 胜率: 11.6% 
+(15b无电源 / 638 计算量)
+
+黑棋 胜率: 21.7% 
+盘面: -5.4 局面复杂度: 28.6
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 44.5% (-9.5%)
+盘面: 4.5 局面复杂度: 37.0
+(KataGo 6b / 161 计算量)
+步时: 0.305秒]LZ[15b无电源 11.6 638
+move C13 visits 614 winrate 8838 pv C13 E16 A14 B14 D10 C10 B15 A16 E11 C11 J17 K16 G18 F18 G17 info move D15 visits 8 winrate 4830 pv D15 B14 C13 G15 J17 info move J17 visits 7 winrate 5838 pv J17 C13 E16 E17 F17 F18 info move D10 visits 5 winrate 8122 pv D10 C11 C13 G15 info move E16 visits 2 winrate 6417 pv E16 E17 info move G15 visits 2 winrate 5150 pv G15 C13 info ];W[cg]C[白棋 胜率: 87.2% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 78.4% 
+盘面: -5.3 局面复杂度: 28.3
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 75.5% (+2.9%)
+盘面: -4.3 局面复杂度: 30.8
+(KataGo hzy6b / 116 计算量)
+步时: 0.304秒]LZ[15b无电源 87.2 1.0k
+move E16 visits 621 winrate 1281 pv E16 A14 B14 D10 C10 E11 C11 B15 A16 J17 K16 G17 F18 K17 info move G15 visits 379 winrate 965 pv G15 F17 E17 G16 F18 E16 D15 J17 K16 G18 F16 G17 E18 K17 L16 K18 info move E11 visits 8 winrate 1038 pv E11 F11 D10 F13 G15 J17 K16 info move B14 visits 7 winrate 682 pv B14 E16 E17 F17 info ];B[ed]C[黑棋 胜率: 11.3% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 20.8% 
+盘面: -5.5 局面复杂度: 27.7
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 42.8% (+1.7%)
+盘面: 3.5 局面复杂度: 38.6
+(KataGo 6b / 109 计算量)
+步时: 0.202秒]LZ[15b无电源 11.3 1.0k
+move A14 visits 396 winrate 8867 pv A14 A16 A12 B5 B4 A4 A3 A5 B2 M2 T9 T10 J17 K16 info move D10 visits 223 winrate 8785 pv D10 B5 B4 C11 A14 B14 J17 K16 B15 info move G15 visits 173 winrate 8755 pv G15 D15 A14 B14 D10 C10 B15 A16 E11 C11 J17 K16 G17 F18 K17 L16 G18 N19 info move J17 visits 212 winrate 8604 pv J17 K16 A14 A16 G17 F18 A12 B5 B4 A4 B3 M2 T9 T10 info move L15 visits 9 winrate 7647 pv L15 M15 J17 K16 G17 F18 A14 A16 info move K17 visits 6 winrate 6959 pv K17 J17 J18 H17 K18 info move L17 visits 4 winrate 7531 pv L17 K17 J17 info move B10 visits 1 winrate 7347 pv B10 info ];W[af]C[白棋 胜率: 88.3% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 78.0% 
+盘面: -5.1 局面复杂度: 28.1
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 77.2% (-1.7%)
+盘面: -4.7 局面复杂度: 28.9
+(KataGo hzy6b / 131 计算量)
+步时: 0.324秒]LZ[15b无电源 88.3 1.0k
+move A16 visits 472 winrate 1167 pv A16 C17 C16 G15 D15 A12 B5 B4 A4 B3 M2 info move B14 visits 543 winrate 1114 pv B14 D10 C10 B15 A16 G15 D15 E11 C11 J17 K16 G17 F18 K17 L16 G18 N19 info ];B[bf]C[黑棋 胜率: 9.6% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 19.7% 
+盘面: -5.3 局面复杂度: 25.9
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 40.6% (+2.1%)
+盘面: 2.1 局面复杂度: 36.9
+(KataGo 6b / 120 计算量)
+步时: 0.203秒]LZ[15b无电源 9.6 1.0k
+move D10 visits 534 winrate 9040 pv D10 C10 E11 C11 B15 A16 J17 K16 K17 L16 G17 F18 G18 J19 E18 info move G15 visits 202 winrate 9024 pv G15 D15 B15 A16 A12 B5 B4 M2 G17 F18 J17 K16 K17 L16 info move J17 visits 143 winrate 8814 pv J17 K16 B15 A16 K17 L16 G17 F18 K18 N19 G18 P11 O11 info move G5 visits 39 winrate 8411 pv G5 F5 B15 A16 A12 B5 B4 A4 B3 M2 T9 T10 G17 info move E6 visits 32 winrate 8603 pv E6 F7 B15 A16 J17 K16 G17 F18 K17 L16 G18 N19 E18 info move L15 visits 25 winrate 8550 pv L15 M15 B15 A16 J17 K16 A12 B14 G17 F18 B15 B5 B4 B14 info move A11 visits 16 winrate 8769 pv A11 B10 B15 A16 D10 B5 B4 A4 B3 info move B10 visits 14 winrate 8276 pv B10 A11 B15 A16 A12 B5 B4 A4 A3 info move L17 visits 10 winrate 8306 pv L17 K17 B15 A16 A12 B14 D10 info move K17 visits 6 winrate 7923 pv K17 J17 B15 A16 K18 J18 info ];W[dj]C[白棋 胜率: 88.0% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 78.5% 
+盘面: -3.7 局面复杂度: 25.0
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 81.0% (-3.8%)
+盘面: -6.2 局面复杂度: 27.2
+(KataGo hzy6b / 138 计算量)
+步时: 0.202秒]LZ[15b无电源 88.0 1.0k
+move B5 visits 506 winrate 1199 pv B5 B4 A4 A3 A5 B3 C11 B15 A16 A12 B14 J17 K16 B15 G17 H17 info move C10 visits 330 winrate 957 pv C10 B15 A16 E11 C11 H17 K17 F18 E18 F17 E17 E19 D19 F19 C18 info move C11 visits 155 winrate 936 pv C11 B15 A16 J17 K16 A12 B5 B4 A4 B3 B14 A11 B10 B15 A10 info move A13 visits 19 winrate 559 pv A13 C10 B10 C11 B5 B4 A4 A3 A5 B3 M2 info ];B[cj]C[黑棋 胜率: 8.3% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 19.6% 
+盘面: -5.4 局面复杂度: 26.4
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 40.1% (+0.5%)
+盘面: 2.0 局面复杂度: 37.0
+(KataGo 6b / 117 计算量)
+步时: 0.203秒]LZ[15b无电源 8.3 1.0k
+move E11 visits 467 winrate 9165 pv E11 C11 B15 A16 C17 C16 G17 F18 J17 K16 K17 L16 G18 J19 E18 F17 info move B15 visits 555 winrate 9073 pv B15 A16 E11 C11 C17 C16 G17 F18 J17 K16 K17 L16 G18 J19 E18 F17 info move J17 visits 8 winrate 8864 pv J17 K16 B15 A16 G17 F18 G18 info ];W[be]C[白棋 胜率: 90.0% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 78.4% 
+盘面: -3.9 局面复杂度: 26.0
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 79.0% (+2.0%)
+盘面: -4.9 局面复杂度: 27.7
+(KataGo hzy6b / 126 计算量)
+步时: 0.211秒]LZ[15b无电源 90.0 1.0k
+move A16 visits 893 winrate 996 pv A16 E11 C11 C17 C16 G15 D15 J17 K16 G17 F18 G18 J18 E18 F17 info move B4 visits 46 winrate 643 pv B4 B3 B14 E11 C11 B15 A16 A12 B14 A11 A10 B15 L9 B5 B6 A4 info move B5 visits 36 winrate 699 pv B5 A16 B3 B4 A4 B2 A2 C3 C2 A3 info move N7 visits 30 winrate 437 pv N7 N8 B14 E11 C11 B15 A16 A12 B14 A11 A10 B15 B5 B4 B14 A9 info ];B[ad]C[黑棋 胜率: 9.0% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 21.0% 
+盘面: -4.0 局面复杂度: 25.5
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 43.4% (-3.3%)
+盘面: 4.1 局面复杂度: 37.8
+(KataGo 6b / 140 计算量)
+步时: 0.203秒]LZ[15b无电源 9.0 1.0k
+move E11 visits 434 winrate 9100 pv E11 C11 C17 C16 G15 D15 J17 K16 G17 F18 G18 J18 E18 F17 info move C17 visits 200 winrate 9132 pv C17 C16 E11 C11 G15 D15 J17 K16 G17 F18 G18 J18 E18 F17 F19 info move G15 visits 84 winrate 8955 pv G15 D15 E11 C11 J17 K16 G17 F18 K17 L16 G18 N19 E18 F17 F19 info move J17 visits 159 winrate 8831 pv J17 K16 E11 C11 K17 L16 G17 F18 G18 J19 E18 F17 F19 info move A12 visits 47 winrate 8543 pv A12 B5 B4 A4 A3 A5 B3 M2 T9 T10 L9 L10 info move G17 visits 27 winrate 8648 pv G17 J17 E18 D18 C17 C16 F18 D17 H18 info move B5 visits 21 winrate 8966 pv B5 B6 E11 C11 A12 B14 B4 A11 B15 L9 K7 info move H17 visits 11 winrate 8718 pv H17 G18 K17 K16 L15 M15 info move J18 visits 9 winrate 8675 pv J18 K16 G17 F18 G18 J17 H17 info move B4 visits 6 winrate 8689 pv B4 B5 A12 A4 A3 info move K17 visits 2 winrate 7734 pv K17 J17 info move L15 visits 2 winrate 7208 pv L15 M15 info ];W[ei]C[白棋 胜率: 91.0% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 79.0% 
+盘面: -3.9 局面复杂度: 25.4
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 77.9% (+1.1%)
+盘面: -4.5 局面复杂度: 29.1
+(KataGo hzy6b / 142 计算量)
+步时: 0.202秒]LZ[15b无电源 91.0 1.0k
+move C11 visits 993 winrate 897 pv C11 H17 K17 F18 E18 F17 E17 E19 D19 F19 C18 J18 M2 T9 T10 L9 L10 K9 info move B5 visits 28 winrate 971 pv B5 B4 C11 J17 K16 G17 F18 G18 J18 K17 L16 K18 info ];B[ci]C[黑棋 胜率: 6.9% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 20.3% 
+盘面: -4.1 局面复杂度: 24.4
+(KataGohzy6b / 1.2k 计算量)
+
+黑棋 胜率: 42.7% (+0.7%)
+盘面: 3.7 局面复杂度: 38.5
+(KataGo 6b / 119 计算量)
+步时: 0.204秒]LZ[15b无电源 6.9 1.0k
+move H17 visits 228 winrate 9309 pv H17 K17 F18 E18 F17 E17 E19 D19 F19 C18 J18 M2 T9 T10 L9 L10 K9 info move C17 visits 249 winrate 9196 pv C17 C16 G15 D15 J17 K16 K17 L16 G17 F18 G18 N19 E18 info move G15 visits 55 winrate 9108 pv G15 D15 J17 K16 G17 F18 K17 L16 G18 N19 E18 F17 F19 info move A12 visits 194 winrate 8931 pv A12 B5 M2 B3 K2 L3 L2 K7 K8 J7 L6 H8 L9 L7 L8 info move J17 visits 180 winrate 8972 pv J17 K16 K17 L16 G18 F18 G17 J19 E18 F17 F19 D18 info move B5 visits 29 winrate 9139 pv B5 B6 A12 B14 B4 A11 B15 L9 K7 B14 J17 info move G17 visits 59 winrate 9032 pv G17 F18 J17 K16 K17 L16 G18 J19 E18 F17 F19 D18 info move B4 visits 15 winrate 9040 pv B4 B5 J17 K16 G17 F18 G18 J18 info move L15 visits 12 winrate 8318 pv L15 M15 J17 K16 G17 F18 G18 J18 info ];W[ah]C[白棋 胜率: 89.1% 
+(15b无电源 / 753 计算量)
+
+白棋 胜率: 78.9% 
+盘面: -3.4 局面复杂度: 23.8
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 81.7% (-3.8%)
+盘面: -6.1 局面复杂度: 26.1
+(KataGo hzy6b / 103 计算量)
+步时: 0.101秒]LZ[15b无电源 89.1 753
+move B5 visits 464 winrate 1095 pv B5 M2 B14 J17 K16 B15 B3 B4 A4 B2 B14 G17 F18 B15 C3 C2 D4 info move M2 visits 77 winrate 936 pv M2 A11 A10 B5 B6 B4 A8 J17 K16 G17 F18 G18 K17 info move B14 visits 162 winrate 883 pv B14 B5 B6 B4 A11 B15 J17 H17 B14 J18 K17 B15 info move J17 visits 24 winrate 869 pv J17 H17 B14 J18 K18 B15 B5 B4 info move B4 visits 11 winrate 922 pv B4 B3 B5 M2 B14 J17 info move S8 visits 8 winrate 831 pv S8 M2 K5 B5 info move P11 visits 7 winrate 629 pv P11 N11 O11 info ];B[bf]C[黑棋 胜率: 6.8% 
+(15b无电源 / 677 计算量)
+
+黑棋 胜率: 17.8% 
+盘面: -7.0 局面复杂度: 26.5
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 39.8% (+2.8%)
+盘面: 1.7 局面复杂度: 37.8
+(KataGo 6b / 126 计算量)
+步时: 0.203秒]LZ[15b无电源 6.8 677
+move B5 visits 216 winrate 9322 pv B5 B6 B4 A11 B15 J17 B14 H17 T9 T10 M2 K5 S17 info move A11 visits 105 winrate 9139 pv A11 A10 A9 A8 B10 B9 A10 B4 B3 A6 A4 B7 info move G15 visits 54 winrate 9139 pv G15 D15 B15 B5 B4 B14 J17 K16 G17 F18 B15 A4 A3 info move H17 visits 52 winrate 9032 pv H17 K17 B15 B5 B4 B14 F18 E18 B15 A4 A3 info move J17 visits 136 winrate 8922 pv J17 K16 B15 B5 B4 B14 G17 F18 B15 A4 A3 A5 B2 B14 A11 A10 B15 info move G17 visits 42 winrate 9041 pv G17 J17 B15 B5 B4 B14 E18 D18 B15 A4 A3 B14 A5 A6 B15 A4 B14 B3 info move B4 visits 31 winrate 8897 pv B4 B5 B15 M2 G17 F18 G15 D15 J17 K16 info move L15 visits 34 winrate 8792 pv L15 M15 B15 B5 B4 B14 A11 A10 B15 A4 A3 A5 info move G5 visits 4 winrate 8374 pv G5 F5 B15 B5 info move K9 visits 3 winrate 8699 pv K9 L11 B15 info ];W[ai]C[白棋 胜率: 91.8% 
+(15b无电源 / 652 计算量)
+
+白棋 胜率: 81.3% 
+盘面: -6.4 局面复杂度: 26.6
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 83.2% (-1.5%)
+盘面: -7.8 局面复杂度: 26.9
+(KataGo hzy6b / 128 计算量)
+步时: 0.258秒]LZ[15b无电源 91.8 652
+move A10 visits 596 winrate 817 pv A10 A9 B10 B5 B6 B4 A8 B15 J17 H17 B14 J18 K17 B15 G18 info move B5 visits 33 winrate 530 pv B5 A9 A8 B7 A10 B10 B9 A10 B4 info move B4 visits 23 winrate 602 pv B4 B3 A10 A9 B10 B5 B6 A4 B8 A7 info ];B[aj]C[黑棋 胜率: 6.3% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 17.9% 
+盘面: -8.6 局面复杂度: 28.8
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 39.5% (+0.4%)
+盘面: 1.2 局面复杂度: 38.8
+(KataGo 6b / 103 计算量)
+步时: 0.202秒]LZ[15b无电源 6.3 1.0k
+move A9 visits 642 winrate 9368 pv A9 B10 B5 B6 B4 A8 B15 M2 G17 F18 J17 K16 K17 L16 G18 P11 info move B15 visits 279 winrate 8942 pv B15 B5 B4 B14 G15 D15 B15 A4 A3 A5 B2 B14 J17 K16 B15 info move B5 visits 40 winrate 9235 pv B5 B6 B4 A8 B15 M2 G17 F18 J17 K16 K17 info move B4 visits 16 winrate 9192 pv B4 B5 B15 A4 A3 B14 A9 A5 B3 B10 info move J17 visits 15 winrate 8986 pv J17 K16 K17 L16 G17 F18 G18 J19 info move G17 visits 7 winrate 9049 pv G17 J17 B15 B5 B4 info move H17 visits 4 winrate 8952 pv H17 G18 B15 info ];W[be]C[白棋 胜率: 88.0% 
+(15b无电源 / 837 计算量)
+
+白棋 胜率: 79.0% 
+盘面: -3.4 局面复杂度: 24.0
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 82.3% (+0.8%)
+盘面: -6.8 局面复杂度: 26.0
+(KataGo hzy6b / 107 计算量)
+步时: 0.204秒]LZ[15b无电源 88.0 837
+move B5 visits 701 winrate 1205 pv B5 B4 B14 G15 D15 B15 A4 A3 A5 B3 B14 A9 B10 B15 L9 K7 B14 info move M2 visits 41 winrate 753 pv M2 B5 B6 B4 A8 G17 F18 J17 K16 K17 L16 info move L9 visits 23 winrate 501 pv L9 A9 A8 B10 B9 A10 B4 B3 A5 info move J17 visits 22 winrate 880 pv J17 H17 B14 A9 B10 B15 B5 B4 B14 J18 K17 info move S8 visits 14 winrate 599 pv S8 R9 B14 A9 B10 B15 info move B4 visits 11 winrate 564 pv B4 B3 B14 J17 K16 B15 B5 info move O11 visits 11 winrate 526 pv O11 P11 B14 A9 B10 B5 B6 B4 info move L8 visits 6 winrate 512 pv L8 L7 B14 A9 info move H17 visits 5 winrate 682 pv H17 J17 info move K7 visits 3 winrate 281 pv K7 A9 info ];B[jd]C[黑棋 胜率: 5.4% 
+(15b无电源 / 529 计算量)
+
+黑棋 胜率: 12.6% 
+盘面: -7.6 局面复杂度: 23.8
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 43.1% (-3.6%)
+盘面: 4.9 局面复杂度: 36.2
+(KataGo 6b / 116 计算量)
+步时: 0.202秒]LZ[15b无电源 5.4 529
+move A9 visits 138 winrate 9464 pv A9 B10 B5 B6 B4 A8 G17 F18 B14 M2 T9 T10 S17 info move G17 visits 147 winrate 9399 pv G17 F18 G15 D15 G18 B14 A9 B10 B15 B5 B4 info move B5 visits 105 winrate 9420 pv B5 B6 B4 A8 G17 F18 B14 M2 T9 T10 L9 L10 K9 O11 P11 info move G15 visits 41 winrate 9386 pv G15 D15 G17 F18 G18 B14 A9 B10 B15 B5 B4 B14 info move C17 visits 30 winrate 9344 pv C17 C16 G17 F18 G18 B5 B4 A4 A3 A5 B2 M2 T9 info move B4 visits 15 winrate 9072 pv B4 B5 B14 A4 A3 A5 B2 info move B14 visits 46 winrate 8909 pv B14 B5 M2 B3 B4 A4 B2 C3 C2 D4 C4 info move M2 visits 6 winrate 9050 pv M2 B14 A9 B10 B15 B4 info move L15 visits 1 winrate 8312 pv L15 info ];W[bf]C[白棋 胜率: 89.2% 
+(15b无电源 / 672 计算量)
+
+白棋 胜率: 84.9% 
+盘面: -5.2 局面复杂度: 22.0
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 85.1% (-2.8%)
+盘面: -3.3 局面复杂度: 19.6
+(KataGo hzy6b / 113 计算量)
+步时: 0.309秒]LZ[15b无电源 89.2 672
+move B5 visits 532 winrate 1082 pv B5 M2 B3 K2 L3 L2 K5 G17 F18 T9 T10 S17 N19 L9 info move H17 visits 60 winrate 863 pv H17 M2 K5 T9 T10 B5 B6 info move M2 visits 53 winrate 802 pv M2 B5 B6 B4 A8 G17 F18 T9 T10 L9 L10 K9 O11 P11 info move B4 visits 14 winrate 1019 pv B4 B3 B5 M2 H17 K5 G5 T9 info move S8 visits 7 winrate 608 pv S8 B5 B6 info move S17 visits 6 winrate 714 pv S17 T9 T10 info ];B[hc]C[黑棋 胜率: 6.0% 
+(15b无电源 / 797 计算量)
+
+黑棋 胜率: 11.3% 
+盘面: -4.5 局面复杂度: 18.9
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 37.2% (+5.9%)
+盘面: 2.1 局面复杂度: 29.4
+(KataGo 6b / 145 计算量)
+步时: 0.32秒]LZ[15b无电源 6.0 797
+move A9 visits 158 winrate 9401 pv A9 A8 M2 K5 B10 B9 A10 B4 B3 A6 A4 B7 B5 info move B5 visits 202 winrate 9242 pv B5 B6 B4 A8 M2 K5 S17 N19 L9 L10 K9 O11 T9 T10 info move M2 visits 161 winrate 9229 pv M2 B5 K5 G5 B4 A4 A3 A5 B2 L4 info move S17 visits 83 winrate 9303 pv S17 N19 M2 K5 B5 B6 B4 A8 L9 L10 info move T9 visits 66 winrate 9089 pv T9 T10 M2 B5 B4 K5 L9 L10 K9 O11 P11 S17 info move G15 visits 30 winrate 8951 pv G15 B5 B4 A4 A3 A5 info move B4 visits 29 winrate 8900 pv B4 B5 M2 K5 T9 T10 L9 L10 K9 O11 info move G17 visits 44 winrate 8743 pv G17 G16 G15 D15 M2 B5 B4 A4 A3 A5 info move L9 visits 12 winrate 8870 pv L9 L10 M2 K5 K9 O11 B5 B6 B4 info move L15 visits 6 winrate 8823 pv L15 M15 J14 G16 info move L17 visits 4 winrate 8232 pv L17 L16 M2 info move S18 visits 1 winrate 7941 pv S18 info move N19 visits 1 winrate 7916 pv N19 info ];W[lr]C[白棋 胜率: 91.8% 
+(15b无电源 / 837 计算量)
+
+白棋 胜率: 84.8% 
+盘面: -10.2 局面复杂度: 27.6
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 86.9% (-1.8%)
+盘面: -8.5 局面复杂度: 25.1
+(KataGo hzy6b / 127 计算量)
+步时: 0.303秒]LZ[15b无电源 91.8 837
+move B5 visits 432 winrate 819 pv B5 G5 F5 K5 K2 B4 A4 A3 A5 B2 L4 T9 T10 S17 N19 R18 O18 K9 L9 info move K5 visits 284 winrate 689 pv K5 A9 B10 B5 B6 B4 B8 A7 A6 T9 T10 L9 L10 info move S8 visits 50 winrate 560 pv S8 G5 F5 K5 K2 J1 K7 J7 J9 H8 K8 L6 info move S17 visits 36 winrate 550 pv S17 G5 F5 K5 K7 J7 J9 H8 K8 L6 K4 info move K7 visits 18 winrate 494 pv K7 K8 J7 L9 M11 L6 B5 B4 A4 A3 info move B4 visits 12 winrate 688 pv B4 B3 B5 K5 G5 T9 T10 L3 P11 info move R9 visits 5 winrate 470 pv R9 Q9 R8 info ];B[jm]C[黑棋 胜率: 4.0% 
+(15b无电源 / 688 计算量)
+
+黑棋 胜率: 12.8% 
+盘面: -4.7 局面复杂度: 19.9
+(KataGohzy6b / 1.1k 计算量)
+
+黑棋 胜率: 32.8% (+4.4%)
+盘面: 0.3 局面复杂度: 27.4
+(KataGo 6b / 152 计算量)
+步时: 0.303秒]LZ[15b无电源 4.0 688
+move A9 visits 100 winrate 9598 pv A9 A8 B10 B9 A10 B4 B3 A6 A4 B7 B5 B6 K8 J7 L9 M11 info move B5 visits 136 winrate 9513 pv B5 B6 B4 A8 K8 J7 L6 H7 L8 K6 T9 T10 L5 L4 info move K8 visits 184 winrate 9448 pv K8 J7 B5 B6 B4 A8 L6 H7 L8 K6 T9 T10 L5 info move L9 visits 76 winrate 9424 pv L9 L10 K8 J7 T9 T10 L6 H7 M6 K6 L5 info move S17 visits 41 winrate 9449 pv S17 N19 K8 J7 L9 L10 L6 B5 B4 A4 A3 A5 B3 info move T9 visits 36 winrate 9315 pv T9 T10 K8 J7 L9 M11 L6 H7 M6 B5 B4 A4 A3 info move G15 visits 27 winrate 9378 pv G15 D15 K8 J7 L9 M11 T9 T10 L6 info move B4 visits 23 winrate 9350 pv B4 B5 K8 J7 L9 M11 L6 A4 A3 info move K6 visits 31 winrate 9147 pv K6 J7 L6 B5 B4 A4 A3 A5 B3 S17 info move L6 visits 27 winrate 9058 pv L6 B5 T9 T10 B4 A4 A3 info move G17 visits 7 winrate 8907 pv G17 G16 J17 H18 K17 L16 info ];W[jl]C[白棋 胜率: 91.8% 
+(15b无电源 / 863 计算量)
+
+白棋 胜率: 88.1% 
+盘面: -5.1 局面复杂度: 19.9
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 87.1% (-0.2%)
+盘面: -3.4 局面复杂度: 18.9
+(KataGo hzy6b / 109 计算量)
+步时: 0.303秒]LZ[15b无电源 91.8 863
+move B5 visits 423 winrate 819 pv B5 B4 J7 L9 M11 L6 A4 A3 A5 B3 S17 T9 info move J7 visits 372 winrate 543 pv J7 B5 B6 B4 A8 L6 H7 L8 K6 T9 T10 L5 L4 info move L9 visits 31 winrate 589 pv L9 K6 K5 B5 B6 B4 A8 T9 T10 P8 info move K5 visits 26 winrate 554 pv K5 B5 B6 B4 A8 T9 T10 K6 info move L6 visits 11 winrate 235 pv L6 L9 M11 J7 K5 B5 B6 B4 info ];B[im]C[黑棋 胜率: 3.8% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 11.0% 
+盘面: -6.0 局面复杂度: 20.3
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 35.8% (-3.0%)
+盘面: 2.2 局面复杂度: 26.3
+(KataGo 6b / 155 计算量)
+步时: 0.305秒]LZ[15b无电源 3.8 1.0k
+move A9 visits 127 winrate 9616 pv A9 A8 L6 H7 L8 K6 L5 L4 K5 G5 T9 info move B5 visits 211 winrate 9566 pv B5 B6 B4 A8 L6 H7 L8 K6 T9 T10 L5 L4 K5 G5 info move L9 visits 239 winrate 9452 pv L9 L10 T9 T10 L6 B5 B4 A4 A3 A5 B2 S17 info move G15 visits 44 winrate 9516 pv G15 D15 B5 B6 B4 A8 L6 H7 L8 K6 info move S17 visits 48 winrate 9525 pv S17 N19 L9 L10 L6 B5 B4 A4 A3 A5 B3 info move L6 visits 147 winrate 9353 pv L6 B5 L9 M11 B4 A4 A3 A5 B3 S17 info move T9 visits 89 winrate 9373 pv T9 T10 L9 M11 L6 H7 M6 B5 B4 A4 A3 A5 info move B4 visits 24 winrate 9378 pv B4 B5 L9 M11 L6 A4 A3 A5 info move H7 visits 38 winrate 9406 pv H7 H8 K6 H6 L7 H7 B5 B6 B4 A8 T9 T10 L6 L3 L9 info move K6 visits 31 winrate 8924 pv K6 H7 L7 L9 L4 L8 T9 T10 B5 info move L15 visits 10 winrate 9368 pv L15 M15 J14 G16 L9 L10 info move G17 visits 8 winrate 9207 pv G17 G16 L9 L10 G15 D15 info ];W[kk]C[白棋 胜率: 93.6% 
+(15b无电源 / 842 计算量)
+
+白棋 胜率: 88.4% 
+盘面: -6.0 局面复杂度: 20.9
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 89.3% (-2.2%)
+盘面: -5.5 局面复杂度: 19.8
+(KataGo hzy6b / 135 计算量)
+步时: 0.304秒]LZ[15b无电源 93.6 842
+move L10 visits 291 winrate 639 pv L10 B5 B6 B4 A8 L6 H7 M6 K6 L5 L4 K5 G5 T9 T10 info move S8 visits 134 winrate 656 pv S8 B5 B6 B4 A8 R9 T9 L11 M11 M12 L12 info move M11 visits 236 winrate 535 pv M11 B5 B6 B4 A8 L6 H7 M6 K6 L5 L4 K5 info move B5 visits 88 winrate 547 pv B5 T9 T10 L11 B3 B4 A4 B2 C3 C2 D4 info move L7 visits 68 winrate 424 pv L7 L8 M11 L6 H7 M6 B5 B4 A4 A3 A5 B2 S17 T9 info move R9 visits 11 winrate 374 pv R9 R8 T9 S8 M11 info move L6 visits 8 winrate 165 pv L6 L11 M11 M12 L12 M10 info move O11 visits 6 winrate 240 pv O11 T9 T10 info ];B[kj]C[黑棋 胜率: 3.4% 
+(15b无电源 / 902 计算量)
+
+黑棋 胜率: 8.9% 
+盘面: -9.8 局面复杂度: 21.8
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 31.5% (+4.3%)
+盘面: 0.2 局面复杂度: 26.7
+(KataGo 6b / 123 计算量)
+步时: 0.202秒]LZ[15b无电源 3.4 902
+move A9 visits 132 winrate 9660 pv A9 A8 B10 B9 A10 B4 B3 A5 A7 B7 B8 info move B5 visits 226 winrate 9559 pv B5 B6 B4 A8 L6 H7 M6 K6 L5 L4 K5 G5 T9 T10 O10 info move S17 visits 62 winrate 9465 pv S17 N19 L6 B5 B4 A4 A3 A5 B3 G5 T9 T10 info move T9 visits 177 winrate 9381 pv T9 T10 B5 B6 B4 A8 L6 S17 O10 N11 G5 F5 K5 H8 L4 info move L6 visits 167 winrate 9279 pv L6 B5 G5 F5 B4 A4 B3 H8 K6 J9 T9 T10 L4 info move H7 visits 37 winrate 9346 pv H7 H8 K6 H6 L7 B5 B4 A4 A3 A5 B3 H7 info move M10 visits 42 winrate 9039 pv M10 N11 T9 T10 L6 B5 B4 A4 A3 info move G15 visits 14 winrate 9460 pv G15 D15 L6 B5 B4 A4 A3 A5 B3 info move L15 visits 14 winrate 9388 pv L15 M15 J14 B5 G17 G16 info move G17 visits 11 winrate 9101 pv G17 G16 G15 D15 L6 B5 info move K6 visits 11 winrate 8809 pv K6 H7 L6 L7 L4 L8 B5 info move B4 visits 9 winrate 9293 pv B4 B5 L6 A4 A3 A5 B3 S17 info ];W[rb]C[白棋 胜率: 78.2% 
+(15b无电源 / 562 计算量)
+
+白棋 胜率: 77.9% 
+盘面: -0.2 局面复杂度: 18.8
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 88.6% (+0.7%)
+盘面: -2.6 局面复杂度: 17.4
+(KataGo hzy6b / 135 计算量)
+步时: 0.335秒]LZ[15b无电源 78.2 562
+move B5 visits 485 winrate 2177 pv B5 G15 D15 G17 G16 C17 C16 G18 H18 E18 C18 B18 info move L6 visits 44 winrate 1331 pv L6 B5 B6 B4 A8 T9 T10 G15 D15 G17 G16 C17 C16 G18 H18 info move L7 visits 15 winrate 993 pv L7 L8 M6 B5 B6 B4 A8 T9 info move S8 visits 9 winrate 1516 pv S8 L6 H7 K5 L7 info move N7 visits 4 winrate 669 pv N7 N8 L7 L8 info move N19 visits 3 winrate 397 pv N19 T9 info move T9 visits 2 winrate 509 pv T9 T8 info ];B[ma]C[黑棋 胜率: 3.7% 
+(15b无电源 / 607 计算量)
+
+黑棋 胜率: 6.8% 
+盘面: -6.9 局面复杂度: 18.3
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 41.1% (-9.6%)
+盘面: 5.2 局面复杂度: 26.5
+(KataGo 6b / 147 计算量)
+步时: 0.303秒]LZ[15b无电源 3.7 607
+move B5 visits 160 winrate 9626 pv B5 B6 B4 A8 L6 K6 L5 L4 K5 H6 J5 G5 T9 T10 P8 info move A9 visits 75 winrate 9619 pv A9 A8 B10 B9 A10 B4 B3 A4 A6 B6 A7 info move T9 visits 130 winrate 9484 pv T9 T10 B5 B6 B4 A8 L6 H7 M6 K6 L5 L4 K5 G5 G15 D15 J14 L15 O10 N11 info move G15 visits 50 winrate 9520 pv G15 D15 B5 B6 B4 A8 L6 K6 K5 J5 J4 H6 L5 L4 info move L6 visits 126 winrate 9367 pv L6 B5 B4 A4 T9 T10 A3 A5 B2 H7 M6 K6 info move H7 visits 31 winrate 9312 pv H7 H8 K6 H6 L7 H7 T9 T10 L6 L3 info move B4 visits 14 winrate 9194 pv B4 B5 L6 A4 A3 A5 B2 H7 M6 K6 info move M10 visits 13 winrate 9100 pv M10 N11 T9 T10 L6 B5 B4 A4 A3 info move K6 visits 8 winrate 9137 pv K6 H7 L6 L7 L4 L8 B5 info ];W[kn]C[白棋 胜率: 91.8% 
+(15b无电源 / 827 计算量)
+
+白棋 胜率: 88.0% 
+盘面: -7.6 局面复杂度: 23.8
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 91.8% (-3.3%)
+盘面: -5.0 局面复杂度: 18.5
+(KataGo hzy6b / 111 计算量)
+步时: 0.317秒]LZ[15b无电源 91.8 827
+move B5 visits 520 winrate 824 pv B5 B4 A4 T9 T10 A3 A5 B2 H7 M6 K6 L5 L4 K5 info move H7 visits 162 winrate 573 pv H7 B5 B6 B4 A8 M6 K6 L5 L4 K5 G5 T9 T10 G15 D15 info move K6 visits 74 winrate 393 pv K6 K5 H6 B5 B6 B4 A8 L5 L4 J5 info move L7 visits 25 winrate 229 pv L7 H7 H8 H6 J9 N8 B5 B4 A4 A3 info move B4 visits 21 winrate 714 pv B4 B3 B5 K5 L4 G5 F5 L7 info move S8 visits 12 winrate 520 pv S8 G5 F5 K5 K2 J1 G1 F1 info move H8 visits 8 winrate 333 pv H8 K6 L3 B5 B6 info move S17 visits 5 winrate 390 pv S17 T9 info ];B[jn]C[黑棋 胜率: 3.6% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 8.3% 
+盘面: -9.1 局面复杂度: 21.2
+(KataGohzy6b / 1.1k 计算量)
+
+黑棋 胜率: 35.8% (+5.3%)
+盘面: 3.0 局面复杂度: 25.9
+(KataGo 6b / 102 计算量)
+步时: 0.203秒]LZ[15b无电源 3.6 1.0k
+move B5 visits 222 winrate 9642 pv B5 B6 B4 A8 K5 H6 L5 L4 J5 G5 T9 info move K5 visits 336 winrate 9627 pv K5 H6 B5 B6 B4 A8 L5 L4 J5 G5 T9 T10 P8 O9 N7 info move T9 visits 156 winrate 9581 pv T9 T10 K5 H6 L5 J5 L4 B5 B4 A4 A3 A5 B3 L3 L7 O11 info move L5 visits 208 winrate 9515 pv L5 K5 L4 B5 T9 T10 B4 A4 A3 A5 B3 G15 N11 M11 K2 info move G15 visits 32 winrate 9612 pv G15 D15 K5 H6 B5 B6 B4 A8 L5 info move A9 visits 25 winrate 9564 pv A9 A8 K5 H6 B10 B9 A10 B4 B3 info move B4 visits 13 winrate 9328 pv B4 B5 K5 H6 T9 T10 L5 L4 J5 G5 info move M10 visits 12 winrate 9252 pv M10 N11 K5 H6 L11 K10 M11 info ];W[jo]C[白棋 胜率: 95.5% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 90.5% 
+盘面: -3.6 局面复杂度: 16.9
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 91.4% (+0.5%)
+盘面: -6.2 局面复杂度: 18.8
+(KataGo hzy6b / 122 计算量)
+步时: 0.303秒]LZ[15b无电源 95.5 1.0k
+move H6 visits 574 winrate 455 pv H6 A9 B10 B5 B6 B4 B8 T9 T10 A7 A6 L5 info move H7 visits 289 winrate 405 pv H7 L5 L4 G5 F5 M6 G1 F1 K2 J1 K1 G1 info move J5 visits 164 winrate 236 pv J5 J4 H6 L5 L4 G5 F5 J5 N7 N8 info move L5 visits 9 winrate 247 pv L5 H7 K4 L7 info ];B[hn]C[黑棋 胜率: 3.1% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 7.6% 
+盘面: -4.4 局面复杂度: 16.3
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 34.6% (+1.2%)
+盘面: 2.5 局面复杂度: 26.0
+(KataGo 6b / 111 计算量)
+步时: 0.204秒]LZ[15b无电源 3.1 1.0k
+move A9 visits 104 winrate 9692 pv A9 B10 B5 B6 B4 B8 T9 T10 A7 A6 L5 info move B5 visits 291 winrate 9603 pv B5 B6 L5 L4 B4 A8 J5 G5 T9 T10 P8 O9 N7 S17 info move G15 visits 86 winrate 9633 pv G15 D15 B5 B6 B4 A8 L5 L4 J5 G5 T9 T10 P9 N11 J14 L15 info move L5 visits 241 winrate 9557 pv L5 B5 J5 G5 B4 A4 A3 A5 B3 L4 T9 T10 P8 O11 info move T9 visits 180 winrate 9567 pv T9 T10 G15 D15 L5 L4 J5 G5 B5 B6 B4 A8 P9 info move B4 visits 33 winrate 9532 pv B4 B5 T9 T10 L5 L4 J5 G5 A5 A6 A4 A8 info move M10 visits 22 winrate 9285 pv M10 N11 T9 T10 L11 K10 M11 N12 info move L7 visits 18 winrate 9325 pv L7 J5 B5 B6 B4 A8 T9 T10 L5 L4 info move J5 visits 18 winrate 8438 pv J5 L5 L3 L4 B5 B6 B4 A8 info move R14 visits 12 winrate 9498 pv R14 S13 T9 T10 B5 B6 B4 A8 info move E6 visits 10 winrate 9537 pv E6 F7 B5 B6 B4 A8 info move L4 visits 10 winrate 8867 pv L4 L5 L3 K4 B5 B6 B4 A8 info move G5 visits 4 winrate 9187 pv G5 J5 B5 B6 info ];W[ak]C[白棋 胜率: 96.8% 
+(15b无电源 / 736 计算量)
+
+白棋 胜率: 92.5% 
+盘面: -6.4 局面复杂度: 18.2
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 94.0% (-2.7%)
+盘面: -7.5 局面复杂度: 18.6
+(KataGo hzy6b / 102 计算量)
+步时: 0.203秒]LZ[15b无电源 96.8 736
+move B10 visits 291 winrate 322 pv B10 B5 B6 B4 A8 A7 B9 A6 B7 T9 T10 L5 L4 J5 G5 P8 info move A8 visits 215 winrate 311 pv A8 B10 B9 A10 B4 B3 A6 A4 B7 T9 T10 B5 B6 L5 L4 info move B5 visits 164 winrate 276 pv B5 B10 A8 B7 B3 B4 A4 C2 B2 B1 D1 C1 info move B4 visits 45 winrate 213 pv B4 B3 A4 B10 A8 A6 B9 A10 B7 A7 info move B9 visits 21 winrate 184 pv B9 B10 A8 A10 B4 B3 A6 A4 B7 info ];B[bk]C[黑棋 胜率: 0.7% 
+(15b无电源 / 753 计算量)
+
+黑棋 胜率: 3.4% 
+盘面: -14.8 局面复杂度: 20.7
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 29.9% (+4.6%)
+盘面: -1.1 局面复杂度: 29.8
+(KataGo 6b / 120 计算量)
+步时: 0.202秒]LZ[15b无电源 0.7 753
+move A8 visits 75 winrate 9926 pv A8 A7 B10 B4 B3 A10 T9 T10 B10 B6 A4 A10 R14 S13 B10 info move B10 visits 271 winrate 9812 pv B10 A8 A10 B7 B5 A6 B4 B6 T9 T10 L5 L4 J5 G5 info move T9 visits 164 winrate 9802 pv T9 T10 B10 A8 A10 B4 B3 A5 A7 B7 B8 C2 info move G15 visits 48 winrate 9815 pv G15 D15 B10 A8 A10 B4 B3 A6 A4 B7 T9 info move L5 visits 147 winrate 9755 pv L5 J5 T9 T10 B10 B4 B3 A10 R14 S13 B10 A3 A2 info move B5 visits 20 winrate 9614 pv B5 A8 L5 L4 J5 G5 T9 info move M10 visits 8 winrate 9683 pv M10 N11 L11 K10 M11 info move B4 visits 8 winrate 9496 pv B4 A8 L5 L4 J5 info move L4 visits 6 winrate 9423 pv L4 L5 L3 K4 B10 B4 info move J5 visits 6 winrate 9119 pv J5 L5 B10 A8 A10 info ];W[bj]C[白棋 胜率: 97.5% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 95.8% 
+盘面: -10.8 局面复杂度: 19.3
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 96.6% (-2.6%)
+盘面: -10.7 局面复杂度: 18.7
+(KataGo hzy6b / 108 计算量)
+步时: 0.303秒]LZ[15b无电源 97.5 1.0k
+move A8 visits 707 winrate 249 pv A8 A10 B7 B5 A6 B4 B6 L5 L4 T9 T10 J5 G5 info move B4 visits 296 winrate 164 pv B4 B3 A8 A10 A6 A4 B7 T9 T10 B5 B6 L5 L4 info move B5 visits 9 winrate 136 pv B5 A10 B3 B4 A4 info ];B[bp]C[黑棋 胜率: 1.7% 
+(15b无电源 / 869 计算量)
+
+黑棋 胜率: 3.3% 
+盘面: -13.7 局面复杂度: 20.0
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 23.4% (+6.6%)
+盘面: -5.5 局面复杂度: 29.4
+(KataGo 6b / 121 计算量)
+步时: 0.213秒]LZ[15b无电源 1.7 869
+move B3 visits 855 winrate 9827 pv B3 A8 A10 A6 A4 B7 T9 T10 B5 B6 L5 L4 J5 info move T9 visits 14 winrate 9237 pv T9 T10 B3 A10 R14 S13 B10 A3 A2 A10 info ];W[bq]C[白棋 胜率: 97.9% 
+(15b无电源 / 1.1k 计算量)
+
+白棋 胜率: 96.8% 
+盘面: -13.1 局面复杂度: 19.5
+(KataGohzy6b / 1.1k 计算量)
+
+白棋 胜率: 97.0% (-0.4%)
+盘面: -13.1 局面复杂度: 19.7
+(KataGo hzy6b / 124 计算量)
+步时: 0.314秒]LZ[15b无电源 97.9 1.1k
+move A8 visits 241 winrate 212 pv A8 A10 A6 A4 B7 B5 B6 T9 T10 L5 L4 J5 info move A10 visits 629 winrate 148 pv A10 A8 A7 B10 B6 A5 A10 T9 T10 B10 A4 A3 B5 B8 A10 info move C3 visits 96 winrate 363 pv C3 C2 A10 T9 T10 B10 A8 A10 B7 B5 A6 A4 B6 L5 L4 J5 info move A5 visits 53 winrate 124 pv A5 A8 A10 T9 T10 B10 A7 B6 A10 info move A4 visits 31 winrate 81 pv A4 A3 A6 B5 A5 A7 B6 info move B5 visits 17 winrate 79 pv B5 A8 A10 T9 T10 B10 info move A3 visits 14 winrate 123 pv A3 A2 A5 A4 A10 T9 T10 info ];B[aj]C[黑棋 胜率: 0.6% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 2.1% 
+盘面: -13.8 局面复杂度: 18.4
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 23.6% (-0.2%)
+盘面: -4.7 局面复杂度: 28.6
+(KataGo 6b / 147 计算量)
+步时: 0.202秒]LZ[15b无电源 0.6 1.0k
+move A8 visits 72 winrate 9944 pv A8 A7 B10 B6 A4 A5 B5 A10 T9 T10 info move T9 visits 276 winrate 9866 pv T9 T10 B10 A8 A10 B7 B5 A6 A4 B6 L5 L4 J5 info move G15 visits 134 winrate 9866 pv G15 D15 B10 A8 A10 A6 A4 B7 B5 B6 T9 T10 L5 L4 J5 G5 P8 O9 info move R14 visits 81 winrate 9870 pv R14 S13 B10 A8 A10 A4 A6 B7 A7 info move C17 visits 76 winrate 9848 pv C17 C16 B10 A8 A10 A6 A4 B7 B5 B6 T9 T10 L5 L4 J5 G5 info move G17 visits 156 winrate 9850 pv G17 G16 B10 A8 A10 A4 A6 B7 A7 B6 B8 A5 info move L5 visits 59 winrate 9823 pv L5 L4 B10 A8 A10 B7 B5 A6 A4 B6 info move M10 visits 71 winrate 9793 pv M10 N11 B10 A8 A10 B7 B5 A6 A4 B6 T9 T10 L5 info move L7 visits 24 winrate 9700 pv L7 J5 B10 A8 A10 B7 B5 A6 A4 B6 info move J5 visits 15 winrate 9455 pv J5 L5 B10 A8 A10 A4 A6 B7 A7 info move E6 visits 12 winrate 9824 pv E6 F7 B10 A8 A10 A4 A6 B6 info move N11 visits 10 winrate 9822 pv N11 M11 B10 A8 A10 B7 B5 info move L11 visits 9 winrate 9678 pv L11 M10 B10 A8 B5 B6 info move B5 visits 8 winrate 9750 pv B5 A8 T9 T10 L5 L4 J5 info ];W[lj]C[白棋 胜率: 97.4% 
+(15b无电源 / 673 计算量)
+
+白棋 胜率: 96.9% 
+盘面: -13.1 局面复杂度: 19.3
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 98.5% (-1.5%)
+盘面: -14.4 局面复杂度: 18.2
+(KataGo hzy6b / 115 计算量)
+步时: 0.102秒]LZ[15b无电源 97.4 673
+move N11 visits 479 winrate 259 pv N11 B10 A8 A10 B7 B5 A6 A4 B6 T9 T10 L5 L4 J5 G5 G15 info move M11 visits 66 winrate 108 pv M11 N10 O10 N11 O11 N12 O12 N13 O13 N14 P11 P14 R9 Q9 info move R9 visits 31 winrate 110 pv R9 B10 A8 A10 B7 B5 A6 A4 B6 L11 info move N10 visits 27 winrate 135 pv N10 B10 A8 M11 N11 M12 N12 M13 info move A8 visits 22 winrate 123 pv A8 L11 K10 M11 L12 T9 T10 L5 L4 J5 G5 info move C3 visits 15 winrate 177 pv C3 C2 N11 B10 A8 A10 A6 A4 B7 info move S8 visits 13 winrate 88 pv S8 B10 A8 A10 B7 B5 info move A3 visits 11 winrate 79 pv A3 A2 A5 A4 info move K9 visits 9 winrate 61 pv K9 L8 N11 info ];B[mi]C[黑棋 胜率: 2.6% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 3.5% 
+盘面: -12.7 局面复杂度: 19.7
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 23.7% (-0.1%)
+盘面: -5.3 局面复杂度: 29.0
+(KataGo 6b / 146 计算量)
+步时: 0.303秒]LZ[15b无电源 2.6 1.0k
+move B10 visits 818 winrate 9744 pv B10 A8 A10 B7 B5 A6 A4 B6 T9 T10 L5 L4 J5 G5 G15 info move T9 visits 58 winrate 9694 pv T9 T10 B10 A8 A10 A6 A4 B7 B5 B6 L5 L4 J5 G5 G15 info move M11 visits 53 winrate 9703 pv M11 N12 L11 K10 N10 O10 O11 O9 T9 T10 info move L11 visits 44 winrate 9550 pv L11 K10 M11 N12 N10 O10 O11 O9 T9 T10 B10 A8 A10 info move G15 visits 30 winrate 9747 pv G15 D15 B10 A8 A10 B7 B5 A6 A4 B6 L5 info move J5 visits 4 winrate 8711 pv J5 L5 B10 A8 info ];W[bj]C[白棋 胜率: 96.6% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 95.9% 
+盘面: -10.1 局面复杂度: 18.9
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 97.5% (+1.0%)
+盘面: -14.3 局面复杂度: 19.6
+(KataGo hzy6b / 112 计算量)
+步时: 0.305秒]LZ[15b无电源 96.6 1.0k
+move A8 visits 657 winrate 341 pv A8 A10 B7 B5 A6 A4 B6 T9 T10 L5 L4 J5 G5 G15 D15 info move A5 visits 84 winrate 154 pv A5 A8 A10 T9 T10 B10 C2 C3 A10 info move A3 visits 154 winrate 122 pv A3 A2 A10 M11 M12 B10 A5 A4 A10 L11 K10 info move C3 visits 32 winrate 114 pv C3 C2 A10 T9 T10 B10 A8 A10 B7 B5 A6 A4 B6 info move S17 visits 24 winrate 108 pv S17 A10 P11 O11 P10 O10 P9 N10 R9 L11 info move C2 visits 19 winrate 50 pv C2 B5 A10 L11 K10 B10 A4 A3 A10 info move A4 visits 17 winrate 91 pv A4 A8 A10 M11 M12 B10 info move F12 visits 14 winrate 129 pv F12 F13 A10 T9 T10 B10 G13 G12 A10 info move B5 visits 10 winrate 111 pv B5 A8 A10 T9 info ];B[al]C[黑棋 胜率: 1.9% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 3.1% 
+盘面: -13.5 局面复杂度: 20.1
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 24.4% (-0.7%)
+盘面: -3.9 局面复杂度: 27.7
+(KataGo 6b / 142 计算量)
+步时: 0.218秒]LZ[15b无电源 1.9 1.0k
+move A10 visits 432 winrate 9814 pv A10 B7 B5 A6 A4 B6 T9 T10 L5 L4 J5 G5 G15 D15 S17 J14 info move G15 visits 57 winrate 9672 pv G15 D15 A10 B7 B5 A6 A4 B6 L5 L4 J5 G5 info move T9 visits 161 winrate 9614 pv T9 T10 A10 A6 A4 B7 B5 B6 L5 L4 J5 G5 G15 info move B5 visits 144 winrate 9521 pv B5 A10 L5 L4 J5 G5 T9 T10 P9 O9 O5 S17 T17 info move L5 visits 80 winrate 9523 pv L5 J5 T9 T10 L4 L3 B5 B6 A4 A10 G15 D15 L7 J14 info move L11 visits 86 winrate 9378 pv L11 K10 A10 A5 M11 N12 A7 B7 B8 info move M11 visits 37 winrate 9545 pv M11 N12 A10 B7 B5 A6 A4 B6 L5 L4 J5 G5 info move N8 visits 4 winrate 9289 pv N8 O9 L5 J5 info move L4 visits 3 winrate 8871 pv L4 L5 L3 info ];W[aj]C[白棋 胜率: 97.2% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 95.5% 
+盘面: -8.0 局面复杂度: 17.4
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 96.3% (+1.1%)
+盘面: -14.1 局面复杂度: 20.5
+(KataGo hzy6b / 137 计算量)
+步时: 0.304秒]LZ[15b无电源 97.2 1.0k
+move A6 visits 393 winrate 278 pv A6 A4 B7 G15 D15 B5 B6 T9 T10 L5 L4 J5 G5 info move B7 visits 404 winrate 224 pv B7 T9 T10 B5 A6 A4 B6 L5 L4 J5 G5 G15 D15 info move A4 visits 159 winrate 135 pv A4 A6 B6 A7 B7 B8 N7 N8 A8 T9 A5 R14 O9 info move A5 visits 75 winrate 74 pv A5 A7 B7 B8 C2 C3 A8 T9 T10 B8 B2 A3 A8 info ];B[ap]C[黑棋 胜率: 0.7% 
+(15b无电源 / 681 计算量)
+
+黑棋 胜率: 2.1% 
+盘面: -28.6 局面复杂度: 21.1
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 20.6% (+3.8%)
+盘面: -11.0 局面复杂度: 30.9
+(KataGo 6b / 150 计算量)
+步时: 0.202秒]LZ[15b无电源 0.7 681
+move A6 visits 307 winrate 9931 pv A6 B6 A7 B7 B8 N7 B5 N8 T9 T10 P8 O6 P6 S17 T17 O18 info move T9 visits 177 winrate 9857 pv T9 T10 A6 B6 A7 B7 B8 P11 B5 S17 O11 P10 O10 P9 N10 info move G15 visits 63 winrate 9800 pv G15 D15 A6 B6 A7 B7 B8 C3 C2 A8 G17 G16 B8 G11 G12 info move L11 visits 45 winrate 9644 pv L11 K10 A6 B6 A7 B7 B8 N8 N7 A8 C17 C16 B8 C2 info move A7 visits 36 winrate 9287 pv A7 A6 B8 B7 T9 T10 L5 L4 J5 G5 info move M11 visits 17 winrate 9720 pv M11 M12 L11 K10 N10 O10 O11 N12 T9 info move J5 visits 16 winrate 9687 pv J5 L5 A6 B7 A7 B6 B8 N7 N8 A8 C17 C16 info move L5 visits 15 winrate 9636 pv L5 J5 L4 L3 T9 T10 L7 info move E6 visits 5 winrate 9411 pv E6 A6 F7 J5 info ];W[an]C[白棋 胜率: 99.4% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 97.2% 
+盘面: -27.3 局面复杂度: 21.6
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 98.4% (-2.1%)
+盘面: -27.8 局面复杂度: 21.3
+(KataGo hzy6b / 126 计算量)
+步时: 0.303秒]LZ[15b无电源 99.4 1.0k
+move B6 visits 476 winrate 64 pv B6 T9 T10 A7 B7 B8 P11 B5 S17 O11 P10 O10 P9 N10 R9 info move B7 visits 214 winrate 34 pv B7 A7 B6 B8 N7 B5 N8 T9 T10 P8 O6 P6 S17 T17 info move B5 visits 104 winrate 43 pv B5 A7 B7 B8 B2 C2 A8 T9 T10 B8 A3 C3 A8 L11 info move A3 visits 56 winrate 57 pv A3 B2 B7 A7 B6 B8 N8 N7 A8 C17 C16 B8 info move A7 visits 51 winrate 167 pv A7 B7 B8 B6 B5 A3 A5 B6 L5 A6 B7 A6 J5 B6 N7 N8 O9 N6 O5 P5 S8 R8 info move C3 visits 33 winrate 23 pv C3 C2 B7 A7 B6 B8 N8 N7 A8 info move A5 visits 32 winrate 17 pv A5 A3 B6 B5 A5 A4 J5 T9 T10 P8 O18 G15 info move C2 visits 28 winrate 98 pv C2 C3 B6 A7 B7 B8 N7 N8 A8 C17 C16 B8 info move B2 visits 13 winrate 56 pv B2 A3 C3 C2 A2 info ];B[br]C[黑棋 胜率: 0.6% 
+(15b无电源 / 651 计算量)
+
+黑棋 胜率: 1.2% 
+盘面: -29.4 局面复杂度: 19.5
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 9.3% (+11.3%)
+盘面: -20.8 局面复杂度: 27.7
+(KataGo 6b / 108 计算量)
+步时: 0.204秒]LZ[15b无电源 0.6 651
+move A7 visits 143 winrate 9936 pv A7 A3 C3 B5 C2 B7 B8 A2 B1 A8 T9 T10 info move C3 visits 151 winrate 9910 pv C3 A3 A7 B5 C2 B7 B8 A2 B1 A8 info move A3 visits 183 winrate 9941 pv A3 C2 C3 B5 B7 E3 D2 E5 D4 info move C2 visits 93 winrate 9834 pv C2 A3 C3 A2 B1 B7 A7 B6 B8 N7 info move B5 visits 58 winrate 9811 pv B5 A3 B7 C3 D4 D2 E3 A5 B6 A7 B8 L5 T9 T10 S17 info move A2 visits 15 winrate 9895 pv A2 A3 C3 A1 C2 B7 A7 A5 B8 B6 A8 J5 T9 info move T9 visits 6 winrate 9603 pv T9 A3 C2 C3 D4 info move B7 visits 2 winrate 9841 pv B7 B6 info ];W[cq]C[白棋 胜率: 98.8% 
+(15b无电源 / 854 计算量)
+
+白棋 胜率: 94.2% 
+盘面: -25.6 局面复杂度: 24.7
+(KataGohzy6b / 1.1k 计算量)
+
+白棋 胜率: 93.4% (+5.0%)
+盘面: -20.7 局面复杂度: 25.2
+(KataGo hzy6b / 122 计算量)
+步时: 0.303秒]LZ[15b无电源 98.8 854
+move B6 visits 334 winrate 119 pv B6 A7 B7 B8 N7 B5 N8 T9 T10 P8 O6 P6 O5 P5 S17 T17 O18 O10 info move A3 visits 411 winrate 143 pv A3 A7 B5 C2 B7 B8 A2 B1 A8 T9 T10 B8 R9 R8 A8 G17 G16 info move B7 visits 50 winrate 23 pv B7 A7 B6 B8 N7 N8 A8 C17 C16 B8 info move A7 visits 40 winrate 42 pv A7 B7 B8 B6 B5 A3 A5 B6 J5 T9 T10 S17 O18 A6 B7 A6 L7 L8 M6 info move A5 visits 19 winrate 156 pv A5 A3 B6 B5 A5 A4 J5 T9 info ];B[aq]C[黑棋 胜率: 0.7% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 5.6% 
+盘面: -26.6 局面复杂度: 24.5
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 20.3% (-11.0%)
+盘面: -12.7 局面复杂度: 31.6
+(KataGo 6b / 153 计算量)
+步时: 0.304秒]LZ[15b无电源 0.7 1.0k
+move A7 visits 325 winrate 9932 pv A7 B5 C2 D1 C1 G1 F1 K2 B8 E5 info move B5 visits 135 winrate 9946 pv B5 B6 A7 A5 B8 C2 D2 A2 C1 B1 D1 E5 D4 info move C2 visits 313 winrate 9873 pv C2 B6 A7 B7 B8 S17 A8 P11 O11 P10 O10 P9 N10 R9 L11 O12 N12 info move A2 visits 205 winrate 9837 pv A2 A1 C2 B7 A7 A5 B8 B6 A8 J5 T9 T10 S17 info move B8 visits 40 winrate 9597 pv B8 B7 A7 C2 D2 B5 B8 C1 K2 A8 T9 info move B7 visits 5 winrate 6340 pv B7 B6 A7 A5 A2 info move T9 visits 3 winrate 8977 pv T9 C2 D2 info move K2 visits 3 winrate 8948 pv K2 C2 D2 info ];W[am]C[白棋 胜率: 98.6% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 94.9% 
+盘面: -26.6 局面复杂度: 25.0
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 92.0% (+1.4%)
+盘面: -21.0 局面复杂度: 26.3
+(KataGo hzy6b / 153 计算量)
+步时: 0.304秒]LZ[15b无电源 98.6 1.0k
+move C2 visits 409 winrate 136 pv C2 B5 B7 B8 D2 E3 A8 L11 K10 B8 S17 B6 P11 O11 info move B5 visits 413 winrate 77 pv B5 C2 D1 K2 L2 L3 J1 K1 L4 L1 J5 T9 info move B7 visits 111 winrate 32 pv B7 B8 B5 C2 A8 B1 A2 B8 E5 A8 E6 info move B8 visits 57 winrate 55 pv B8 B5 C2 D2 A2 B6 A5 B7 L5 S17 info move A2 visits 13 winrate 45 pv A2 B8 B5 C2 D1 B1 C1 info ];B[cr]C[黑棋 胜率: 0.5% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 3.0% 
+盘面: -29.9 局面复杂度: 21.5
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 18.4% (+1.9%)
+盘面: -14.2 局面复杂度: 32.0
+(KataGo 6b / 124 计算量)
+步时: 0.213秒]LZ[15b无电源 0.5 1.0k
+move B5 visits 381 winrate 9951 pv B5 B7 D2 A2 B8 A5 B6 J5 S17 O18 T9 info move B8 visits 213 winrate 9850 pv B8 D2 E3 B5 E6 F7 K2 L2 L3 J1 K1 L1 M1 G1 info move D2 visits 268 winrate 9850 pv D2 B5 B8 C1 K2 L2 L3 L4 L1 J5 T9 T10 P8 O9 info move K2 visits 111 winrate 9839 pv K2 B7 B8 D2 E3 A8 T9 T10 B8 L2 L3 A8 R14 info move A2 visits 40 winrate 9584 pv A2 B5 D2 A1 B8 C1 K2 L2 L3 G1 F1 J1 info move E6 visits 12 winrate 9762 pv E6 F7 B5 B6 B8 A5 D2 A2 info ];W[bo]C[白棋 胜率: 99.4% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 96.8% 
+盘面: -29.6 局面复杂度: 21.8
+(KataGohzy6b / 1.1k 计算量)
+
+白棋 胜率: 86.2% 
+盘面: -17.0 局面复杂度: 0.0
+(KataGo6b / 108 计算量)
+
+白棋 胜率: 94.7% (-2.7%)
+盘面: -26.0 局面复杂度: 24.1
+(KataGo hzy6b / 108 计算量)
+步时: 0.204秒]LZ[15b无电源 99.4 1.0k
+move D2 visits 253 winrate 56 pv D2 E3 E5 D4 B7 B8 N7 B6 N8 S17 O6 info move B7 visits 263 winrate 36 pv B7 D2 A2 B8 P11 B6 S17 O11 P10 O10 P9 N10 R9 N12 info move B6 visits 236 winrate 45 pv B6 B8 A5 D2 A2 C1 B1 D1 E5 D4 E6 A8 B5 info move A2 visits 59 winrate 25 pv A2 B8 D2 E3 E5 B7 E6 B6 J5 S17 O18 T9 T10 P8 info move B8 visits 82 winrate 66 pv B8 B7 D2 E3 A5 B6 L5 T9 T10 S17 O18 info move E3 visits 82 winrate 97 pv E3 D2 B6 B8 A5 A2 A1 C1 D1 A8 E5 D4 E6 B7 B5 A2 L5 S17 O18 T9 info move E5 visits 22 winrate 88 pv E5 D2 E6 D4 B7 B8 S17 B6 P11 O11 info move O18 visits 13 winrate 33 pv O18 T9 D2 E3 info ];B[bn]C[黑棋 胜率: 0.4% 
+(15b无电源 / 1.0k 计算量)
+
+黑棋 胜率: 2.6% 
+盘面: -30.2 局面复杂度: 21.2
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 13.8% (+4.6%)
+盘面: -17.0 局面复杂度: 29.9
+(KataGo 6b / 108 计算量)
+步时: 0.102秒]LZ[15b无电源 0.4 1.0k
+move B8 visits 452 winrate 9957 pv B8 A5 D2 C1 A8 A2 D1 E5 B7 E6 D4 B5 info move A2 visits 498 winrate 9935 pv A2 A1 B8 A5 D2 C1 A8 E5 B7 E6 B5 L5 S17 O18 T9 info move D2 visits 86 winrate 9958 pv D2 A2 B8 A5 C1 B1 D1 E5 D4 E6 info move T9 visits 4 winrate 9402 pv T9 A5 B8 info move B7 visits 2 winrate 5090 pv B7 A5 info ];W[ar]C[白棋 胜率: 99.3% 
+(15b无电源 / 1.0k 计算量)
+
+白棋 胜率: 97.8% 
+盘面: -30.2 局面复杂度: 19.8
+(KataGohzy6b / 1.0k 计算量)
+
+白棋 胜率: 93.5% (+1.2%)
+盘面: -26.5 局面复杂度: 24.9
+(KataGo hzy6b / 165 计算量)
+步时: 0.209秒]LZ[15b无电源 99.3 1.0k
+move A1 visits 895 winrate 67 pv A1 B8 A5 D2 C1 A8 E5 B7 E6 B5 L5 S17 O18 T9 T10 info move A5 visits 73 winrate 13 pv A5 B5 A5 A4 J5 T9 T10 S17 O18 P8 L7 L8 M6 info move B7 visits 29 winrate 6 pv B7 B8 L5 T9 T10 S17 O18 P9 J5 G15 D15 K2 info move O18 visits 20 winrate 13 pv O18 B8 A1 B7 J5 S17 L7 L8 M6 T9 T10 P8 O9 N7 info move D2 visits 19 winrate 14 pv D2 E3 A1 B8 A5 A8 E5 B7 E6 B5 L5 info ];B[as]C[黑棋 胜率: 0.5% 
+(15b无电源 / 1.4k 计算量)
+
+黑棋 胜率: 1.6% 
+盘面: -30.8 局面复杂度: 18.9
+(KataGohzy6b / 1.0k 计算量)
+
+黑棋 胜率: 9.8% (+4.0%)
+盘面: -22.3 局面复杂度: 28.5
+(KataGo 6b / 143 计算量)
+步时: 0.102秒]LZ[15b无电源 0.5 1.4k
+move B8 visits 752 winrate 9951 pv B8 D2 B7 E3 L1 K2 K1 J1 T9 T10 J2 L2 M1 J1 R14 S13 J2 info move D2 visits 545 winrate 9954 pv D2 E5 B8 E6 B7 J5 T9 T10 S17 O18 P9 info move C1 visits 44 winrate 9901 pv C1 D2 E3 A5 B8 D1 A8 E5 B7 E6 info move E3 visits 15 winrate 9813 pv E3 A5 B8 E5 C1 D1 D2 G1 info move K2 visits 12 winrate 9850 pv K2 A5 B8 D2 E3 E5 A8 E6 info move T9 visits 11 winrate 9442 pv T9 A5 B8 D2 E3 E5 A8 E6 D4 A2 B7 info move E6 visits 9 winrate 9852 pv E6 F7 B8 A5 D2 C1 info move B7 visits 3 winrate 3533 pv B7 A5 B8 info ])

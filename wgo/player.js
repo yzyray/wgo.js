@@ -46,6 +46,8 @@
 
 // basic updating function - handles board changes
 
+
+
     var update_board = function (e) {
         // update board's position
         if (e.change) this.board.update(e.change);
@@ -95,7 +97,18 @@
             this.board.removeAllObjectsVR();
         }
         this.board.removeAllObjectsBM();
-        if (e.node.bestMoves)
+        if (e.node.bestMoves) {
+            if(e.node.engine)
+            {
+                if(WGo.isWideMode)
+                WGo.commentTitle.innerHTML="引擎:"+e.node.engine;
+                else
+                {    if(e.node.enginemin)
+                    WGo.engineElement.innerHTML=e.node.enginemin;
+                    else
+                    WGo.engineElement.innerHTML=e.node.engine;
+                }
+            }
             for (var i = 0; i < e.node.bestMoves.length; i++) {
                 var bestMove = e.node.bestMoves[i];
                 if (bestMove.coordinate) {
@@ -110,6 +123,7 @@
                     this.board.addObject(bestMoveInfo);
                 }
             }
+        }
         // add current move marker
         if (e.node.move && this.config.markLastMove) {
             if (e.node.move.pass) this.notification(WGo.t((e.node.move.c == WGo.B ? "b" : "w") + "pass"));

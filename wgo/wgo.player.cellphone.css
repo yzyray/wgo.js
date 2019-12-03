@@ -232,10 +232,27 @@
     text-align: right;
 }
 
+.wgo-player-top .wgo-box-engine, .wgo-player-bottom .wgo-box-engine {
+    height: 40px;
+    display: inline-block;
+    line-height: 40px;
+    width: 20%;
+    margin: 0;
+    overflow-x:auto;
+}
+
+.wgo-box-engine-content{
+    height: 38px;
+    font-size:14px;
+    background: rgba(226, 226, 226, 0.5);
+    border: 1px solid rgba(200, 200, 200, 0.5);
+    text-align: center;
+}
+
 .wgo-player-top .wgo-player-wrapper, .wgo-player-bottom .wgo-player-wrapper {
     height: 40px;
     display: inline-block;
-    width: 50%;
+    width: 40%;
     margin: 0;
     position: relative;
 }

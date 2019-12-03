@@ -18,8 +18,8 @@
         this.comments_title = document.createElement("div");
         this.comments_title.className = "wgo-box-title";
         this.comments_title.id="commenttitile";
-        if(WGo.isPC||WGo.isWideMode)
-            this.comments_title.innerHTML = WGo.t("comments");
+        // if(WGo.isPC||WGo.isWideMode)
+        //     this.comments_title.innerHTML = WGo.t("comments");
         this.box.appendChild(this.comments_title);
         WGo.commentTitle=this.comments_title;
 //
@@ -832,8 +832,8 @@
         prepare_dom.call(this);
         player.addEventListener("kifuLoaded", function (e) {
             if (e.kifu.hasComments()) {
-                if(WGo.isPC||WGo.isWideMode)
-                    this.comments_title.innerHTML = WGo.t("comments");
+                // if(WGo.isPC||WGo.isWideMode)
+                //     this.comments_title.innerHTML = WGo.t("comments");
                 this.element.className = "wgo-commentbox";
 
                 this._update = function (e) {

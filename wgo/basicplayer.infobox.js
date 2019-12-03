@@ -6,6 +6,16 @@
         prepare_dom_box.call(this, "white");
         prepare_dom_box.call(this, "black");
         this.element.appendChild(this.white.box);
+        if(!WGo.isWideMode){
+            var engineElement=document.createElement("div");
+            engineElement.className = "wgo-box-engine";
+            var engine_content;
+            engine_content = document.createElement("div");
+            engine_content.className = "wgo-box-engine-content";
+            engineElement.appendChild(engine_content);
+            WGo.engineElement=engine_content;
+            this.element.appendChild(engineElement);
+        }
         this.element.appendChild(this.black.box);
     }
 
@@ -14,6 +24,7 @@
         var t = this[type];
         t.box = document.createElement("div");
         t.box.className = "wgo-box-wrapper wgo-player-wrapper wgo-" + type;
+
 
         t.name = document.createElement("div");
         t.name.className = "wgo-box-title";
