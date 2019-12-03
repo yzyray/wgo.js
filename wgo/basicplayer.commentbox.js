@@ -541,7 +541,7 @@
             else
                 g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*0.5, textHeight);
 
-            g2d.fillStyle = "rgb(255,255,255)";
+            g2d.fillStyle = "rgb(0,0,255)";
             g2d.beginPath();
             g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), scoreHeight, sr/ 7, 0, 2 * Math.PI, true);
             g2d.closePath();
