@@ -654,9 +654,9 @@
         WGo.mainWidth= o.offsetWidth;
         WGo.mainHeight= o.offsetHeight;
 
-        var devicewidth = document.documentElement.clientWidth;
-        var deviceheight = document.documentElement.clientHeight;
-        if (devicewidth > deviceheight) {
+        // var devicewidth = document.documentElement.clientWidth;
+        // var deviceheight = document.documentElement.clientHeight;
+        if (WGo.isWideMode) {
             var o3=document.getElementById("main");
             o3.style.margin="0px 0px 0px 20px";
             o3.style.top="0px";
@@ -693,32 +693,15 @@
                     o2[i].style.width = 30 + "%";
                     o2[i].style.display="";
                 }
-                var o3 = document.getElementsByClassName("wgo-ctrlgroup-left");
-                for (var i = 0; i < o1.length; i++) {
-                    o3[i].style.paddingLeft = 0 + "px";
-                }
-
+                // var o3 = document.getElementsByClassName("wgo-ctrlgroup-left");
+                // for (var i = 0; i < o1.length; i++) {
+                //     o3[i].style.paddingLeft = 0 + "px";
+                // }
+                //
                 var o4 = document.getElementById("last");
                 o4.style.padding="0px 0px 0px 23px";
             }
-        if(WGo.isPC)
-        {
-            var o = document.getElementsByTagName("button");
-            var width=Math.min(WGo.mainWidth*0.7,WGo.mainHeight);
-            for (var i = 0; i < o.length; i++) {
-                if (o[i].className.startsWith("wgo-button3")) {
-                    o[i].style.width = Math.min(width / 18,40) + "px";
-                    // if(o[i].offsetWidth>0)
-                    // alert("bt3 "+o[i].offsetWidth+"_"+o[i].offsetHeight);
-                } else if (o[i].className.startsWith("wgo-button2")) {
-                    o[i].style.width = (Math.min(width / 13,55)) + "px";
-                    o[i].style.fontSize = (Math.min(width / 15,55))/4+ 'px';
-                } else if (o[i].className.startsWith("wgo-button")) {
-                    o[i].style.width = (Math.min(width / 13,60)) + "px";
-                }
-
         }
-        } }
         else{
             WGo.positionPercent = false;
             var o = document.getElementById("commenttitile");
@@ -737,7 +720,8 @@
             for (var i = 0; i < o1.length; i++) {
                 o3[i].style.paddingLeft = 0 + "px";
             }
-        if(WGo.isPC){
+        if(WGo.isPC)
+        {
                 var o = document.getElementsByTagName("button");
                 for (var i = 0; i < o.length; i++) {
                     if (o[i].className.startsWith("wgo-button3")) {
@@ -757,8 +741,40 @@
             o3.style.top="-8px";
                 var o4 = document.getElementById("last");
                 o4.style.padding="0px 0px 0px 0px";
+            }
+        }
+            if(WGo.isWideMode)
+        {
+            var o = document.getElementsByTagName("button");
+            var width=Math.min(WGo.mainWidth*0.7,WGo.mainHeight);
+            for (var i = 0; i < o.length; i++) {
+                if (o[i].className.startsWith("wgo-button3")) {
+                    o[i].style.width = Math.min(width / 18,40) + "px";
+                    // if(o[i].offsetWidth>0)
+                    // alert("bt3 "+o[i].offsetWidth+"_"+o[i].offsetHeight);
+                } else if (o[i].className.startsWith("wgo-button2")) {
+                    o[i].style.width = (Math.min(width / 13,55)) + "px";
+                    o[i].style.fontSize = (Math.min(width / 15,55))/4+ 'px';
+                } else if (o[i].className.startsWith("wgo-button")) {
+                    o[i].style.width = (Math.min(width / 13,60)) + "px";
+                }
+            }
+        }
+       else
+        {
+            var o = document.getElementsByTagName("button");
+            for (var i = 0; i < o.length; i++) {
+                if (o[i].className.startsWith("wgo-button3")) {
+                    o[i].style.width = Math.min(WGo.mainWidth / 17,40) + "px";
+                    // if(o[i].offsetWidth>0)
+                    // alert("bt3 "+o[i].offsetWidth+"_"+o[i].offsetHeight);
+                } else if (o[i].className.startsWith("wgo-button2")) {
 
-                // o4.style.height="30px";
+                    o[i].style.width = (Math.min(WGo.mainWidth / 13,55)) + "px";
+                    o[i].style.fontSize = (Math.min(WGo.mainWidth / 18.5,60))/4+ 'px';
+                } else if (o[i].className.startsWith("wgo-button")) {
+                    o[i].style.width = (Math.min(WGo.mainWidth / 13,65)) + "px";
+                }
             }
         }
         if (!WGo.isPC &&! WGo.isWideMode)
