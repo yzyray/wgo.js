@@ -657,9 +657,13 @@
         var devicewidth = document.documentElement.clientWidth;
         var deviceheight = document.documentElement.clientHeight;
         if (devicewidth > deviceheight) {
+            var o3=document.getElementById("main");
+            o3.style.margin="0px 0px 0px 20px";
+            o3.style.top="0px";
             var o = document.getElementById("commenttitile");
                 o.style.display="";
-            if (WGo.mainWidth * 0.7 > WGo.mainHeight) {
+            if (WGo.mainWidth * 0.7 > WGo.mainHeight)
+            {
                 var percent = Math.round(WGo.mainHeight * 100 / WGo.mainWidth);
                 WGo.positionPercent = percent;
                 var o1 = document.getElementsByClassName("wgo-player-center");
@@ -677,7 +681,8 @@
                 }
                 var o4 = document.getElementById("last");
                 o4.style.padding="0px 0px 0px 32px";
-            } else {
+            }
+            else {
                 WGo.positionPercent = false;
                 var o1 = document.getElementsByClassName("wgo-player-center");
                 for (var i = 0; i < o1.length; i++) {
@@ -695,10 +700,7 @@
 
                 var o4 = document.getElementById("last");
                 o4.style.padding="0px 0px 0px 23px";
-
             }
-
-
         if(WGo.isPC)
         {
             var o = document.getElementsByTagName("button");
@@ -726,11 +728,11 @@
             for (var i = 0; i < o1.length; i++) {
                 o1[i].style.width = "";
             }
-            var o2 = document.getElementsByClassName("wgo-player-right");
-            for (var i = 0; i < o2.length; i++) {
-                o2[i].style.width = 0 + "%";
-                o2[i].style.display="none";
-            }
+            // var o2 = document.getElementsByClassName("wgo-player-right");
+            // for (var i = 0; i < o2.length; i++) {
+            //     o2[i].style.width = 0 + "%";
+            //     o2[i].style.display="none";
+            // }
             var o3 = document.getElementsByClassName("wgo-ctrlgroup-left");
             for (var i = 0; i < o1.length; i++) {
                 o3[i].style.paddingLeft = 0 + "px";
