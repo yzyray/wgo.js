@@ -760,7 +760,7 @@
                 }
             }
         }
-       else
+       else if(WGo.isPC)
         {
             var o = document.getElementsByTagName("button");
             for (var i = 0; i < o.length; i++) {
@@ -1046,6 +1046,8 @@
         },
 
         next: function (i) {
+            WGo.lastNext=true;
+            WGo.lastPrev=false;
             if (this.frozen || !this.kifu) return;
             if (WGo.editMode)
                 WGo.curBoard.removeAllObjectsOutLine();
@@ -1078,6 +1080,8 @@
          */
 
         previous: function () {
+            WGo.lastNext=false;
+            WGo.lastPrev=true;
             if (this.frozen || !this.kifu) return;
             if (WGo.editMode)
                 WGo.curBoard.removeAllObjectsOutLine();

@@ -307,7 +307,12 @@
         move.value = "0";
         if (!WGo.isPC && !WGo.isWideMode&&!WGo.isIPAD)
             move.onfocus = function () {
-                move.blur()
+                move.blur();
+                if(WGo.lastNext)
+                    player.next();
+                    else if(WGo.lastPrev)
+                    player.previous();
+
             };
         move.maxlength = 3;
         move.className = "wgo-player-mn-value";
