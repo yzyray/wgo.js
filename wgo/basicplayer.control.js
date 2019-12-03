@@ -367,9 +367,10 @@
 
         if (player.menu.style.display != "none") {
             player.menu.style.display = "none";
-
+            if(WGo.isPC)
             document.removeEventListener("click", player._menu_ev);
-            //document.removeEventListener("touchstart", player._menu_ev);
+            else
+            document.removeEventListener("touchstart", player._menu_ev);
             delete player._menu_ev;
 
             this.unselect();
@@ -391,9 +392,10 @@
 
             player._menu_ev = player_menu.bind(this, player)
             player._menu_tmp = true;
-
+            if(WGo.isPC)
             document.addEventListener("click", player._menu_ev);
-            //document.addEventListener("touchstart", player._menu_ev);
+      else
+            document.addEventListener("touchstart", player._menu_ev);
 
             return true;
         }
