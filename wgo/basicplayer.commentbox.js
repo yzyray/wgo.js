@@ -79,8 +79,11 @@
         this.comment_text = document.createElement("div");
         this.comment_text.className = "wgo-comment-text";
         this.comments.appendChild(this.comment_text);
-
-
+WGo.comment_text=this.comment_text;
+        if(WGo.isWideMode)
+            this.comment_text.style.fontSize = 15 + 'px';
+        else
+            this.comment_text.style.fontSize = 18 + 'px';
 
 
     }
@@ -837,9 +840,12 @@
                 this.element.className = "wgo-commentbox";
 
                 this._update = function (e) {
+                    if(WGo.isShowingBadMoves)
+                        return;
                     // if(WGo.badMoveListW)
                     // if(WGo.curPlayer.kifuReader.path.m==WGo.badMoveListW[0].moveNum)
                     this.setComments(e);
+                    WGo.curCommentUpdate=e;
                 }.bind(this);
 
                 player.addEventListener("update", this._update);
@@ -879,23 +885,174 @@
     });
 
     CommentBox.prototype.setComments = function (e) {
-        if (this.player._tmp_mark) unmark.call(this.player);
+        //if (this.player._tmp_mark) unmark.call(this.player);
 
         var msg = "";
         if (!e.node.parent) {
             msg = format_info(e.target.getGameInfo(), true);
         }
 
-        this.comment_text.innerHTML = msg + this.getCommentText(e.node.comment, e.node.bestMoves, this.player.config.formatNicks, this.player.config.formatMoves);
-        if(WGo.isWideMode)
-            this.comment_text.style.fontSize = 14 + 'px';
-        else
-            this.comment_text.style.fontSize = 18 + 'px';
+        this.comment_text.innerHTML = msg + this.getCommentText(e.node.comment, e.node.bestMoves);//, this.player.config.formatNicks, this.player.config.formatMoves
+
         WGo.commentBindBestMoveIndex=0;
         if (this.player.config.formatMoves) {
             if (this.comment_text.childNodes && this.comment_text.childNodes.length) search_nodes(this.comment_text.childNodes, this.player);
         }
     };
+
+
+   var getCommentTextForMoves = function (comment, bestMoves) {//, formatNicks, formatMoves
+        // to avoid XSS we must transform < and > to entities, it is highly recomanded not to change it
+        //.replace(/</g,"&lt;").replace(/>/g,"&gt;") : "";
+        // if(bestMoves)
+        // 	if(bestMoves[1])
+        // 		if(bestMoves[1].coordinate)
+        // return bestMoves[1].variation;
+        var moveComment = "";
+        var finalcomment = "";
+        if (bestMoves)
+            for (var i = 0; i < bestMoves.length; i++) {
+                if (bestMoves[i])
+                    if (bestMoves[i].coordinate) {
+                        moveComment +="<p><a class=\"wgo-move-link\">";
+                        var playouts = getPlayoutsString(bestMoves[i].playouts);
+                        var coords=formatWidth(bestMoves[i].coordinate+"",3);
+                        var percent = bestMoves[i].playouts / bestMoves[i].totalplayouts * 100;
+                        moveComment += "\n"+"选点" + formatWidth(i + 1,2) + ": "+ coords + "　胜率:" + formatWidth(bestMoves[i].winrate.toFixed(1),4);
+
+                        if (bestMoves[i].scoreMean)
+                            moveComment += "　目差" + bestMoves[i].scoreMean.toFixed(1);
+                        moveComment += "　计算量:";
+                        if(percent<10)
+                        {
+                            if(percent<3)
+                            {
+                                moveComment+="▎";
+                            }
+                            else if(percent<5)
+                            {
+                                moveComment+="▋";
+                            }
+                            else
+                                moveComment+="▉";
+                        }
+
+                        else if(percent>70){
+                            moveComment+="███████";
+                        }
+                        else
+                        {
+                            for (var s=0;s*10<percent;s++)
+                            {
+                                moveComment+="█";
+                            }
+                        }
+                        moveComment+=" "+percent.toFixed(1)+"%"+" ("+ playouts+")";
+                        moveComment +="</a></p>";
+                    }
+            }
+        if (bestMoves&&bestMoves[0])
+        {
+            comment="<p>"+WGo.curNode.comment2+"</p>";//+comment;
+        }
+        if (comment && WGo.isWideMode) {
+            finalcomment = "<p>"+comment +"</p>"+ moveComment;
+        } else {
+            finalcomment = moveComment;
+        }
+
+        if (finalcomment.length > 0) {
+            var comm = finalcomment;
+            return comm;
+        }
+        return "";
+    };
+
+
+   var setCommentsMove = function (e) {
+        //if (this.player._tmp_mark) unmark.call(this.player);
+
+        var msg = "";
+        if (!e.node.parent) {
+            msg = format_info(e.target.getGameInfo(), true);
+        }
+
+        WGo.comment_text.innerHTML = msg + getCommentTextForMoves(e.node.comment, e.node.bestMoves);//, this.player.config.formatNicks, this.player.config.formatMoves
+
+        WGo.commentBindBestMoveIndex=0;
+        if (WGo.curPlayer.config.formatMoves) {
+            if (WGo.comment_text.childNodes && WGo.comment_text.childNodes.length) search_nodes(WGo.comment_text.childNodes, WGo.curPlayer);
+        }
+    };
+
+
+    WGo.setCommentsMove= setCommentsMove;
+
+    var getCommentBadMoves=function (badMovesList)
+    {
+        var comment = "";
+        for (var i = 0; i < badMovesList.length; i++) {
+                if (i%2==0)
+                    comment +="<p>恶手"+(i+1)+":<a class=\"wgo-move-link\">";
+                else
+                    comment +="　　恶手"+(i+1)+":<a class=\"wgo-move-link\">";
+            var diff = badMovesList[i].winrateDiff;
+            var moveNum= badMovesList[i].moveNum;
+            comment += "手数 " + formatWidth(moveNum,3) + " 胜率 " + formatWidth(diff.toFixed(1),5);
+            if(diff<0)
+                comment +="↓";
+                else
+comment+="↑";
+                    if(i%2==1||i==badMovesList.length-1)
+                    comment +="</a></p>";
+                    else
+                        comment +="</a>";
+        }
+    return comment;}
+
+    var setBadMove=function(isBlack,isWinrate){
+WGo.isShowingBadMoves=true;
+    if(isBlack)
+    {
+        if(isWinrate)
+        { WGo.comment_text.innerHTML =  getCommentBadMoves(WGo.badMoveListB);
+       search_badMoves(WGo.comment_text.childNodes, WGo.curPlayer,WGo.badMoveListB);
+        }
+        else{
+
+        }
+    }
+    else
+    {
+        if(isWinrate)
+        { WGo.comment_text.innerHTML =  getCommentBadMoves(WGo.badMoveListW);
+      search_badMoves(WGo.comment_text.childNodes, WGo.curPlayer,WGo.badMoveListW);
+        }
+        else{
+
+        }
+    }
+    };
+    WGo.setBadMove=setBadMove;
+
+
+    var search_badMoves = function (nodes, player,list) {
+        WGo.gotomoveNumber=new Array();
+            for (var i=0;i< nodes.length;i++){
+                var s=0;
+            for (var j=0;j< nodes[i].childNodes.length;j++)
+                {
+
+                    if(nodes[i].childNodes[j].className == "wgo-move-link")
+                    {
+                   nodes[i].childNodes[j].addEventListener("click", player.goToForBads.bind(player,list[i*2+s].moveNum));
+                   s=s+1;
+                    }
+                    WGo.first=true;
+                }
+
+        }
+    }
 
     var getPlayoutsString = function (arg) {
         if (arg >= 1000000) {
@@ -914,7 +1071,7 @@
         }
     }
 
-    CommentBox.prototype.getCommentText = function (comment, bestMoves, formatNicks, formatMoves) {
+    CommentBox.prototype.getCommentText = function (comment, bestMoves) {//, formatNicks, formatMoves
         // to avoid XSS we must transform < and > to entities, it is highly recomanded not to change it
         //.replace(/</g,"&lt;").replace(/>/g,"&gt;") : "";
         // if(bestMoves)

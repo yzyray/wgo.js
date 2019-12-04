@@ -860,13 +860,23 @@ var updatePosition;
                         sr = board.stoneRadius;
 
                     this.fillStyle = "red";
-                    //this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
                     this.beginPath();
-                    this.moveTo(xr - board.ls + sr / 2, yr - board.ls + sr * 0.3);
-                    this.lineTo(xr - board.ls, yr - board.ls - sr * 0.5);
-                    this.lineTo(xr - board.ls - sr / 2, yr - board.ls + sr * 0.3);
-                    //this.arc(xr-board.ls, yr-board.ls, sr/6, 0, 2*Math.PI, true);
+                    this.moveTo(xr - board.ls + sr*1.1 , yr - board.ls - sr*1.1);
+                    this.lineTo(xr - board.ls+sr*0.3, yr - board.ls - sr*1.1 );
+                    this.lineTo(xr - board.ls + sr*1.1 , yr - board.ls-sr*0.3 );
                     this.fill();
+if(args.c==WGo.B)
+                    this.strokeStyle = "rgb(0,0,0)";
+else
+    this.strokeStyle = "rgb(255,255,255)";
+                    if(WGo.isPC)
+                        this.lineWidth = 4;
+                    else
+                        this.lineWidth = 7.5;
+                  //      this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
+                    this.beginPath();
+                    this.arc(xr - board.ls, yr - board.ls, sr, 0, 2 * Math.PI, true);
+                    this.stroke();
                 },
             },
         },

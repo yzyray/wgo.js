@@ -60,7 +60,8 @@
 
         this.notification();
         WGo.curNode = e.node;
-
+if(WGo.badLastMark)
+    this.board.removeObject(WGo.badLastMark);
 
         // add variation letters
         if (e.node.children.length > 1 && this.config.displayVariations) {
@@ -802,7 +803,7 @@
             if (node.bestMoves&&node.bestMoves[0]&&node.children[0].bestMoves&&node.children[0].bestMoves[0]) {
                 var winrateDiff = (100 - node.children[0].bestMoves[0].winrate)-node.bestMoves[0].winrate;
                 var badmove = new Object();
-                if (node.move.c == WGo.B) {
+                if (node.move.c == WGo.W) {
                     if (!WGo.badMoveListB)
                         WGo.badMoveListB = new Array();
                     if (WGo.badMoveListB.length < 10)
@@ -1222,6 +1223,36 @@
             } catch (err) {
                 this.error(err);
             }
+        },
+
+        goToForBads: function (move) {
+            if (this.frozen || !this.kifu) return;
+            var path;
+          //  if (typeof move == "function") move = move.call(this);
+
+            if (typeof move == "number") {
+                move--
+                path = WGo.clone(this.kifuReader.path);
+                path.m = move || 0;
+            } else path = move;
+
+            try {
+                this.kifuReader.goTo(path);
+                this.update();
+            } catch (err) {
+                this.error(err);
+            }
+            //alert(WGo.curNode.move.x+"_"+WGo.curNode.move.y);
+var move=WGo.curNode.children[0].move;
+            var badLastMark = new Object();
+            badLastMark.c = WGo.mainGame.turn;
+            badLastMark.x = move.x;
+            badLastMark.y = move.y;
+            badLastMark.type = "CR";
+            this.board.addObject(badLastMark);
+            WGo.badLastMark=badLastMark;
+            //  if(move)
+            // alert( WGo.curPlayer.kifuReader.path.m);
         },
 
         /**

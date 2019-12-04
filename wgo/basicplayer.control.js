@@ -435,7 +435,7 @@
         },
         {   constructor: control.MenuItem,
             args: {
-                name: "查找恶手(黑)",
+                name: "查找恶手(黑)(胜率)",
                 //togglable: true,
                 click: function () {
                     WGo.showBadBlack=!WGo.showBadBlack;
@@ -445,10 +445,16 @@
                         WGo.showBadelemetW.unselect();
                     }
                     if(WGo.showBadBlack)
-                    this.select();
+                    {
+                        this.select();
+                        WGo.setBadMove(true,true);
+                    }
                     else
+                    {
                         this.unselect();
-
+                        WGo.isShowingBadMoves=false;
+                        WGo.setCommentsMove(WGo.curCommentUpdate);
+                    }
 
 
                 },
@@ -459,7 +465,7 @@
         },
         {   constructor: control.MenuItem,
             args: {
-                name: "查找恶手(白)",
+                name: "查找恶手(白)(胜率)",
                // togglable: true,
                 click: function () {
                     WGo.showBadWhite=!WGo.showBadWhite;
@@ -469,10 +475,14 @@
                         WGo.showBadelemetB.unselect();
                     }
                     if(WGo.showBadWhite)
-                        this.select();
-                    else
-                        this.unselect();
-
+                    {    this.select();
+                    WGo.setBadMove(false,true);
+                }
+                else
+                    {  this.unselect();
+                    WGo.isShowingBadMoves=false;
+                        WGo.setCommentsMove(WGo.curCommentUpdate);
+                    }
 
                 },
                 init: function () {
