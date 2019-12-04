@@ -1209,6 +1209,8 @@ if(WGo.badLastMark)
 
         goTo: function (move) {
             if (this.frozen || !this.kifu) return;
+            if (WGo.editMode)
+                WGo.curBoard.removeAllObjectsOutLine();
             var path;
             if (typeof move == "function") move = move.call(this);
 
@@ -1227,6 +1229,8 @@ if(WGo.badLastMark)
 
         goToForBads: function (move) {
             if (this.frozen || !this.kifu) return;
+            if (WGo.editMode)
+                WGo.curBoard.removeAllObjectsOutLine();
             var path;
           //  if (typeof move == "function") move = move.call(this);
 
