@@ -142,7 +142,6 @@
             for (var i = 0; i < 10 && i < moveInfo.length; i++) {
                 var bestMove = new Object();
                 //document.write(moveInfo[i]+"<br/>"+moveInfo.length+"<br/>"); //分割后的字符输出
-
                 var data = moveInfo[i].trim().split(" ");
                 if (data.length > 2) {
                     for (var j = 0; j < data.length; j++) {
@@ -208,7 +207,6 @@
                     }
                     if (bestMove.coordinate) {
                         node.bestMoves.push(bestMove);
-                        //	s=s+1;
                     }
                 }
             }
@@ -326,22 +324,22 @@
         }
 
 
-        function IsPC() {
-            var userAgentInfo = navigator.userAgent;
-            var Agents = ["Android", "iPhone",
-                "SymbianOS", "Windows Phone",
-                "iPad", "iPod"];
-            var flag = true;
-            for (var v = 0; v < Agents.length; v++) {
-                if (userAgentInfo.indexOf(Agents[v]) > 0) {
-                    flag = false;
-                    break;
-                }
-            }
-            return flag;
-        }
-
-        var isPC = IsPC();
+        // function IsPC() {
+        //     var userAgentInfo = navigator.userAgent;
+        //     var Agents = ["Android", "iPhone",
+        //         "SymbianOS", "Windows Phone",
+        //         "iPad", "iPod"];
+        //     var flag = true;
+        //     for (var v = 0; v < Agents.length; v++) {
+        //         if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        //             flag = false;
+        //             break;
+        //         }
+        //     }
+        //     return flag;
+        // }
+        //
+        // var isPC = IsPC();
         WGo.editMoveNum = 1;
 
 //if(!isPC)

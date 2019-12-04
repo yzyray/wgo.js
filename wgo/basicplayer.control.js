@@ -433,6 +433,53 @@
                 }
             }
         },
+        {   constructor: control.MenuItem,
+            args: {
+                name: "查找恶手(黑)",
+                //togglable: true,
+                click: function () {
+                    WGo.showBadBlack=!WGo.showBadBlack;
+                    if(WGo.showBadWhite)
+                    {
+                        WGo.showBadWhite=false;
+                        WGo.showBadelemetW.unselect();
+                    }
+                    if(WGo.showBadBlack)
+                    this.select();
+                    else
+                        this.unselect();
+
+
+
+                },
+                init: function () {
+                    WGo.showBadelemetB=this;
+                }
+            }
+        },
+        {   constructor: control.MenuItem,
+            args: {
+                name: "查找恶手(白)",
+               // togglable: true,
+                click: function () {
+                    WGo.showBadWhite=!WGo.showBadWhite;
+                    if(WGo.showBadBlack)
+                    {
+                        WGo.showBadBlack=false;
+                        WGo.showBadelemetB.unselect();
+                    }
+                    if(WGo.showBadWhite)
+                        this.select();
+                    else
+                        this.unselect();
+
+
+                },
+                init: function () {
+                    WGo.showBadelemetW=this;
+                }
+            }
+        },
         {
         constructor: control.MenuItem,
         args: {
@@ -594,7 +641,7 @@
                         constructor: control.Button2,
                         args: {
                             name: "menu2",
-                            togglable: true,
+                            // togglable: true,
                             click:
                                 function () {
                                     togglePoScoreMean();
@@ -613,7 +660,7 @@
                         constructor: control.Button2,
                         args: {
                             name: "tryplay",
-                            togglable: true,
+                            // togglable: true,
                             click:  function (player) {
                                 toggleTryPlay(player);
                             },
@@ -629,7 +676,7 @@
                         constructor: control.Button2,
                         args: {
                             name: "autoplay",
-                            togglable: true,
+                            // togglable: true,
                             click:
                                 function () {
                                     toggleAutoPlay();

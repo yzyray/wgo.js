@@ -795,6 +795,68 @@
 
     }
     WGo.updatePosition=updatePosition;
+    var loadBadMove=function(){
+        var node=WGo.mianKifu.root;
+        var move=1;
+        while(node.children&&node.children[0]) {
+            if (node.bestMoves&&node.bestMoves[0]&&node.children[0].bestMoves&&node.children[0].bestMoves[0]) {
+                var winrateDiff = (100 - node.children[0].bestMoves[0].winrate)-node.bestMoves[0].winrate;
+                var badmove = new Object();
+                if (node.move.c == WGo.B) {
+                    if (!WGo.badMoveListB)
+                        WGo.badMoveListB = new Array();
+                    if (WGo.badMoveListB.length < 10)
+                    {
+                        badmove.moveNum=move;
+                        badmove.winrateDiff=winrateDiff;
+                        WGo.badMoveListB.push(badmove);
+                    }
+                    else{
+                        for(var i=0;i<WGo.badMoveListB.length;i++)
+                        {
+                            if(winrateDiff<WGo.badMoveListB[i].winrateDiff)
+                            {
+                                WGo.badMoveListB[i].winrateDiff=winrateDiff;
+                                WGo.badMoveListB[i].moveNum=move;
+                                break;
+                            }
+                        }
+                    }
+                } else//W
+                {
+                    if (!WGo.badMoveListW)
+                        WGo.badMoveListW = new Array();
+                    if (WGo.badMoveListW.length < 10)
+                    {
+                        badmove.moveNum=move;
+                        badmove.winrateDiff=winrateDiff;
+                        WGo.badMoveListW.push(badmove);
+                    }
+                    else{
+                        for(var i=0;i<WGo.badMoveListW.length;i++)
+                        {
+                            if(winrateDiff<WGo.badMoveListW[i].winrateDiff)
+                            {
+                                WGo.badMoveListW[i].winrateDiff=winrateDiff;
+                                WGo.badMoveListW[i].moveNum=move;
+                                break;
+                            }
+                        }
+                    }
+
+                }
+            }
+            move++;
+            node=node.children[0];
+        }
+        WGo.badMoveListB=  WGo.badMoveListB.sort(function(a,b){
+            return a.winrateDiff - b.winrateDiff
+        })
+        WGo.badMoveListW=  WGo.badMoveListW.sort(function(a,b){
+            return a.winrateDiff - b.winrateDiff
+        })
+    }
+
     Player.prototype = {
         constructor: Player,
 
@@ -926,6 +988,7 @@
         loadSgf: function (sgf, path) {
             try {
                 this.loadKifu(WGo.Kifu.fromSgf(sgf), path);
+                loadBadMove();
             } catch (err) {
                 this.error(err);
             }

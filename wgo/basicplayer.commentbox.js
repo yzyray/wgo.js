@@ -837,6 +837,8 @@
                 this.element.className = "wgo-commentbox";
 
                 this._update = function (e) {
+                    // if(WGo.badMoveListW)
+                    // if(WGo.curPlayer.kifuReader.path.m==WGo.badMoveListW[0].moveNum)
                     this.setComments(e);
                 }.bind(this);
 
