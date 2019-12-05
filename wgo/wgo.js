@@ -769,7 +769,7 @@ var updatePosition;
                                 x: xr,
                                 y: yr,
                                 radius: sr,
-                                angle: angle,
+                                ansgfgle: angle,
                                 lines: [0.10, 0.12, 0.11, 0.10, 0.09, 0.09, 0.09, 0.09],
                                 factor: 0.25,
                                 thickness: 1.75
@@ -898,7 +898,7 @@ else
                     else
                         this.strokeStyle = "rgb(255,255,255)";
                     if(WGo.isPC)
-                        this.lineWidth = 2.5;
+                        this.lineWidth = 2;
                     else
                         this.lineWidth = 5.5;
                     //      this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;

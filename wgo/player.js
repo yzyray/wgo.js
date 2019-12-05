@@ -150,7 +150,8 @@ if(WGo.badLastMark)
                 // });
             }
         }
-        var move=WGo.curNode.children[0].move;
+        if(WGo.curNode.children[0])
+        { var move=WGo.curNode.children[0].move;
         var badLastMark = new Object();
         badLastMark.c = WGo.mainGame.turn;
         badLastMark.x = move.x;
@@ -159,6 +160,7 @@ if(WGo.badLastMark)
         this.board.addObject(badLastMark);
         WGo.badLastMark2=badLastMark;
         WGo.drawWinrate2();
+        }
     }
 
 // preparing board
@@ -819,42 +821,42 @@ if(WGo.badLastMark)
                 if (node.move.c == WGo.W) {
                     if (!WGo.badMoveListB)
                         WGo.badMoveListB = new Array();
-                    if (WGo.badMoveListB.length < 10)
+                    if (WGo.badMoveListB.length < 20)
                     {
                         badmove.moveNum=move;
                         badmove.winrateDiff=winrateDiff;
                         WGo.badMoveListB.push(badmove);
                     }
                     else{
-                        for(var i=0;i<WGo.badMoveListB.length;i++)
-                        {
-                            if(winrateDiff<WGo.badMoveListB[i].winrateDiff)
+                            WGo.badMoveListB=  WGo.badMoveListB.sort(function(a,b){
+                            return a.winrateDiff - b.winrateDiff
+                        })
+
+                            if(winrateDiff<WGo.badMoveListB[19].winrateDiff)
                             {
-                                WGo.badMoveListB[i].winrateDiff=winrateDiff;
-                                WGo.badMoveListB[i].moveNum=move;
-                                break;
+                                WGo.badMoveListB[19].winrateDiff=winrateDiff;
+                                WGo.badMoveListB[19].moveNum=move;
                             }
-                        }
+
                     }
                     if(scoreDiff)
                     {
                         if (!WGo.badMoveListBS)
                         WGo.badMoveListBS = new Array();
-                        if (WGo.badMoveListBS.length < 10)
+                        if (WGo.badMoveListBS.length < 20)
                         {
                             badmoveS.moveNum=move;
                             badmoveS.scoreDiff=scoreDiff;
                             WGo.badMoveListBS.push(badmoveS);
                         }
                         else{
-                            for(var i=0;i<WGo.badMoveListBS.length;i++)
+                            WGo.badMoveListBS=  WGo.badMoveListBS.sort(function(a,b){
+                                return a.scoreDiff - b.scoreDiff
+                            })
+                            if(scoreDiff<WGo.badMoveListBS[19].scoreDiff)
                             {
-                                if(scoreDiff<WGo.badMoveListBS[i].scoreDiff)
-                                {
-                                    WGo.badMoveListBS[i].scoreDiff=scoreDiff;
-                                    WGo.badMoveListBS[i].moveNum=move;
-                                    break;
-                                }
+                                WGo.badMoveListBS[19].scoreDiff=scoreDiff;
+                                WGo.badMoveListBS[19].moveNum=move;
                             }
                         }
                     }
@@ -862,42 +864,42 @@ if(WGo.badLastMark)
                 {
                     if (!WGo.badMoveListW)
                         WGo.badMoveListW = new Array();
-                    if (WGo.badMoveListW.length < 10)
+                    if (WGo.badMoveListW.length < 20)
                     {
                         badmove.moveNum=move;
                         badmove.winrateDiff=winrateDiff;
                         WGo.badMoveListW.push(badmove);
                     }
                     else{
-                        for(var i=0;i<WGo.badMoveListW.length;i++)
+                        WGo.badMoveListW=  WGo.badMoveListW.sort(function(a,b){
+                            return a.winrateDiff - b.winrateDiff
+                        })
+
+                        if(winrateDiff<WGo.badMoveListW[19].winrateDiff)
                         {
-                            if(winrateDiff<WGo.badMoveListW[i].winrateDiff)
-                            {
-                                WGo.badMoveListW[i].winrateDiff=winrateDiff;
-                                WGo.badMoveListW[i].moveNum=move;
-                                break;
-                            }
+                            WGo.badMoveListW[19].winrateDiff=winrateDiff;
+                            WGo.badMoveListW[19].moveNum=move;
                         }
                     }
                     if(scoreDiff)
                     {
                         if (!WGo.badMoveListWS)
                             WGo.badMoveListWS = new Array();
-                        if (WGo.badMoveListWS.length < 10)
+                        if (WGo.badMoveListWS.length < 20)
                         {
                             badmoveS.moveNum=move;
                             badmoveS.scoreDiff=scoreDiff;
                             WGo.badMoveListWS.push(badmoveS);
                         }
                         else{
-                            for(var i=0;i<WGo.badMoveListWS.length;i++)
+                            WGo.badMoveListWS=  WGo.badMoveListWS.sort(function(a,b){
+                                return a.scoreDiff - b.scoreDiff
+                            })
+
+                            if(scoreDiff<WGo.badMoveListWS[19].scoreDiff)
                             {
-                                if(scoreDiff<WGo.badMoveListWS[i].scoreDiff)
-                                {
-                                    WGo.badMoveListWS[i].scoreDiff=scoreDiff;
-                                    WGo.badMoveListWS[i].moveNum=move;
-                                    break;
-                                }
+                                WGo.badMoveListWS[19].scoreDiff=scoreDiff;
+                                WGo.badMoveListWS[19].moveNum=move;
                             }
                         }
                     }
