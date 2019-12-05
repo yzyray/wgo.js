@@ -273,11 +273,23 @@
      */
 
     control.MenuItem = WGo.extendClass(control.Clickable, function (player, args) {
+
         var elem = this.element = document.createElement("div");
         elem.className = "wgo-menu-item wgo-menu-item-" + args.name;
         elem.title = WGo.t(args.name);
         elem.innerHTML = elem.title;
-
+        if(args.badid==1)
+            if(!WGo.badMoveListB)
+                elem.style.display ="none";
+        if(args.badid==2)
+            if(!WGo.badMoveListBS)
+                elem.style.display ="none";
+        if(args.badid==3)
+            if(!WGo.badMoveListW)
+                elem.style.display ="none";
+        if(args.badid==4)
+            if(!WGo.badMoveListWS)
+                elem.style.display ="none";
         this.init(player, args);
     });
 
@@ -436,6 +448,7 @@
         {   constructor: control.MenuItem,
             args: {
                 name: "查找恶手(黑)(胜率)",
+                badid:1,
                 //togglable: true,
                 click: function () {
                     WGo.showBadBlack=!WGo.showBadBlack;
@@ -476,6 +489,7 @@
         {   constructor: control.MenuItem,
             args: {
                 name: "查找恶手(黑)(目差)",
+                badid:2,
                 //togglable: true,
                 click: function () {
                     WGo.showBadBlackS=!WGo.showBadBlackS;
@@ -516,6 +530,7 @@
         {   constructor: control.MenuItem,
             args: {
                 name: "查找恶手(白)(胜率)",
+                badid:3,
                // togglable: true,
                 click: function () {
                     WGo.showBadWhite=!WGo.showBadWhite;
@@ -553,6 +568,7 @@
         {   constructor: control.MenuItem,
             args: {
                 name: "查找恶手(白)(目差)",
+                badid:4,
                 // togglable: true,
                 click: function () {
                     WGo.showBadWhiteS=!WGo.showBadWhiteS;

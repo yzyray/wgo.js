@@ -869,11 +869,11 @@ if(args.c==WGo.B)
                     this.strokeStyle = "rgb(0,0,0)";
 else
     this.strokeStyle = "rgb(255,255,255)";
-                    if(WGo.isPC)
-                        this.lineWidth = 4;
-                    else
-                        this.lineWidth = 7.5;
-                  //      this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
+                    // if(WGo.isPC)
+                    //     this.lineWidth = 4;
+                    // else
+                         this.lineWidth = 0.5;
+                  //     this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
                     this.beginPath();
                     this.arc(xr - board.ls, yr - board.ls, sr, 0, 2 * Math.PI, true);
                     this.stroke();
@@ -897,13 +897,13 @@ else
                         this.strokeStyle = "rgb(0,0,0)";
                     else
                         this.strokeStyle = "rgb(255,255,255)";
-                    if(WGo.isPC)
-                        this.lineWidth = 2;
-                    else
-                        this.lineWidth = 5.5;
+                    // if(WGo.isPC)
+                    //     this.lineWidth = 2.5;
+                    // else
+                        this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
                     //      this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
                     this.beginPath();
-                    this.arc(xr - board.ls, yr - board.ls, sr, 0, 2 * Math.PI, true);
+                    this.arc(xr - board.ls, yr - board.ls, sr+1, 0, 2 * Math.PI, true);
                     this.stroke();
                 },
             },
@@ -1001,6 +1001,7 @@ else
                    //this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
                    this.beginPath();
                    this.moveTo(xr - board.ls + sr / 2, yr - board.ls + sr * 0.3);
+                   this.moveTo(xr - board.ls + sr / 2, yr - board.ls + sr * 0.3);
                    this.lineTo(xr - board.ls, yr - board.ls - sr * 0.5);
                    this.lineTo(xr - board.ls - sr / 2, yr - board.ls + sr * 0.3);
                    //this.arc(xr-board.ls, yr-board.ls, sr/6, 0, 2*Math.PI, true);
@@ -1081,18 +1082,21 @@ else
                                 else
                                 this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
                             this.beginPath();
+    if(WGo.isPC)
                             this.arc(xr - board.ls, yr - board.ls, sr, 0, 2 * Math.PI, true);
+    else
+        this.arc(xr - board.ls, yr - board.ls, sr+1, 0, 2 * Math.PI, true);
                             this.stroke();
 }
                         }
-                    else
-                         if (args.percentplayouts >= 2.0) {
-                             this.strokeStyle = "rgb(0,0,255)";
-                             this.lineWidth = 1.7;
-                             this.beginPath();
-                             this.arc(xr - board.ls, yr - board.ls, sr, 0, 2 * Math.PI, true);
-                             this.stroke();
-                         }
+               //     else
+                         // if (args.percentplayouts >= 2.0) {
+                         //     this.strokeStyle = "rgb(0,0,255)";
+                         //     this.lineWidth = 1.7;
+                         //     this.beginPath();
+                         //     this.arc(xr - board.ls, yr - board.ls, sr, 0, 2 * Math.PI, true);
+                         //     this.stroke();
+                         // }
                         //percentplayouts
                         if (isblack)
                             this.fillStyle = "white";

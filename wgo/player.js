@@ -99,6 +99,16 @@ if(WGo.badLastMark)
             this.board.removeAllObjectsVR();
         }
         this.board.removeAllObjectsBM();
+        if(WGo.curNode.children[0])
+        { var move=WGo.curNode.children[0].move;
+            var badLastMark = new Object();
+            badLastMark.c = WGo.mainGame.turn;
+            badLastMark.x = move.x;
+            badLastMark.y = move.y;
+            badLastMark.type = "CRS";
+            this.board.addObject(badLastMark);
+            WGo.badLastMark2=badLastMark;
+        }
         if (e.node.bestMoves) {
             if(e.node.engine)
             {
@@ -150,17 +160,7 @@ if(WGo.badLastMark)
                 // });
             }
         }
-        if(WGo.curNode.children[0])
-        { var move=WGo.curNode.children[0].move;
-        var badLastMark = new Object();
-        badLastMark.c = WGo.mainGame.turn;
-        badLastMark.x = move.x;
-        badLastMark.y = move.y;
-        badLastMark.type = "CRS";
-        this.board.addObject(badLastMark);
-        WGo.badLastMark2=badLastMark;
         WGo.drawWinrate2();
-        }
     }
 
 // preparing board
@@ -331,6 +331,10 @@ if(WGo.badLastMark)
                 WGo.isMouseOnBestMove = true;
                 WGo.mouseBestMove = bestmove;
                 this.board.removeAllObjectsBM(bestmove.x, bestmove.y);
+                if(WGo.badLastMark)
+                    this.board.removeObject(WGo.badLastMark);
+                if(WGo.badLastMark2)
+                    this.board.removeObject(WGo.badLastMark2);
                 {
                     var bestMoveInfo = new Object();
                     bestMoveInfo.c = WGo.mainGame.turn;
@@ -366,6 +370,16 @@ if(WGo.badLastMark)
                 // var_length = variations.length;
             } else {
                 WGo.isMouseOnBestMove = false;
+                if(WGo.curNode.children[0])
+                { var move=WGo.curNode.children[0].move;
+                    var badLastMark = new Object();
+                    badLastMark.c = WGo.mainGame.turn;
+                    badLastMark.x = move.x;
+                    badLastMark.y = move.y;
+                    badLastMark.type = "CRS";
+                    this.board.addObject(badLastMark);
+                    WGo.badLastMark2=badLastMark;
+                }
                 if (WGo._last_mark) {
                     var node = WGo.curNode;
                     if (node.bestMoves)
@@ -396,6 +410,16 @@ if(WGo.badLastMark)
             }
         } else {
             WGo.isMouseOnBestMove = false;
+            if(WGo.curNode.children[0])
+            { var move=WGo.curNode.children[0].move;
+                var badLastMark = new Object();
+                badLastMark.c = WGo.mainGame.turn;
+                badLastMark.x = move.x;
+                badLastMark.y = move.y;
+                badLastMark.type = "CRS";
+                this.board.addObject(badLastMark);
+                WGo.badLastMark2=badLastMark;
+            }
             if (WGo._last_mark) {
                 var node = WGo.curNode;
                 if (node.bestMoves)
@@ -475,6 +499,16 @@ if(WGo.badLastMark)
         if (WGo.lastX == x && WGo.lastY == y && WGo.isMouseOnBestMove) {
             this.board.removeAllObjectsVR();
             WGo.isMouseOnBestMove = false;
+            if(WGo.curNode.children[0])
+            { var move=WGo.curNode.children[0].move;
+                var badLastMark = new Object();
+                badLastMark.c = WGo.mainGame.turn;
+                badLastMark.x = move.x;
+                badLastMark.y = move.y;
+                badLastMark.type = "CRS";
+                this.board.addObject(badLastMark);
+                WGo.badLastMark2=badLastMark;
+            }
             if (WGo._last_mark) {
                 var node = WGo.curNode;
                 if (node.bestMoves)
@@ -542,6 +576,16 @@ if(WGo.badLastMark)
             if (hasBestMoves) {
                 if (WGo.mouseBestMove == bestmove && WGo.isMouseOnBestMove) {
                     WGo.isMouseOnBestMove = false;
+                    if(WGo.curNode.children[0])
+                    { var move=WGo.curNode.children[0].move;
+                        var badLastMark = new Object();
+                        badLastMark.c = WGo.mainGame.turn;
+                        badLastMark.x = move.x;
+                        badLastMark.y = move.y;
+                        badLastMark.type = "CRS";
+                        this.board.addObject(badLastMark);
+                        WGo.badLastMark2=badLastMark;
+                    }
                     if (WGo._last_mark) {
                         var node = WGo.curNode;
                         if (node.bestMoves)
@@ -569,6 +613,10 @@ if(WGo.badLastMark)
                 WGo.isMouseOnBestMove = true;
                 WGo.mouseBestMove = bestmove;
                 this.board.removeAllObjectsBM(bestmove.x, bestmove.y);
+                if(WGo.badLastMark)
+                    this.board.removeObject(WGo.badLastMark);
+                if(WGo.badLastMark2)
+                    this.board.removeObject(WGo.badLastMark2);
                 {
                     var bestMoveInfo = new Object();
                     bestMoveInfo.c = WGo.mainGame.turn;
@@ -604,6 +652,16 @@ if(WGo.badLastMark)
 
             } else {
                 WGo.isMouseOnBestMove = false;
+                if(WGo.curNode.children[0])
+                { var move=WGo.curNode.children[0].move;
+                    var badLastMark = new Object();
+                    badLastMark.c = WGo.mainGame.turn;
+                    badLastMark.x = move.x;
+                    badLastMark.y = move.y;
+                    badLastMark.type = "CRS";
+                    this.board.addObject(badLastMark);
+                    WGo.badLastMark2=badLastMark;
+                }
                 if (WGo._last_mark) {
                     var node = WGo.curNode;
                     if (node.bestMoves)
@@ -634,6 +692,16 @@ if(WGo.badLastMark)
             }
         } else {
             WGo.isMouseOnBestMove = false;
+            if(WGo.curNode.children[0])
+            { var move=WGo.curNode.children[0].move;
+                var badLastMark = new Object();
+                badLastMark.c = WGo.mainGame.turn;
+                badLastMark.x = move.x;
+                badLastMark.y = move.y;
+                badLastMark.type = "CRS";
+                this.board.addObject(badLastMark);
+                WGo.badLastMark2=badLastMark;
+            }
             if (WGo._last_mark) {
                 var node = WGo.curNode;
                 if (node.bestMoves)
@@ -914,9 +982,11 @@ if(WGo.badLastMark)
         WGo.badMoveListW=  WGo.badMoveListW.sort(function(a,b){
             return a.winrateDiff - b.winrateDiff
         })
+        if(WGo.badMoveListBS)
         WGo.badMoveListBS=  WGo.badMoveListBS.sort(function(a,b){
             return a.scoreDiff - b.scoreDiff
         })
+        if(WGo.badMoveListWS)
         WGo.badMoveListWS=  WGo.badMoveListWS.sort(function(a,b){
             return a.scoreDiff - b.scoreDiff
         })
