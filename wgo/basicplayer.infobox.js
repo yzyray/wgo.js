@@ -52,6 +52,8 @@
         var res = {};
         res.wrapper = document.createElement("div");
         res.wrapper.className = "wgo-player-info-box-wrapper";
+        if(!WGo.isWideMode&&type=="time")
+            res.wrapper.style.display="none";
 
         res.box = document.createElement("div");
         res.box.className = "wgo-player-info-box";

@@ -444,6 +444,16 @@
                         WGo.showBadWhite=false;
                         WGo.showBadelemetW.unselect();
                     }
+                    if(WGo.showBadWhiteS)
+                    {
+                        WGo.showBadWhiteS=false;
+                        WGo.showBadelemetWS.unselect();
+                    }
+                    if(WGo.showBadBlackS)
+                    {
+                        WGo.showBadBlackS=false;
+                        WGo.showBadelemetBS.unselect();
+                    }
                     if(WGo.showBadBlack)
                     {
                         this.select();
@@ -465,6 +475,46 @@
         },
         {   constructor: control.MenuItem,
             args: {
+                name: "查找恶手(黑)(目差)",
+                //togglable: true,
+                click: function () {
+                    WGo.showBadBlackS=!WGo.showBadBlackS;
+                    if(WGo.showBadWhite)
+                    {
+                        WGo.showBadWhite=false;
+                        WGo.showBadelemetW.unselect();
+                    }
+                    if(WGo.showBadWhiteS)
+                    {
+                        WGo.showBadWhiteS=false;
+                        WGo.showBadelemetWS.unselect();
+                    }
+                    if(WGo.showBadBlack)
+                    {
+                        WGo.showBadBlack=false;
+                        WGo.showBadelemetB.unselect();
+                    }
+                    if(WGo.showBadBlackS)
+                    {
+                        this.select();
+                        WGo.setBadMove(true,false);
+                    }
+                    else
+                    {
+                        this.unselect();
+                        WGo.isShowingBadMoves=false;
+                        WGo.setCommentsMove(WGo.curCommentUpdate);
+                    }
+
+
+                },
+                init: function () {
+                    WGo.showBadelemetBS=this;
+                }
+            }
+        },
+        {   constructor: control.MenuItem,
+            args: {
                 name: "查找恶手(白)(胜率)",
                // togglable: true,
                 click: function () {
@@ -473,6 +523,16 @@
                     {
                         WGo.showBadBlack=false;
                         WGo.showBadelemetB.unselect();
+                    }
+                    if(WGo.showBadWhiteS)
+                    {
+                        WGo.showBadWhiteS=false;
+                        WGo.showBadelemetWS.unselect();
+                    }
+                    if(WGo.showBadBlackS)
+                    {
+                        WGo.showBadBlackS=false;
+                        WGo.showBadelemetBS.unselect();
                     }
                     if(WGo.showBadWhite)
                     {    this.select();
@@ -487,6 +547,43 @@
                 },
                 init: function () {
                     WGo.showBadelemetW=this;
+                }
+            }
+        },
+        {   constructor: control.MenuItem,
+            args: {
+                name: "查找恶手(白)(目差)",
+                // togglable: true,
+                click: function () {
+                    WGo.showBadWhiteS=!WGo.showBadWhiteS;
+                    if(WGo.showBadBlack)
+                    {
+                        WGo.showBadBlack=false;
+                        WGo.showBadelemetB.unselect();
+                    }
+                    if(WGo.showBadWhite)
+                    {
+                        WGo.showBadWhite=false;
+                        WGo.showBadelemetW.unselect();
+                    }
+                    if(WGo.showBadBlackS)
+                    {
+                        WGo.showBadBlackS=false;
+                        WGo.showBadelemetBS.unselect();
+                    }
+                    if(WGo.showBadWhiteS)
+                    {    this.select();
+                        WGo.setBadMove(false,false);
+                    }
+                    else
+                    {  this.unselect();
+                        WGo.isShowingBadMoves=false;
+                        WGo.setCommentsMove(WGo.curCommentUpdate);
+                    }
+
+                },
+                init: function () {
+                    WGo.showBadelemetWS=this;
                 }
             }
         },

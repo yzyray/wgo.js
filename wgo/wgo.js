@@ -880,6 +880,34 @@ else
                 },
             },
         },
+        CRS: {
+            stone: {
+                draw: function (args, board) {
+                    var xr = board.getX(args.x),
+                        yr = board.getY(args.y),
+                        sr = board.stoneRadius;
+
+                    // this.fillStyle = "red";
+                    // this.beginPath();
+                    // this.moveTo(xr - board.ls + sr*1.1 , yr - board.ls - sr*1.1);
+                    // this.lineTo(xr - board.ls+sr*0.3, yr - board.ls - sr*1.1 );
+                    // this.lineTo(xr - board.ls + sr*1.1 , yr - board.ls-sr*0.3 );
+                    // this.fill();
+                    if(args.c==WGo.B)
+                        this.strokeStyle = "rgb(0,0,0)";
+                    else
+                        this.strokeStyle = "rgb(255,255,255)";
+                    if(WGo.isPC)
+                        this.lineWidth = 2.5;
+                    else
+                        this.lineWidth = 5.5;
+                    //      this.lineWidth = args.lineWidth || theme_variable("markupLinesWidth", board) || 1;
+                    this.beginPath();
+                    this.arc(xr - board.ls, yr - board.ls, sr, 0, 2 * Math.PI, true);
+                    this.stroke();
+                },
+            },
+        },
 
         CR2: {
             stone: {
@@ -987,7 +1015,7 @@ else
                         yr = board.getY(args.y),
                         sr = board.stoneRadius,
                         radgrad;
-                    var font = "verdana"; //calibri is WGo's default
+                    var font = "verdana"; //calibri is WGo's default"
                     var isblack;
                     {
                         radgrad = this.createRadialGradient(xr - 2 * sr / 5, yr - 2 * sr / 5, sr / 3, xr - sr / 5, yr - sr / 5, 5 * sr / 5);

@@ -988,7 +988,7 @@ WGo.comment_text=this.comment_text;
 
     WGo.setCommentsMove= setCommentsMove;
 
-    var getCommentBadMoves=function (badMovesList)
+    var getCommentBadMoves=function (badMovesList,isWinrate)
     {
         var comment = "";
         for (var i = 0; i < badMovesList.length; i++) {
@@ -996,9 +996,12 @@ WGo.comment_text=this.comment_text;
                     comment +="<p>恶手"+(i+1)+":<a class=\"wgo-move-link\">";
                 else
                     comment +="　　恶手"+(i+1)+":<a class=\"wgo-move-link\">";
+                if(isWinrate)
             var diff = badMovesList[i].winrateDiff;
+                else
+                    var diff = badMovesList[i].scoreDiff;
             var moveNum= badMovesList[i].moveNum;
-            comment += "手数 " + formatWidth(moveNum,3) + " 胜率 " + formatWidth(diff.toFixed(1),5);
+            comment += "手数 " + formatWidth(moveNum,3) + " "+(isWinrate?"胜率":"目差")+" " + formatWidth(diff.toFixed(1),5);
             if(diff<0)
                 comment +="↓";
                 else
@@ -1015,21 +1018,23 @@ WGo.isShowingBadMoves=true;
     if(isBlack)
     {
         if(isWinrate)
-        { WGo.comment_text.innerHTML =  getCommentBadMoves(WGo.badMoveListB);
+        { WGo.comment_text.innerHTML =  getCommentBadMoves(WGo.badMoveListB,true);
        search_badMoves(WGo.comment_text.childNodes, WGo.curPlayer,WGo.badMoveListB);
         }
         else{
-
+            WGo.comment_text.innerHTML =  getCommentBadMoves(WGo.badMoveListBS,false);
+            search_badMoves(WGo.comment_text.childNodes, WGo.curPlayer,WGo.badMoveListBS);
         }
     }
     else
     {
         if(isWinrate)
-        { WGo.comment_text.innerHTML =  getCommentBadMoves(WGo.badMoveListW);
+        { WGo.comment_text.innerHTML =  getCommentBadMoves(WGo.badMoveListW,true);
       search_badMoves(WGo.comment_text.childNodes, WGo.curPlayer,WGo.badMoveListW);
         }
         else{
-
+            WGo.comment_text.innerHTML =  getCommentBadMoves(WGo.badMoveListWS,false);
+            search_badMoves(WGo.comment_text.childNodes, WGo.curPlayer,WGo.badMoveListWS);
         }
     }
     };

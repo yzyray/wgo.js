@@ -10,7 +10,18 @@
     var sgf_player_info = function (type, black, kifu, node, value, ident) {
         var c = ident == black ? "black" : "white";
         kifu.info[c] = kifu.info[c] || {};
-        kifu.info[c][type] = value[0];
+        if(type=="name")
+        {  var devicewidth = document.documentElement.clientWidth;
+         var deviceheight = document.documentElement.clientHeight;
+        if (deviceheight > devicewidth&&getStrLen(value[0])>9)
+        {
+        kifu.info[c][type] = value[0].substring(0,getFirst6(value[0]));
+        }
+        else
+            kifu.info[c][type] = value[0];
+        }
+        else
+            kifu.info[c][type] = value[0];
     }
 
     var getStrLen=  function (val) {
@@ -25,9 +36,9 @@
             }
         }
         return len;
-    }
+    };
 
-    var getFirst8=  function (val) {
+    var getFirst6=  function (val) {
         var len = 0;
         var truelen=0;
         for (var i = 0; i < val.length; i++) {
@@ -39,11 +50,29 @@
                 len += 1;
             }
             truelen+=1;
-            if(len>16)
+            if(len>9)
                 return truelen;
         }
         return truelen;
-    }
+    };
+
+    var getFirst10=  function (val) {
+        var len = 0;
+        var truelen=0;
+        for (var i = 0; i < val.length; i++) {
+            var a = val.charAt(i);
+            if (a.match(/[^\x00-\xff]/ig) != null) {
+                len += 2;
+            }
+            else {
+                len += 1;
+            }
+            truelen+=1;
+            if(len>20)
+                return truelen;
+        }
+        return truelen;
+    };
 // handling properties specifically
     var properties = WGo.SGF.properties = {}
 
@@ -105,15 +134,15 @@
             if (staticInfo.length == 3) {
                 // if (!node.comment)
                 node.engine=staticInfo[0];
-                if(getStrLen(staticInfo[0])>16)
-                    node.enginemin=staticInfo[0].substring(0,getFirst8(staticInfo[0]));
+                if(getStrLen(staticInfo[0])>20)
+                    node.enginemin=staticInfo[0].substring(0,getFirst10(staticInfo[0]));
                     node.comment2 = "\n胜率:" + staticInfo[1] + "　总计算量:" + staticInfo[2];
             }
             if (staticInfo.length == 4) {
                 // if (!node.comment)
                 node.engine=staticInfo[0];
-                if(getStrLen(staticInfo[0])>16)
-                    node.enginemin=staticInfo[0].substring(0,getFirst8(staticInfo[0]));
+                if(getStrLen(staticInfo[0])>20)
+                    node.enginemin=staticInfo[0].substring(0,getFirst10(staticInfo[0]));
                     node.comment2 = "\n胜率:" + staticInfo[1] + "　目差:" + staticInfo[3] + "　总计算量:" + staticInfo[2];
             }
             var moveInfo = strs[1].split(" info ");
@@ -242,7 +271,7 @@
 
 // Game info properties
     properties["BR"] = properties["WR"] = sgf_player_info.bind(this, "rank", "BR");
-    properties["PB"] = properties["PW"] = sgf_player_info.bind(this, "name", "PB");
+        properties["PB"] = properties["PW"] = sgf_player_info.bind(this, "name", "PB");
     properties["BT"] = properties["WT"] = sgf_player_info.bind(this, "team", "BT");
     properties["TM"] = function (kifu, node, value, ident) {
         kifu.info[ident] = value[0];

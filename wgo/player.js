@@ -62,7 +62,8 @@
         WGo.curNode = e.node;
 if(WGo.badLastMark)
     this.board.removeObject(WGo.badLastMark);
-
+        if(WGo.badLastMark2)
+            this.board.removeObject(WGo.badLastMark2);
         // add variation letters
         if (e.node.children.length > 1 && this.config.displayVariations) {
             for (var i = 0; i < e.node.children.length; i++) {
@@ -149,6 +150,14 @@ if(WGo.badLastMark)
                 // });
             }
         }
+        var move=WGo.curNode.children[0].move;
+        var badLastMark = new Object();
+        badLastMark.c = WGo.mainGame.turn;
+        badLastMark.x = move.x;
+        badLastMark.y = move.y;
+        badLastMark.type = "CRS";
+        this.board.addObject(badLastMark);
+        WGo.badLastMark2=badLastMark;
         WGo.drawWinrate2();
     }
 
@@ -803,6 +812,10 @@ if(WGo.badLastMark)
             if (node.bestMoves&&node.bestMoves[0]&&node.children[0].bestMoves&&node.children[0].bestMoves[0]) {
                 var winrateDiff = (100 - node.children[0].bestMoves[0].winrate)-node.bestMoves[0].winrate;
                 var badmove = new Object();
+                var badmoveS = new Object();
+                if(WGo.isKataData)
+                if(node.bestMoves[0].scoreMean&&node.children[0].bestMoves[0].scoreMean)
+                    var scoreDiff=-node.children[0].bestMoves[0].scoreMean-node.bestMoves[0].scoreMean;
                 if (node.move.c == WGo.W) {
                     if (!WGo.badMoveListB)
                         WGo.badMoveListB = new Array();
@@ -820,6 +833,28 @@ if(WGo.badLastMark)
                                 WGo.badMoveListB[i].winrateDiff=winrateDiff;
                                 WGo.badMoveListB[i].moveNum=move;
                                 break;
+                            }
+                        }
+                    }
+                    if(scoreDiff)
+                    {
+                        if (!WGo.badMoveListBS)
+                        WGo.badMoveListBS = new Array();
+                        if (WGo.badMoveListBS.length < 10)
+                        {
+                            badmoveS.moveNum=move;
+                            badmoveS.scoreDiff=scoreDiff;
+                            WGo.badMoveListBS.push(badmoveS);
+                        }
+                        else{
+                            for(var i=0;i<WGo.badMoveListBS.length;i++)
+                            {
+                                if(scoreDiff<WGo.badMoveListBS[i].scoreDiff)
+                                {
+                                    WGo.badMoveListBS[i].scoreDiff=scoreDiff;
+                                    WGo.badMoveListBS[i].moveNum=move;
+                                    break;
+                                }
                             }
                         }
                     }
@@ -844,7 +879,28 @@ if(WGo.badLastMark)
                             }
                         }
                     }
-
+                    if(scoreDiff)
+                    {
+                        if (!WGo.badMoveListWS)
+                            WGo.badMoveListWS = new Array();
+                        if (WGo.badMoveListWS.length < 10)
+                        {
+                            badmoveS.moveNum=move;
+                            badmoveS.scoreDiff=scoreDiff;
+                            WGo.badMoveListWS.push(badmoveS);
+                        }
+                        else{
+                            for(var i=0;i<WGo.badMoveListWS.length;i++)
+                            {
+                                if(scoreDiff<WGo.badMoveListWS[i].scoreDiff)
+                                {
+                                    WGo.badMoveListWS[i].scoreDiff=scoreDiff;
+                                    WGo.badMoveListWS[i].moveNum=move;
+                                    break;
+                                }
+                            }
+                        }
+                    }
                 }
             }
             move++;
@@ -855,6 +911,12 @@ if(WGo.badLastMark)
         })
         WGo.badMoveListW=  WGo.badMoveListW.sort(function(a,b){
             return a.winrateDiff - b.winrateDiff
+        })
+        WGo.badMoveListBS=  WGo.badMoveListBS.sort(function(a,b){
+            return a.scoreDiff - b.scoreDiff
+        })
+        WGo.badMoveListWS=  WGo.badMoveListWS.sort(function(a,b){
+            return a.scoreDiff - b.scoreDiff
         })
     }
 
