@@ -875,6 +875,7 @@ WGo.comment_text=this.comment_text;
             if (e.kifu.hasComments()) {
                 // if(WGo.isPC||WGo.isWideMode)
                 //     this.comments_title.innerHTML = WGo.t("comments");
+              //  this.comments_title.style.fontSize=15+'px';
                 this.element.className = "wgo-commentbox";
 
                 this._update = function (e) {

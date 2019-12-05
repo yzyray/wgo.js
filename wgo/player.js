@@ -113,6 +113,9 @@ if(WGo.badLastMark)
             if(e.node.engine)
             {
                 if(WGo.isWideMode)
+                    if(e.node.enginemin)
+                        WGo.commentTitle.innerHTML="引擎:"+e.node.enginemin;
+                        else
                 WGo.commentTitle.innerHTML="引擎:"+e.node.engine;
                 else
                 {    if(e.node.enginemin)

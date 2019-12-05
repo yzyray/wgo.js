@@ -501,6 +501,9 @@ a.wgo-move-link {
     position: absolute;
     left: -50px;
     top: 55px;
+    /*overflow-x: hidden;*/
+    /*overflow-y: hidden;*/
+    /*display: inline-block;*/
 }
 
 .wgo-player-top .wgo-comments-wrapper, .wgo-player-bottom .wgo-comments-wrapper {
