@@ -265,7 +265,13 @@
         //    alert(WGo.mainWidth+"_"+WGo.mainHeight);
             document.body.addEventListener('touchmove', bodyScroll, false);
 
-
+if(WGo.isPC)
+{
+    var o1 = document.getElementsByClassName("downbutton");
+    for (var i = 0; i < o1.length; i++) {
+        o1[i].style.border = "none";
+    }
+}
 
             // window.ontouchmove=function(e){
             // 	e.preventDefault && e.preventDefault();
