@@ -1089,12 +1089,12 @@ else
                             this.stroke();
 }
                         }
-               //     else
+                 //  else
                          // if (args.percentplayouts >= 2.0) {
                          //     this.strokeStyle = "rgb(0,0,255)";
-                         //     this.lineWidth = 1.7;
+                         //     this.lineWidth = 1.6;
                          //     this.beginPath();
-                         //     this.arc(xr - board.ls, yr - board.ls, sr, 0, 2 * Math.PI, true);
+                         //     this.arc(xr - board.ls, yr - board.ls, sr-0.8, 0, 2 * Math.PI, true);
                          //     this.stroke();
                          // }
                         //percentplayouts
