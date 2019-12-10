@@ -979,9 +979,11 @@ if(WGo.badLastMark)
             move++;
             node=node.children[0];
         }
+        if(WGo.badMoveListB)
         WGo.badMoveListB=  WGo.badMoveListB.sort(function(a,b){
             return a.winrateDiff - b.winrateDiff
         })
+        if(WGo.badMoveListW)
         WGo.badMoveListW=  WGo.badMoveListW.sort(function(a,b){
             return a.winrateDiff - b.winrateDiff
         })
