@@ -764,6 +764,7 @@ if(WGo.badLastMark)
                 }
                 var o4 = document.getElementById("last");
                 o4.style.padding="0px 0px 0px 32px";
+               // }
             }
             else {
                 WGo.positionPercent = false;
@@ -819,11 +820,12 @@ if(WGo.badLastMark)
                         o[i].style.width = (Math.min(WGo.mainWidth / 13,65)) + "px";
                     }
                 }
-                var o3=document.getElementById("main");
+               var o3=document.getElementById("main");
             o3.style.margin="0px 0px 0px 0px";
             o3.style.top="-8px";
                 var o4 = document.getElementById("last");
                 o4.style.padding="0px 0px 0px 0px";
+              // alert(1)
             }
         }
             if(WGo.isWideMode)

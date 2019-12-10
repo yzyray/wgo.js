@@ -8,6 +8,12 @@
     font-style: normal;
 }
 
+body {
+    position:fixed;
+    overflow-y:hidden;
+    overflow-x:hidden;
+}
+
 /* Available icons: */
 .wgo-icon-fast-forward:before {
     content: '\e817';
@@ -245,6 +251,8 @@
     height: 40px;
     display: inline-block;
     line-height: 40px;
+    border: 1px solid rgba(200, 200, 200, 0.5);
+    box-sizing: border-box;
     width: 30%;
     margin: 0;
     font-size:0px;
@@ -253,10 +261,11 @@
 }
 
 .wgo-box-engine-content{
-    height: 38px;
-    font-size:14px;
+    height: 100%;
+    width: 100%;
+    font-size:18px;
     background: rgba(226, 226, 226, 0.5);
-    border: 1px solid rgba(200, 200, 200, 0.5);
+    /*border: 1px solid rgba(200, 200, 200, 0.5);*/
     text-align: center;
     overflow-x: hidden;
     overflow-y: hidden;

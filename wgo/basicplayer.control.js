@@ -317,7 +317,7 @@
         var move = this.move = document.createElement("input");
         move.type = "text";
         move.value = "0";
-        if (!WGo.isPC && !WGo.isWideMode&&!WGo.isIPAD)
+        if (!WGo.isPC && !WGo.isWideMode)
             move.onfocus = function () {
                 move.blur();
                 if(WGo.lastNext)
