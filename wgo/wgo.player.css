@@ -247,6 +247,7 @@
     line-height: 40px;
     width: 30%;
     margin: 0;
+    font-size:0px;
     overflow-x: hidden;
     overflow-y: hidden;
 }
@@ -257,6 +258,8 @@
     background: rgba(226, 226, 226, 0.5);
     border: 1px solid rgba(200, 200, 200, 0.5);
     text-align: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .wgo-player-top .wgo-player-wrapper.wgo-black {
