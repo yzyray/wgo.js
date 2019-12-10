@@ -251,24 +251,26 @@ body {
     height: 40px;
     display: inline-block;
     line-height: 40px;
-    border: 1px solid rgba(200, 200, 200, 0.5);
-    box-sizing: border-box;
+    position: relative;
     width: 30%;
+    overflow: hidden;
     margin: 0;
-    font-size:0px;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    padding: 0;
+    border: none;
 }
 
 .wgo-box-engine-content{
+    overflow: hidden;
+    position: absolute;
+    box-sizing: border-box;
+    margin: 0;
     height: 100%;
-    width: 100%;
-    font-size:18px;
+    font-size:14px;
     background: rgba(226, 226, 226, 0.5);
-    /*border: 1px solid rgba(200, 200, 200, 0.5);*/
+    display: inline-block;
+    border: 1px solid rgba(200, 200, 200, 0.5);
     text-align: center;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    width: 100%;
 }
 
 .wgo-player-top .wgo-player-wrapper.wgo-black {
