@@ -61,9 +61,9 @@
         this.notification();
         WGo.curNode = e.node;
 if(WGo.badLastMark)
-    this.board.removeObject(WGo.badLastMark);
+    WGo.curBoard.removeObject(WGo.badLastMark);
         if(WGo.badLastMark2)
-            this.board.removeObject(WGo.badLastMark2);
+            WGo.curBoard.removeObject(WGo.badLastMark2);
         // add variation letters
         if (e.node.children.length > 1 && this.config.displayVariations) {
             for (var i = 0; i < e.node.children.length; i++) {

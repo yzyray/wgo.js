@@ -2113,7 +2113,9 @@
                                 var o = document.getElementById("main");
                                 o.setAttribute("data-wgo", fileString);
                                 var pl_elems = document.querySelectorAll("[data-wgo],[data-wgo-diagram]");
-
+                                WGo.dz=false;
+                                WGo.KW=false;
+                                WGo.KB=false;
                                 for (var i = 0; i < pl_elems.length; i++) {
                                     WGo.player_from_tag(pl_elems[i]);
                                 }
