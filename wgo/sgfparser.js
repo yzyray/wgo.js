@@ -297,10 +297,11 @@
             WGo.DZ=true;
             WGo.KW=true;
         }
-            else  {
+        else if  (value[0]=="Y") {
             WGo.DZ=true;
         }
-
+else
+            WGo.DZ=false;
             }
 
 
@@ -309,6 +310,22 @@
     var reg_ident = /[A-Z]+/;
     var reg_props = /(\[\])|(\[(.|\s)*?(([^\\]|[^\\]\\\\)\]))/g;
 
+
+    function getNowFormatDate() {
+        var date = new Date();
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        var currentdate = ""+date.getFullYear() +  month +  strDate
+            + date.getHours()   + date.getMinutes()
+            + date.getSeconds();
+        return currentdate;
+    }
 // parse SGF string, return WGo.Kifu object
     WGo.SGF.parse = function (str) {
 
@@ -367,6 +384,13 @@
         }
         WGo.mianKifu = kifu;
         WGo.drawWinrate();
+
+        var o = document.getElementById("main2");
+
+        //   o.setAttribute( "href", kifu.info.black.name+"_vs"+kifu.info.white.name+getdate() + ".sgf");
+        o.setAttribute("download", kifu.info.black.name+"_vs_"+kifu.info.white.name+"_"+getNowFormatDate()+".sgf");
+
+
         function bodyScale() {
             var devicewidth = document.documentElement.clientWidth;
             var deviceheight = document.documentElement.clientHeight;
