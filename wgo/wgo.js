@@ -1105,10 +1105,13 @@ else
                     }
                     var playouts = getPlayoutsString(args.playouts);
                     this.font = "bold " + Math.round(sr * 0.75) + "px " + font;
-                    this.fillText(args.winrate.toFixed(1), xr - 0.75 * sr, yr - 0.18 * sr, 1.4 * sr);
+
                     if (WGo.kataShowMean && args.scoreMean)
-                        this.fillText(args.scoreMean.toFixed(1), xr - 0.75 * sr, yr + 0.63 * sr, 1.4 * sr);
+                    {   this.fillText(args.scoreMean.toFixed(1), xr - 0.75 * sr, yr + 0.63 * sr, 1.4 * sr);
+                    this.fillText(args.winrate.toFixed(1), xr - 0.75 * sr, yr - 0.18 * sr, 1.4 * sr);}
                     else {
+                        if(!WGo.DZ||!WGo.kataShowMean)
+                        {
                         if (args.playouts < 10) {
                             this.fillText(playouts, xr - 0.3 * sr, yr + 0.63 * sr, 1.45 * sr);
                         } else if (args.playouts < 100) {
@@ -1118,7 +1121,16 @@ else
                         } else {
                             this.fillText(playouts, xr - 0.7 * sr, yr + 0.63 * sr, 1.45 * sr);
                         }
+                            this.fillText(args.winrate.toFixed(1), xr - 0.75 * sr, yr - 0.18 * sr, 1.4 * sr);
+                        }
+                        else
+                        {
+                            this.fillText(args.winrate.toFixed(1), xr - 0.75 * sr, yr - 0.18 * sr, 1.4 * sr);
+                            // this.font =  Math.round(sr * 1.1) + "px " + font;
+                            // this.fillText(args.winrate.toFixed(1), xr - 0.93 * sr, yr + 0.28 * sr, 1.8 * sr);
+                        }
                     }
+
 
                 }
             },

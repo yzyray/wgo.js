@@ -229,6 +229,12 @@
                                     WGo.kataShowMean = true;
                                     if (WGo.meanPo) {
                                         WGo.meanPo.style.display = "inline";
+                                        if(WGo.DZ)
+                                        {
+                                            WGo.kataShowMean = false;
+                                            WGo.meanPo.innerHTML="目差";
+                                        }
+
                                     }
                                 }
                             }
@@ -269,6 +275,8 @@
         size = kifu.size;
     }
 
+
+
 // Game info properties
     properties["BR"] = properties["WR"] = sgf_player_info.bind(this, "rank", "BR");
         properties["PB"] = properties["PW"] = sgf_player_info.bind(this, "name", "PB");
@@ -278,6 +286,23 @@
         node.BL = value[0];
         node.WL = value[0];
     }
+    properties["DZ"] = function (kifu, node, value) {
+        if (value[0]=="KB")
+        {
+            WGo.DZ=true;
+            WGo.KB=true;
+        }
+        else if  (value[0]=="KW")
+        {
+            WGo.DZ=true;
+            WGo.KW=true;
+        }
+            else  {
+            WGo.DZ=true;
+        }
+
+            }
+
 
     var reg_seq = /\(|\)|(;(\s*[A-Za-z]+\s*((\[\])|(\[(.|\s)*?(([^\\]|[^\\]\\\\)\])))+)*)/g;
     var reg_node = /[A-Z]+\s*((\[\])|(\[(.|\s)*?(([^\\]|[^\\]\\\\)\])))+/g;

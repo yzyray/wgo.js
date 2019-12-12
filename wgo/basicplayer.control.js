@@ -627,13 +627,13 @@
      *	 args: Object,
      * }
      */
-    var clickedMC = false;
+    // var clickedMC = false;
     var interval;
     var togglePoScoreMean=function(){
         if(!WGo.isKataData)
             return;
-        clickedMC = !clickedMC;
-        if (clickedMC) {
+      //  clickedMC = !clickedMC;
+        if (WGo.kataShowMean) {
             WGo.menuPoScoreMean.element.innerText = "目差";
             WGo.kataShowMean = false;
         } else {
@@ -771,6 +771,7 @@
                                 },
                             init:
                                 function () {
+
                                     WGo.menuPoScoreMean=this;
                                     this.element.innerText = "计算量";
                                     this.element.style.fontSize = 12 + 'px';

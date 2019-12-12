@@ -310,9 +310,91 @@ WGo.comment_text=this.comment_text;
         var nowWidth=width-startWidth*2;
 
         var lastWinrateHeight;
+        var lastWinrateHeightB;
+        var lastWinrateHeightW;
 
 
         if( WGo.isKataData ){
+            if(WGo.DZ)
+            {
+                if(WGo.KB)
+                {
+                    var lastScoreHeight;
+                    node=node = WGo.mianKifu.root;
+                    for(var i=0;i<moveNum;i++)
+                    {
+                        node=node.children[0];
+                        if (node.bestMoves[0]&&node.bestMoves[0].scoreMean)
+                        {
+                            var scoreHeight;
+                            if(node.move.c==WGo.W)
+                            {   scoreHeight=6+(height-12)*(0.5-(node.bestMoves[0].scoreMean)/(maxScoreMean*2));
+                            g2d.strokeStyle="rgb(256,55,255)";
+                            g2d.lineWidth=lineWidth;
+                            g2d.beginPath();
+                            if(lastScoreHeight)
+                                g2d.moveTo(startWidth+nowWidth*i/moveNum, lastScoreHeight);
+                            else
+                                g2d.moveTo(startWidth+nowWidth*i/moveNum, scoreHeight);
+                            g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, scoreHeight);
+                            lastScoreHeight=scoreHeight;
+
+                            g2d.stroke();
+                            g2d.closePath();
+                            }
+                        }
+                        else if(lastScoreHeight)
+                        {
+                            g2d.strokeStyle="rgb(256,55,255)";
+                            g2d.lineWidth=lineWidth;
+                            g2d.beginPath();
+                            g2d.moveTo(startWidth+nowWidth*i/moveNum, lastScoreHeight);
+                            g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastScoreHeight);
+                            g2d.stroke();
+                            g2d.closePath();
+                        }
+                    }
+                }
+                else if (WGo.KW)
+                {
+                    var lastScoreHeight;
+                    node=node = WGo.mianKifu.root;
+                    for(var i=0;i<moveNum;i++)
+                    {
+                        node=node.children[0];
+                        if (node.bestMoves[0]&&node.bestMoves[0].scoreMean)
+                        {
+                            var scoreHeight;
+                            if(node.move.c==WGo.B)
+                            {   scoreHeight=6+(height-12)*(0.5-(node.bestMoves[0].scoreMean)/(maxScoreMean*2));
+                                g2d.strokeStyle="rgb(256,55,255)";
+                                g2d.lineWidth=lineWidth;
+                                g2d.beginPath();
+                                if(lastScoreHeight)
+                                    g2d.moveTo(startWidth+nowWidth*i/moveNum, lastScoreHeight);
+                                else
+                                    g2d.moveTo(startWidth+nowWidth*i/moveNum, scoreHeight);
+                                g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, scoreHeight);
+                                lastScoreHeight=scoreHeight;
+
+                                g2d.stroke();
+                                g2d.closePath();
+                            }
+                        }
+                        else if(lastScoreHeight)
+                        {
+                            g2d.strokeStyle="rgb(256,55,255)";
+                            g2d.lineWidth=lineWidth;
+                            g2d.beginPath();
+                            g2d.moveTo(startWidth+nowWidth*i/moveNum, lastScoreHeight);
+                            g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastScoreHeight);
+                            g2d.stroke();
+                            g2d.closePath();
+                        }
+                    }
+                }
+            }
+            else{
             var lastScoreHeight;
             node=node = WGo.mianKifu.root;
             for(var i=0;i<moveNum;i++)
@@ -349,8 +431,86 @@ WGo.comment_text=this.comment_text;
                     g2d.closePath();
                 }
             }
+            }
         }
         node=node = WGo.mianKifu.root;
+        if(WGo.DZ)
+        {
+
+            for(var i=0;i<moveNum;i++)
+            {
+                node=node.children[0];
+                if (node.bestMoves&&node.bestMoves[0]&&node.bestMoves[0].winrate)
+                {
+                    var winHeight;
+                    if(node.move.c==WGo.W)
+                    { winHeight=6+(height-12)*(100-node.bestMoves[0].winrate)/100;
+                    g2d.strokeStyle="rgb(0,0,0)";
+                    g2d.lineWidth=lineWidth*3.3/5;
+                    g2d.beginPath();
+                    if(lastWinrateHeightB)
+                        g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeightB);
+                    else
+                        g2d.moveTo(startWidth+nowWidth*i/moveNum, winHeight);
+                    g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, winHeight);
+                    lastWinrateHeightB=winHeight;
+                    g2d.stroke();
+                    g2d.closePath();
+                        if(lastWinrateHeightW)
+                        {g2d.strokeStyle="rgb(255,255,255)";
+                        g2d.lineWidth=lineWidth*3.3/5;
+                        g2d.beginPath(); g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeightW);
+                        g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastWinrateHeightW);
+                        g2d.stroke();
+                        g2d.closePath();}
+                    }
+                    else
+                    { winHeight=6+(height-12)*(100-node.bestMoves[0].winrate)/100;
+                        g2d.strokeStyle="rgb(255,255,255)";
+                        g2d.lineWidth=lineWidth*3.3/5;
+                        g2d.beginPath();
+                        if(lastWinrateHeightB)
+                            g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeightW);
+                        else
+                            g2d.moveTo(startWidth+nowWidth*i/moveNum, winHeight);
+                        g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, winHeight);
+                        lastWinrateHeightW=winHeight;
+                        g2d.stroke();
+                        g2d.closePath();
+                        if(lastWinrateHeightB)
+                        {g2d.strokeStyle="rgb(0,0,0)";
+                            g2d.lineWidth=lineWidth*3.3/5;
+                            g2d.beginPath(); g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeightB);
+                            g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastWinrateHeightB);
+                            g2d.stroke();
+                            g2d.closePath();}
+                    }
+                }
+                else{
+                    if(lastWinrateHeightB)
+                {
+                    g2d.strokeStyle="rgb(0,0,0)";
+                    g2d.lineWidth=lineWidth*3.3/5;
+                    g2d.beginPath();
+                    g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeightB);
+                    g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastWinrateHeightB);
+                    g2d.stroke();
+                    g2d.closePath();
+                }
+                    if(lastWinrateHeightW)
+                    {
+                        g2d.strokeStyle="rgb(255,255,255)";
+                        g2d.lineWidth=lineWidth*3.3/5;
+                        g2d.beginPath();
+                        g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeightW);
+                        g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastWinrateHeightW);
+                        g2d.stroke();
+                        g2d.closePath();
+                    }
+                }
+            }
+
+        }else{
         for(var i=0;i<moveNum;i++)
         {
             node=node.children[0];
@@ -385,7 +545,7 @@ WGo.comment_text=this.comment_text;
                 g2d.closePath();
             }
         }
-
+        }
 
     }
 
@@ -452,6 +612,123 @@ WGo.comment_text=this.comment_text;
         g2d.closePath()
         g2d.setLineDash([]);
         if( WGo.isKataData ){
+            if(WGo.DZ)
+            {
+                var scoreHeight;
+                var score;
+                var hasscore;
+                if(WGo.KB)
+                {
+                    if(node.move&&node.move.c==WGo.W){
+                    if (node.bestMoves&&node.bestMoves[0]&&node.bestMoves[0].scoreMean)
+                    {
+                        scoreHeight=6+(height-12)*(0.5-node.bestMoves[0].scoreMean/(WGo.maxScoreMean*2));
+                            score=node.bestMoves[0].scoreMean;
+                        WGo.lscoreHeight=scoreHeight;
+                        WGo.lsScore=score;
+                        hasscore=true;
+                    }
+                    }
+                    else
+                        if( WGo.lsScore)
+                        {
+                            scoreHeight=WGo.lscoreHeight;
+                            score=WGo.lsScore;
+                            hasscore=true;
+                        }
+                     if( hasscore){
+                        var font = "Calibri";
+                        g2d.fillStyle = "rgb(0,0,255)";
+                        g2d.font = "bold "+sr*5/6 + "px " + font;
+                        var textHeight;
+                        if(scoreHeight<height*0.1)
+                        {
+                            textHeight=scoreHeight+0.75*sr;
+                        }
+                        else
+                        {
+                            textHeight=scoreHeight-0.2083*sr;
+                        }
+                        var text=score.toFixed(1);
+                        if(moveNum<WGo.allMoveNum*0.98)
+                        {
+                            {
+                                if(text.length==3)
+                                    g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.18, textHeight);
+                                if(text.length==4)
+                                    g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.59, textHeight);
+                                if(text.length==5)
+                                    g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.05, textHeight);
+                            }
+                        }
+                        else {
+                            if(text.length==3)
+                                g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.76, textHeight);
+                            if(text.length==4)
+                                g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.22, textHeight);
+                            if(text.length==5)
+                                g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.62, textHeight);
+                        }
+                     }
+                }
+                else
+                    if (WGo.KW)
+                    {
+                        if(node.move&&node.move.c==WGo.B){
+                            if (node.bestMoves&&node.bestMoves[0]&&node.bestMoves[0].scoreMean)
+                            {
+                                scoreHeight=6+(height-12)*(0.5-node.bestMoves[0].scoreMean/(WGo.maxScoreMean*2));
+                                score=node.bestMoves[0].scoreMean;
+                                WGo.lscoreHeight=scoreHeight;
+                                WGo.lsScore=score;
+                                hasscore=true;
+                            }
+                        }
+                        else
+                        if( WGo.lsScore)
+                        {
+                            scoreHeight=WGo.lscoreHeight;
+                            score=WGo.lsScore;
+                            hasscore=true;
+                        }
+                        if( hasscore){
+                            var font = "Calibri";
+                            g2d.fillStyle = "rgb(0,0,255)";
+                            g2d.font = "bold "+sr*5/6 + "px " + font;
+                            var textHeight;
+                            if(scoreHeight<height*0.1)
+                            {
+                                textHeight=scoreHeight+0.75*sr;
+                            }
+                            else
+                            {
+                                textHeight=scoreHeight-0.2083*sr;
+                            }
+                            var text=score.toFixed(1);
+                            if(moveNum<WGo.allMoveNum*0.98)
+                            {
+                                {
+                                    if(text.length==3)
+                                        g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.18, textHeight);
+                                    if(text.length==4)
+                                        g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.59, textHeight);
+                                    if(text.length==5)
+                                        g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.05, textHeight);
+                                }
+                            }
+                            else {
+                                if(text.length==3)
+                                    g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.76, textHeight);
+                                if(text.length==4)
+                                    g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.22, textHeight);
+                                if(text.length==5)
+                                    g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.62, textHeight);
+                            }
+                        }
+                    }
+            }
+            else
+            {
             if (node.bestMoves&&node.bestMoves[0]&&node.bestMoves[0].scoreMean)
             {
                 var scoreHeight;
@@ -479,15 +756,6 @@ WGo.comment_text=this.comment_text;
                 var text=score.toFixed(1);
                 if(moveNum<WGo.allMoveNum*0.98)
                 {
-                    // if(score<0)
-                    // { if(text.length==3)
-                    // g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.25, textHeight);
-                    // if(text.length==4)
-                    //     g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.65, textHeight);
-                    //     if(text.length==5)
-                    //         g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.1, textHeight);
-                    // }
-                    // else
                     {
                         if(text.length==3)
                             g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*1.18, textHeight);
@@ -506,22 +774,105 @@ WGo.comment_text=this.comment_text;
                         g2d.fillText(text,startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*2.62, textHeight);
                 }
             }
+            }
         }
         if (node.bestMoves&&node.bestMoves[0]&&node.bestMoves[0].winrate)
         {
+            if(WGo.DZ)
+            {
+                var winHeightB;
+                var winHeightW;
+                var winrateB;
+                var winrateW;
+                {
+                    if(node.move.c==WGo.B)
+                    {winHeightW=6+(height-12)*(100-node.bestMoves[0].winrate)/100;
+                        winrateW=node.bestMoves[0].winrate;
+                    if(node.parent&&node.parent.bestMoves&&node.parent.bestMoves[0]&&node.parent.bestMoves[0].winrate)
+                    {winHeightB=6+(height-12)*(100-node.parent.bestMoves[0].winrate)/100;
+                        winrateB=node.parent.bestMoves[0].winrate;}
+                    }
+                    else
+                    {  winHeightB=6+(height-12)*(100-node.bestMoves[0].winrate)/100;
+                        winrateB=node.bestMoves[0].winrate;
+                        if(node.parent&&node.parent.bestMoves&&node.parent.bestMoves[0]&&node.parent.bestMoves[0].winrate)
+                        {winHeightW=6+(height-12)*(100-node.parent.bestMoves[0].winrate)/100;
+                            winrateW=node.parent.bestMoves[0].winrate;
+                        }
+                    }
+                }
+
+                var font = "Calibri";
+
+                var textHeightB;
+                var textHeightW;
+                if(winrateB)
+                {
+                    if(winrateB>80)
+                    {
+                        textHeightB=winHeightB+0.95*sr;
+                    }
+                    else
+                    {
+                        textHeightB=winHeightB-0.25*sr;
+                    }
+
+                    g2d.fillStyle = "rgb(0,0,0)";
+                    g2d.beginPath();
+                    g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), winHeightB, sr/ 7, 0, 2 * Math.PI, true);
+                    g2d.closePath();
+                    g2d.fill();
+
+                    g2d.fillStyle = "rgb(0,0,0)";
+                    g2d.font = "bold "+sr + "px " + font;
+                    if(moveNum<WGo.allMoveNum*0.98)
+                        g2d.fillText(winrateB.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)+sr*0.15, textHeightB);
+                    else
+                        g2d.fillText(winrateB.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*0.5, textHeightB);
+
+                }
+                if(winrateW)
+                {
+                    if(winrateW>80)
+                    {
+                        textHeightW=winHeightW+0.95*sr;
+                    }
+                    else
+                    {
+                        textHeightW=winHeightW-0.25*sr;
+                    }
+
+                    g2d.fillStyle = "rgb(255,255,255)";
+                    g2d.beginPath();
+                    g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), winHeightW, sr/ 7, 0, 2 * Math.PI, true);
+                    g2d.closePath();
+                    g2d.fill();
+
+                    g2d.fillStyle = "rgb(255,255,255)";
+                    g2d.font = "bold "+sr + "px " + font;
+                    if(moveNum<WGo.allMoveNum*0.98)
+                        g2d.fillText(winrateW.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)+sr*0.15, textHeightW);
+                    else
+                        g2d.fillText(winrateW.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*0.5, textHeightW);
+                }
+
+                if(scoreHeight) {
+                    g2d.fillStyle = "rgb(0,0,255)";
+                    g2d.beginPath();
+                    g2d.arc(startWidth + nowWidth * (moveNum / WGo.allMoveNum), scoreHeight, sr / 7, 0, 2 * Math.PI, true);
+                    g2d.closePath();
+                    g2d.fill();
+                }
+
+            }
+            else{
             var winHeight;
-            // if(!WGo.isPC&&!WGo.isWideMode)
-            {if(node.move.c==WGo.B)
+            {
+                if(node.move.c==WGo.B)
                 winHeight=6+(height-12)*node.bestMoves[0].winrate/100;
             else
-                winHeight=6+(height-12)*(100-node.bestMoves[0].winrate)/100;}
-            // else
-            // {if(node.move.c==WGo.B)
-            //     winHeight=5+(height-10)*node.bestMoves[0].winrate/100;
-            // else
-            //     winHeight=5+(height-10)*(100-node.bestMoves[0].winrate)/100;
-            // }
-
+                winHeight=6+(height-12)*(100-node.bestMoves[0].winrate)/100;
+            }
 
             var font = "Calibri";
             g2d.fillStyle = "rgb(0,0,0)";
@@ -543,20 +894,20 @@ WGo.comment_text=this.comment_text;
                 g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)+sr*0.15, textHeight);
             else
                 g2d.fillText(winrate.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*0.5, textHeight);
-
-            g2d.fillStyle = "rgb(0,0,255)";
-            g2d.beginPath();
-            g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), scoreHeight, sr/ 7, 0, 2 * Math.PI, true);
-            g2d.closePath();
-            g2d.fill();
-
+    if(scoreHeight) {
+        g2d.fillStyle = "rgb(0,0,255)";
+        g2d.beginPath();
+        g2d.arc(startWidth + nowWidth * (moveNum / WGo.allMoveNum), scoreHeight, sr / 7, 0, 2 * Math.PI, true);
+        g2d.closePath();
+        g2d.fill();
+    }
 
             g2d.fillStyle = "rgb(0,0,0)";
             g2d.beginPath();
             g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), winHeight, sr/ 7, 0, 2 * Math.PI, true);
             g2d.closePath();
             g2d.fill();
-
+            }
         }
     }
     WGo.drawWinrate2=drawWinrate2;
