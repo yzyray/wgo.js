@@ -179,8 +179,13 @@
         }.bind(this));
 
         function bodyScale() {
+
             var devicewidth = document.documentElement.clientWidth;
-            var deviceheight = document.documentElement.clientHeight;
+            var deviceheight =document.documentElement.clientHeight;
+                // if (deviceheight / devicewidth > 1697 / 980) {
+                //     deviceheight = devicewidth * 1697 / 980;
+                // }
+            //alert(devicewidth+"_"+deviceheight);
             var o = document.getElementById("main");
             if (deviceheight > devicewidth)
             { WGo.isWideMode = false;
@@ -199,17 +204,17 @@
                 document.body.style.zoom = 1;
             } else {
 
-                var scale = deviceheight / 950.0;
+                var scale = deviceheight / 980.0;
                 var w = devicewidth / scale;
-                //o.style.height = (900) + "px";
-                o.style.width = (w) + "px";
+                o.style.height = (934) + "px";
+                o.style.width = 100+ "%";
                 document.body.style.zoom = scale;
                 WGo.trueScale = scale;
                 if (!WGo.isWideMode) {
                     if(WGo.isPC)
-                        WGo.commentheight =Math.max(810-w,185);
+                        WGo.commentheight =Math.max(845-w,185);
                         else
-                    WGo.commentheight =Math.max(805-w,185);
+                    WGo.commentheight =Math.max(843-w,185);
                 }
             }
             WGo.mainWidth= o.offsetWidth;
@@ -233,11 +238,12 @@ if(WGo.isPC)
         }
 
         //window.onload = window.onresize = function () {
-        bodyScale();
-        //};
 
+        //};
+        bodyScale();
         this.updateDimensions();
         this.initGame();
+
     });
 
     /**
@@ -604,12 +610,17 @@ if(WGo.isPC)
     WGo.BasicPlayer = BasicPlayer;
     WGo.player_from_tag=player_from_tag;
 
-    window.addEventListener("load", function () {
-        var pl_elems = document.querySelectorAll("[data-wgo],[data-wgo-diagram]");
 
-        for (var i = 0; i < pl_elems.length; i++) {
-            player_from_tag(pl_elems[i]);
-        }
+
+    window.addEventListener("load", function () {
+        setTimeout(function (){
+            var pl_elems = document.querySelectorAll("[data-wgo],[data-wgo-diagram]");
+
+            for (var i = 0; i < pl_elems.length; i++) {
+                player_from_tag(pl_elems[i]);
+            }
+        }, 300);
+
     });
 
     // var o = document.getElementsByName("wgo-button2");

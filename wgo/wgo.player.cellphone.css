@@ -123,7 +123,7 @@ body {
 
 .wgo-board {
     margin: 0 auto;
-    top: -10px;
+    top: -9px;
     background-color:rgb(205,180,142);
     border-top: #F0E7A7 solid 1px;
     border-right: #D1A974 solid 1px;
@@ -528,7 +528,7 @@ a.wgo-move-link {
 .wgo-player-top .wgo-comments-wrapper, .wgo-player-bottom .wgo-comments-wrapper {
     /*margin-top: 5px;*/
    /*bottom: -2px;*/
-   top:-13px;
+   top:-10px;
     height: 244px;
 }
 
@@ -604,7 +604,7 @@ button.wgo-button {
     border-radius: 2px;
     background-color: rgba(255, 255, 255, 0.3);
     width: 63px;
-    margin: 0 5px;
+    margin: 0 2px;
     height: 45px;
     vertical-align: middle;
 }
@@ -628,7 +628,7 @@ button.wgo-button.wgo-selected:hover {
 
 .wgo-button::before {
     font-family: "wgo-icons";
-    font-size: 40px;
+    font-size: 32px;
     display: inline-block;
 }
 
@@ -913,7 +913,7 @@ input[type="text"].wgo-player-mn-value {
     /*padding-top: -5px;*/
     /*top: -10px;*/
     margin-bottom: 5px;
-    margin-top: -7px;
+    margin-top: -4px;
 }
 
 /* display less buttons */

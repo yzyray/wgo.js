@@ -241,6 +241,10 @@
     control.Button = WGo.extendClass(control.Clickable, function (player, args) {
         var elem = this.element = document.createElement("button");
         elem.className = "wgo-button wgo-button-" + args.name;
+        if(args.name==="multiprev")
+            elem.id="multiprev";
+            if(args.name==="multinext")
+                elem.id="multinext";
         elem.title = WGo.t(args.name);
         this.init(player, args);
     });
@@ -248,12 +252,17 @@
     control.Button2 = WGo.extendClass(control.Clickable, function (player, args) {
         var elem = this.element = document.createElement("button");
         elem.className = "wgo-button2 wgo-button2-" + args.name;
+        if(args.name==="menu2")
+            elem.title = WGo.t("score-po");
+        else
         elem.title = WGo.t(args.name);
         this.init(player, args);
     });
     control.Button3 = WGo.extendClass(control.Clickable, function (player, args) {
         var elem = this.element = document.createElement("button");
         elem.className = "wgo-button3 wgo-button3-" + args.name;
+        if(args.name==="menu")
+            elem.id="bottommenu";
         elem.title = WGo.t(args.name);
         this.init(player, args);
     });

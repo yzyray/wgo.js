@@ -862,21 +862,28 @@ if(WGo.badLastMark)
                 }
             }
         }
-        if (! WGo.isWideMode)
+        if (!WGo.isPC&&! WGo.isWideMode)
         {
-          //  alert(WGo.mainHeight+"_"+WGo.mainWidth);
+            //alert(WGo.mainHeight+"_"+WGo.mainWidth);
             var o = document.getElementsByTagName("button");
             for (var i = 0; i < o.length; i++) {
                 if (o[i].className.startsWith("wgo-button3")) {
-                    o[i].style.width = Math.min(WGo.mainWidth  /15,50) + "px";
+                    o[i].style.width = Math.min((WGo.mainWidth-81)  /11,60) + "px";
                     // if(o[i].offsetWidth>0)
                     // alert("bt3 "+o[i].offsetWidth+"_"+o[i].offsetHeight);
                 } else if (o[i].className.startsWith("wgo-button2")) {
-                    o[i].style.width = (Math.min(WGo.mainWidth/13.5,65)) + "px";
+                    o[i].style.width = (Math.min((WGo.mainWidth-81)/11,60)) + "px";
                 } else if (o[i].className.startsWith("wgo-button")) {
-                    o[i].style.width = (Math.min(WGo.mainWidth /9.8,65)) + "px";
+                    o[i].style.width = (Math.min((WGo.mainWidth-81) /7,70)) + "px";
                 }
             }
+            var s = document.getElementById("multiprev");
+            s.style.width = (Math.min((WGo.mainWidth-81)/9,60)) + "px";
+            var s1 = document.getElementById("multinext");
+            s1.style.width = (Math.min((WGo.mainWidth-81)/9,60)) + "px";
+            var s2 = document.getElementById("bottommenu");
+            s2.style.width = (Math.min((WGo.mainWidth-81)/13.5,60)) + "px";
+
         }
 
     }
