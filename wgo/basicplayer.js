@@ -224,7 +224,7 @@
                     if(WGo.isPC)
                         WGo.commentheight =Math.max(810-w,185);
                         else
-                    WGo.commentheight =Math.max(804-w,185);
+                    WGo.commentheight =Math.max(805-w,185);
                  //   alert(  o.style.height+"_"+ o.style.width+"_"+WGo.commentheight );
                 }
             }

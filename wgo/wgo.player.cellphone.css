@@ -123,6 +123,7 @@ body {
 
 .wgo-board {
     margin: 0 auto;
+    top: -10px;
     background-color:rgb(205,180,142);
     border-top: #F0E7A7 solid 1px;
     border-right: #D1A974 solid 1px;
@@ -525,8 +526,9 @@ a.wgo-move-link {
 }
 
 .wgo-player-top .wgo-comments-wrapper, .wgo-player-bottom .wgo-comments-wrapper {
-    margin-top: 5px;
-    /*margin-bottom: -5px;*/
+    /*margin-top: 5px;*/
+   /*bottom: -2px;*/
+   top:-13px;
     height: 244px;
 }
 
@@ -908,7 +910,10 @@ input[type="text"].wgo-player-mn-value {
 }
 
 .wgo-player-bottom .wgo-player-control {
-    padding-top: 5px;
+    /*padding-top: -5px;*/
+    /*top: -10px;*/
+    margin-bottom: 5px;
+    margin-top: -7px;
 }
 
 /* display less buttons */
