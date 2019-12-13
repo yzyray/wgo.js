@@ -1311,7 +1311,7 @@ WGo.comment_text=this.comment_text;
                         moveComment += "\n"+"选点" + formatWidth(i + 1,2) + ": "+ coords + "　胜率:" + formatWidth(bestMoves[i].winrate.toFixed(1),4);
 
                         if (bestMoves[i].scoreMean)
-                            moveComment += "　目差" + bestMoves[i].scoreMean.toFixed(1);
+                            moveComment += "　目差" + formatWidth(bestMoves[i].scoreMean.toFixed(1),5);
                         moveComment += "　计算量:";
                         if(percent<10)
                         {
@@ -1486,7 +1486,7 @@ comment+="↑";
                         moveComment += "\n"+"选点" + formatWidth(i + 1,2) + ": "+ coords + "　胜率:" + formatWidth(bestMoves[i].winrate.toFixed(1),4);
 
                         if (bestMoves[i].scoreMean)
-                            moveComment += "　目差" + bestMoves[i].scoreMean.toFixed(1);
+                            moveComment += "　目差" + formatWidth(bestMoves[i].scoreMean.toFixed(1),5);
                         moveComment += "　计算量:";
                         if(percent<10)
                         {
