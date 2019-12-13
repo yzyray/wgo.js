@@ -868,7 +868,7 @@ if(WGo.badLastMark)
             var o = document.getElementsByTagName("button");
             for (var i = 0; i < o.length; i++) {
                 if (o[i].className.startsWith("wgo-button3")) {
-                    o[i].style.width = Math.min(WGo.mainWidth  /15.2,50) + "px";
+                    o[i].style.width = Math.min(WGo.mainWidth  /15,50) + "px";
                     // if(o[i].offsetWidth>0)
                     // alert("bt3 "+o[i].offsetWidth+"_"+o[i].offsetHeight);
                 } else if (o[i].className.startsWith("wgo-button2")) {
