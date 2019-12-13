@@ -182,9 +182,9 @@
             var devicewidth = document.documentElement.clientWidth;
             var deviceheight = document.documentElement.clientHeight;
         //    alert( deviceheight+"_"+ devicewidth );
-            if (deviceheight / devicewidth > 1630 / 980) {
-                deviceheight = devicewidth * 1630 / 980;
-            }
+        //     if (deviceheight / devicewidth > 1630 / 980) {
+        //         deviceheight = devicewidth * 1630 / 980;
+        //     }
             //alert(devicewidth);980
             //alert(deviceheight);1630
             var o = document.getElementById("main");
@@ -224,7 +224,7 @@
                     if(WGo.isPC)
                         WGo.commentheight =Math.max(810-w,185);
                         else
-                    WGo.commentheight =Math.max(805-w,185);
+                    WGo.commentheight =Math.max(804-w,185);
                  //   alert(  o.style.height+"_"+ o.style.width+"_"+WGo.commentheight );
                 }
             }

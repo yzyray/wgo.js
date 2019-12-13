@@ -444,7 +444,15 @@ WGo.comment_text=this.comment_text;
                 {
                     var winHeight;
                     if(node.move.c==WGo.W)
-                    { winHeight=6+(height-12)*(100-node.bestMoves[0].winrate)/100;
+                    {
+                        if(lastWinrateHeightW)
+                        {g2d.strokeStyle="rgb(255,255,255)";
+                            g2d.lineWidth=lineWidth*3.3/5;
+                            g2d.beginPath(); g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeightW);
+                            g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastWinrateHeightW);
+                            g2d.stroke();
+                            g2d.closePath();}
+                        winHeight=6+(height-12)*(100-node.bestMoves[0].winrate)/100;
                     g2d.strokeStyle="rgb(0,0,0)";
                     g2d.lineWidth=lineWidth*3.3/5;
                     g2d.beginPath();
@@ -456,13 +464,7 @@ WGo.comment_text=this.comment_text;
                     lastWinrateHeightB=winHeight;
                     g2d.stroke();
                     g2d.closePath();
-                        if(lastWinrateHeightW)
-                        {g2d.strokeStyle="rgb(255,255,255)";
-                        g2d.lineWidth=lineWidth*3.3/5;
-                        g2d.beginPath(); g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeightW);
-                        g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastWinrateHeightW);
-                        g2d.stroke();
-                        g2d.closePath();}
+
                     }
                     else
                     { winHeight=6+(height-12)*(100-node.bestMoves[0].winrate)/100;
@@ -487,16 +489,6 @@ WGo.comment_text=this.comment_text;
                     }
                 }
                 else{
-                    if(lastWinrateHeightB)
-                {
-                    g2d.strokeStyle="rgb(0,0,0)";
-                    g2d.lineWidth=lineWidth*3.3/5;
-                    g2d.beginPath();
-                    g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeightB);
-                    g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastWinrateHeightB);
-                    g2d.stroke();
-                    g2d.closePath();
-                }
                     if(lastWinrateHeightW)
                     {
                         g2d.strokeStyle="rgb(255,255,255)";
@@ -504,6 +496,16 @@ WGo.comment_text=this.comment_text;
                         g2d.beginPath();
                         g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeightW);
                         g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastWinrateHeightW);
+                        g2d.stroke();
+                        g2d.closePath();
+                    }
+                    if(lastWinrateHeightB)
+                    {
+                        g2d.strokeStyle="rgb(0,0,0)";
+                        g2d.lineWidth=lineWidth*3.3/5;
+                        g2d.beginPath();
+                        g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeightB);
+                        g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastWinrateHeightB);
                         g2d.stroke();
                         g2d.closePath();
                     }
@@ -806,6 +808,31 @@ WGo.comment_text=this.comment_text;
 
                 var textHeightB;
                 var textHeightW;
+                if(winrateW)
+                {
+                    if(winrateW>80)
+                    {
+                        textHeightW=winHeightW+0.95*sr;
+                    }
+                    else
+                    {
+                        textHeightW=winHeightW-0.25*sr;
+                    }
+
+                    g2d.fillStyle = "rgb(255,255,255)";
+                    g2d.beginPath();
+                    g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), winHeightW, sr/ 7, 0, 2 * Math.PI, true);
+                    g2d.closePath();
+                    g2d.fill();
+
+                    g2d.fillStyle = "rgb(255,255,255)";
+                    g2d.font = "bold "+sr + "px " + font;
+                    if(moveNum<WGo.allMoveNum*0.98)
+                        g2d.fillText(winrateW.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)+sr*0.15, textHeightW);
+                    else
+                        g2d.fillText(winrateW.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*0.5, textHeightW);
+                }
+
                 if(winrateB)
                 {
                     if(winrateB>80)
@@ -830,30 +857,6 @@ WGo.comment_text=this.comment_text;
                     else
                         g2d.fillText(winrateB.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*0.5, textHeightB);
 
-                }
-                if(winrateW)
-                {
-                    if(winrateW>80)
-                    {
-                        textHeightW=winHeightW+0.95*sr;
-                    }
-                    else
-                    {
-                        textHeightW=winHeightW-0.25*sr;
-                    }
-
-                    g2d.fillStyle = "rgb(255,255,255)";
-                    g2d.beginPath();
-                    g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), winHeightW, sr/ 7, 0, 2 * Math.PI, true);
-                    g2d.closePath();
-                    g2d.fill();
-
-                    g2d.fillStyle = "rgb(255,255,255)";
-                    g2d.font = "bold "+sr + "px " + font;
-                    if(moveNum<WGo.allMoveNum*0.98)
-                        g2d.fillText(winrateW.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)+sr*0.15, textHeightW);
-                    else
-                        g2d.fillText(winrateW.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*0.5, textHeightW);
                 }
 
                 if(scoreHeight) {
@@ -1311,7 +1314,7 @@ WGo.comment_text=this.comment_text;
                         moveComment += "\n"+"选点" + formatWidth(i + 1,2) + ": "+ coords + "　胜率:" + formatWidth(bestMoves[i].winrate.toFixed(1),4);
 
                         if (bestMoves[i].scoreMean)
-                            moveComment += "　目差" + formatWidth(bestMoves[i].scoreMean.toFixed(1),5);
+                            moveComment += "　目差:" + formatWidth(bestMoves[i].scoreMean.toFixed(1),5);
                         moveComment += "　计算量:";
                         if(percent<10)
                         {
@@ -1486,7 +1489,7 @@ comment+="↑";
                         moveComment += "\n"+"选点" + formatWidth(i + 1,2) + ": "+ coords + "　胜率:" + formatWidth(bestMoves[i].winrate.toFixed(1),4);
 
                         if (bestMoves[i].scoreMean)
-                            moveComment += "　目差" + formatWidth(bestMoves[i].scoreMean.toFixed(1),5);
+                            moveComment += "　目差:" + formatWidth(bestMoves[i].scoreMean.toFixed(1),5);
                         moveComment += "　计算量:";
                         if(percent<10)
                         {
