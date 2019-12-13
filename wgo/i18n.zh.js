@@ -3,11 +3,11 @@
 WGo.lang = "zh";
 
 WGo.i18n[WGo.lang] = {
-    "about-text": "<h1>WGo.js Player 2.0</h1>"
-        + "<p>WGo.js Player 扩展自 WGo.js, 是为围棋编写的 HTML5 库。 它可以让你浏览棋谱，以及包含很多其他功能，例如点目。并且你可以很容易地扩展它。</p>"
-        + "<p>WGo.js 的开源许可 <a href='http://en.wikipedia.org/wiki/MIT_License' target='_blank'>MIT license</a>。你可以使用和修改该项目。</p>"
-        + "<p>你可以从以下网站获得更多信息 <a href='http://wgo.waltheri.net/player' target='_blank'>wgo.waltheri.net/player</a></p>"
-        + "<p>版权 &copy; 2013 Jan Prokop</p>",
+    "about-text": "<h1>Lizzie Player 0.1</h1>"
+        + "<p>Lizzie Player 扩展自<a href='http://wgo.waltheri.net/player' target='_blank'>WGo.js</a>, 用HTML5编写,支持电脑/移动端浏览Lizzie分析后的棋谱,包括胜率图,查找恶手等功能,同时支持查看本地棋谱.</p>"
+        + "<p>你所查看的棋谱来自Lizzie Yzy版,免费公开(<a href='https://pan.baidu.com/s/1q615GHD62F92mNZbTYfcxA' target='_blank'>点击下载</a>),在Lizzie中分析后可以使用分享功能分享到此网页以供其他电脑,手机,pad等查看</p>"
+        //+ "<p></p>"
+        + "<p>版权 &copy; 2019 Yzy</p>",
     "black": "黑方",
     "white": "白方",
     "DT": "日期",
