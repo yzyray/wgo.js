@@ -874,7 +874,7 @@ if(WGo.badLastMark)
                 } else if (o[i].className.startsWith("wgo-button2")) {
                     o[i].style.width = (Math.min(WGo.mainWidth/13.5,65)) + "px";
                 } else if (o[i].className.startsWith("wgo-button")) {
-                    o[i].style.width = (Math.min(WGo.mainWidth /9.8,85)) + "px";
+                    o[i].style.width = (Math.min(WGo.mainWidth /9.8,65)) + "px";
                 }
             }
         }
