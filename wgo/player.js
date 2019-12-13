@@ -1056,6 +1056,7 @@ if(WGo.badLastMark)
                 this.loadSgfFromFile(this.config.sgfFile, this.config.move);
             }
             updatePosition();
+
         },
 
         /**

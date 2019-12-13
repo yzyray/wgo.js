@@ -181,27 +181,12 @@
         function bodyScale() {
             var devicewidth = document.documentElement.clientWidth;
             var deviceheight = document.documentElement.clientHeight;
-        //    alert( deviceheight+"_"+ devicewidth );
-        //     if (deviceheight / devicewidth > 1630 / 980) {
-        //         deviceheight = devicewidth * 1630 / 980;
-        //     }
-            //alert(devicewidth);980
-            //alert(deviceheight);1630
             var o = document.getElementById("main");
-            // var scale = devicewidth / 600;  // 分母——设计稿的尺寸
-            // var scale2 = deviceheight / 895;
-            // var w=screen.width;
-            // var h=screen.height;
-          //  alert(  o.offsetHeight+"_"+ o.offsetWidth);
             if (deviceheight > devicewidth)
             { WGo.isWideMode = false;
            }
             else {
-
-                // wgo-box-title
                 WGo.isWideMode = true;
-                // if (deviceheight > devicewidth)
-                //     WGo.isWideMode = false;
             }
             if (WGo.isWideMode) {
                 if (WGo.isWideMode)
@@ -216,7 +201,7 @@
 
                 var scale = deviceheight / 950.0;
                 var w = devicewidth / scale;
-                o.style.height = (900) + "px";
+                //o.style.height = (900) + "px";
                 o.style.width = (w) + "px";
                 document.body.style.zoom = scale;
                 WGo.trueScale = scale;
@@ -225,12 +210,10 @@
                         WGo.commentheight =Math.max(810-w,185);
                         else
                     WGo.commentheight =Math.max(805-w,185);
-                 //   alert(  o.style.height+"_"+ o.style.width+"_"+WGo.commentheight );
                 }
             }
             WGo.mainWidth= o.offsetWidth;
             WGo.mainHeight= o.offsetHeight;
-        //    alert(WGo.mainWidth+"_"+WGo.mainHeight);
             document.body.addEventListener('touchmove', bodyScroll, false);
 
 if(WGo.isPC)
@@ -240,14 +223,6 @@ if(WGo.isPC)
         o1[i].style.border = "none";
     }
 }
-
-            // window.ontouchmove=function(e){
-            // 	e.preventDefault && e.preventDefault();
-            // 	e.returnValue=false;
-            // 	e.stopPropagation && e.stopPropagation();
-            // 	alert("a7");
-            // 	return false;
-            // };
 
         }
 
@@ -262,7 +237,6 @@ if(WGo.isPC)
         //};
 
         this.updateDimensions();
-
         this.initGame();
     });
 

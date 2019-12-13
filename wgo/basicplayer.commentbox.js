@@ -83,7 +83,7 @@ WGo.comment_text=this.comment_text;
         if(WGo.isWideMode)
             this.comment_text.style.fontSize = 15 + 'px';
         else
-            this.comment_text.style.fontSize = 18 + 'px';
+            this.comment_text.style.fontSize = 17 + 'px';
 
 
     }
