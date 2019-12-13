@@ -862,18 +862,19 @@ if(WGo.badLastMark)
                 }
             }
         }
-        if (!WGo.isPC &&! WGo.isWideMode)
+        if (! WGo.isWideMode)
         {
+          //  alert(WGo.mainHeight+"_"+WGo.mainWidth);
             var o = document.getElementsByTagName("button");
             for (var i = 0; i < o.length; i++) {
                 if (o[i].className.startsWith("wgo-button3")) {
-                    o[i].style.width = Math.min(WGo.mainWidth / (WGo.trueScale*8.5),50) + "px";
+                    o[i].style.width = Math.min(WGo.mainWidth  /15.2,50) + "px";
                     // if(o[i].offsetWidth>0)
                     // alert("bt3 "+o[i].offsetWidth+"_"+o[i].offsetHeight);
                 } else if (o[i].className.startsWith("wgo-button2")) {
-                    o[i].style.width = (Math.min(WGo.mainWidth /(WGo.trueScale*7.5),65)) + "px";
+                    o[i].style.width = (Math.min(WGo.mainWidth/13.5,65)) + "px";
                 } else if (o[i].className.startsWith("wgo-button")) {
-                    o[i].style.width = (Math.min(WGo.mainWidth / (WGo.trueScale*5.3),85)) + "px";
+                    o[i].style.width = (Math.min(WGo.mainWidth /9.8,85)) + "px";
                 }
             }
         }
