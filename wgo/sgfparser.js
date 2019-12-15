@@ -366,6 +366,7 @@ else
                     for (var k in vals) vals[k] = vals[k].substring(1, vals[k].length - 1).replace(/\\(?!\\)/g, "");
 
                     // call property handler if any
+
                     if (WGo.SGF.properties[ident]) WGo.SGF.properties[ident](kifu, node, vals, ident);
                     else {
                         // if there is only one property, strip array
@@ -383,12 +384,28 @@ else
             }
         }
         WGo.mianKifu = kifu;
+        var nodes=kifu.root
+        //尚需优化,所有分支首位是pass的问题
+        while(nodes.children&&nodes.children[0])
+        {
+            nodes=nodes.children[0];
+            if(nodes.children[1])
+                if(nodes.children[1].move.pass)
+                {
+                    if(nodes.children[1].children)
+                        if(nodes.children[1].children[0])
+                        {
+                            nodes.children[1].children[0].parent=nodes;
+                            nodes.children[1]=nodes.children[1].children[0]
+                        }
+                }
+        }
         WGo.drawWinrate();
 
         var o = document.getElementById("main2");
-
-        //   o.setAttribute( "href", kifu.info.black.name+"_vs"+kifu.info.white.name+getdate() + ".sgf");
-        o.setAttribute("download", kifu.info.black.name+"_vs_"+kifu.info.white.name+"_"+getNowFormatDate()+".sgf");
+if(kifu.info.black&&kifu.info.black.name&&kifu.info.white&&kifu.info.white.name)
+           o.setAttribute( "href", kifu.info.black.name+"_vs"+kifu.info.white.name+getNowFormatDate() + ".sgf");
+   //     o.setAttribute("download", kifu.info.black.name+"_vs_"+kifu.info.white.name+"_"+getNowFormatDate()+".sgf");
 
 
         function bodyScale() {

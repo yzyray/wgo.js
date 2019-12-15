@@ -1,8 +1,38 @@
 <!DOCTYPE HTML>
-<html>
+<html style="width:100%;height: 100%;">
 <head>
     <meta charset="utf-8">
-    <title>WGo</title>
+    <meta name="viewport" content="user-scalable=false">
+    <title>Lizzie Player</title>
+
+    <script>
+        window.onload = function () {
+            urlinfo = window.location.href; //获取当前页面的url
+            len = urlinfo.length;//获取url的长度
+            offset = urlinfo.indexOf("?");//设置参数字符串开始的位置
+            newsidinfo = urlinfo.substr(offset + 1, len)//取出参数字符串 这里会获得类似“id=1”这样的字符串
+            newsids = newsidinfo.split("&");//对获得的参数字符串按照“=”进行分割
+            for (var i = 0; i < newsids.length; i = i + 2) {
+                var values = newsids[i].split("=");
+                var name = values[i];
+                var value = values[i + 1];
+                if (name == "qp") {
+                    //alert(o);
+                    var o = document.getElementById("main");
+                    o.setAttribute("data-wgo",  value + ".sgf");
+                    var o = document.getElementById("main4");
+                    o.setAttribute("href",  value + ".sgf");
+                    var o = document.getElementById("main2");
+                    o.setAttribute("href", value + ".sgf");
+                    o.setAttribute("download", value+".sgf");
+                    break;
+                }
+            }
+
+
+
+        }
+    </script>
     <script type="text/javascript" src="wgo/wgo.js"></script>
     <script type="text/javascript" src="wgo/kifu.js"></script>
     <script type="text/javascript" src="wgo/sgfparser.js"></script>
@@ -13,11 +43,78 @@
     <script type="text/javascript" src="wgo/basicplayer.commentbox.js"></script>
     <script type="text/javascript" src="wgo/basicplayer.control.js"></script>
     <script type="text/javascript" src="wgo/player.editable.js"></script>
+    <script type="text/javascript" src="wgo/player.maker.js"></script>
     <script type="text/javascript" src="wgo/scoremode.js"></script>
-    <script type="text/javascript" src="wgo/player.permalink.js"></script>
+    <!--    <script type="text/javascript" src="wgo/player.permalink.js"></script>-->
     <script type="text/javascript" src="wgo/i18n.zh.js"></script>
-    <link rel="stylesheet" type="text/css" href="wgo/wgo.player.css"/>
+    <script type="text/javascript" src="wgo/Table.js"></script>
+    <script type="text/javascript" src="wgo/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="wgo/clipboard.js"></script>
+    <script>
+        function IsPC() {
+            // var userAgentInfo = navigator.userAgent;
+            // var Agents = ["Android", "iPhone",
+            //     "SymbianOS", "Windows Phone",
+            //     "iPad"];
+            // var flag = true;
+            // for (var v = 0; v < Agents.length; v++) {
+            //     if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            //         flag = false;
+            //         break;
+            //     }
+            // }
+            // return flag;
+            //平台、设备和操作系统
+            var system ={
+                win : false,
+                mac : false,
+                xll : false
+            };
 
+            //检测平台
+            var p = navigator.platform;
+            system.win = p.indexOf("Win") == 0;
+            // system.mac = p.indexOf("Mac") == 0;
+            system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+// alert(p)
+            //跳转语句
+            if(system.win||system.mac||system.xll){//转向后台登陆页面
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        var isPC = IsPC();
+        WGo.isPC = isPC;
+        if (isPC) {
+            document.write('<link rel="stylesheet" type="text/css" href="wgo/wgo.player.css"/>');
+        } else {
+            var devicewidth = document.documentElement.clientWidth;
+            var deviceheight = document.documentElement.clientHeight;
+            if (deviceheight > devicewidth)
+                document.write('<link rel="stylesheet" type="text/css" href="wgo/wgo.player.cellphone.css"/>');
+            else
+                document.write('<link rel="stylesheet" type="text/css" href="wgo/wgo.player.css"/>');
+        }
+        // var w=screen.width;
+        // var h=screen.height;
+        // if(w<h)document.write('<link rel="stylesheet" type="text/css" href="wgo/wgo.player.cellphone.css"/>');
+        // else document.write('<link rel="stylesheet" type="text/css" href="wgo/wgo.player.css"/>');
+
+
+    </script>
+
+    <!--	<script>-->
+    <!--		// window.onload=function () {-->
+    <!--		// 	var maindiv = document.getElementById("main");-->
+    <!--		// 	 var mainh = maindiv.offsetHeight; //高度-->
+    <!--		// 	 var mainw = maindiv.offsetWidth; //宽度-->
+    <!--		// 	 var scale=mainh/900;-->
+    <!--		// 	maindiv.style.height = (900) + "px";-->
+    <!--		// 	maindiv.style.width = (mainw/scale)+"px";-->
+    <!--		// }-->
+    <!--	</script>-->
     <style>
         /*!
          * Bootstrap v2.3.2
@@ -1957,39 +2054,88 @@
         }
     </style>
 </head>
-<body>
+<body style="width:100%;height: 100%; padding: 0px 0px 25px 0px; box-sizing: border-box ;position:fixed;">
 
-<div class="container">
-    <h1>WGo.js Player demo - in bootstrap template</h1>
-    <hr>
-    <div class="row">
-        <div class="span9">
-            <div data-wgo="qp\[蓝桥一梦48]vs[鱼索索]1569031649022405409_已分析_20191010092342.sgf" style="width: 700px">
-                Sorry, your browser doesn't support WGo.js. Download SGF <a
-                    href="qp\[蓝桥一梦48]vs[鱼索索]1569031649022405409_已分析_20191010092342.sgf">directly</a>.
+<div style="width: 100%; height:100%;">
+    <div class="row" style="width: 100%; height:100%;">
+        <div style="width: 100%; height:100%;">
+            <div id="main"data-wgo="(;SZ[19];B[pc];W[pe]C[You have many choices - for example: R13];B[qg]C[Click on a letter to select a variation](;W[of]C[Old joseki];B[mc];W[qc];B[qb];W[qd];B[qj];W[ob];B[pb];W[oc];B[od];W[pd];B[oa];W[nd];B[nb];W[oe];B[jc];W[])(;W[qc];B[qb];W[qd];B[mc](;W[og];B[pg];W[oh];B[pi];W[ob];B[pb];W[oc];B[pd];W[od];B[qe];W[re];B[qf];W[rb];B[oe];W[ne];B[pf];W[md]TR[rb][qc][qd][re]C[Marked stones are not dead yet.])(;W[pg];B[ph];W[ob];B[pb];W[oc];B[od];W[pd];B[nc];W[nd]MA[og]C[White can play at X as well.];B[oe];W[nf];B[oa];W[of];B[nb];W[qh];B[qf];W[pi];B[oh];W[ri];B[rh];W[qi];B[pf];W[nh];B[re];W[oc];B[ob];W[ne];B[oc];W[rg];B[rf];W[sh];B[rc]C[Interesting joseki])))" style="width:100%;height:934px;margin: 0px 0px 0px 20px">
+                当前浏览器不支持WGo.js,<a id="main4" href="qp\test2.sgf">直接点击下载SGF棋谱</a>
             </div>
-            <div>
-                <a href="qp\[蓝桥一梦48]vs[鱼索索]1569031649022405409_已分析_20191010092342.sgf">点击下载 SGF 棋谱</a>.
+            <div id="last" style="height:25px;padding: 0px 0px 0px 20px">
+                <button id="copyUrl" class="downbutton" style="height: 22px;" data-clipboard-target="#copyUrl" data-clipboard-action="copy" onClick="copyUrl()">复制链接</button>
+                <button class="downbutton" style="height: 22px;" onclick="opens()">本地棋谱</button>
+                <a id="main2" href="qp\test2.sgf" download="测试棋谱.sgf" style="display: none">下载棋谱</a>
+                <button class="downbutton" style="height: 22px;" onclick="download()">下载棋谱</button>
+                (来自<a id="main3" href="https://pan.baidu.com/s/1q615GHD62F92mNZbTYfcxA">LizzieYzy版</a>) 选点说明:<font color="#00008b">蓝色</font>><font color="green">绿色</font>><font color="orange">橙色</font>,上方胜率,下方目差/计算量,<font color="#6495ed">青色</font>为胜率曲线,<font color="#663399">紫色</font>为目差曲线,电脑端可用滚轮控制变化图
             </div>
-        </div>
-        <div class="span3">
-            <p>Morbi scelerisque luctus velit. Proin mattis lacinia justo. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Proin in tellus sit amet nibh
-                dignissim sagittis. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis
-                enim ipsum id lacus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum erat nulla,
-                ullamcorper nec, rutrum non, nonummy ac, erat. Vivamus luctus egestas leo. Nam libero tempore, cum
-                soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus,
-                omnis voluptas assumenda est, omnis dolor repellendus. Mauris elementum mauris vitae tortor. Integer
-                lacinia. Aliquam erat volutpat. Etiam egestas wisi a erat.</p>
-            <p>Aliquam id dolor. Fusce wisi. Duis viverra diam non justo. Ut tempus purus at lorem. Nullam dapibus
-                fermentum ipsum. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin
-                sem purus in lacus. Integer vulputate sem a nibh rutrum consequat. Maecenas sollicitudin. Morbi
-                scelerisque luctus velit. Praesent vitae arcu tempor neque lacinia pretium. Nullam faucibus mi quis
-                velit. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
-                maxime placeat.</p>
-        </div>
+            <div style=" height:0px; overflow:hidden; position:absolute;">
+                <input type="file" id="up" onchange="check()"/></div></div>
+        <script>
+            function download() {
+                var o = document.getElementById("main2");
+                o.click();
+            }
+            function copyUrl(){
+
+                var clipboard = new ClipboardJS('#copyUrl', {
+                    text: function() {
+                        return window.location.href;
+                    }
+                });
+                clipboard.on("success", function(e) {
+                    // console.log("ok");
+                    alert("链接复制成功,黏贴即可分享");
+                    clipboard.destroy();
+                });
+                clipboard.on("error", function(e) {
+                    alert("链接复制失败,请手动复制分享");
+                });
+                document.getElementById('copyUrl').click();  //解决clipboard二次点击生效问题
+                clipboard.destroy();
+
+            };
+            function opens() {
+                //alert(1);
+                var objFile = document.getElementById("up");
+                objFile.click();
+            }
+            function check() {
+                var objFile = document.getElementById("up");
+                if (objFile.value == "") {
+                    return false;
+                }
+                var files = $('#up').prop('files');
+                if (files.length == 0) {
+                    alert('请选择文件');
+                } else {
+                    var reader = new FileReader();
+                    reader.readAsText(files[0], "utf-8");
+                    reader.onload = function (evt) {
+                        var fileString = evt.target.result;
+                        WGo.isKataData = false;
+                        var o = document.getElementById("main");
+                        o.setAttribute("data-wgo", fileString);
+                        var pl_elems = document.querySelectorAll("[data-wgo],[data-wgo-diagram]");
+                        WGo.dz=false;
+                        WGo.KW=false;
+                        WGo.KB=false;
+                        for (var i = 0; i < pl_elems.length; i++) {
+                            WGo.player_from_tag(pl_elems[i]);
+                        }
+                        WGo.maxScoreMean=20;
+                        if(WGo.editMode)
+                        {WGo.tryPlay.element.innerText = "试下";
+                            WGo.clickedMC=false;}
+                        WGo.drawWinrate();
+                    }
+                }
+            }
+
+        </script>
     </div>
 </div>
-
+</div>
+</div>
 </body>
 </html>

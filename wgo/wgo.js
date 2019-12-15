@@ -974,6 +974,53 @@ else
                 }
             },
         },
+        LB2: {
+            stone: {
+                draw: function (args, board) {
+                    var xr = board.getX(args.x),
+                        yr = board.getY(args.y),
+                        sr = board.stoneRadius;
+                    //	font = args.font || theme_variable("font", board) || "";
+                    //	if(args.text.length == 1) this.font = Math.round(sr*1.5)+"px "+font;
+                    //	else if(args.text.length == 2) this.font = Math.round(sr*1.2)+"px "+font;
+                    //else this.font = Math.round(sr)+"px "+font;
+
+                    //this.beginPath();
+                    //this.textBaseline="middle";
+
+                    this.fillStyle = args.c || get_markup_color(board, args.x, args.y);
+                    this.textAlign = "left";
+                    var font = "verdana";
+                    this.font = Math.round(sr * 1.3) + "px " + font;
+                    if ((args.text + "").length == 1)
+                        this.fillText(args.text, xr - 0.45 * sr, yr + 0.45 * sr, 1.4 * sr);
+                    else
+                        this.fillText(args.text, xr - 0.72 * sr, yr + 0.45 * sr, 1.4 * sr);
+                    //	else this.fillText(args.text, xr-0.5*sr, yr+0.5*sr, 2*sr);
+
+
+                },
+            },
+
+            // modifies grid layer too
+            grid: {
+                draw: function (args, board) {
+                    if (!is_here_stone(board, args.x, args.y) && !args._nodraw) {
+                        var xr = board.getX(args.x),
+                            yr = board.getY(args.y),
+                            sr = board.stoneRadius;
+                        this.clearRect(xr - sr, yr - sr, 2 * sr, 2 * sr);
+                    }
+                },
+                clear: function (args, board) {
+                    if (!is_here_stone(board, args.x, args.y)) {
+                        args._nodraw = true;
+                        redraw_layer(board, "grid");
+                        delete args._nodraw;
+                    }
+                }
+            },
+        },
 
         SQ: {
             stone: {

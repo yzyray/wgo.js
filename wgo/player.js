@@ -67,8 +67,9 @@ if(WGo.badLastMark)
         // add variation letters
         if (e.node.children.length > 1 && this.config.displayVariations) {
             for (var i = 0; i < e.node.children.length; i++) {
-                if (e.node.children[i].move && !e.node.children[i].move.pass) add.push({
-                    type: "LB",
+                if (e.node.children[i].move && !e.node.children[i].move.pass)
+                    add.push({
+                    type: "LB2",
                     text: String.fromCharCode(65 + i),
                     x: e.node.children[i].move.x,
                     y: e.node.children[i].move.y,
@@ -91,14 +92,16 @@ if(WGo.badLastMark)
         }
 
         // add new markers on the board
-        this.temp_marks = add;
-        this.board.addObject(add);
+
 
         //add bestmoves
         if (WGo._last_mark) {
             this.board.removeAllObjectsVR();
         }
         this.board.removeAllObjectsBM();
+
+        this.temp_marks = add;
+        this.board.addObject(add);
         if(WGo.curNode.children[0])
         { var move=WGo.curNode.children[0].move;
             var badLastMark = new Object();
@@ -1034,7 +1037,7 @@ if(WGo.badLastMark)
             if (this.config.frozen) this.addEventListener("frozen", this.config.frozen);
             if (this.config.unfrozen) this.addEventListener("unfrozen", this.config.unfrozen);
 
-            //	this.board.addEventListener("click", board_click_default.bind(this));
+            	this.board.addEventListener("click", board_click_default.bind(this));
 
 
             //	var	setLis = function() {
