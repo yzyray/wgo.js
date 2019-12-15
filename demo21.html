@@ -6,6 +6,9 @@
     <title>Lizzie Player</title>
 
     <script>
+        String.prototype.replaceAll = function (FindText, RepText) {
+            return this.replace(new RegExp(FindText, "g"), RepText);
+        }
         window.onload = function () {
             urlinfo = window.location.href; //获取当前页面的url
             len = urlinfo.length;//获取url的长度
@@ -16,15 +19,20 @@
                 var values = newsids[i].split("=");
                 var name = values[i];
                 var value = values[i + 1];
+                value= decodeURIComponent(value);
+                value=value.substr(1,value.length)
+                var uploader=value.substr(0,value.indexOf("/"));
+                WGo.uploader=uploader;
+               // var qpname=value.substr(value.lastIndexOf("%2F")+3,value.length);
                 if (name == "qp") {
                     //alert(o);
                     var o = document.getElementById("main");
                     o.setAttribute("data-wgo",  value + ".sgf");
                     var o = document.getElementById("main4");
-                    o.setAttribute("href",  value + ".sgf");
+                    o.setAttribute("href", value.replaceAll("/","\\") + ".sgf");
                     var o = document.getElementById("main2");
-                    o.setAttribute("href", value + ".sgf");
-                    o.setAttribute("download", value+".sgf");
+                    o.setAttribute("href",value.replaceAll("/","\\") + ".sgf");
+                    o.setAttribute("download", value.replaceAll("/","")+".sgf");
                     break;
                 }
             }
