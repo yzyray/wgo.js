@@ -1037,6 +1037,7 @@ if(WGo.badLastMark)
             if (this.config.frozen) this.addEventListener("frozen", this.config.frozen);
             if (this.config.unfrozen) this.addEventListener("unfrozen", this.config.unfrozen);
 
+            if(WGo.isPC)
             	this.board.addEventListener("click", board_click_default.bind(this));
 
 

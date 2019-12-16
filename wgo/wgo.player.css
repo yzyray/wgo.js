@@ -433,6 +433,11 @@ a.wgo-move-link {
     border-bottom: 1px dotted;
 }
 
+a.wgo-move-link2 {
+    text-decoration: none;
+    border-bottom: 1px dotted;
+}
+
 /* right and left modifications */
 
 .wgo-player-right .wgo-comments-content, .wgo-player-left .wgo-comments-content {

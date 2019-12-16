@@ -989,7 +989,10 @@ WGo.comment_text=this.comment_text;
         WGo._last_mark=true;
     }
 
-
+var mark_branch= function (index) {
+    WGo.curPlayer.next(index);
+}
+    
     var mark_variations = function (index) {
 
         WGo.commentVarClickedNow=true;
@@ -1192,18 +1195,26 @@ WGo.comment_text=this.comment_text;
 
     var search_nodes = function (nodes, player) {
         for (var i in nodes) {
+            if (nodes[i].className && nodes[i].className == "wgo-move-link2")
+            {
+                nodes[i].addEventListener("click", mark_branch.bind(player, WGo.commentBindBranchIndex));
+                WGo.commentBindBranchIndex++;
+            }
+            else
             if (nodes[i].className && nodes[i].className == "wgo-move-link") {
                 if(WGo.curNode.bestMoves[WGo.commentBindBestMoveIndex].coordinate)
                 {
                     if(WGo.isPC)
-                        nodes[i].addEventListener("mousemove", mark.bind(player, WGo.commentBindBestMoveIndex));
+                    {nodes[i].addEventListener("mousemove", mark.bind(player, WGo.commentBindBestMoveIndex));
+                        nodes[i].addEventListener("mouseout", unmark.bind(player));
+                    }
                     nodes[i].addEventListener("click", mark_variations.bind(player, WGo.commentBindBestMoveIndex));
-                    nodes[i].addEventListener("mouseout", unmark.bind(player));
                 }
                 WGo.commentBindBestMoveIndex++;
             } else if (nodes[i].childNodes && nodes[i].childNodes.length) search_nodes(nodes[i].childNodes, player);
         }
     }
+
 
     var format_info = function (info, title) {
         var ret = '<div class="wgo-info-list">';
@@ -1226,7 +1237,7 @@ WGo.comment_text=this.comment_text;
         this.element.className = "wgo-commentbox";
         prepare_dom.call(this);
         player.addEventListener("kifuLoaded", function (e) {
-            if (e.kifu.hasComments()) {
+            if (e.node!= WGo.mianKifu.root) {
                 // if(WGo.isPC||WGo.isWideMode)
                 //     this.comments_title.innerHTML = WGo.t("comments");
               //  this.comments_title.style.fontSize=15+'px';
@@ -1285,9 +1296,10 @@ WGo.comment_text=this.comment_text;
             msg = format_info(e.target.getGameInfo(), true);
         }
 
-        this.comment_text.innerHTML = msg + this.getCommentText(e.node.comment, e.node.bestMoves);//, this.player.config.formatNicks, this.player.config.formatMoves
+        this.comment_text.innerHTML = msg + this.getCommentText(e.node.comment, e.node.bestMoves,e.node);//, this.player.config.formatNicks, this.player.config.formatMoves
 
         WGo.commentBindBestMoveIndex=0;
+        WGo.commentBindBranchIndex=0;
         if (this.player.config.formatMoves) {
             if (this.comment_text.childNodes && this.comment_text.childNodes.length) search_nodes(this.comment_text.childNodes, this.player);
         }
@@ -1469,7 +1481,7 @@ comment+="↑";
         }
     }
 
-    CommentBox.prototype.getCommentText = function (comment, bestMoves) {//, formatNicks, formatMoves
+    CommentBox.prototype.getCommentText = function (comment, bestMoves,node) {//, formatNicks, formatMoves
         // to avoid XSS we must transform < and > to entities, it is highly recomanded not to change it
         //.replace(/</g,"&lt;").replace(/>/g,"&gt;") : "";
         // if(bestMoves)
@@ -1478,6 +1490,27 @@ comment+="↑";
         // return bestMoves[1].variation;
         var moveComment = "";
         var finalcomment = "";
+        if(node.children&&node.children.length>1)
+        {
+            for(var s=0;s<node.children.length;s++)
+            {
+                if(s==0)
+                {
+                    moveComment +="<p><a class=\"wgo-move-link2\">"+"主分支";
+                }
+                else{
+                if (s%5==1)
+                    moveComment +="<p><a class=\"wgo-move-link2\">"+"分支"+s;
+                else
+                    moveComment +="　　"+"<a class=\"wgo-move-link2\">"+"分支"+s;
+
+                if(s%5==0||s==(node.children.length-1))
+                    moveComment +="</a></p>";
+                else
+                    moveComment +="</a>";
+                }
+            }
+        }
         if (bestMoves)
             for (var i = 0; i < bestMoves.length; i++) {
                 if (bestMoves[i])

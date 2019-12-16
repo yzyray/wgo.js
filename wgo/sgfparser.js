@@ -384,7 +384,7 @@ else
             }
         }
         WGo.mianKifu = kifu;
-        var nodes=kifu.root
+        var nodes=kifu.root;
         //尚需优化,所有分支首位是pass的问题
         while(nodes.children&&nodes.children[0])
         {
