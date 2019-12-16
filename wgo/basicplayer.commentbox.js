@@ -1496,13 +1496,13 @@ comment+="↑";
             {
                 if(s==0)
                 {
-                    moveComment +="<p><a class=\"wgo-move-link2\">"+"主分支";
+                    moveComment +="<p><a class=\"wgo-move-link2\">"+"主分支(A)";
                 }
                 else{
                 if (s%5==1)
-                    moveComment +="<p><a class=\"wgo-move-link2\">"+"分支"+s;
+                    moveComment +="<p><a class=\"wgo-move-link2\">"+"分支("+String.fromCharCode(65+s)+")";
                 else
-                    moveComment +="　　"+"<a class=\"wgo-move-link2\">"+"分支"+s;
+                    moveComment +="　　"+"<a class=\"wgo-move-link2\">"+"分支("+String.fromCharCode(65+s)+")";
 
                 if(s%5==0||s==(node.children.length-1))
                     moveComment +="</a></p>";
