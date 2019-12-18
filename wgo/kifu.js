@@ -591,7 +591,7 @@
     }
 
     var exec_next = function (i) {
-        if (i === undefined && this.rememberPath) i = this.node._last_selected;
+        //if (i === undefined && this.rememberPath) i = this.node._last_selected;
         i = i || 0;
         var node = this.node.children[i];
 

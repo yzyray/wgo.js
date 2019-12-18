@@ -1499,7 +1499,7 @@ comment+="↑";
                     moveComment +="<p><a class=\"wgo-move-link2\">"+"主分支(A)";
                 }
                 else{
-                if (s%5==1)
+                if (s%5==1&&s!=1)
                     moveComment +="<p><a class=\"wgo-move-link2\">"+"分支("+String.fromCharCode(65+s)+")";
                 else
                     moveComment +="　　"+"<a class=\"wgo-move-link2\">"+"分支("+String.fromCharCode(65+s)+")";
