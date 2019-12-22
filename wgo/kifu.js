@@ -654,7 +654,8 @@
                 add: [],
                 remove: []
             }
-            while (ch = exec_next.call(this)) concat_changes(this.change, ch);
+            while (ch = exec_next.call(this))
+                concat_changes(this.change, ch);
             return this;
         },
 

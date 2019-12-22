@@ -73,8 +73,9 @@
 
     var kifu_loaded = function (e) {
         var info = e.kifu.info || {};
-
+var title="";
         if (info.black) {
+            title=title+info.black.name;
             this.black.name.innerHTML = WGo.filterHTML(info.black.name) || WGo.t("black");
             this.black.info.rank.val.innerHTML = WGo.filterHTML(info.black.rank) || "-";
         } else {
@@ -82,12 +83,14 @@
             this.black.info.rank.val.innerHTML = "-";
         }
         if (info.white) {
+            title=title+" vs "+info.white.name;
             this.white.name.innerHTML = WGo.filterHTML(info.white.name) || WGo.t("white");
             this.white.info.rank.val.innerHTML = WGo.filterHTML(info.white.rank) || "-";
         } else {
             this.white.name.innerHTML = WGo.t("white");
             this.white.info.rank.val.innerHTML = "-";
         }
+        document.getElementsByTagName("title")[0].innerText = 'Lizzie Player '+title;
         this.black.info.caps.val.innerHTML = "0";
         this.white.info.caps.val.innerHTML = "0";
 
