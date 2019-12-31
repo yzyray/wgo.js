@@ -3,8 +3,9 @@
     "use strict";
 
     var prepare_dom = function () {
-        prepare_dom_box.call(this, "white");
         prepare_dom_box.call(this, "black");
+        prepare_dom_box.call(this, "white");
+        this.element.appendChild(this.black.box);
         this.element.appendChild(this.white.box);
         if(!WGo.isWideMode){
             var engineElement=document.createElement("div");
@@ -16,7 +17,6 @@
             WGo.engineElement=engine_content;
             this.element.appendChild(engineElement);
         }
-        this.element.appendChild(this.black.box);
     }
 
     var prepare_dom_box = function (type) {
