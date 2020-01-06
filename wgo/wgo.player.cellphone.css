@@ -437,11 +437,13 @@ body {
 }
 
 a.wgo-move-link {
+    font-size: 15px;
     text-decoration: none;
     border-bottom: 1px dotted;
 }
 
 a.wgo-move-link2 {
+    font-size: 22px;
     text-decoration: none;
     border-bottom: 1px dotted;
 }
