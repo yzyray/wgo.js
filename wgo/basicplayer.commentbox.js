@@ -1496,7 +1496,7 @@ comment+="↑";
             {
                 if(s==0)
                 {
-                    moveComment +="<p><a class=\"wgo-move-link2\">"+"主分支(A)";
+                    moveComment +="<p><a class=\"wgo-move-link2\">"+"主分支(A)</a>";
                 }
                 else{
                 if (s%5==1&&s!=1)
