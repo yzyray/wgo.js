@@ -300,7 +300,7 @@
         else if  (value[0]=="Y") {
             WGo.DZ=true;
         }
-else
+    else
             WGo.DZ=false;
             }
 

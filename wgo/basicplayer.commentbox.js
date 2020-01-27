@@ -324,11 +324,12 @@ WGo.comment_text=this.comment_text;
                     for(var i=0;i<moveNum;i++)
                     {
                         node=node.children[0];
-                        if (node.bestMoves[0]&&node.bestMoves[0].scoreMean)
+                        if (node.bestMoves[0]&&node.bestMoves[0].scoreMean&&node.move.c==WGo.B)
                         {
                             var scoreHeight;
-                            if(node.move.c==WGo.B)
-                            {   scoreHeight=6+(height-12)*(0.5-(node.bestMoves[0].scoreMean)/(maxScoreMean*2));
+                          //  if()
+                          //  {
+                                scoreHeight=6+(height-12)*(0.5-(node.bestMoves[0].scoreMean)/(maxScoreMean*2));
                                 g2d.strokeStyle="rgb(256,55,255)";
                                 g2d.lineWidth=lineWidth;
                                 g2d.beginPath();
@@ -341,7 +342,7 @@ WGo.comment_text=this.comment_text;
 
                                 g2d.stroke();
                                 g2d.closePath();
-                            }
+                          //  }
                         }
                         else if(lastScoreHeight)
                         {
@@ -362,11 +363,12 @@ WGo.comment_text=this.comment_text;
                     for(var i=0;i<moveNum;i++)
                     {
                         node=node.children[0];
-                        if (node.bestMoves[0]&&node.bestMoves[0].scoreMean)
+                        if (node.bestMoves[0]&&node.bestMoves[0].scoreMean&&node.move.c==WGo.W)
                         {
                             var scoreHeight;
-                            if(node.move.c==WGo.W)
-                            {   scoreHeight=6+(height-12)*(0.5-(node.bestMoves[0].scoreMean)/(maxScoreMean*2));
+                           // if(node.move.c==WGo.W)
+                           // {
+                                scoreHeight=6+(height-12)*(0.5-(node.bestMoves[0].scoreMean)/(maxScoreMean*2));
                                 g2d.strokeStyle="rgb(256,55,255)";
                                 g2d.lineWidth=lineWidth;
                                 g2d.beginPath();
@@ -379,7 +381,7 @@ WGo.comment_text=this.comment_text;
 
                                 g2d.stroke();
                                 g2d.closePath();
-                            }
+                           // }
                         }
                         else if(lastScoreHeight)
                         {
