@@ -317,7 +317,7 @@ WGo.comment_text=this.comment_text;
         if( WGo.isKataData ){
             if(WGo.DZ)
             {
-                if(WGo.KB)
+                if (WGo.KW)
                 {
                     var lastScoreHeight;
                     node=node = WGo.mianKifu.root;
@@ -327,20 +327,20 @@ WGo.comment_text=this.comment_text;
                         if (node.bestMoves[0]&&node.bestMoves[0].scoreMean)
                         {
                             var scoreHeight;
-                            if(node.move.c==WGo.W)
+                            if(node.move.c==WGo.B)
                             {   scoreHeight=6+(height-12)*(0.5-(node.bestMoves[0].scoreMean)/(maxScoreMean*2));
-                            g2d.strokeStyle="rgb(256,55,255)";
-                            g2d.lineWidth=lineWidth;
-                            g2d.beginPath();
-                            if(lastScoreHeight)
-                                g2d.moveTo(startWidth+nowWidth*i/moveNum, lastScoreHeight);
-                            else
-                                g2d.moveTo(startWidth+nowWidth*i/moveNum, scoreHeight);
-                            g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, scoreHeight);
-                            lastScoreHeight=scoreHeight;
+                                g2d.strokeStyle="rgb(256,55,255)";
+                                g2d.lineWidth=lineWidth;
+                                g2d.beginPath();
+                                if(lastScoreHeight)
+                                    g2d.moveTo(startWidth+nowWidth*i/moveNum, lastScoreHeight);
+                                else
+                                    g2d.moveTo(startWidth+nowWidth*i/moveNum, scoreHeight);
+                                g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, scoreHeight);
+                                lastScoreHeight=scoreHeight;
 
-                            g2d.stroke();
-                            g2d.closePath();
+                                g2d.stroke();
+                                g2d.closePath();
                             }
                         }
                         else if(lastScoreHeight)
@@ -355,7 +355,7 @@ WGo.comment_text=this.comment_text;
                         }
                     }
                 }
-                else if (WGo.KW)
+                else if(WGo.KB)
                 {
                     var lastScoreHeight;
                     node=node = WGo.mianKifu.root;
@@ -365,7 +365,7 @@ WGo.comment_text=this.comment_text;
                         if (node.bestMoves[0]&&node.bestMoves[0].scoreMean)
                         {
                             var scoreHeight;
-                            if(node.move.c==WGo.B)
+                            if(node.move.c==WGo.W)
                             {   scoreHeight=6+(height-12)*(0.5-(node.bestMoves[0].scoreMean)/(maxScoreMean*2));
                                 g2d.strokeStyle="rgb(256,55,255)";
                                 g2d.lineWidth=lineWidth;
