@@ -248,6 +248,14 @@
         }
     }
 
+    // FIT properties
+    properties["FIT"] = function (kifu, node, value) {
+        //node.comment = value.join();
+        //var strs= new Array(); //定义一数组
+        var fitRat = parseFloat(value);
+        node.fitRat=fitRat;
+    }
+
 // Markup properties
     properties["LB"] = function (kifu, node, value) {
         for (var i in value) {

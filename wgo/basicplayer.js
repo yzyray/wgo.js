@@ -173,7 +173,8 @@
             if (!this.noresize) {
                 this.updateDimensions();
             }
-            WGo.drawWinrate();WGo.drawWinrate2();
+            WGo.drawWinrate();
+            WGo.drawWinrate2();
              // setTimeout(function(){  }, 100);
 
         }.bind(this));

@@ -313,7 +313,85 @@ WGo.comment_text=this.comment_text;
         var lastWinrateHeightB;
         var lastWinrateHeightW;
 
+if(WGo.showFitRat)
+{
+        for(var i=0;i<moveNum;i++)
+        {
+            node=node.children[0];
+            if (node.fitRat)
+            {
+                var winHeight;
+                if(node.move.c==WGo.W)
+                {
+                    if(lastWinrateHeightW)
+                    {g2d.strokeStyle="rgb(255,255,255)";
+                        g2d.lineWidth=lineWidth*3.3/5;
+                        g2d.beginPath(); g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeightW);
+                        g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastWinrateHeightW);
+                        g2d.stroke();
+                        g2d.closePath();}
+                    winHeight=6+(height-12)*(100-node.fitRat)/100;
+                    g2d.strokeStyle="rgb(0,0,0)";
+                    g2d.lineWidth=lineWidth*3.3/5;
+                    g2d.beginPath();
+                    if(lastWinrateHeightB)
+                        g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeightB);
+                    else
+                        g2d.moveTo(startWidth+nowWidth*i/moveNum, winHeight);
+                    g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, winHeight);
+                    lastWinrateHeightB=winHeight;
+                    g2d.stroke();
+                    g2d.closePath();
 
+                }
+                else
+                { winHeight=6+(height-12)*(100-node.fitRat)/100;
+                    g2d.strokeStyle="rgb(255,255,255)";
+                    g2d.lineWidth=lineWidth*3.3/5;
+                    g2d.beginPath();
+                    if(lastWinrateHeightB)
+                        g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeightW);
+                    else
+                        g2d.moveTo(startWidth+nowWidth*i/moveNum, winHeight);
+                    g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, winHeight);
+                    lastWinrateHeightW=winHeight;
+                    g2d.stroke();
+                    g2d.closePath();
+                    if(lastWinrateHeightB)
+                    {g2d.strokeStyle="rgb(0,0,0)";
+                        g2d.lineWidth=lineWidth*3.3/5;
+                        g2d.beginPath(); g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeightB);
+                        g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastWinrateHeightB);
+                        g2d.stroke();
+                        g2d.closePath();}
+                }
+            }
+            else{
+                if(lastWinrateHeightW)
+                {
+                    g2d.strokeStyle="rgb(255,255,255)";
+                    g2d.lineWidth=lineWidth*3.3/5;
+                    g2d.beginPath();
+                    g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeightW);
+                    g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastWinrateHeightW);
+                    g2d.stroke();
+                    g2d.closePath();
+                }
+                if(lastWinrateHeightB)
+                {
+                    g2d.strokeStyle="rgb(0,0,0)";
+                    g2d.lineWidth=lineWidth*3.3/5;
+                    g2d.beginPath();
+                    g2d.moveTo(startWidth+nowWidth*i/moveNum, lastWinrateHeightB);
+                    g2d.lineTo(startWidth+nowWidth*(i+1)/moveNum, lastWinrateHeightB);
+                    g2d.stroke();
+                    g2d.closePath();
+                }
+            }
+        }
+
+}
+else{
         if( WGo.isKataData ){
             if(WGo.DZ)
             {
@@ -550,7 +628,7 @@ WGo.comment_text=this.comment_text;
             }
         }
         }
-
+}
     }
 
     WGo.drawWinrate=drawWinrate;
@@ -615,6 +693,90 @@ WGo.comment_text=this.comment_text;
         g2d.stroke();
         g2d.closePath()
         g2d.setLineDash([]);
+
+        if(WGo.showFitRat)
+        {
+
+            var winHeightB;
+            var winHeightW;
+            var winrateB;
+            var winrateW;
+            {
+                if(node.move){
+                if(node.move.c==WGo.B)
+                {winHeightW=6+(height-12)*(100-node.fitRat)/100;
+                    winrateW=node.fitRat;
+                    if(node.parent&&node.parent.fitRat)
+                    {winHeightB=6+(height-12)*(100-node.parent.fitRat)/100;
+                        winrateB=node.parent.fitRat;}
+                }
+                else
+                {  winHeightB=6+(height-12)*(100-node.fitRat)/100;
+                    winrateB=node.fitRat;
+                    if(node.parent&&node.parent.fitRat)
+                    {winHeightW=6+(height-12)*(100-node.parent.fitRat)/100;
+                        winrateW=node.parent.fitRat;
+                    }
+                }
+            }
+
+            var font = "Calibri";
+
+            var textHeightB;
+            var textHeightW;
+            if(winrateW)
+            {
+                if(winrateW>80)
+                {
+                    textHeightW=winHeightW+0.95*sr;
+                }
+                else
+                {
+                    textHeightW=winHeightW-0.25*sr;
+                }
+
+                g2d.fillStyle = "rgb(255,255,255)";
+                g2d.beginPath();
+                g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), winHeightW, sr/ 7, 0, 2 * Math.PI, true);
+                g2d.closePath();
+                g2d.fill();
+
+                g2d.fillStyle = "rgb(255,255,255)";
+                g2d.font = "bold "+sr + "px " + font;
+                if(moveNum<WGo.allMoveNum*0.98)
+                    g2d.fillText(winrateW.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)+sr*0.15, textHeightW);
+                else
+                    g2d.fillText(winrateW.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*0.5, textHeightW);
+            }
+
+            if(winrateB)
+            {
+                if(winrateB>80)
+                {
+                    textHeightB=winHeightB+0.95*sr;
+                }
+                else
+                {
+                    textHeightB=winHeightB-0.25*sr;
+                }
+
+                g2d.fillStyle = "rgb(0,0,0)";
+                g2d.beginPath();
+                g2d.arc(startWidth+nowWidth*(moveNum/WGo.allMoveNum), winHeightB, sr/ 7, 0, 2 * Math.PI, true);
+                g2d.closePath();
+                g2d.fill();
+
+                g2d.fillStyle = "rgb(0,0,0)";
+                g2d.font = "bold "+sr + "px " + font;
+                if(moveNum<WGo.allMoveNum*0.98)
+                    g2d.fillText(winrateB.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)+sr*0.15, textHeightB);
+                else
+                    g2d.fillText(winrateB.toFixed(1),startWidth+nowWidth*(moveNum/WGo.allMoveNum)-sr*0.5, textHeightB);
+
+            }
+            }
+        }
+        else{
         if( WGo.isKataData ){
             if(WGo.DZ)
             {
@@ -913,6 +1075,7 @@ WGo.comment_text=this.comment_text;
             g2d.closePath();
             g2d.fill();
             }
+        }
         }
     }
     WGo.drawWinrate2=drawWinrate2;

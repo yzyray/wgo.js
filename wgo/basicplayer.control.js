@@ -612,6 +612,53 @@
                 }
             }
         },
+        {   constructor: control.MenuItem,
+            args: {
+                name: "胜率图",
+                badid:5,
+                // togglable: true,
+                click: function () {
+                    WGo.showFitRat=!WGo.showFitRat;
+                    if(WGo.showFitRat)
+                    {this.unselect();
+                        WGo.showFitRatPane.select();
+                    }
+                    else
+                    {this.select();
+                        WGo.showFitRatPane.unselect();
+                    }
+                    WGo.drawWinrate();
+                    WGo.drawWinrate2();
+                },
+                init: function () {
+                    this.select();
+                    WGo.showWinratePane=this;
+                }
+            }
+        },
+        {   constructor: control.MenuItem,
+            args: {
+                name: "吻合曲线",
+                badid:6,
+                // togglable: true,
+                click: function () {
+                    WGo.showFitRat=!WGo.showFitRat;
+                    if(WGo.showFitRat)
+                    { this.select();
+                        WGo.showWinratePane.unselect();
+                    }
+                    else
+                    {this.unselect();
+                        WGo.showWinratePane.select();
+                    }
+                    WGo.drawWinrate();
+                    WGo.drawWinrate2();
+                },
+                init: function () {
+                    WGo.showFitRatPane=this;
+                }
+            }
+        },
         {
         constructor: control.MenuItem,
         args: {
